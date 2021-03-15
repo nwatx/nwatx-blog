@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import fs from "fs";
 import path from "path";
 import { MDXProvider } from "@mdx-js/react";
 import renderToString from "next-mdx-remote/render-to-string";
 import hydrate from "next-mdx-remote/hydrate";
 import NavBarLayout from "../../layouts/NavBarLayout";
+import Prism from 'prismjs'
+import "prismjs/themes/prism.css";
+import 'prismjs/components/prism-c';
+import 'prismjs/components/prism-cpp';
 
 const BlogPost = ({ source }) => {
   const content = hydrate(source);
+
+  useEffect(() => {
+    Prism.highlightAll();
+  })
 
   return (
     <MDXProvider>

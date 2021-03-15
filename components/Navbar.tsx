@@ -79,7 +79,7 @@ export default function Navbar({ children }) {
           </div>
         )}
       </nav>
-      <main className="flex w-full flex-col min-h-0 pt-5 pb-10">{children}</main>
+      <main className="flex w-full flex-col min-h-0 pt-5">{children}</main>
     </div>
   );
 }
