@@ -37,11 +37,11 @@ const BlogPost = ({ source, data }) => {
   return (
     <MDXProvider>
       <NavBarLayout>
-        <div className="flex w-full 2xl:w-1/3 flex-col">
-          <div className="flex flex-col w-full">
+        <div className="flex w-full 2xl:w-1/3 flex-col items-center">
+          <div className="flex flex-col">
             <div className='text-2xl font-bold'><p>{data.title}</p></div>
           </div>
-          <div className="flex w-full justify-center">
+          <div className="flex">
             <div className="">{content}</div>
           </div>
         </div>
