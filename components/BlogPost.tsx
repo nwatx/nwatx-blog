@@ -41,9 +41,9 @@ export default function BlogPost({
             ))}
           </div>
         )}
-        <div>
+        { author && <div>
           <p className="text-xl font-medium text-gray-500">{author}</p>
-        </div>
+        </div> }
         <div>
           <p className="text-md text-gray-800">{description}</p>
         </div>
