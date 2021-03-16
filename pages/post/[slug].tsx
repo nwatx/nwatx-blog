@@ -5,17 +5,28 @@ import { MDXProvider } from "@mdx-js/react";
 import renderToString from "next-mdx-remote/render-to-string";
 import hydrate from "next-mdx-remote/hydrate";
 import NavBarLayout from "../../layouts/NavBarLayout";
-import Prism from 'prismjs'
+import Prism from "prismjs";
 import "prismjs/themes/prism.css";
-import 'prismjs/components/prism-c';
-import 'prismjs/components/prism-cpp';
+import "prismjs/components/prism-c";
+import "prismjs/components/prism-cpp";
+import matter from "gray-matter";
+import Image from "next/image";
+import ResImage from "../../components/ResImage";
+
+const MDXComponents = {
+  img: (props) => {
+    console.log(JSON.stringify(props));
+    const { src, ...rest } = props;
+    return <ResImage src={src} {...rest} />;
+  },
+};
 
 const BlogPost = ({ source }) => {
-  const content = hydrate(source);
+  const content = hydrate(source, {components: MDXComponents});
 
   useEffect(() => {
     Prism.highlightAll();
-  })
+  });
 
   return (
     <MDXProvider>
@@ -50,15 +61,22 @@ export async function getStaticProps({ params: { slug } }) {
     .readFileSync(path.join("content", slug + ".mdx"))
     .toString();
 
-  const source = await renderToString(markdownWithMetadata, {
+  const { data, content } = matter(markdownWithMetadata);
+  // console.log(data, content); to see data content
+
+  const source = await renderToString(content, {
     scope: {},
+    components: MDXComponents
   });
+
+  console.log(source);
 
   // console.log(markdownWithMetadata);
 
   return {
     props: {
       source,
+      data,
     },
   };
 }
