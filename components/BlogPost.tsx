@@ -11,7 +11,7 @@ type BlogPostProps = {
 };
 
 const tagColor = {
-  "cpp": "red"
+  "cpp": ["bg-red-50", "text-red-600"]
 }
 
 export default function BlogPost({
@@ -35,8 +35,8 @@ export default function BlogPost({
         {tags && (
           <div className="flex w-full mt-1 mb-2 space-x-3">
             {tags.split(",").map((tag) => (
-              <div className={`inline-block rounded-full bg-${tagColor[tag]}-50 hover:shadow-inner py-1 px-2`}>
-                <p className={`uppercase text-xs text-${tagColor[tag]}-600`}>{tag}</p>
+              <div className={`inline-block rounded-full ${tagColor[tag] && tagColor[tag][0]} py-1 px-2`}>
+                <p className={`uppercase text-xs ${tagColor[tag] && tagColor[tag][1]}`}>{tag}</p>
               </div>
             ))}
           </div>
