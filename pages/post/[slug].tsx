@@ -22,7 +22,7 @@ const MDXComponents = {
     // console.log(JSON.stringify(props));
     const { src, ...rest } = props;
     const url = ImageLoader(src);
-    return <LazyLoadImage className='rounded-md' effect='blur' src={url} {...rest} />
+    return <LazyLoadImage delayTime={0} className='rounded-md' effect='blur' src={url} {...rest} />
   },
 };
 
