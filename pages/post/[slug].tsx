@@ -14,7 +14,7 @@ import ResImage from "../../components/ResImage";
 
 const MDXComponents = {
   img: (props) => {
-    console.log(JSON.stringify(props));
+    // console.log(JSON.stringify(props));
     const { src, ...rest } = props;
     return <ResImage src={src} {...rest} />;
   },
@@ -68,7 +68,7 @@ export async function getStaticProps({ params: { slug } }) {
     components: MDXComponents
   });
 
-  console.log(source);
+  // console.log(source);
 
   // console.log(markdownWithMetadata);
 

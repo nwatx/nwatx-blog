@@ -14,17 +14,20 @@ export default function Navbar({ children }) {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <img
+                {/* <img
                   onClick={() => router.push("/")}
                   className="h-8 w-8 cursor-pointer"
                   src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
                   alt="Workflow"
-                />
+                /> */}
+                <p className="text-xl cursor-pointer" onClick={() => router.push("/")}>
+                  nwatx
+                </p>
               </div>
-              <div className="hidden md:block">
-                <div className="ml-10 flex items-baseline space-x-4">
-                  <NavigationButton to="/tutorial" label="Tutorial" />
-                </div>
+            </div>
+            <div className="hidden md:block">
+              <div className="ml-10 flex items-baseline space-x-4">
+                <NavigationButton to="/tutorial" label="Tutorial" />
               </div>
             </div>
             <div className="-mr-2 flex md:hidden">

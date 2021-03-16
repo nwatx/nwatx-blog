@@ -22,10 +22,12 @@ type HomeProps = {
 };
 
 export default function Home({ posts }: HomeProps) {
-  console.log(posts); // show graymatter data
+  // console.log(posts); // show graymatter data
   return (
     <NavBarLayout>
-      {posts && posts.map((post) => <BlogPost slug={post.slug} {...post.frontmatter} />)}
+      <div className='flex flex-col w-full 2xl:w-1/2 space-y-5'>
+        {posts && posts.map((post) => <BlogPost slug={post.slug} {...post.frontmatter} />)}
+      </div>
     </NavBarLayout>
   );
 }
