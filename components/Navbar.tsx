@@ -9,7 +9,7 @@ export default function Navbar({ children }) {
 
   return (
     <div className="flex flex-col w-full min-w-full h-screen justify-items-start overflow-y-hidden">
-      <nav className="w-full bg-gray-50">
+      <nav className="w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
@@ -20,7 +20,10 @@ export default function Navbar({ children }) {
                   src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
                   alt="Workflow"
                 /> */}
-                <p className="text-xl cursor-pointer" onClick={() => router.push("/")}>
+                <p
+                  className="text-xl cursor-pointer"
+                  onClick={() => router.push("/")}
+                >
                   nwatx
                 </p>
               </div>
@@ -71,7 +74,12 @@ export default function Navbar({ children }) {
                 </svg>
               </button>
             </div>
+
           </div>
+            <div className="flex w-full justify-between">
+              <div className="flex w-1/12 border-black border-box border-b"></div>
+              <div className="flex w-1/12 border-black border-box border-b"></div>
+            </div>
         </div>
 
         {open && (

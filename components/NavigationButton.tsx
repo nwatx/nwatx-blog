@@ -12,11 +12,11 @@ const NavigationButton = ({ to, label }: ButtonProps) => {
   return (
     <div
       onClick={() => router.push(to)}
-      className={`bg-gray-50 font-semibold ${
+      className={`bg-white ${
         router.asPath === to
           ? "shadow-inner cursor-default text-gray-300"
-          : "shadow-md text-gray-700 hover:shadow-lg cursor-pointer"
-      } px-3 py-2 rounded-md text-sm font-medium`}
+          : " text-gray-700 hover:shadow-inner cursor-pointer"
+      } p-3 rounded-md text-sm`}
     >
       {label}
     </div>
