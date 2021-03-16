@@ -30,7 +30,7 @@ export default function Navbar({ children }) {
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-                <NavigationButton to="/tutorial" label="Tutorial" />
+                <NavigationButton to="/aboutme" label="About Me" />
               </div>
             </div>
             <div className="-mr-2 flex md:hidden">

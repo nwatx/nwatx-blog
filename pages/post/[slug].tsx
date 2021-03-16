@@ -20,8 +20,9 @@ const MDXComponents = {
   },
 };
 
-const BlogPost = ({ source }) => {
-  const content = hydrate(source, {components: MDXComponents});
+const BlogPost = ({ source, data }) => {
+  const content = hydrate(source, { components: MDXComponents });
+  // console.log(data);
 
   useEffect(() => {
     Prism.highlightAll();
@@ -30,8 +31,13 @@ const BlogPost = ({ source }) => {
   return (
     <MDXProvider>
       <NavBarLayout>
-        <div className="flex w-full justify-center">
-          <div className="">{content}</div>
+        <div className="flex w-full 2xl:w-1/3 flex-col">
+          <div className="flex flex-col w-full">
+            <div className='text-2xl font-bold'><p>{data.title}</p></div>
+          </div>
+          <div className="flex w-full justify-center">
+            <div className="">{content}</div>
+          </div>
         </div>
       </NavBarLayout>
     </MDXProvider>
@@ -65,7 +71,7 @@ export async function getStaticProps({ params: { slug } }) {
 
   const source = await renderToString(content, {
     scope: {},
-    components: MDXComponents
+    components: MDXComponents,
   });
 
   // console.log(source);

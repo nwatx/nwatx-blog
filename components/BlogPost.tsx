@@ -45,7 +45,7 @@ export default function BlogPost({
           <p className="text-xl font-medium text-gray-500">{author}</p>
         </div>
         <div>
-          <p className="text-lg text-gray-800">{description}</p>
+          <p className="text-md text-gray-800">{description}</p>
         </div>
       </div>
       <div className="flex flex-col justify-center h-full">
