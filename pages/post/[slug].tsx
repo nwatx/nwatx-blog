@@ -10,13 +10,19 @@ import "prismjs/components/prism-c";
 import "prismjs/components/prism-cpp";
 import matter from "gray-matter";
 import Image from "next/image";
-import ResImage from "../../components/ResImage";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+
+const ImageLoader = (src) => {
+  return `https://res.cloudinary.com/dcg5b3jpt/image/upload/v1615871692/blog/${src}`;
+};
 
 const MDXComponents = {
   img: (props) => {
     // console.log(JSON.stringify(props));
     const { src, ...rest } = props;
-    return <ResImage src={src} {...rest} />;
+    const url = ImageLoader(src);
+    return <LazyLoadImage className='rounded-md' effect='blur' src={url} {...rest} />
   },
 };
 

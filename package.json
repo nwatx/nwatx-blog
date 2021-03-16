@@ -17,7 +17,8 @@
     "path": "^0.12.7",
     "prismjs": "^1.23.0",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "react-lazy-load-image-component": "^1.5.1"
   },
   "devDependencies": {
     "@types/node": "^14.14.34",
