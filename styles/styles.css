@@ -6,6 +6,10 @@ pre {
   border-radius: 5px;
 }
 
+html {
+  overflow: hidden;
+}
+
 ul {
   list-style-type: disc;
   padding-left: 0.25rem;
