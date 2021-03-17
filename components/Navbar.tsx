@@ -29,7 +29,8 @@ export default function Navbar({ children }) {
               </div>
             </div>
             <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
+              <div className="ml-10 flex items-end space-x-4">
+                <NavigationButton to='https://github.com/nwatx' src='/github.svg' />
                 <NavigationButton to="/aboutme" label="About Me" />
               </div>
             </div>

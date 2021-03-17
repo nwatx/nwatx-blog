@@ -28,10 +28,10 @@ export default function BlogPost({
       <div className="flex w-full justify-between py-7 px-10 rounded-lg shadow-sm cursor-pointer hover:shadow-inner antialiased">
         <div className="flex flex-col w-full">
           <div className='flex flex-col sm:flex-row'>
-            <p className="text-3xl font-bold text-gray-800">{title}</p>
+            <p className="text-3xl text-gray-800">{title}</p>
             {author && (
               <div className='mx-1 flex h-full w-full sm:w-auto'>
-                <p className="text-md text-gray-600 self-end">by <b className='font-semibold'>{author}</b></p>
+                <p className="text-md text-gray-600 self-end font-light">by <b className=''>{author}</b></p>
               </div>
             )}
           </div>

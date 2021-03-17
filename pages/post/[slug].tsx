@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import fs from "fs";
 import path from "path";
 import { MDXProvider } from "@mdx-js/react";
@@ -11,13 +11,12 @@ import "prismjs/components/prism-cpp";
 import matter from "gray-matter";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import renderMathInElement from "katex/dist/contrib/auto-render";
-import Link from "next/link";
 import Head from "next/head";
 import NextLink from "../../components/NextLink";
 import { h1, h2, h3 } from "../../components/mdx";
 
-const ImageLoader = (src) => {
+export const ImageLoader = (src) => {
+  console.log(src);
   return `https://res.cloudinary.com/dcg5b3jpt/image/upload/v1615871692/blog/${src}`;
 };
 
@@ -75,11 +74,11 @@ const BlogPost = ({ source, data }) => {
       <NavBarLayout>
         <div className="flex w-full 2xl:w-1/2 flex-col items-center">
           <div className="flex w-full p-1 border-b flex-col">
-            <div className="text-4xl font-bold">
+            <div className="text-4xl">
               <p>{data.title}</p>
             </div>
             {data.description && (
-              <h2 className="text-xl font-semibold text-gray-400">
+              <h2 className="text-xl text-gray-500">
                 {data.description}
               </h2>
             )}

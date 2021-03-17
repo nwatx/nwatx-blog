@@ -11,7 +11,6 @@ const withMDX = require('@next/mdx')({
 
 module.exports = withMDX({
     images: {
-        loader: 'cloudinary',
-        path: 'https://res.cloudinary.com/dcg5b3jpt/image/upload/v1615871692/blog/'
+        domains: ['https://res.cloudinary.com/dcg5b3jpt']
     },
 })
