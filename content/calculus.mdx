@@ -1,0 +1,32 @@
+---
+author: nwatx
+title: Vector Fields
+description: Notes on vector fields
+---
+
+* Vector fields that can be represented as the gradients of differentiable functions are called **conservative vector fields**
+
+* Vector fields are given by $F(x,y)=\langle M, N\rangle$
+
+* A vector field is conservative if $\frac{\partial N}{\partial x} = \frac{\partial M}{\partial y}$
+
+* To find the potential function of a vector field use partial integration.
+
+* In three dimensions, a vector $F(x,y) = \langle M, N, P \rangle$ is conservative if 
+$$\frac{\partial P}{\partial y}=\frac{\partial N}{\partial z},\frac{\partial P}{\partial x}=\frac{\partial M}{\partial z},\frac{\partial N}{\partial x} = \frac{\partial M}{\partial y}$$
+
+* Surface Integral for $z=g(x,y)$ Method 1
+$$\int \int_S f(x,y,z)dS = \int_D\int f(x,y,g(x,y)) \sqrt{1 + (\frac{\partial g}{\partial x})^2 + (\frac{\partial g}{\partial y})^2}dA$$
+
+* Surface Integral for parametrics
+$$\int_S\int f(x,y,z)dS = \int_D \int f(\vec{r}(u,v))||\vec{r_u}\times \vec{r_v}||dA$$
+
+* Divergence theorem $$\int_C F\cdot N ds = \int_R\int (\frac{\partial M}{\partial x}+\frac{\partial N}{\partial y})dA = \int_R\int \textrm{div F d}A$$
+$$\int_S\int F \cdot N dS = \int \int_Q \int \textrm{div} \textbf{F} dV$$
+* Stoke's Theorem
+$$\int_C F \cdot dr = \int_S \int (\textrm{curl F}) \cdot N dS$$
+
+* Cur where $F_1$ is the first component of the vector, $F_2$ as the second, and $F_3$ as the third. Ex. $\langle x, y, z \rangle$ $F_1 = x$
+$$\textrm{curl} \textbf{\textrm{F}} = \nabla \times \textbf{\textrm{F}}$$
+
+$$=\langle \frac{\partial F_3}{\partial y} - \frac{\partial F_2}{\partial z}, \frac{\partial F_1}{\partial z} - \frac{\partial F_3}{\partial x}, \frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial y} \rangle$$

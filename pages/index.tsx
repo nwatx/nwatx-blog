@@ -23,7 +23,7 @@ export default function Home({ posts }: HomeProps) {
   return (
     <NavBarLayout>
       <div className='flex flex-col w-full 2xl:w-1/2 space-y-5'>
-        {posts && posts.map((post) => <BlogPost slug={post.slug} {...post.frontmatter} />)}
+        {posts && posts.map((post) => <BlogPost key={post.slug} slug={post.slug} {...post.frontmatter} />)}
       </div>
     </NavBarLayout>
   );

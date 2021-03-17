@@ -66,7 +66,7 @@ const BlogPost = ({ source, data }) => {
             </div>
           </div>
           <div className="flex">
-            <div ref={ref} className="">
+            <div ref={ref}>
               {content}
             </div>
           </div>
@@ -104,10 +104,6 @@ export async function getStaticProps({ params: { slug } }) {
   const source = await renderToString(content, {
     scope: {},
     components: MDXComponents,
-    mdxOptions: {
-      remarkPlugins: [require("remark-math")],
-      rehypePlugins: [require("rehype-katex")],
-    },
   });
 
   // console.log(source);
