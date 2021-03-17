@@ -42,10 +42,10 @@ export default function BlogPost({
                   key={tag}
                   className={`rounded-full ${
                     tagColor[tag] && tagColor[tag][0]
-                  } py-1 px-2`}
+                  }`}
                 >
                   <p
-                    className={`uppercase text-xs ${
+                    className={`uppercase m-0 text-xs py-1 px-2 ${
                       tagColor[tag] && tagColor[tag][1]
                     }`}
                   >
