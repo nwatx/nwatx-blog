@@ -71,7 +71,7 @@ const BlogPost = ({ source, data }) => {
               <p>{data.title}</p>
             </div>
           </div>
-          <div className="flex">
+          <div className="flex p-1 pb-10 md:pb-4 w-full">
             <div ref={ref}>
               {content}
             </div>
