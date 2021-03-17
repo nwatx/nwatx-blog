@@ -1,6 +1,3 @@
-import { GetStaticProps } from "next";
-import Head from "next/head";
-import Navbar from "../components/Navbar";
 import NavBarLayout from "../layouts/NavBarLayout";
 import fs from "fs";
 import matter from "gray-matter";
