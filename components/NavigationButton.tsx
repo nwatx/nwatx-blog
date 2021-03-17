@@ -1,5 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 export type ButtonProps = {
   to: string;
@@ -10,8 +11,8 @@ const NavigationButton = ({ to, label }: ButtonProps) => {
   const router = useRouter();
 
   return (
+    <Link href={to}>
     <div
-      onClick={() => router.push(to)}
       className={`bg-white ${
         router.asPath === to
           ? "shadow-inner cursor-default text-gray-300"
@@ -20,6 +21,7 @@ const NavigationButton = ({ to, label }: ButtonProps) => {
     >
       {label}
     </div>
+    </Link>
   );
 };
 

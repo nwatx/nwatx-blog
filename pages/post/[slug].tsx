@@ -12,6 +12,7 @@ import matter from "gray-matter";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import renderMathInElement from "katex/dist/contrib/auto-render";
+import Link from 'next/link';
 
 const ImageLoader = (src) => {
   return `https://res.cloudinary.com/dcg5b3jpt/image/upload/v1615871692/blog/${src}`;
@@ -32,6 +33,7 @@ const MDXComponents = {
       />
     );
   },
+  a: Link
   // p: Tex,
 };
 
