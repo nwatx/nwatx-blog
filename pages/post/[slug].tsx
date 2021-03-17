@@ -13,6 +13,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import renderMathInElement from "katex/dist/contrib/auto-render";
 import Link from 'next/link';
+import Head from 'next/head'
 
 const ImageLoader = (src) => {
   return `https://res.cloudinary.com/dcg5b3jpt/image/upload/v1615871692/blog/${src}`;
@@ -41,7 +42,6 @@ const BlogPost = ({ source, data }) => {
   const content = hydrate(source, { components: MDXComponents });
 
   const ref = useRef(null);
-  // console.log(data);
 
   useEffect(() => {
     Prism.highlightAll();
@@ -60,6 +60,10 @@ const BlogPost = ({ source, data }) => {
 
   return (
     <MDXProvider>
+      <Head>
+        <title>{data.title} - {data.author || 'nwatx'}</title>
+        <meta name='description' content={`${data.description || data.title}`} />
+      </Head>
       <NavBarLayout>
         <div className="flex w-full 2xl:w-1/3 flex-col items-center">
           <div className="flex flex-col">
