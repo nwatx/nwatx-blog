@@ -36,10 +36,11 @@ export default function BlogPost({
             )}
           </div>
           {tags && (
-            <div className="flex w-full mt-1 mb-2 space-x-3">
+            <div className="flex items-baseline w-full mt-1 mb-2 space-x-3">
               {tags.split(",").map((tag) => (
                 <div
-                  className={`inline-block rounded-full ${
+                  key={tag}
+                  className={`rounded-full ${
                     tagColor[tag] && tagColor[tag][0]
                   } py-1 px-2`}
                 >

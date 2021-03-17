@@ -37,7 +37,7 @@ export default function Navbar({ children }) {
               <button
                 onClick={() => setOpen(!open)}
                 type="button"
-                className="bg-gray-200 shadow:md inline-flex items-center justify-center p-2 rounded-md text-black hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-300 focus:ring-white"
+                className="shadow:md inline-flex items-center justify-center p-2 rounded-md text-black hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-white"
                 aria-controls="mobile-menu"
                 aria-expanded="false"
               >
@@ -85,7 +85,7 @@ export default function Navbar({ children }) {
         {open && (
           <div className="md:hidden" id="mobile-menu">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <NavigationButtonMobile to="/tutorial" label="Tutorial" />
+              <NavigationButtonMobile to="/aboutme" label="About Me" />
             </div>
           </div>
         )}
