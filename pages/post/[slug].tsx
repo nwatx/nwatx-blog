@@ -74,12 +74,12 @@ const BlogPost = ({ source, data }) => {
       </Head>
       <NavBarLayout>
         <div className="flex w-full 2xl:w-1/2 flex-col items-center">
-          <div className="flex w-full p-1 flex-col">
+          <div className="flex w-full p-1 border-b flex-col">
             <div className="text-4xl font-bold">
               <p>{data.title}</p>
             </div>
             {data.description && (
-              <h2 className="text-xl font-semibold text-gray-700">
+              <h2 className="text-xl font-semibold text-gray-400">
                 {data.description}
               </h2>
             )}
