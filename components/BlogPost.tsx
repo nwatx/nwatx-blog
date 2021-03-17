@@ -27,8 +27,13 @@ export default function BlogPost({
     <Link href={`/post/${slug}`}>
       <div className="flex w-full justify-between py-7 px-10 rounded-lg shadow-sm cursor-pointer hover:shadow-inner antialiased">
         <div className="flex flex-col w-full">
-          <div>
+          <div className='flex flex-row'>
             <p className="text-3xl font-bold text-gray-800">{title}</p>
+            {author && (
+              <div className='mx-1 flex h-full'>
+                <p className="text-md text-gray-600 self-end">by <b className='font-semibold'>{author}</b></p>
+              </div>
+            )}
           </div>
           {tags && (
             <div className="flex w-full mt-1 mb-2 space-x-3">
@@ -47,11 +52,6 @@ export default function BlogPost({
                   </p>
                 </div>
               ))}
-            </div>
-          )}
-          {author && (
-            <div>
-              <p className="text-xl font-medium text-gray-500">{author}</p>
             </div>
           )}
           <div>
