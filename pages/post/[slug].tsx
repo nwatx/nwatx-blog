@@ -8,6 +8,7 @@ import NavBarLayout from "../../layouts/NavBarLayout";
 import Prism from "prismjs";
 import "prismjs/components/prism-c";
 import "prismjs/components/prism-cpp";
+import "prismjs/components/prism-java";
 import matter from "gray-matter";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
@@ -78,9 +79,7 @@ const BlogPost = ({ source, data }) => {
               <p>{data.title}</p>
             </div>
             {data.description && (
-              <h2 className="text-xl text-gray-500">
-                {data.description}
-              </h2>
+              <h2 className="text-xl text-gray-500">{data.description}</h2>
             )}
           </div>
           <div className="flex justify-center p-1 pb-10 md:pb-4 w-full">

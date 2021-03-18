@@ -47,13 +47,13 @@ export default function Home({ posts }: HomeProps) {
           <p className="text-lg">Tags</p>
         </div> */}
         {posts && (
-          <div className="flex w-full flex-row">
+          <div className="flex w-full flex-row items-baseline space-x-3">
             {posts.map((post) => (
               <div className="flex items-baseline mt-1 mb-2 space-x-3">
                 {post.frontmatter.tags &&
                   post.frontmatter.tags.split(",").map((tag) => (
                     <div
-                      className={`flex text-xs uppercase flex-row items-center py-1 px-2 space-x-2 rounded-full cursor-pointer ${
+                      className={`flex text-xs uppercase flex-row items-center py-1.5 px-2 space-x-3 rounded-full cursor-pointer ${
                         TagColor[tag] ? TagColor[tag][0] : "bg-gray-50"
                       }`}
                       onClick={() => {
@@ -74,40 +74,51 @@ export default function Home({ posts }: HomeProps) {
                             setFilters(filters.filter((f) => f !== tag))
                           }
                         >
-                          <p className={`mt-0 ${TagColor[tag] && TagColor[tag][1]} self-center text-xs`}>x</p>
+                          <p
+                            className={`mt-0 ${
+                              TagColor[tag] && TagColor[tag][1]
+                            } self-center text-xs`}
+                          >
+                            x
+                          </p>
                         </div>
                       )}
                     </div>
                   ))}
-                {post.frontmatter.tags && (
-                  <div
-                    className={`text-xs border-black border py-1 px-2 ${filters.length === 0 ? 'disabled border-gray-300 text-gray-300 cursor-default' : 'cursor-pointer'} rounded-full`}
-                    onClick={() => setFilters([])}
-                  >
-                    Clear
-                  </div>
-                )}
               </div>
             ))}
+            {filters && (
+              <div
+                className={`text-xs h-auto flex items-center ml-3 border-black border py-1.5 px-2 ${
+                  filters.length === 0
+                    ? "disabled border-gray-300 text-gray-300 cursor-default"
+                    : "cursor-pointer"
+                } rounded-full`}
+                onClick={() => setFilters([])}
+              >
+                <p>Clear</p>
+              </div>
+            )}
           </div>
         )}
-        <div className='flex flex-col w-full space-y-5'>
-        {posts &&
-          posts
-            .filter((p) => {
-              if (p.frontmatter.tags || filters.length === 0) return true;
-              if (!p.frontmatter.tags && filters.length) return false;
-              return filters.some((filter) =>
-                p.frontmatter.tags.split(",").includes(filter)
-              );
-            })
-            .map((post) => (
-              <BlogPost
-                key={post.slug}
-                slug={post.slug}
-                {...post.frontmatter}
-              />
-            ))}</div>
+        <div className="flex flex-col w-full space-y-5">
+          {posts &&
+            posts
+              .filter((p) => {
+                if (filters.length === 0) return true;
+                if (!p.frontmatter.tags && filters.length) return false;
+                return filters.some((filter) =>
+                  p.frontmatter.tags.split(",").includes(filter)
+                );
+              })
+              .map((post) => (
+                <BlogPost
+                  key={post.slug}
+                  slug={post.slug}
+                  {...post.frontmatter}
+                />
+              ))}
+        </div>
       </div>
     </NavBarLayout>
   );

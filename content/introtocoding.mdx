@@ -1,0 +1,93 @@
+---
+author: nwatx
+title: Basic Tricks in Java
+description: An overview of basic tricks and how they work.
+tags: Java,Beginner
+---
+
+Since Java is the first language that most people learn, it makes sense that there are a lot of tricks that are untold among newer users. In this short blog post, hopefully we can bring some of these tricks to light.
+
+The first trick is adding `import static java.lang.System.out` at the top of your file. This allows you to shorten the print syntax greatly (and is often tested anyways).
+
+## Basic Language Tricks
+
+```java
+import static java.lang.System.out;
+
+public class Main {
+    public static void main(String[] args) {
+        // functions as the traditionally longer System.out.println();
+        out.println("a"); // a
+        out.println("b"); // b
+    }
+}
+```
+
+Another very common pattern is reading input into a group of "like-typed" elements, such as a group of integers. Instead of doing the following:
+
+```java
+int a, b;
+a = in.nextInt();
+b = in.nextInt();
+```
+
+We can instead do
+
+```java
+int a = in.nextInt(), b = in.nextInt();
+```
+
+Another very nice to know trick in Java is to use built-in pair class (JavaFx) or use your own if that is not supported. Attached below is mine.
+
+```java
+private static class Pair<T, V> {
+    T l;
+    V r;
+
+    Pair(T l, V r) {
+        this.l = l;
+        this.r = r;
+    }
+}
+```
+
+When calling this class, it's as simple as
+
+```java
+Pair<int, int> a = new Pair(1, 2); // { 1, 2 }
+out.println(a.l); // 1
+out.println(a.r); // 2
+```
+
+## Problem Solving Tricks
+
+This is not really a Java specific problemm solving trick, but rather a more generalized one. Let's start with a simple olympiad problem, [Fence Painting](http://www.usaco.org/index.php?page=viewproblem2&cpid=567).
+
+There are two approaches to this problem, either you compute casework for it, which would equate to $(b-a)+(d-c)-\text{intersection}([a,b],[c,d])$. This requires a little thinking (although not very much), or you can be naive, and directly simulate placing the intervals - checking which squares contain at least one square of paint.
+
+Here is the code (assume all imports are done):
+
+### Brute Force
+
+```java
+public static void main(String[] args) {
+    Scanner in = new Scanner(System.in);
+    boolean[] painted = new boolean[101];
+    int a = in.nextInt(), b = in.nextInt(), c = in.nextInt(), d = in.nextInt();
+    for(int i = a; i < b; i++) painted[i] = true;
+    for(int i = c; i < d; i++) painted[i] = true;
+    int ans = 0;
+    for(int i = 0; i < 101; i++) if(painted[i]) ans++;
+    out.println(ans);
+}
+```
+
+### Math
+
+```java
+public static void main(String[] args) {
+    Scanner in = new Scanner(System.in);
+    int a = in.nextInt(), b = in.nextInt(), c = in.nextInt(), d = in.nextInt();
+    out.println(b - a + d - c - max(min(b,d)-max(a,c), 0));
+}
+```
