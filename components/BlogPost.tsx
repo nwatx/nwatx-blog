@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 
-type BlogPostProps = {
+export type BlogPostProps = {
   title: string;
   author: string;
   description: string;
@@ -11,7 +11,7 @@ type BlogPostProps = {
   image?: string;
 };
 
-const tagColor = {
+export const TagColor = {
   cpp: ["bg-red-50", "text-red-600"],
 };
 
@@ -41,12 +41,12 @@ export default function BlogPost({
                 <div
                   key={tag}
                   className={`rounded-full ${
-                    tagColor[tag] && tagColor[tag][0]
+                    TagColor[tag] && TagColor[tag][0]
                   }`}
                 >
                   <p
                     className={`uppercase m-0 text-xs py-1 px-2 ${
-                      tagColor[tag] && tagColor[tag][1]
+                      TagColor[tag] && TagColor[tag][1]
                     }`}
                   >
                     {tag}
