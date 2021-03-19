@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-@import url("https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.css");
+@import url("https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css");
 
 pre {
   border-radius: 5px;
@@ -18,7 +18,8 @@ ul {
 }
 
 ol {
-  list-style-type: cjk-ideographic;
+  /* list-style-type: cjk-ideographic; */
+  list-style-type: decimal;
   list-style-position: inside;
 }
 
@@ -31,6 +32,7 @@ ol {
 }
 .katex {
   font: normal 1.21em KaTeX_Main, Times New Roman, serif;
+  font-weight: 500;
   line-height: 1.2;
   white-space: normal;
   text-indent: 0;

@@ -7,7 +7,7 @@ tags: dynamic programming,bitmasks
 
 ## Introduction
 
-Before we begin, I would like you to read [this problem](https://cses.fi/problemset/task/1690) and come up with possible strategies you would do to tackle it. You might note that $n$ is surprisingly low. Upon more careful consideration of your solution, you should realize that this problem is incredibly difficult to tackle in anything better than $\mathcal{O}(nV2^n)$ time complexity. In this blog post, we will discuss the dynamic programming technique that enables us to solve this problem.
+Before we begin, I would like you to read [this problem](https://cses.fi/problemset/task/1690) and come up with possible strategies you would do to tackle it. You might note that $n$ is surprisingly low. Upon more careful consideration of your solution, you should realize that this problem is incredibly difficult to tackle in anything better than $\mathcal{O}(nk2^n)$ time complexity. In this blog post, we will discuss the dynamic programming technique that enables us to solve this problem.
 
 ## Motivations
 
@@ -23,15 +23,15 @@ Our first key idea lies in the representation of numbers through the usage of bi
 
 ### Example: Store the subset {1, 3, 4, 8}
 
-This corresponds to $...100011010$ which corresponds to $2^8+2^4+2^3+2^1=282$
+This corresponds to $...100011010$ which corresponds to $2^8+2^4+2^3+2^1=282$.
 
 ### Basic Set Operations
 
 Using this new representation, we can perform the following set operations using bitwise operators.
 
-1. Intersection - including two bits if they exist in both sets: $a\&b$
-2. Union - including bits if they exist in either set: $a|b$
-3. Symmetric difference - including bits if they are present in either set but not both: $a$ ^ $b$
+1. Intersection - including two bits if they exist in both sets: $a\&b$.
+2. Union - including bits if they exist in either set: $a|b$.
+3. Symmetric difference - including bits if they are present in either set but not both: $a$ ^ $b$.
 
 If we want to iterate through the $2^n$ subsets of $\{0, 1,\ldots,n-1\}$, we can simply loop from $0,1,\ldots ,n-1$ of our current bit representation of the set. In code this looks like
 
@@ -57,9 +57,9 @@ Below is the code used to solve the problem. We will perform a line-by-line anal
 
 `total[s][d] = total[s][d-1];` the total best price on day $d$ is the best total on day $d-1$. This makes sense because the worst case is that no improvement is made on the previous day.
 
-`for(int x = 0; x < k; x++)` loops through each of the $x$ items
+`for(int x = 0; x < k; x++)` loops through each of the $x$ items.
 
-`if(s&(1<<x))` recall that the and operator only includes bits if they exist in both sets. Thus `s&(1<<x)` is equivalent to saying if element $x \in S$
+`if(s&(1<<x))` recall that the and operator only includes bits if they exist in both sets. Thus `s&(1<<x)` is equivalent to saying if element $x \in S$.
 
 The next line is rather complicated, so we will break it into several pieces.
 
@@ -88,12 +88,12 @@ for(int d = 1; d < n; d++) {
 
 ## Tackling Hamiltonian Flights
 
-The first thing we want to do is to come up with a dynamic programming recurrence. Since a huge hint has already been given through the bitmask dynamic programming paradigm, you might want to think about a way to convert this problem into "dynamic programming on subsets".
+The first thing we want to do is to come up with a dynamic programming recurrence. Since a huge hint has already been given through the bitmask dynamic programming paradigm, you might want to think about a way to convert this problem into "dynamic programming on subsets."
 
-The solution lies in representing $dp[S][i]$ as the number of routes that visit all the cities in subset $S$ and end at city $i$. This can be formulated as:
+The solution lies in representing $\texttt{dp}[S][i]$ as the number of routes that visit all the cities in subset $S$ and end at city $i$. This can be formulated as:
 
 $$
-dp[S][i]=\sum_{x\in \text{adj}[i]}dp[S\backslash {i}][x] \text{if x} \in S
+\texttt{dp}[S][i]=\sum_{x\in \text{adj}[i]}\texttt{dp}[S\backslash \{i\}][x] \text{if x} \in S
 $$
 
 We can check whether or not the $k$-th bit is set by using $S \& (1 << (k-1))$. Another equivalent operaton is $(n >> (k-1))\& 1$. You can read more about how this works [here](https://www.geeksforgeeks.org/check-whether-k-th-bit-set-not/).
@@ -114,14 +114,14 @@ If both of the above conditions are true, then we continue looping. This equates
 
 `for(int v : adj[d])` traverses the adjancency list of city $d$.
 
-Then, for each vertice, we check if $v$ is in the mask with $s \& (1<<(v-1))$.
+Then, for each vertex, we check if $v$ is in the mask with $s \& (1<<(v-1))$.
 
-If $v$ is in the mask, then we can add the total amount of flights to the subset $S$
+If $v$ is in the mask, then we can add the total amount of flights to the subset $S$.
 
-We can finally query the flights that travel through the cities $\{1,2,\ldots,n\}$ with $dp[(1<<n)-1][n]$.
+We can finally query the flights that travel through the cities $\{1,2,\ldots,n\}$ with $\texttt{dp}[(1<<n)-1][n]$.
 This works because $1<<(n-1)$ contains exactly $n$ ones (ex. $2^5-1=011111_2$).
 
-**Time Complexity:** $\mathcal{O}(nV2^n)$
+**Time Complexity:** $\mathcal{O}(nm2^n)$
 
 ```cpp
 #include <bits/stdc++.h> // see /general/running-code-locally
