@@ -7,7 +7,7 @@ tags: dynamic programming,bitmasks
 
 ## Introduction
 
-Before we begin, I would like you to read [this problem](https://cses.fi/problemset/task/1690) and come up with possible strategies you would do to tackle it. You might note that $n$ is surprisingly low. Upon more careful consideration of your solution, you should realize that this problem is incredibly difficult to tackle in anything better than $\mathcal{O}(nk2^k)$ time complexity. In this blog post, we will discuss the dynamic programming technique that enables us to solve this problem.
+Before we begin, I would like you to read [this problem](https://cses.fi/problemset/task/1690) and come up with possible strategies you would do to tackle it. You might note that $n$ is surprisingly low. Upon more careful consideration of your solution, you should realize that this problem is incredibly difficult to tackle in anything better than $\mathcal{O}(nV2^n)$ time complexity. In this blog post, we will discuss the dynamic programming technique that enables us to solve this problem.
 
 ## Motivations
 
@@ -15,7 +15,7 @@ Sometimes, problems require using subsets as the "optimal subtask." As [CPH](/CP
 
 > it is often possible to change an iteration over permutations into an iteration over subsets.
 
-Therefore, iterating over the $2^n$ number subsets is much faster than iterating through the $n!$ number of permutations. [CPH](/CPH.pdf) further notes that for an input of size $n=20$, then $n! \approx 2.4\cdot 10^{18}$ which greatly exceeds $2^{20}\approx 10^6$.
+Therefore, iterating over the $2^n$ number subsets is much faster than iterating through the $n!$ number of permutations. [CPH](/CPH.pdf) further notes that for an input of size $n=20$, then $n! \approx 2.4\cdot 10^{18}$ which greatly exceeds $2^{20}\approx 10^6$. The technique we will discuss iterates through such subsets.
 
 ## Key Ideas
 
@@ -31,17 +31,19 @@ Using this new representation, we can perform the following set operations using
 
 1. Intersection - including two bits if they exist in both sets: $a\&b$
 2. Union - including bits if they exist in either set: $a|b$
-3. Symmetric difference - including bits if they are present in either set but not both: $a^b$
+3. Symmetric difference - including bits if they are present in either set but not both: $a$ ^ $b$
 
 If we want to iterate through the $2^n$ subsets of $\{0, 1,\ldots,n-1\}$, we can simply loop from $0,1,\ldots ,n-1$ of our current bit representation of the set. In code this looks like
-
-Another key bit operation we must know for the following problems comes in the form of $1 << (n-1)$ which creates a bitset with exactly $n$ ones. Ex. $2^5-1=31=011111_2$
 
 ```cpp
 for(int i = 0; i < (1<<n); i++) {
     // process each subset
 }
 ```
+
+Another key bit operation we must know for the following problems comes in the form of $(1<<n)-1)$ which creates a bitset with exactly $n$ ones. Ex. $2^5-1=31=011111_2$
+
+Feel free to refer back to this section when reading about the below problems.
 
 ## Tackling CPH - Optimal Selection
 
@@ -68,6 +70,8 @@ The next line is rather complicated, so we will break it into several pieces.
 `total[s][d] = min(total[s][d], total[s^(1<<x)][d-1]+price[x][d]);` Either we take the previous best value, or we buy item $x$ on day $d$ for a total value of the best value on the previous day that doesn't contain item $x$ `total[s^(1<<x)][d+1]` plus the price of the item today `price[x][d]`.
 
 Putting this altogether, the below dynamic programming approach should make sense.
+
+**Time Complexity:** $\mathcal{O}(nk2^k)$
 
 ```cpp
 for(int d = 1; d < n; d++) {
@@ -116,6 +120,8 @@ If $v$ is in the mask, then we can add the total amount of flights to the subset
 
 We can finally query the flights that travel through the cities $\{1,2,\ldots,n\}$ with $dp[(1<<n)-1][n]$.
 This works because $1<<(n-1)$ contains exactly $n$ ones (ex. $2^5-1=011111_2$).
+
+**Time Complexity:** $\mathcal{O}(nV2^n)$
 
 ```cpp
 #include <bits/stdc++.h> // see /general/running-code-locally
