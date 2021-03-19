@@ -10,7 +10,7 @@ export default function aboutme() {
             Hello. I'm Neo. My routine goes something like wake up, sleep,
             repeat. But intermittently, I'll make things like robots, websites,
             blogs (like this one), and games. I also enjoy learning about
-            algorithms and design patterns.
+            algorithms and design patterns. I will update this later.
           </p>
         </div>
       </div>

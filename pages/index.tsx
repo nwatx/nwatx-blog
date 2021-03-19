@@ -19,6 +19,17 @@ export default function Home({ posts }: HomeProps) {
   // console.log(posts); // show graymatter data
 
   const [filters, setFilters] = useState([]);
+  const postTags = posts
+    .map((post) => {
+      if (post.frontmatter.tags)
+        return post.frontmatter.tags
+          .trim()
+          .split(",")
+          .map((s) => s);
+    })
+    .flat();
+  
+  const uniquePostTags = Array.from(new Set<string>(postTags)).sort().filter((e) => e);
 
   console.log(filters);
 
@@ -48,45 +59,42 @@ export default function Home({ posts }: HomeProps) {
         </div> */}
         {posts && (
           <div className="flex w-full flex-row items-baseline space-x-3">
-            {posts.map((post) => (
+            {uniquePostTags && (
               <div className="flex items-baseline mt-1 mb-2 space-x-3">
-                {post.frontmatter.tags &&
-                  post.frontmatter.tags.split(",").map((tag) => (
-                    <div
-                      className={`flex text-xs uppercase flex-row items-center py-1.5 px-2 space-x-3 rounded-full cursor-pointer ${
-                        TagColor[tag] ? TagColor[tag][0] : "bg-gray-50"
-                      }`}
-                      onClick={() => {
-                        if (!filters.includes(tag)) {
-                          setFilters([...filters, tag]);
+                {uniquePostTags.map((tag) => (
+                  <div
+                    className={`flex text-xs uppercase flex-row items-center py-1.5 px-2 space-x-3 rounded-full cursor-pointer ${
+                      TagColor[tag] ? TagColor[tag][0] : "bg-gray-50"
+                    }`}
+                    onClick={() => {
+                      if (!filters.includes(tag)) {
+                        setFilters([...filters, tag]);
+                      }
+                    }}
+                  >
+                    <p className={`mt-0 ${TagColor[tag] && TagColor[tag][1]}`}>
+                      {tag}
+                    </p>
+                    {filters.includes(tag) && (
+                      <div
+                        className="px-2 flex flex-col justify-center rounded-full"
+                        onClick={() =>
+                          setFilters(filters.filter((f) => f !== tag))
                         }
-                      }}
-                    >
-                      <p
-                        className={`mt-0 ${TagColor[tag] && TagColor[tag][1]}`}
                       >
-                        {tag}
-                      </p>
-                      {filters.includes(tag) && (
-                        <div
-                          className="px-2 flex flex-col justify-center rounded-full"
-                          onClick={() =>
-                            setFilters(filters.filter((f) => f !== tag))
-                          }
+                        <p
+                          className={`mt-0 ${
+                            TagColor[tag] && TagColor[tag][1]
+                          } self-center text-xs`}
                         >
-                          <p
-                            className={`mt-0 ${
-                              TagColor[tag] && TagColor[tag][1]
-                            } self-center text-xs`}
-                          >
-                            x
-                          </p>
-                        </div>
-                      )}
-                    </div>
-                  ))}
+                          x
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                ))}
               </div>
-            ))}
+            )}
             {filters && (
               <div
                 className={`text-xs h-auto flex items-center ml-3 border-black border py-1.5 px-2 ${

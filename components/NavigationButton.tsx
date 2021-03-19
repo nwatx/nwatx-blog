@@ -12,7 +12,7 @@ export type ButtonProps = {
 const NavigationButton = ({ to, label, src }: ButtonProps) => {
   const router = useRouter();
 
-  console.log(src);
+  // console.log(src);
 
   return (
     <Link href={to}>

@@ -14,7 +14,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import Head from "next/head";
 import NextLink from "../../components/NextLink";
-import { h1, h2, h3 } from "../../components/mdx";
+import { blockquote, h1, h2, h3 } from "../../components/mdx";
 
 export const ImageLoader = (src) => {
   console.log(src);
@@ -40,6 +40,7 @@ const MDXComponents = {
   h1: h1,
   h2: h2,
   h3: h3,
+  blockquote: blockquote
   // p: Tex,
 };
 
@@ -82,7 +83,7 @@ const BlogPost = ({ source, data }) => {
               <h2 className="text-xl text-gray-500">{data.description}</h2>
             )}
           </div>
-          <div className="flex justify-center p-1 pb-10 md:pb-4 w-full">
+          <div className="flex justify-center p-1 mt-4 pb-10 md:pb-4 w-full">
             <div className="flex w-full flex-col space-y-4">{content}</div>
           </div>
         </div>

@@ -17,6 +17,11 @@ ul {
   /* display: inline-block; */
 }
 
+ol {
+  list-style-type: cjk-ideographic;
+  list-style-position: inside;
+}
+
 .katex-display > .katex {
   display: inline-block;
   white-space: nowrap;

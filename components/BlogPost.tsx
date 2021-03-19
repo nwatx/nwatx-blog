@@ -12,7 +12,7 @@ export type BlogPostProps = {
 };
 
 export const TagColor = {
-  cpp: ["bg-red-50", "text-red-600"],
+  // cpp: ["bg-red-50", "text-red-600"],
 };
 
 export default function BlogPost({

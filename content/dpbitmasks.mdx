@@ -1,0 +1,164 @@
+---
+title: A Primer on Bitmask DP
+author: nwatx
+description: A basic introduction of key ideas and concepts of the Bitmask DP paradigm.
+tags: dynamic programming,bitmasks
+---
+
+## Introduction
+
+Before we begin, I would like you to read [this problem](https://cses.fi/problemset/task/1690) and come up with possible strategies you would do to tackle it. You might note that $n$ is surprisingly low. Upon more careful consideration of your solution, you should realize that this problem is incredibly difficult to tackle in anything better than $\mathcal{O}(nk2^k)$ time complexity. In this blog post, we will discuss the dynamic programming technique that enables us to solve this problem.
+
+## Motivations
+
+Sometimes, problems require using subsets as the "optimal subtask." As [CPH](/CPH.pdf) notes,
+
+> it is often possible to change an iteration over permutations into an iteration over subsets.
+
+Therefore, iterating over the $2^n$ number subsets is much faster than iterating through the $n!$ number of permutations. [CPH](/CPH.pdf) further notes that for an input of size $n=20$, then $n! \approx 2.4\cdot 10^{18}$ which greatly exceeds $2^{20}\approx 10^6$.
+
+## Key Ideas
+
+Our first key idea lies in the representation of numbers through the usage of bits. Here, rather than representing our numbers as integer values, we represent a number $x$ as the $x$-th bit from the right. Notice that this causes the time complexity to grow exponentially, as for every number $x$ causes an increase by an additional power of $2$.
+
+### Example: Store the subset {1, 3, 4, 8}
+
+This corresponds to $...100011010$ which corresponds to $2^8+2^4+2^3+2^1=282$
+
+### Basic Set Operations
+
+Using this new representation, we can perform the following set operations using bitwise operators.
+
+1. Intersection - including two bits if they exist in both sets: $a\&b$
+2. Union - including bits if they exist in either set: $a|b$
+3. Symmetric difference - including bits if they are present in either set but not both: $a^b$
+
+If we want to iterate through the $2^n$ subsets of $\{0, 1,\ldots,n-1\}$, we can simply loop from $0,1,\ldots ,n-1$ of our current bit representation of the set. In code this looks like
+
+Another key bit operation we must know for the following problems comes in the form of $1 << (n-1)$ which creates a bitset with exactly $n$ ones. Ex. $2^5-1=31=011111_2$
+
+```cpp
+for(int i = 0; i < (1<<n); i++) {
+    // process each subset
+}
+```
+
+## Tackling CPH - Optimal Selection
+
+Read through [this chapter](/CPH.pdf#page=112) in order to get a general understanding of the problem presented. Since this blog post serves as an elaboration on the material covered, you should read that before continuing.
+
+Below is the code used to solve the problem. We will perform a line-by-line analysis of what it does. It is a good idea to go back and forth between the explanation and the code itself.
+
+```for(int d = 1; d < n; d++)``` loops from the first day to the $n$-th day. This should be straightforward.
+
+`for(int s = 0; s < (1<<k); s++)` loops through each of the $2^k$ subsets of $\{0, 1,\ldots,k-1\}$. Reference our code above if you are confused.
+
+`total[s][d] = total[s][d-1];` the total best price on day $d$ is the best total on day $d-1$. This makes sense because the worst case is that no improvement is made on the previous day.
+
+`for(int x = 0; x < k; x++)` loops through each of the $x$ items
+
+`if(s&(1<<x))` recall that the and operator only includes bits if they exist in both sets. Thus `s&(1<<x)` is equivalent to saying if element $x \in S$
+
+The next line is rather complicated, so we will break it into several pieces.
+
+`total[s^(1<<x)][d-1]` is the best total for any subset without $x$. $d-1$ just means on any day before.
+
+`price[x][d]` is the price of item $x$ on day $d$.
+
+`total[s][d] = min(total[s][d], total[s^(1<<x)][d-1]+price[x][d]);` Either we take the previous best value, or we buy item $x$ on day $d$ for a total value of the best value on the previous day that doesn't contain item $x$ `total[s^(1<<x)][d+1]` plus the price of the item today `price[x][d]`.
+
+Putting this altogether, the below dynamic programming approach should make sense.
+
+```cpp
+for(int d = 1; d < n; d++) {
+    for(int s = 0; s < (1<<k); s++) {
+        total[s][d] = total[s][d-1];
+        for(int x = 0; x < k; x++) {
+            if(s&(1<<x)) {
+                total[s][d] = min(total[s][d], total[s^(1<<x)][d-1]+price[x][d]);
+            }
+        }
+    }
+}
+```
+
+## Tackling Hamiltonian Flights
+
+The first thing we want to do is to come up with a dynamic programming recurrence. Since a huge hint has already been given through the bitmask dynamic programming paradigm, you might want to think about a way to convert this problem into "dynamic programming on subsets".
+
+The solution lies in representing $dp[S][i]$ as the number of routes that visit all the cities in subset $S$ and end at city $i$. This can be formulated as:
+
+$$
+dp[S][i]=\sum_{x\in \text{adj}[i]}dp[S\backslash {i}][x] \text{if x} \in S
+$$
+
+We can check whether or not the $k$-th bit is set by using $S \& (1 << (k-1))$. Another equivalent operaton is $(n >> (k-1))\& 1$. You can read more about how this works [here](https://www.geeksforgeeks.org/check-whether-k-th-bit-set-not/).
+
+Below is our solution to Hamiltonian Flights. Just as before, we will perform a line-by-line analysis on how the code works.
+
+The first thing you might notice is that we are pushing in our directed flights backwards through `adj[b].pb(a)`. This is because in our dynamic programming approach, we choose to build the sets based of previously established "optimal solutions."
+
+`dp[1][1] = 1`. There is only one way for the first city to fly to itself.
+
+`for(int s = 2; s < (1<<n); s++)` starts from the second city (represented as $...10_2=2$), and iterates through all the subsets as before.
+
+`s & (1 << (n-1))` checks if the $n-1$-th bit is set.
+
+`s != ((1 << n) - 1)` checks that the current set is not equal to $011\ldots 11$ where $0$ is the $n$-th bit from the right.
+
+If both of the above conditions are true, then we continue looping. This equates to setting to mask to "ignore all instances of subsets that don't include the $n-1$-th city and are is not the subset that contains all cities."
+
+`for(int v : adj[d])` traverses the adjancency list of city $d$.
+
+Then, for each vertice, we check if $v$ is in the mask with $s \& (1<<(v-1))$.
+
+If $v$ is in the mask, then we can add the total amount of flights to the subset $S$
+
+We can finally query the flights that travel through the cities $\{1,2,\ldots,n\}$ with $dp[(1<<n)-1][n]$.
+This works because $1<<(n-1)$ contains exactly $n$ ones (ex. $2^5-1=011111_2$).
+
+```cpp
+#include <bits/stdc++.h> // see /general/running-code-locally
+using namespace std;
+
+using ll = long long;
+using vi = vector<int>;
+#define pb push_back
+
+void setIO() {
+	cin.tie(0)->sync_with_stdio(0); // see /general/fast-io
+}
+
+const int mod = 1e9+7;
+
+vi adj[21];
+ll dp[(1<<21) + 5][21]; // amount of flights of subset S ending at city d
+
+int main() {
+	setIO();
+
+	int n, m; cin >> n >> m;
+
+	for(int i = 0; i < m; i++) {
+		int a, b; cin >> a >> b;
+		adj[b].pb(a);
+	}
+
+	dp[1][1] = 1; // there is one way to fly from 1 to itself
+
+	for(int s = 2; s < (1<<n); s++) { // we start from the second city
+		if((s & (1 << (n-1))) && s != ((1<<n) - 1)) continue;
+		for(int d = 1; d <= n; d++) { // loop through each city
+			if((s & (1 << (d-1))) == 0) continue;
+			for(int v : adj[d]) {
+				if(s & (1<<(v-1))) { // if v is in the mask
+					dp[s][d] += dp[s-(1<<(d-1))][v];
+					dp[s][d] %= mod;
+				}
+			}
+		}
+	}
+
+	cout << dp[(1<<n)-1][n] % mod; 
+}
+```
