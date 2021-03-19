@@ -15,6 +15,8 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import Head from "next/head";
 import NextLink from "../../components/NextLink";
 import { blockquote, h1, h2, h3 } from "../../components/mdx";
+import ViewCounter from "../../components/ViewCounter";
+import { useRouter } from "next/router";
 
 export const ImageLoader = (src) => {
   console.log(src);
@@ -40,12 +42,13 @@ const MDXComponents = {
   h1: h1,
   h2: h2,
   h3: h3,
-  blockquote: blockquote
+  blockquote: blockquote,
   // p: Tex,
 };
 
 const BlogPost = ({ source, data }) => {
   const content = hydrate(source, { components: MDXComponents });
+  const router = useRouter();
 
   useEffect(() => {
     Prism.highlightAll();
@@ -75,13 +78,18 @@ const BlogPost = ({ source, data }) => {
       </Head>
       <NavBarLayout>
         <div className="flex w-full 2xl:w-1/2 flex-col items-center">
-          <div className="flex w-full p-1 border-b flex-col">
+          <div className="flex w-full max-w-7xl p-1 border-b flex-col">
             <div className="text-4xl">
               <p>{data.title}</p>
             </div>
-            {data.description && (
-              <h2 className="text-xl text-gray-500">{data.description}</h2>
-            )}
+            <div className="flex flex-col lg:flex-row w-full lg:justify-between">
+              {data.description && (
+                <h2 className="text-xl font-light mt-1 text-gray-500">
+                  {data.description}
+                </h2>
+              )}
+              <ViewCounter slug={router.query.slug} />
+            </div>
           </div>
           <div className="flex justify-center max-w-7xl p-1 mt-4 pb-10 md:pb-4 w-full">
             <div className="flex w-full flex-col space-y-4">{content}</div>

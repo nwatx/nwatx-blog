@@ -10,6 +10,8 @@
   "dependencies": {
     "@mdx-js/loader": "^1.6.22",
     "@next/mdx": "^10.0.9",
+    "comma-number": "^2.0.1",
+    "firebase-admin": "^9.5.0",
     "fs": "0.0.1-security",
     "gray-matter": "^4.0.2",
     "katex": "^0.13.0",
@@ -28,6 +30,7 @@
     "remark-math": "3.0.1",
     "remark-parse": "^9.0.0",
     "remark-rehype": "^8.0.0",
+    "swr": "^0.5.4",
     "to-vfile": "^6.1.0",
     "unified": "^9.2.1"
   },
