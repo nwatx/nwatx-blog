@@ -83,7 +83,7 @@ const BlogPost = ({ source, data }) => {
               <h2 className="text-xl text-gray-500">{data.description}</h2>
             )}
           </div>
-          <div className="flex justify-center p-1 mt-4 pb-10 md:pb-4 w-full">
+          <div className="flex justify-center max-w-7xl p-1 mt-4 pb-10 md:pb-4 w-full">
             <div className="flex w-full flex-col space-y-4">{content}</div>
           </div>
         </div>
