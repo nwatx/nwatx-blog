@@ -96,7 +96,7 @@ $$
 \texttt{dp}[S][i]=\sum_{x\in \text{adj}[i]}\texttt{dp}[S\backslash \{i\}][x]\: \text{if}\: x \in S
 $$
 
-We can check whether or not the $k$-th bit is set by using $S \& (1 \ll (k-1))$. Another equivalent operaton is $(n \gg (k-1))\& 1$. You can read more about how this works [here](https://www.geeksforgeeks.org/check-whether-k-th-bit-set-not/).
+We can check whether or not the $k$-th bit is set by using $S \& (1 \ll (k-1))$. Another equivalent operation is $(n \gg (k-1))\& 1$. You can read more about how this works [here](https://www.geeksforgeeks.org/check-whether-k-th-bit-set-not/).
 
 Below is our solution to Hamiltonian Flights. Just as before, we will perform a line-by-line analysis on how the code works.
 
@@ -119,7 +119,7 @@ Then, for each vertex, we check if $v$ is in the mask with $s \& (1\ll (v-1))$.
 If $v$ is in the mask, then we can add the total amount of flights to the subset $S$.
 
 We can finally query the flights that travel through the cities $\{1,2,\ldots,n\}$ with $\texttt{dp}[(1\ll n)-1][n]$.
-This works because $1(1\ll n)-1)$ contains exactly $n$ ones (ex. $2^5-1=011111_2$).
+This works because $(1\ll n)-1$ contains exactly $n$ toggled bits (ex. $2^5-1=011111_2$).
 
 **Time Complexity:** $\mathcal{O}(nm2^n)$
 
