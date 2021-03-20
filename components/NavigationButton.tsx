@@ -17,7 +17,7 @@ const NavigationButton = ({ to, label, src }: ButtonProps) => {
   return (
     <Link href={to}>
       <div
-        className={`bg-white ${
+        className={`${
           router.asPath === to
             ? "shadow-inner cursor-default text-gray-300"
             : " text-gray-700 hover:shadow-inner cursor-pointer"
