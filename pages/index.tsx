@@ -104,7 +104,7 @@ export default function Home({ posts }: HomeProps) {
                 } rounded-full`}
                 onClick={() => setFilters([])}
               >
-                <p>Clear</p>
+                <p style={{isolation: 'isolate'}}>Clear</p>
               </div>
             )}
           </div>

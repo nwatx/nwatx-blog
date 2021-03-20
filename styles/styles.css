@@ -30,12 +30,17 @@ ol {
   /* overflow-x: scroll; */
   text-align: initial;
 }
+
 .katex {
   font: normal 1.21em KaTeX_Main, Times New Roman, serif;
   font-weight: 500;
   line-height: 1.2;
   white-space: normal;
   text-indent: 0;
+}
+
+.darkmode--activated .katex {
+  color: white;
 }
 
 .katex-html {
