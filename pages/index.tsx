@@ -103,14 +103,15 @@ export default function Home({ posts }: HomeProps) {
               )}
               {filters && (
                 <div
-                  className={`text-xs h-auto flex items-center ml-3 border-black border py-1.5 px-2 ${
+                  // style={{isolation: 'isolate'}}
+                  className={`text-xs font-medium h-auto flex items-center ml-3 border py-1.5 px-2 ${
                     filters.length === 0
                       ? "disabled border-gray-300 text-gray-300 cursor-default"
-                      : "cursor-pointer"
+                      : " text-gray-600 border-gray-600 cursor-pointer"
                   } rounded-full`}
                   onClick={() => setFilters([])}
                 >
-                  <p style={{ isolation: "isolate" }}>Clear</p>
+                  <p>Clear</p>
                 </div>
               )}
             </div>
