@@ -8,7 +8,7 @@ export default function Navbar({ children }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="flex flex-col w-full min-w-full h-screen justify-items-start overflow-hidden">
+    <div className="flex flex-1 flex-col w-full min-w-full h-screen justify-items-start overflow-hidden">
       <nav className="w-full">
         <div className="max-w-7xl px-4 mx-auto">
           <div className="flex items-center justify-between h-16">
@@ -91,7 +91,7 @@ export default function Navbar({ children }) {
           </div>
         )}
       </nav>
-      <div className="flex w-full flex-col min-h-0 overflow-hidden">{children}</div>
+      <div className="flex flex-1 w-full flex-col min-h-0 overflow-hidden">{children}</div>
     </div>
   );
 }

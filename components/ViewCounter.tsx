@@ -23,5 +23,5 @@ export default function ViewCounter({ slug }) {
     registerView();
   }, [slug]);
 
-  return <div className='font-light'>{`${views ? format(views) : "–"} views`}</div>
+  return <div className='font-light'>{slug === "" ? "© Neo Wang | " : ""} {`${views ? format(views) : "–"} views`}</div>
 }
