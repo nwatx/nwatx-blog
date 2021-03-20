@@ -59,7 +59,7 @@ export default function BlogPost({
             <p className="text-md text-gray-800">{description}</p>
           </div>
         </div>
-        <div className="flex flex-col justify-center h-full">
+        <div className="flex flex-col justify-center min-h-full">
           <p className="text-3xl font-extralight animate-pulse">{">"}</p>
         </div>
       </div>
