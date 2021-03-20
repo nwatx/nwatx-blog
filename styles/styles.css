@@ -38,6 +38,10 @@ ol {
   text-indent: 0;
 }
 
+.katex-html {
+  white-space: nowrap;
+}
+
 /* p {
   margin-top: 5px
 } */
