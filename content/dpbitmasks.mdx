@@ -96,7 +96,7 @@ $$
 \texttt{dp}[S][i]=\sum_{x\in \text{adj}[i]}\texttt{dp}[S\backslash \{i\}][x]\: \text{if}\: x \in S
 $$
 
-We can check whether or not the $k$-th bit is set by using $S \& (1 \ll (k-1))$. Another equivalent operation is $(n \gg (k-1))\& 1$. You can read more about how this works [here](https://www.geeksforgeeks.org/check-whether-k-th-bit-set-not/).
+We can check whether or not the $k$-th bit is set by using $S \& (1 \ll (k-1))$. Another equivalent operation is $(S \gg (k-1))\& 1$. You can read more about how this works [here](https://www.geeksforgeeks.org/check-whether-k-th-bit-set-not/).
 
 Below is our solution to Hamiltonian Flights. Just as before, we will perform a line-by-line analysis on how the code works.
 
