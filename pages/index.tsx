@@ -171,6 +171,8 @@ export async function getStaticProps() {
 
     const { data } = matter(markdownWithMetadata);
 
+    console.log(data);
+
     const frontmatter = {
       ...data,
       date: data.date.toISOString(),

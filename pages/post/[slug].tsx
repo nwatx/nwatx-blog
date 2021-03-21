@@ -81,9 +81,15 @@ const BlogPost = ({ source, data }) => {
           {/* <div className="flex w-full max-w-7xl p-1 border-b flex-col"> */}
           <div className="flex flex-col w-full justify-center max-w-7xl mt-4 pb-10 md:pb-4 border-b">
             <div className="text-4xl max-w-7xl">
-              <p className='dark:text-gray-100'>{data.title}</p>
+              <p className="dark:text-gray-100">
+                {data.title}{" "}
+                <b className="text-base font-light">
+                  by <b>{data.author}</b> on{" "}
+                  <b>{new Date(data.date).toLocaleDateString()}</b>
+                </b>
+              </p>
             </div>
-            <div className="flex flex-col lg:flex-row w-full lg:justify-between">
+            <div className="flex flex-col items-end lg:flex-row w-full lg:justify-between">
               {data.description && (
                 <h2 className="text-xl font-light mt-1 text-gray-500 dark:text-gray-300">
                   {data.description}
@@ -124,6 +130,8 @@ export async function getStaticProps({ params: { slug } }) {
     .toString();
 
   const { data, content } = matter(markdownWithMetadata);
+
+  // if(data['date']) data['date'] = data['date'].toLocaleDateString();
   // console.log(data, content); to see data content
 
   const source = await renderToString(content, {
@@ -133,6 +141,13 @@ export async function getStaticProps({ params: { slug } }) {
       rehypePlugins: [require("rehype-katex")],
     },
   });
+
+  console.log(data);
+
+  const frontmatter = {
+    ...data,
+    date: data.date.toISOString(),
+  };
 
   // source.renderedOutput = source.renderedOutput.replaceAll('<!-- -->', '');
 
@@ -145,7 +160,7 @@ export async function getStaticProps({ params: { slug } }) {
   return {
     props: {
       source,
-      data,
+      data: frontmatter,
     },
   };
 }
