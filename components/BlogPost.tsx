@@ -28,10 +28,10 @@ export default function BlogPost({
       <div className="flex w-full justify-between py-7 px-10 rounded-lg shadow-sm cursor-pointer hover:shadow-inner antialiased">
         <div className="flex flex-col w-full">
           <div className='flex flex-col sm:flex-row'>
-            <p className="text-3xl text-gray-800">{title}</p>
+            <p className="text-3xl text-gray-800 dark:text-gray-100">{title}</p>
             {author && (
               <div className='mx-1 flex h-full w-full sm:w-auto'>
-                <p className="text-md text-gray-600 self-end font-light">by <b className=''>{author}</b></p>
+                <p className="text-md text-gray-600 dark:text-gray-400 self-end font-light">by <b className=''>{author}</b></p>
               </div>
             )}
           </div>
@@ -40,12 +40,12 @@ export default function BlogPost({
               {tags.split(",").map((tag) => (
                 <div
                   key={tag}
-                  className={`rounded-full ${
+                  className={`rounded-full dark:bg-gray-700 dark:text-white ${
                     TagColor[tag] && TagColor[tag][0]
                   }`}
                 >
                   <p
-                    className={`uppercase m-0 text-xs py-1 px-2 ${
+                    className={`uppercase m-0 text-xs dark:text-white py-1 px-2 ${
                       TagColor[tag] && TagColor[tag][1]
                     }`}
                   >
@@ -56,11 +56,11 @@ export default function BlogPost({
             </div>
           )}
           <div>
-            <p className="text-md text-gray-800">{description}</p>
+            <p className="text-md text-gray-800 dark:text-gray-200">{description}</p>
           </div>
         </div>
         <div className="flex flex-col justify-center min-h-full">
-          <p className="text-3xl font-extralight animate-pulse">{">"}</p>
+          <p className="text-3xl font-light animate-pulse">{">"}</p>
         </div>
       </div>
     </Link>

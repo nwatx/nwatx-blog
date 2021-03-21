@@ -56,7 +56,7 @@ export default function Home({ posts }: HomeProps) {
       <div className="flex h-full overflow-auto justify-between w-full flex-col max-w-7xl">
         <div className="flex flex-col max-w-7xl lg:px-4 w-full space-y-5">
           <div className="flex w-full">
-            <p className="text-4xl underline">Blog</p>
+            <p className="text-4xl dark:text-white underline">Blog</p>
           </div>
           {/* <div className="flex w-full">
           <p className="text-lg">Tags</p>
@@ -68,7 +68,7 @@ export default function Home({ posts }: HomeProps) {
                   {uniquePostTags.map((tag) => (
                     <div
                       className={`flex text-xs uppercase flex-row items-center py-1.5 px-2 space-x-3 rounded-full cursor-pointer ${
-                        TagColor[tag] ? TagColor[tag][0] : "bg-gray-50"
+                        TagColor[tag] ? TagColor[tag][0] : "bg-gray-50 dark:bg-gray-600 dark:text-white"
                       }`}
                       onClick={() => {
                         if (!filters.includes(tag)) {
@@ -106,12 +106,12 @@ export default function Home({ posts }: HomeProps) {
                   // style={{isolation: 'isolate'}}
                   className={`text-xs font-medium h-auto flex items-center ml-3 border py-1.5 px-2 ${
                     filters.length === 0
-                      ? "disabled border-gray-300 text-gray-300 cursor-default"
-                      : " text-gray-600 border-gray-600 cursor-pointer"
+                      ? "disabled border-gray-300 dark:border-gray-600 text-gray-300 dark:text-gray-600 cursor-default"
+                      : " text-gray-600 border-gray-600 dark:text-gray-300 dark:border-gray-300 cursor-pointer"
                   } rounded-full`}
                   onClick={() => setFilters([])}
                 >
-                  <p>Clear</p>
+                  <p className={`${filters.length === 0 ? "text-gray-300 dark:text-gray-600" : "text-gray-600 dark:text-gray-300"}`}>Clear</p>
                 </div>
               )}
             </div>

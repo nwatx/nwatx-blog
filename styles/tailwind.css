@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    p {
+        @apply dark:text-white;
+    }
+
+    li {
+        @apply dark:text-white;
+    }
+
+    .katex {
+        @apply dark:text-white;
+    }
+}

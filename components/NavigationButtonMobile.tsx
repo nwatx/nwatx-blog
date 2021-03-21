@@ -9,8 +9,8 @@ export default function NavigationButtonMobile({ to, label }: ButtonProps) {
       onClick={() => router.push(to)}
       className={`${
         router.asPath === to
-          ? "shadow-inner text-gray-300 cursor-default"
-          : "text-gray-700 cursor-pointer"
+          ? "shadow-inner text-gray-300 dark:text-gray-600 cursor-default"
+          : "text-gray-700 dark:text-gray-200 cursor-pointer"
       } block px-3 py-2 rounded-md text-base font-medium`}
     >
       {label}

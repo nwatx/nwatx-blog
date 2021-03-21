@@ -1,16 +1,20 @@
+import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
+import DarkModeButton from "./DarkModeButton";
+import GithubButton from "./GithubButton";
 import NavigationButton from "./NavigationButton";
 import NavigationButtonMobile from "./NavigationButtonMobile";
 
 export default function Navbar({ children }) {
   const router = useRouter();
   const [open, setOpen] = useState(false);
+  const { theme } = useTheme();
 
   return (
     <div className="flex flex-1 flex-col w-full min-w-full h-screen justify-items-start overflow-hidden">
       <nav className="w-full">
-        <div className="max-w-7xl px-4 mx-auto">
+        <div className="max-w-7xl px-3 mx-auto">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
@@ -21,7 +25,7 @@ export default function Navbar({ children }) {
                   alt="Workflow"
                 /> */}
                 <p
-                  className="text-xl cursor-pointer"
+                  className="text-xl dark:text-white cursor-pointer"
                   onClick={() => router.push("/")}
                 >
                   nwatx
@@ -30,7 +34,8 @@ export default function Navbar({ children }) {
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-end space-x-4">
-                <NavigationButton to='https://github.com/nwatx' src='/github.svg' />
+                <GithubButton />
+                {/* <NavigationButton to='https://github.com/nwatx' src='/github.svg' /> */}
                 <NavigationButton to="/aboutme" label="About Me" />
               </div>
             </div>
@@ -38,7 +43,10 @@ export default function Navbar({ children }) {
               <button
                 onClick={() => setOpen(!open)}
                 type="button"
-                className="shadow:md inline-flex items-center justify-center p-2 rounded-md text-black hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-white"
+                className={`shadow:md inline-flex items-center justify-center p-2 rounded-md hover:shadow-md focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-gray-100
+                ${
+                  theme === "light" ? "text-black" : "text-white"
+                } focus:ring-white`}
                 aria-controls="mobile-menu"
                 aria-expanded="false"
               >
@@ -75,12 +83,11 @@ export default function Navbar({ children }) {
                 </svg>
               </button>
             </div>
-
           </div>
-            <div className="flex w-full justify-between">
-              <div className="flex w-1/12 border-black border-box border-b"></div>
-              <div className="flex w-1/12 border-black border-box border-b"></div>
-            </div>
+          <div className="flex w-full justify-between">
+            <div className="flex w-1/12 border-black border-box border-b dark:border-white"></div>
+            <div className="flex w-1/12 border-black border-box border-b dark:border-white"></div>
+          </div>
         </div>
 
         {open && (
@@ -91,7 +98,9 @@ export default function Navbar({ children }) {
           </div>
         )}
       </nav>
-      <div className="flex flex-1 w-full flex-col min-h-0 overflow-hidden">{children}</div>
+      <div className="flex flex-1 w-full flex-col min-h-0 overflow-hidden">
+        {children}
+      </div>
     </div>
   );
 }

@@ -77,14 +77,15 @@ const BlogPost = ({ source, data }) => {
         />
       </Head>
       <NavBarLayout>
-        <div className="flex w-full 2xl:w-1/2 flex-col items-center">
-          <div className="flex w-full max-w-7xl p-1 border-b flex-col">
-            <div className="text-4xl">
-              <p>{data.title}</p>
+        <div className="flex w-full max-w-7xl flex-col items-center">
+          {/* <div className="flex w-full max-w-7xl p-1 border-b flex-col"> */}
+          <div className="flex flex-col w-full justify-center max-w-7xl mt-4 pb-10 md:pb-4 border-b">
+            <div className="text-4xl max-w-7xl">
+              <p className='dark:text-gray-100'>{data.title}</p>
             </div>
             <div className="flex flex-col lg:flex-row w-full lg:justify-between">
               {data.description && (
-                <h2 className="text-xl font-light mt-1 text-gray-500">
+                <h2 className="text-xl font-light mt-1 text-gray-500 dark:text-gray-300">
                   {data.description}
                 </h2>
               )}
