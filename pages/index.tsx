@@ -68,7 +68,7 @@ export default function Home({ posts }: HomeProps) {
                   {uniquePostTags.map((tag) => (
                     <div
                       className={`flex text-xs uppercase flex-row items-center py-1.5 px-2 space-x-3 rounded-full cursor-pointer ${
-                        TagColor[tag] ? TagColor[tag][0] : "bg-gray-50 dark:bg-gray-600 dark:text-white"
+                        TagColor[tag] ? TagColor[tag][0] : "bg-gray-50 dark:bg-gray-700 dark:text-white"
                       }`}
                       onClick={() => {
                         if (!filters.includes(tag)) {
@@ -106,12 +106,12 @@ export default function Home({ posts }: HomeProps) {
                   // style={{isolation: 'isolate'}}
                   className={`text-xs font-medium h-auto flex items-center ml-3 border py-1.5 px-2 ${
                     filters.length === 0
-                      ? "disabled border-gray-300 dark:border-gray-600 text-gray-300 dark:text-gray-600 cursor-default"
-                      : " text-gray-600 border-gray-600 dark:text-gray-300 dark:border-gray-300 cursor-pointer"
+                      ? "disabled border-gray-300 dark:border-gray-700 text-gray-300 dark:text-gray-700 cursor-default"
+                      : " text-gray-700 border-gray-700 dark:text-gray-300 dark:border-gray-300 cursor-pointer"
                   } rounded-full`}
                   onClick={() => setFilters([])}
                 >
-                  <p className={`${filters.length === 0 ? "text-gray-300 dark:text-gray-600" : "text-gray-600 dark:text-gray-300"}`}>Clear</p>
+                  <p className={`${filters.length === 0 ? "text-gray-300 dark:text-gray-700" : "text-gray-700 dark:text-gray-300"}`}>Clear</p>
                 </div>
               )}
             </div>
