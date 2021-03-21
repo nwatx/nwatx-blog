@@ -54,7 +54,7 @@ export default function Home({ posts }: HomeProps) {
         />
       </Head>
       <div className="flex h-full overflow-auto justify-between w-full flex-col max-w-7xl">
-        <div className="flex flex-col max-w-7xl lg:px-4 w-full space-y-5">
+        <div className="flex flex-col max-w-7xl w-full space-y-5">
           <div className="flex w-full">
             <p className="text-4xl dark:text-white underline">Blog</p>
           </div>
@@ -116,7 +116,7 @@ export default function Home({ posts }: HomeProps) {
               )}
             </div>
           )}
-          <div className="flex flex-col w-full space-y-5">
+          <div className="flex flex-col w-full space-y-5 overflow-hidden">
             {posts &&
               posts
                 .filter((p) => {
