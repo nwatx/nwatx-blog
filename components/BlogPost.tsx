@@ -27,7 +27,7 @@ export default function BlogPost({
 }: BlogPostProps) {
   return (
     <Link href={`/post/${slug}`}>
-      <div className="flex w-full justify-between py-7 px-10 rounded-lg shadow-sm cursor-pointer hover:shadow-inner antialiased dark:border-b dark:hover:bg-gray-500">
+      <div className="flex w-full justify-between py-7 px-10 rounded-lg shadow-sm cursor-pointer hover:shadow-inner antialiased dark:border-b-2 dark:hover:bg-gray-500">
         <div className="flex flex-col w-full">
           <div className='flex flex-col sm:flex-row'>
             <p className="text-3xl text-gray-800 dark:text-gray-100">{title}</p>
