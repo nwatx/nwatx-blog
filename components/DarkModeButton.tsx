@@ -9,8 +9,8 @@ const DarkModeButton = () => {
       className={`${
         theme === "dark"
           ? "shadow-inner cursor-default text-gray-300"
-          : " text-gray-700 hover:shadow-inner cursor-pointer"
-      } rounded-md absolute self-center p-3 ${!(theme === 'light') ? 'bg-gray-100' : 'bg-gray-700'} text-sm bottom-10 right-10`}
+          : " text-gray-700 hover:shadow-inner"
+      } rounded-md absolute self-center p-3 cursor-pointer ${!(theme === 'light') ? 'bg-gray-100' : 'bg-gray-700'} text-sm bottom-10 right-10`}
     >
       🌓
     </div>
