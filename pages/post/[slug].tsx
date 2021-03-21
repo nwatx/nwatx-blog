@@ -80,13 +80,13 @@ const BlogPost = ({ source, data }) => {
         <div className="flex w-full max-w-7xl flex-col items-center">
           {/* <div className="flex w-full max-w-7xl p-1 border-b flex-col"> */}
           <div className="flex flex-col w-full justify-center max-w-7xl mt-4 pb-10 md:pb-4 border-b">
-            <div className="text-4xl max-w-7xl">
+            <div className="text-4xl max-w-7xl flex flex-row w-ful justify-between">
               <p className="dark:text-gray-100">
                 {data.title}{" "}
-                <b className="text-base font-light">
-                  by <b>{data.author}</b> on{" "}
-                  <b>{new Date(data.date).toLocaleDateString()}</b>
-                </b>
+              </p>
+              <p className="text-base font-light">
+                by <b>{data.author}</b> on{" "}
+                <b>{new Date(data.date).toLocaleDateString()}</b>
               </p>
             </div>
             <div className="flex flex-col items-end lg:flex-row w-full lg:justify-between">
