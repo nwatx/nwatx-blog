@@ -7,6 +7,7 @@ export type BlogPostProps = {
   author: string;
   description: string;
   slug: string;
+  date: Date;
   tags?: string;
   image?: string;
 };
@@ -20,18 +21,19 @@ export default function BlogPost({
   slug,
   author,
   description,
+  date,
   image,
   tags,
 }: BlogPostProps) {
   return (
     <Link href={`/post/${slug}`}>
-      <div className="flex w-full justify-between py-7 px-10 rounded-lg shadow-sm cursor-pointer hover:shadow-inner antialiased dark:border-b-2 dark:hover:bg-gray-500">
+      <div className="flex w-full justify-between py-7 px-10 rounded-lg shadow-sm cursor-pointer hover:shadow-inner antialiased dark:border-b dark:hover:bg-gray-500">
         <div className="flex flex-col w-full">
           <div className='flex flex-col sm:flex-row'>
             <p className="text-3xl text-gray-800 dark:text-gray-100">{title}</p>
             {author && (
               <div className='mx-1 flex h-full w-full sm:w-auto'>
-                <p className="text-md text-gray-600 dark:text-gray-400 self-end font-light">by <b className=''>{author}</b></p>
+                <p className="text-md text-gray-600 dark:text-gray-400 self-end font-light">by <b className=''>{author}</b> on <b>{date && new Date(date).toLocaleDateString()}</b></p>
               </div>
             )}
           </div>

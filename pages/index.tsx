@@ -68,7 +68,9 @@ export default function Home({ posts }: HomeProps) {
                   {uniquePostTags.map((tag) => (
                     <div
                       className={`flex text-xs uppercase flex-row items-center py-1.5 px-2 space-x-3 rounded-full cursor-pointer ${
-                        TagColor[tag] ? TagColor[tag][0] : "bg-gray-50 dark:bg-gray-700 dark:text-white"
+                        TagColor[tag]
+                          ? TagColor[tag][0]
+                          : "bg-gray-50 dark:bg-gray-700 dark:text-white"
                       }`}
                       onClick={() => {
                         if (!filters.includes(tag)) {
@@ -111,7 +113,15 @@ export default function Home({ posts }: HomeProps) {
                   } rounded-full`}
                   onClick={() => setFilters([])}
                 >
-                  <p className={`${filters.length === 0 ? "text-gray-300 dark:text-gray-700" : "text-gray-700 dark:text-gray-300"}`}>Clear</p>
+                  <p
+                    className={`${
+                      filters.length === 0
+                        ? "text-gray-300 dark:text-gray-700"
+                        : "text-gray-700 dark:text-gray-300"
+                    }`}
+                  >
+                    Clear
+                  </p>
                 </div>
               )}
             </div>
@@ -124,6 +134,12 @@ export default function Home({ posts }: HomeProps) {
                   if (!p.frontmatter.tags && filters.length) return false;
                   return filters.some((filter) =>
                     p.frontmatter.tags.split(",").includes(filter)
+                  );
+                })
+                .sort((a, b) => {
+                  return (
+                    new Date(b.frontmatter.date).getTime() -
+                    new Date(a.frontmatter.date).getTime()
                   );
                 })
                 .map((post) => (
@@ -157,7 +173,7 @@ export async function getStaticProps() {
 
     const frontmatter = {
       ...data,
-      // date: formattedDate,
+      date: data.date.toISOString(),
       filename: filename.replace(".mdx", ""),
     };
 
