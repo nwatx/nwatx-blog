@@ -4,8 +4,9 @@ import matter from "gray-matter";
 import BlogPost from "../components/BlogPost";
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import { BlogPostProps, TagColor } from "../components/BlogPost";
+import { BlogPostProps } from "../components/BlogPost";
 import ViewCounter from "../components/ViewCounter";
+import { TagColor } from "../components/TagColors";
 
 type Post = {
   slug;
@@ -55,9 +56,9 @@ export default function Home({ posts }: HomeProps) {
       </Head>
       <div className="flex h-full overflow-auto justify-between w-full flex-col max-w-7xl">
         <div className="flex flex-col max-w-7xl w-full space-y-5">
-          <div className="flex w-full">
-            <p className="text-4xl dark:text-white underline">Blog</p>
-          </div>
+          {/* <div className="flex w-full">
+            <p className="text-4xl dark:text-white">Blog</p>
+          </div> */}
           {/* <div className="flex w-full">
           <p className="text-lg">Tags</p>
         </div> */}
@@ -65,9 +66,9 @@ export default function Home({ posts }: HomeProps) {
             <div className="flex w-full flex-row items-baseline space-x-3">
               {uniquePostTags && (
                 <div className="flex items-baseline mt-1 mb-2 space-x-3">
-                  {uniquePostTags.map((tag) => (
+                  {uniquePostTags.sort((a,b)=> a.trim().localeCompare(b.trim())).map((tag) => (
                     <div
-                      className={`flex text-xs uppercase flex-row items-center py-1.5 px-2 space-x-3 rounded-full cursor-pointer ${
+                      className={`flex text-xs uppercase flex-row items-center py-1.5 px-2 space-x-3 rounded-md cursor-pointer ${
                         TagColor[tag]
                           ? TagColor[tag][0]
                           : "bg-gray-50 dark:bg-gray-700 dark:text-white"

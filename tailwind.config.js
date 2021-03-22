@@ -9,7 +9,8 @@ module.exports = {
   },
   variants: {
     extend: {
-      borderWidth: ['dark']
+      borderWidth: ['dark'],
+      borderOpacity: ['dark']
     },
   },
   plugins: [],

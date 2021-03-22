@@ -14,7 +14,7 @@ export default function Navbar({ children }) {
   return (
     <div className="flex flex-1 flex-col w-full min-w-full h-screen justify-items-start overflow-hidden">
       <nav className="w-full">
-        <div className="max-w-7xl px-3 mx-auto">
+        <div className="max-w-7xl px-3 mx-auto border-b">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
@@ -84,10 +84,10 @@ export default function Navbar({ children }) {
               </button>
             </div>
           </div>
-          <div className="flex w-full justify-between">
-            <div className="flex w-1/12 border-black border-box border-b dark:border-white"></div>
-            <div className="flex w-1/12 border-black border-box border-b dark:border-white"></div>
-          </div>
+          {/* <div className="flex w-full justify-between"> */}
+            {/* <div className="flex w-1/12 border-black border-box border-b dark:border-white"></div> */}
+            {/* <div className="flex w-1/12 border-black border-box border-b dark:border-white"></div> */}
+          {/* </div> */}
         </div>
 
         {open && (

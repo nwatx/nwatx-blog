@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
+import { TagColor } from "./TagColors";
 
 export type BlogPostProps = {
   title: string;
@@ -10,10 +11,6 @@ export type BlogPostProps = {
   date: Date;
   tags?: string;
   image?: string;
-};
-
-export const TagColor = {
-  // cpp: ["bg-red-50", "text-red-600"],
 };
 
 export default function BlogPost({
@@ -27,22 +24,14 @@ export default function BlogPost({
 }: BlogPostProps) {
   return (
     <Link href={`/post/${slug}`}>
-      <div className="flex w-full justify-between py-7 px-10 rounded-lg shadow-sm cursor-pointer hover:shadow-inner antialiased dark:border-b-2 dark:hover:bg-gray-500">
-        <div className="flex flex-col w-full">
-          <div className='flex flex-col sm:flex-row'>
-            <p className="text-3xl text-gray-800 dark:text-gray-100">{title}</p>
-            {author && (
-              <div className='mx-1 flex h-full w-full sm:w-auto'>
-                <p className="text-md text-gray-600 dark:text-gray-400 self-end font-light">by <b className=''>{author}</b> on <b>{date && new Date(date).toLocaleDateString()}</b></p>
-              </div>
-            )}
-          </div>
+      <div className="flex w-full justify-between py-7 px-10 rounded-lg shadow-sm cursor-pointer hover:shadow-inner antialiased dark:border-b dark:border-gray-600 dark:hover:bg-gray-700">
+        <div className="flex flex-col space-y-2 w-full">
           {tags && (
             <div className="flex items-baseline w-full mt-1 mb-2 space-x-3">
-              {tags.split(",").map((tag) => (
+              {tags.split(",").sort().map((tag) => (
                 <div
                   key={tag}
-                  className={`rounded-full dark:bg-gray-700 dark:text-white ${
+                  className={`rounded-md dark:bg-gray-700 dark:text-white ${
                     TagColor[tag] && TagColor[tag][0]
                   }`}
                 >
@@ -57,6 +46,14 @@ export default function BlogPost({
               ))}
             </div>
           )}
+          <div className='flex flex-col sm:flex-row'>
+            <p className="text-3xl text-gray-800 dark:text-gray-100">{title}</p>
+            {author && (
+              <div className='mx-1 flex h-full w-full sm:w-auto'>
+                <p className="text-md text-gray-600 dark:text-gray-400 self-end font-light">by <b className=''>{author}</b> on <b>{date && new Date(date).toLocaleDateString()}</b></p>
+              </div>
+            )}
+          </div>
           <div>
             <p className="text-md text-gray-800 dark:text-gray-200">{description}</p>
           </div>
