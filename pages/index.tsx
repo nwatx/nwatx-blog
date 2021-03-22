@@ -63,12 +63,12 @@ export default function Home({ posts }: HomeProps) {
           <p className="text-lg">Tags</p>
         </div> */}
           {posts && (
-            <div className="flex w-full flex-row items-baseline space-x-3">
+            <div className="flex w-full flex-row items-baseline">
               {uniquePostTags && (
-                <div className="flex items-baseline mt-1 mb-2 space-x-3">
+                <div className="flex flex-row flex-wrap items-baseline mt-1 mb-2 space-y-1">
                   {uniquePostTags.sort((a,b)=> a.trim().localeCompare(b.trim())).map((tag) => (
                     <div
-                      className={`flex text-xs uppercase flex-row items-center py-1.5 px-2 space-x-3 rounded-md cursor-pointer ${
+                      className={`flex text-xs mr-2 uppercase flex-row items-center py-1.5 px-2 space-x-3 rounded-md cursor-pointer ${
                         TagColor[tag]
                           ? TagColor[tag][0]
                           : "bg-gray-50 dark:bg-gray-700 dark:text-white"
@@ -107,11 +107,11 @@ export default function Home({ posts }: HomeProps) {
               {filters && (
                 <div
                   // style={{isolation: 'isolate'}}
-                  className={`text-xs font-medium h-auto flex items-center ml-3 border py-1.5 px-2 ${
+                  className={`text-xs font-medium h-auto flex items-center border py-1.5 px-2 ${
                     filters.length === 0
                       ? "disabled border-gray-300 dark:border-gray-700 text-gray-300 dark:text-gray-700 cursor-default"
                       : " text-gray-700 border-gray-700 dark:text-gray-300 dark:border-gray-300 cursor-pointer"
-                  } rounded-full`}
+                  } rounded-md`}
                   onClick={() => setFilters([])}
                 >
                   <p

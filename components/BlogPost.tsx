@@ -27,11 +27,11 @@ export default function BlogPost({
       <div className="flex w-full justify-between py-7 px-10 rounded-lg shadow-sm cursor-pointer hover:shadow-inner antialiased dark:border-b dark:border-gray-600 dark:hover:bg-gray-700">
         <div className="flex flex-col space-y-2 w-full">
           {tags && (
-            <div className="flex items-baseline w-full mt-1 mb-2 space-x-3">
+            <div className="flex flex-wrap items-baseline w-full mt-1 mb-2 space-y-1">
               {tags.split(",").sort().map((tag) => (
                 <div
                   key={tag}
-                  className={`rounded-md dark:bg-gray-700 dark:text-white ${
+                  className={`rounded-md dark:bg-gray-700 dark:text-white mr-2 ${
                     TagColor[tag] && TagColor[tag][0]
                   }`}
                 >
