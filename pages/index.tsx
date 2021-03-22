@@ -65,64 +65,68 @@ export default function Home({ posts }: HomeProps) {
           {posts && (
             <div className="flex w-full flex-row items-baseline">
               {uniquePostTags && (
-                <div className="flex flex-row flex-wrap items-baseline mt-1 mb-2 space-y-1">
-                  {uniquePostTags.sort((a,b)=> a.trim().localeCompare(b.trim())).map((tag) => (
+                <div className="flex flex-row flex-wrap items-baseline mt-1 mb-2 space-y-2">
+                  {uniquePostTags
+                    .sort((a, b) => a.trim().localeCompare(b.trim()))
+                    .map((tag) => (
+                      <div
+                        className={`flex text-xs mr-2 uppercase flex-row items-center py-1.5 px-2 space-x-3 rounded-md cursor-pointer ${
+                          TagColor[tag]
+                            ? TagColor[tag][0]
+                            : "bg-gray-50 dark:bg-gray-700 dark:text-white"
+                        }`}
+                        onClick={() => {
+                          if (!filters.includes(tag)) {
+                            setFilters([...filters, tag]);
+                          }
+                        }}
+                      >
+                        <p
+                          className={`mt-0 ${
+                            TagColor[tag] && TagColor[tag][1]
+                          }`}
+                        >
+                          {tag}
+                        </p>
+                        {filters.includes(tag) && (
+                          <div
+                            className="px-2 flex flex-col justify-center rounded-full"
+                            onClick={() =>
+                              setFilters(filters.filter((f) => f !== tag))
+                            }
+                          >
+                            <p
+                              className={`mt-0 ${
+                                TagColor[tag] && TagColor[tag][1]
+                              } self-center text-xs`}
+                            >
+                              x
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  {filters && (
                     <div
-                      className={`flex text-xs mr-2 uppercase flex-row items-center py-1.5 px-2 space-x-3 rounded-md cursor-pointer ${
-                        TagColor[tag]
-                          ? TagColor[tag][0]
-                          : "bg-gray-50 dark:bg-gray-700 dark:text-white"
-                      }`}
-                      onClick={() => {
-                        if (!filters.includes(tag)) {
-                          setFilters([...filters, tag]);
-                        }
-                      }}
+                      // style={{isolation: 'isolate'}}
+                      className={`text-xs font-semibold h-auto flex items-center border-2 py-1 px-2 ${
+                        filters.length === 0
+                          ? "disabled border-gray-300 dark:border-gray-700 text-gray-300 dark:text-gray-700 cursor-default"
+                          : " text-gray-700 border-gray-700 dark:text-gray-300 dark:border-gray-300 cursor-pointer"
+                      } rounded-md`}
+                      onClick={() => setFilters([])}
                     >
                       <p
-                        className={`mt-0 ${TagColor[tag] && TagColor[tag][1]}`}
+                        className={`${
+                          filters.length === 0
+                            ? "text-gray-300 dark:text-gray-700"
+                            : "text-gray-700 dark:text-gray-300"
+                        }`}
                       >
-                        {tag}
+                        Clear
                       </p>
-                      {filters.includes(tag) && (
-                        <div
-                          className="px-2 flex flex-col justify-center rounded-full"
-                          onClick={() =>
-                            setFilters(filters.filter((f) => f !== tag))
-                          }
-                        >
-                          <p
-                            className={`mt-0 ${
-                              TagColor[tag] && TagColor[tag][1]
-                            } self-center text-xs`}
-                          >
-                            x
-                          </p>
-                        </div>
-                      )}
                     </div>
-                  ))}
-                                {filters && (
-                <div
-                  // style={{isolation: 'isolate'}}
-                  className={`text-xs font-medium h-auto flex items-center border py-1.5 px-2 ${
-                    filters.length === 0
-                      ? "disabled border-gray-300 dark:border-gray-700 text-gray-300 dark:text-gray-700 cursor-default"
-                      : " text-gray-700 border-gray-700 dark:text-gray-300 dark:border-gray-300 cursor-pointer"
-                  } rounded-md`}
-                  onClick={() => setFilters([])}
-                >
-                  <p
-                    className={`${
-                      filters.length === 0
-                        ? "text-gray-300 dark:text-gray-700"
-                        : "text-gray-700 dark:text-gray-300"
-                    }`}
-                  >
-                    Clear
-                  </p>
-                </div>
-              )}
+                  )}
                 </div>
               )}
             </div>
