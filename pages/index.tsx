@@ -102,9 +102,7 @@ export default function Home({ posts }: HomeProps) {
                       )}
                     </div>
                   ))}
-                </div>
-              )}
-              {filters && (
+                                {filters && (
                 <div
                   // style={{isolation: 'isolate'}}
                   className={`text-xs font-medium h-auto flex items-center border py-1.5 px-2 ${
@@ -123,6 +121,8 @@ export default function Home({ posts }: HomeProps) {
                   >
                     Clear
                   </p>
+                </div>
+              )}
                 </div>
               )}
             </div>
