@@ -80,7 +80,7 @@ const BlogPost = ({ source, data }) => {
         <div className="flex xl:ml-2 w-full max-w-7xl flex-col items-center">
           {/* <div className="flex w-full max-w-7xl p-1 border-b flex-col"> */}
           <div className="flex flex-col w-full justify-center max-w-7xl mt-4 pb-10 md:pb-4 border-b">
-            <div className="text-4xl max-w-7xl flex flex-row w-ful justify-between items-end">
+            <div className="text-4xl max-w-7xl flex flex-row w-full flex-wrap justify-between items-end">
               <p className="dark:text-gray-100">
                 {data.title}{" "}
               </p>
@@ -89,7 +89,7 @@ const BlogPost = ({ source, data }) => {
                 <b>{new Date(data.date).toLocaleDateString()}</b>
               </p>
             </div>
-            <div className="flex flex-col items-end lg:flex-row w-full lg:justify-between">
+            <div className="flex items-end flex-row flex-wrap w-full justify-between">
               {data.description && (
                 <h2 className="text-xl font-light mt-1 text-gray-500 dark:text-gray-300">
                   {data.description}
