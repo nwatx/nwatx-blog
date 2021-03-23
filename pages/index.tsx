@@ -137,7 +137,7 @@ export default function Home({ posts }: HomeProps) {
                 .filter((p) => {
                   if (filters.length === 0) return true;
                   if (!p.frontmatter.tags && filters.length) return false;
-                  return filters.some((filter) =>
+                  return filters.every((filter) =>
                     p.frontmatter.tags.split(",").includes(filter)
                   );
                 })
