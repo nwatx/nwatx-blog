@@ -8,20 +8,21 @@ import React, {
 import NavBarLayout from "../layouts/NavBarLayout";
 import Prism from "prismjs";
 import { mdx } from "@mdx-js/react";
-import { LiveEditor, LiveError, LivePreview, LiveProvider } from "react-live";
+import {
+  Editor,
+  LiveEditor,
+  LiveError,
+  LivePreview,
+  LiveProvider,
+} from "react-live";
 import { MdxRemote } from "next-mdx-remote/types";
 import MDXPreview from "../components/MDXPreview";
+import { highlight, languages } from "prismjs/components/prism-core";
 
 export default function mdxpreview({ children }) {
   const [mdxContent, setMdxContent] = useState("");
   const [renderOutput, setRenderOutput] = useState("");
   const [source, setSource] = useState<MdxRemote.Source>();
-
-  // console.log(mdxContent);
-
-  useEffect(() => {
-    Prism.highlightAll();
-  }, []);
 
   useEffect(() => {
     if (!mdxContent) return;
@@ -40,51 +41,35 @@ export default function mdxpreview({ children }) {
         if (error) {
           console.error("error");
         } else {
-          //   const newContent = hydrate(renderedOutput, {
-          // components: MDXComponents,
-          //   });
-
-          //   console.log(newContent);
-          // console.log(source);
           setSource(source);
         }
       });
   }, [mdxContent]);
 
-  //   useEffect(() => {
-  //     if (source) {
-  //       setContent(
-  //         hydrate(source, {
-  //           components: MDXComponents,
-  //         })
-  //       );
-  //     }
-  //   }, [source]);
-
-  //   console.log("renderoutput", renderOutput);
-
   return (
     <LiveProvider code={renderOutput} scope={{ mdx: mdx }}>
       <NavBarLayout>
-        <div className="flex flex-row w-full">
+        <div className="flex flex-row w-full space-x-2 max-w-7xl">
           {/* <div className="flex w-1/2"> */}
-          {/* <textarea
-            onChange={(e) => setMdxContent(e.target.value)}
-            className="resize-y rounded-md w-full"
-          /> */}
-          <div className="bg-white flex w-1/2">
-            <LiveEditor
+            <Editor
+              value={mdxContent}
               onChange={(code) => setMdxContent(code)}
-              style={{ width: "100%" }}
+              cellPadding={10}
+              className='flex w-1/2 bg-gray-800 rounded-md'
+              style={{
+                fontFamily: '"Fira code", "Fira Mono", monospace',
+                fontSize: 14,
+                caretColor: 'white'
+              }}
             />
-          </div>
-          <div className="w-1/2">
+            {/* <textarea
+              className="flex p-5 w-full rounded-md resize-y"
+              onChange={(e) => setMdxContent(e.target.value)}
+            /> */}
+          {/* </div> */}
+          <div className="flex flex-wrap overflow-y-auto w-1/2">
             {source && <MDXPreview source={source} />}
           </div>
-          {/* </div> */}
-          {/* <div className="flex w-1/2"> */}
-          {/* {mdxContent && compiledMarkdown(mdxContent)} */}
-          {/* </div> */}
         </div>
       </NavBarLayout>
     </LiveProvider>
