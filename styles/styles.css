@@ -55,6 +55,12 @@ a, button {
   outline: 0 !important;
 }
 
+textarea {
+  overflow: auto !important;
+  height: auto;
+  white-space: normal;
+}
+
 /* p {
   margin-top: 5px
 } */
