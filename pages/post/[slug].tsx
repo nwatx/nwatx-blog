@@ -23,7 +23,7 @@ export const ImageLoader = (src) => {
   return `https://res.cloudinary.com/dcg5b3jpt/image/upload/v1615871692/blog/${src}`;
 };
 
-const MDXComponents = {
+export const MDXComponents = {
   img: (props) => {
     // console.log(JSON.stringify(props));
     const { src, ...rest } = props;
