@@ -41,7 +41,7 @@ export default function mdxpreview({ children }) {
         >
           Rich editor: {richEditor ? "on" : "off"}
         </div>
-        <div className="flex flex-row space-x-3 h-auto">
+        <div className="flex flex-1 flex-row space-x-3 h-auto">
           <div className="w-1/2">
             {richEditor ? (
               <Editor
