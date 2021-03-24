@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@babel/core": "^7.13.10",
     "@mdx-js/loader": "^1.6.22",
     "@next/mdx": "^10.0.9",
     "comma-number": "^2.0.1",
@@ -27,7 +28,6 @@
     "react-latex": "^2.0.0",
     "react-lazy-load-image-component": "^1.5.1",
     "react-live": "^2.2.3",
-    "react-simple-code-editor": "^0.11.0",
     "rehype-katex": "^4.0.0",
     "rehype-stringify": "^8.0.0",
     "remark": "^13.0.0",
@@ -36,7 +36,7 @@
     "remark-parse": "^9.0.0",
     "remark-rehype": "^8.0.0",
     "rich-markdown-editor": "^11.6.0",
-    "styled-components": "3.2.6",
+    "styled-components": "^5.2.1",
     "swr": "^0.5.4",
     "to-vfile": "^6.1.0",
     "unified": "^9.2.1"
