@@ -12,34 +12,41 @@ export default function mdxpreview({ children }) {
 
   useEffect(() => {
     if (!mdxContent) return;
-    fetch("/api/render", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        markdown: mdxContent,
-      }),
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        const { source, error } = res;
-        if (error) {
-          console.error("error");
-        } else {
-          setSource(source);
-        }
-      });
+    const render = () => {
+      fetch("/api/render", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          markdown: mdxContent,
+        }),
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          const { source, error } = res;
+          if (error) {
+            console.error("error");
+          } else {
+            setSource(source);
+          }
+        });
+    };
+
+    let id = setTimeout(render, 1000);
+    return () => clearTimeout(id);
   }, [mdxContent]);
 
   return (
     <NavBarLayout>
       <div className="flex flex-col w-full space-x-2 max-w-7xl">
-        <div
-          className="flex w-full cursor-pointer"
-          onClick={() => setRichEditor(!richEditor)}
-        >
-          Rich editor: {richEditor ? "on" : "off"}
+        <div className="flex w-full cursor-pointer items-center justify-center">
+          <div
+            className="p-3 mb-2 bg-gray-300 rounded-md"
+            onClick={() => setRichEditor(!richEditor)}
+          >
+            <p className='dark:text-black'>Rich editor: {richEditor ? "on" : "off"}</p>
+          </div>
         </div>
         <div className="flex flex-1 flex-row space-x-3 h-auto">
           <div className="w-1/2">
@@ -52,7 +59,7 @@ export default function mdxpreview({ children }) {
             ) : (
               <textarea
                 defaultValue={mdxContent}
-                className="w-full h-full resize-none bg-gray-800 rounded-l-md outline-none text-white p-5 whitespace-pre-wrap"
+                className="w-full h-full resize-none bg-gray-800 rounded-md outline-none text-white p-5 whitespace-pre-wrap"
                 onChange={(e) => setMdxContent(e.target.value)}
               />
             )}

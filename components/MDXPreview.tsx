@@ -13,7 +13,7 @@ const MDXPreview = ({ source }) => {
 
   return (
     <MDXProvider>
-      <div className='flex flex-col space-y-4 w-full flex-wrap whitespace-normal break-normal'>{content}</div>
+      <div className='flex border p-2 flex-col space-y-4 w-full flex-wrap whitespace-normal break-normal'>{content}</div>
     </MDXProvider>
   );
 };
