@@ -1,17 +1,18 @@
 module.exports = {
-  purge: ['./**/*.{jsx,tsx}', './styles/**.css'],
-  darkMode: 'class', // or 'media' or 'class'
+  purge: ["./**/*.{jsx,tsx}", "./styles/**.css"],
+  darkMode: "class", // or 'media' or 'class'
   theme: {
     extend: {},
     fontFamily: {
-      sans: ['Raleway', 'sans-serif'],
-    }
+      serif: ["Raleway", "sans-serif"],
+      sans: ["Open Sans"],
+    },
   },
   variants: {
     extend: {
-      borderWidth: ['dark'],
-      borderOpacity: ['dark']
+      borderWidth: ["dark"],
+      borderOpacity: ["dark"],
     },
   },
   plugins: [],
-}
+};

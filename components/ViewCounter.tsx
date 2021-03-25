@@ -8,7 +8,7 @@ async function fetcher(...args) {
   return res.json();
 }
 
-export default function ViewCounter({ slug }) {
+export default function ViewCounter({ slug, styles }) {
   const { data } = useSWR(`/api/views/${slug}`, fetcher);
   const views = data?.total;
 
@@ -23,5 +23,5 @@ export default function ViewCounter({ slug }) {
     registerView();
   }, [slug]);
 
-  return <div className='font-light dark:text-gray-100'>{slug === "" ? "© Neo Wang | " : ""} {`${views ? format(views) : "–"} views`}</div>
+  return <p className={`font-normal text-sm dark:text-gray-100 ${styles && styles}`}>{slug === "" ? "© Neo Wang | " : "•"} {`${views ? format(views) : "–"} views`}</p>
 }

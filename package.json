@@ -12,6 +12,7 @@
     "@mdx-js/loader": "^1.6.22",
     "@next/mdx": "^10.0.9",
     "comma-number": "^2.0.1",
+    "date-fns": "^2.19.0",
     "firebase-admin": "^9.5.0",
     "fs": "0.0.1-security",
     "globby": "^11.0.3",

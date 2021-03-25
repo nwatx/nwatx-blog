@@ -17,6 +17,7 @@ import NextLink from "../../components/NextLink";
 import { blockquote, h1, h2, h3 } from "../../components/mdx";
 import ViewCounter from "../../components/ViewCounter";
 import { useRouter } from "next/router";
+import { format } from "date-fns";
 
 export const ImageLoader = (src) => {
   console.log(src);
@@ -77,28 +78,32 @@ const BlogPost = ({ source, data }) => {
         />
       </Head>
       <NavBarLayout>
-        <div className="flex xl:ml-2 w-full max-w-7xl flex-col items-center">
+        <div className="flex xl:ml-2 w-full max-w-3xl flex-col items-center">
           {/* <div className="flex w-full max-w-7xl p-1 border-b flex-col"> */}
-          <div className="flex flex-col w-full justify-center max-w-7xl mt-4 pb-10 md:pb-4 border-b">
-            <div className="text-4xl max-w-7xl flex flex-row w-full flex-wrap justify-between items-end">
-              <p className="dark:text-gray-100">
-                {data.title}{" "}
-              </p>
-              <p className="text-base font-light">
-                <b>{data.author}</b> on{" "}
-                <b>{new Date(data.date).toLocaleDateString()}</b>
-              </p>
+          <div className="flex flex-col w-full justify-center max-w-3xl mt-4 pb-10 md:pb-4 border-b">
+            <div className="text-4xl max-w-3xl flex flex-row w-full flex-wrap justify-between items-end">
+              <p className="dark:text-gray-100 font-bold">{data.title} </p>
             </div>
             <div className="flex items-end flex-row flex-wrap w-full justify-between">
-              {data.description && (
-                <h2 className="text-xl font-light mt-1 text-gray-500 dark:text-gray-300">
+              {/* {data.description && (
+                <h2 className="text-xl mt-1 text-gray-500 dark:text-gray-300">
                   {data.description}
                 </h2>
+              )} */}
+              {data.author && data.date && (
+                <div className='flex mt-2 flex-row w-full flex-wrap justify-between align-text-bottom'>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    {`${data.author} / ${format(
+                      new Date(data.date),
+                      "MMMM dd, yyyy"
+                    )}`}
+                  </p>
+                  <ViewCounter slug={router.query.slug} styles={'text-gray-600'} />
+                </div>
               )}
-              <ViewCounter slug={router.query.slug} />
             </div>
           </div>
-          <div className="flex justify-center max-w-7xl p-1 mt-4 pb-10 md:pb-4 w-full">
+          <div className="flex justify-center max-w-3xl mt-4 pb-10 md:pb-4 w-full">
             <div className="flex w-full flex-col space-y-4">{content}</div>
           </div>
         </div>
