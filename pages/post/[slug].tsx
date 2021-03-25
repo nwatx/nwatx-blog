@@ -14,7 +14,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import Head from "next/head";
 import NextLink from "../../components/NextLink";
-import { blockquote, h1, h2, h3 } from "../../components/mdx";
+import { blockquote, h1, h2, h3, p } from "../../components/mdx";
 import ViewCounter from "../../components/ViewCounter";
 import { useRouter } from "next/router";
 import { format } from "date-fns";
@@ -44,6 +44,7 @@ export const MDXComponents = {
   h2: h2,
   h3: h3,
   blockquote: blockquote,
+  p: p,
   // p: Tex,
 };
 
@@ -91,20 +92,23 @@ const BlogPost = ({ source, data }) => {
                 </h2>
               )} */}
               {data.author && data.date && (
-                <div className='flex mt-2 flex-row w-full flex-wrap justify-between align-text-bottom'>
+                <div className="flex mt-2 flex-row w-full flex-wrap justify-between align-text-bottom">
                   <p className="text-sm text-gray-600 dark:text-gray-400">
                     {`${data.author} / ${format(
                       new Date(data.date),
                       "MMMM dd, yyyy"
                     )}`}
                   </p>
-                  <ViewCounter slug={router.query.slug as string} styles={'text-gray-600'} />
+                  <ViewCounter
+                    slug={router.query.slug as string}
+                    styles={"text-gray-600"}
+                  />
                 </div>
               )}
             </div>
           </div>
-          <div className="flex justify-center max-w-3xl mt-4 pb-10 md:pb-4 w-full">
-            <div className="flex w-full flex-col space-y-6">{content}</div>
+          <div className="flex justify-center max-w-3xl pb-10 md:pb-4 w-full">
+            <div className="flex w-full flex-col">{content}</div>
           </div>
         </div>
       </NavBarLayout>
