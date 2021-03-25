@@ -8,7 +8,12 @@ async function fetcher(...args) {
   return res.json();
 }
 
-export default function ViewCounter({ slug, styles }) {
+type ViewCounterProps = {
+  slug: string;
+  styles?: string;
+}
+
+export default function ViewCounter({ slug, styles }: ViewCounterProps) {
   const { data } = useSWR(`/api/views/${slug}`, fetcher);
   const views = data?.total;
 
