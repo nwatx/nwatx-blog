@@ -95,7 +95,7 @@ export default function mdxpreview({ children }) {
             editorType === "" ? "flex-col md:flex-row" : ""
           } ${editorType === "row" ? "flex-col" : ""} ${
             editorType === "column" ? "flex-row" : ""
-          } ${editorType === "column" ? "space-x-3" : "space-y-3"} h-auto`}
+          } ${editorType === "column" ? "space-x-3" : "space-y-3"} h-auto max-h-full`}
         >
           <div
             className={`${
@@ -124,7 +124,7 @@ export default function mdxpreview({ children }) {
             <ViewCounter invisible={true} slug={"editor"} />
           </div>
           <div
-            className={`flex flex-wrap overflow-y-auto ${
+            className={`flex flex-col overflow-auto max-h-full ${
               editorType === "row" ? "h-1/2 w-full" : "w-1/2"
             }`}
           >
