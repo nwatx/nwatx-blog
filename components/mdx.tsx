@@ -14,6 +14,10 @@ export const p = ({...rest}) => {
     return <p className='dark:text-gray-100 my-3' {...rest} />
 }
 
+export const ol = ({...rest}) => {
+    return <ol className='my-4 space-y-4 border-l-4 px-4 border-blue-600' {...rest} />
+}
+
 export const blockquote = ({...rest}) => {
     return <div className="w-full mx-auto rounded-lg p-1 text-gray-800 dark:Text-gray-100 justify-center">
         <div className="w-full mb-10">
