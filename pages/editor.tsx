@@ -5,6 +5,7 @@ import MDXPreview from "../components/MDXPreview";
 import Editor from "rich-markdown-editor";
 import { useTheme } from "next-themes";
 import { dark } from "../lib/editorTheme";
+import ViewCounter from "../components/ViewCounter";
 
 export default function mdxpreview({ children }) {
   const [mdxContent, setMdxContent] = useState("");
@@ -94,11 +95,12 @@ export default function mdxpreview({ children }) {
             editorType === "" ? "flex-col md:flex-row" : ""
           } ${editorType === "row" ? "flex-col" : ""} ${
             editorType === "column" ? "flex-row" : ""
-          } ${editorType === "column" ? "space-x-3" : 'space-y-3'} h-auto`}
+          } ${editorType === "column" ? "space-x-3" : "space-y-3"} h-auto`}
         >
           <div
             className={`${
-              editorType === "row" ? "w-full h-1/2" : "h-full w-1/2"}`}
+              editorType === "row" ? "w-full h-1/2" : "h-full w-1/2"
+            }`}
             // } ${theme === "dark" && "bg-gray-700"} rounded-sm`}
           >
             {richEditor ? (
@@ -119,6 +121,7 @@ export default function mdxpreview({ children }) {
               className="flex p-5 w-full rounded-md resize-y"
               onChange={(e) => setMdxContent(e.target.value)}
             /> */}
+            <ViewCounter invisible={true} slug={"editor"} />
           </div>
           <div
             className={`flex flex-wrap overflow-y-auto ${

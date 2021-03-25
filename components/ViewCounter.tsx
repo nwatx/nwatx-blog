@@ -11,9 +11,14 @@ async function fetcher(...args) {
 type ViewCounterProps = {
   slug: string;
   styles?: string;
-}
+  invisible?: boolean;
+};
 
-export default function ViewCounter({ slug, styles }: ViewCounterProps) {
+export default function ViewCounter({
+  slug,
+  styles,
+  invisible,
+}: ViewCounterProps) {
   const { data } = useSWR(`/api/views/${slug}`, fetcher);
   const views = data?.total;
 
@@ -28,5 +33,12 @@ export default function ViewCounter({ slug, styles }: ViewCounterProps) {
     registerView();
   }, [slug]);
 
-  return <p className={`font-normal text-sm dark:text-gray-100 ${styles && styles}`}>{slug === "" ? "© Neo Wang | " : "•"} {`${views ? format(views) : "–"} views`}</p>
+  if (invisible) return <></>;
+
+  return (
+    <p className={`font-normal text-sm dark:text-gray-100 ${styles && styles}`}>
+      {slug === "" ? "© Neo Wang | " : "•"}{" "}
+      {`${views ? format(views) : "–"} views`}
+    </p>
+  );
 }
