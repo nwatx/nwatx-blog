@@ -110,7 +110,7 @@ export default function mdxpreview({ children }) {
             ) : (
               <textarea
                 defaultValue={mdxContent}
-                className="w-full h-full resize-none bg-gray-800 dark:bg-gray-600 rounded-md outline-none text-white p-5 whitespace-pre-wrap"
+                className="w-full h-full resize-none bg-gray-800 dark:bg-gray-700 rounded-md outline-none text-white p-5 whitespace-pre-wrap"
                 onChange={(e) => setMdxContent(e.target.value)}
               />
             )}
