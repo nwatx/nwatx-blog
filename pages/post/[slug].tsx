@@ -104,7 +104,7 @@ const BlogPost = ({ source, data }) => {
             </div>
           </div>
           <div className="flex justify-center max-w-3xl mt-4 pb-10 md:pb-4 w-full">
-            <div className="flex w-full flex-col space-y-4">{content}</div>
+            <div className="flex w-full flex-col space-y-6">{content}</div>
           </div>
         </div>
       </NavBarLayout>

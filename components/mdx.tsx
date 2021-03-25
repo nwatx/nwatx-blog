@@ -7,7 +7,7 @@ export const h2 = ({...rest}) => {
 }
 
 export const h3 = ({...rest}) => {
-    return <p className='text-xl font-semibold text-gray-800 dark:text-gray-100' {...rest} />
+    return <p className='text-xl font-semibold dark:text-gray-100' {...rest} />
 }
 
 export const blockquote = ({...rest}) => {
