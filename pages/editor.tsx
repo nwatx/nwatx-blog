@@ -3,6 +3,8 @@ import NavBarLayout from "../layouts/NavBarLayout";
 import { MdxRemote } from "next-mdx-remote/types";
 import MDXPreview from "../components/MDXPreview";
 import Editor from "rich-markdown-editor";
+import { useTheme } from "next-themes";
+import { dark } from "../lib/editorTheme";
 
 export default function mdxpreview({ children }) {
   const [mdxContent, setMdxContent] = useState("");
@@ -10,6 +12,11 @@ export default function mdxpreview({ children }) {
   const [source, setSource] = useState<MdxRemote.Source>();
   const [richEditor, setRichEditor] = useState(false);
   const [editorType, setEditorType] = useState("column");
+  const { theme } = useTheme();
+
+  // useEffect(() => {
+  //   console.log(theme);
+  // })
 
   useEffect(() => {
     if (!mdxContent) return;
@@ -92,12 +99,12 @@ export default function mdxpreview({ children }) {
           <div
             className={`${
               editorType === "row" ? "w-full h-1/2" : "h-full w-1/2"
-            }`}
+            } ${theme === 'dark' && 'bg-gray-700'} rounded-sm`}
           >
             {richEditor ? (
               <Editor
                 defaultValue={mdxContent}
-                className="bg-gray-100"
+                {...(theme === 'dark') && ({'theme': dark})}
                 onChange={(value) => setMdxContent(value())}
               />
             ) : (
