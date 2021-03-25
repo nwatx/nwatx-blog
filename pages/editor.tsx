@@ -95,49 +95,59 @@ export default function mdxpreview({ children }) {
             editorType === "" ? "flex-col md:flex-row" : ""
           } ${editorType === "row" ? "flex-col" : ""} ${
             editorType === "column" ? "flex-row" : ""
-          } ${editorType === "column" ? "space-x-3" : "space-y-3"} h-auto max-h-full`}
+          } ${
+            editorType === "column" ? "space-x-3" : "space-y-3"
+          } h-auto max-h-full`}
         >
-          <div
-            className={`${
-              editorType === "row" ? "w-full h-1/2" : "h-full w-1/2"
-            }`}
-            // } ${theme === "dark" && "bg-gray-700"} rounded-sm`}
-          >
-            {richEditor ? (
-              <Editor
-                defaultValue={mdxContent}
-                {...(theme === "dark" && { theme: dark })}
-                onChange={(value) => setMdxContent(value())}
-              />
-            ) : (
-              <textarea
-                defaultValue={mdxContent}
-                placeholder="Enlighten the world..."
-                className="w-full h-full resize-none text-sm bg-gray-800 dark:bg-gray-700 rounded-md outline-none text-white p-5 whitespace-pre-wrap"
-                onChange={(e) => setMdxContent(e.target.value)}
-              />
-            )}
-            {/* <textarea
+          {richEditor && editorType === "row" ? (
+            <p>This option is not supported yet</p>
+          ) : (
+            <>
+              <div
+                className={`${
+                  editorType === "row" ? "w-full h-1/2" : "h-full w-1/2"
+                }`}
+                // } ${theme === "dark" && "bg-gray-700"} rounded-sm`}
+              >
+                {richEditor ? (
+                  <Editor
+                    defaultValue={mdxContent}
+                    {...(theme === "dark" && { theme: dark })}
+                    onChange={(value) => setMdxContent(value())}
+                  />
+                ) : (
+                  <textarea
+                    defaultValue={mdxContent}
+                    placeholder="Enlighten the world..."
+                    className="w-full h-full resize-none text-sm bg-gray-800 dark:bg-gray-700 rounded-md outline-none text-white p-5 whitespace-pre-wrap"
+                    onChange={(e) => setMdxContent(e.target.value)}
+                  />
+                )}
+                {/* <textarea
               className="flex p-5 w-full rounded-md resize-y"
               onChange={(e) => setMdxContent(e.target.value)}
             /> */}
-            <ViewCounter invisible={true} slug={"editor"} />
-          </div>
-          <div
-            className={`flex flex-col overflow-auto max-h-full ${
-              editorType === "row" ? "h-1/2 w-full" : "w-1/2"
-            }`}
-          >
-            {source && mdxContent ? (
-              <MDXPreview source={source} />
-            ) : (
-              <div className="flex w-full h-full border-dashed border-2 rounded-md items-center justify-center">
-                <p className="text-gray-400 text-sm font-light">
-                  Content appears here
-                </p>
+                <ViewCounter invisible={true} slug={"editor"} />
               </div>
-            )}
-          </div>
+              <div
+                className={`flex flex-col ${
+                  !richEditor && "overflow-auto"
+                } max-h-full ${
+                  editorType === "row" ? "h-1/2 w-full" : "w-1/2"
+                }`}
+              >
+                {source && mdxContent ? (
+                  <MDXPreview source={source} />
+                ) : (
+                  <div className="flex w-full h-full border-dashed border-2 rounded-md items-center justify-center">
+                    <p className="text-gray-400 text-sm font-light">
+                      Content appears here
+                    </p>
+                  </div>
+                )}
+              </div>
+            </>
+          )}
         </div>
       </div>
     </NavBarLayout>
