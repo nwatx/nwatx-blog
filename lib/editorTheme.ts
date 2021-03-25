@@ -89,7 +89,7 @@ export const light = {
 
 export const dark = {
   ...base,
-  background: "rgba(55,65,81,var(--tw-bg-opacity))",
+  background: "background-color: #282B30",
   text: colors.almostWhite,
   code: colors.almostWhite,
   cursor: colors.white,

@@ -98,8 +98,8 @@ export default function mdxpreview({ children }) {
         >
           <div
             className={`${
-              editorType === "row" ? "w-full h-1/2" : "h-full w-1/2"
-            } ${theme === "dark" && "bg-gray-700"} rounded-sm`}
+              editorType === "row" ? "w-full h-1/2" : "h-full w-1/2"}`}
+            // } ${theme === "dark" && "bg-gray-700"} rounded-sm`}
           >
             {richEditor ? (
               <Editor
