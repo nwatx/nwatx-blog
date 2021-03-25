@@ -94,17 +94,17 @@ export default function mdxpreview({ children }) {
             editorType === "" ? "flex-col md:flex-row" : ""
           } ${editorType === "row" ? "flex-col" : ""} ${
             editorType === "column" ? "flex-row" : ""
-          } space-x-3 h-auto`}
+          } ${editorType === "column" ? "space-x-3" : 'space-y-3'} h-auto`}
         >
           <div
             className={`${
               editorType === "row" ? "w-full h-1/2" : "h-full w-1/2"
-            } ${theme === 'dark' && 'bg-gray-700'} rounded-sm`}
+            } ${theme === "dark" && "bg-gray-700"} rounded-sm`}
           >
             {richEditor ? (
               <Editor
                 defaultValue={mdxContent}
-                {...(theme === 'dark') && ({'theme': dark})}
+                {...(theme === "dark" && { theme: dark })}
                 onChange={(value) => setMdxContent(value())}
               />
             ) : (
@@ -125,11 +125,13 @@ export default function mdxpreview({ children }) {
               editorType === "row" ? "h-1/2 w-full" : "w-1/2"
             }`}
           >
-            {(source && mdxContent) ? (
+            {source && mdxContent ? (
               <MDXPreview source={source} />
             ) : (
               <div className="flex w-full h-full border-dashed border-2 rounded-md items-center justify-center">
-                <p className='text-gray-400 text-sm font-light'>Content appears here</p>
+                <p className="text-gray-400 text-sm font-light">
+                  Content appears here
+                </p>
               </div>
             )}
           </div>
