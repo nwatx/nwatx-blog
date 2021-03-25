@@ -98,7 +98,7 @@ const BlogPost = ({ source, data }) => {
                       "MMMM dd, yyyy"
                     )}`}
                   </p>
-                  <ViewCounter slug={router.query.slug} styles={'text-gray-600'} />
+                  <ViewCounter slug={router.query.slug as string} styles={'text-gray-600'} />
                 </div>
               )}
             </div>
