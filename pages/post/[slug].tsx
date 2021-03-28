@@ -160,7 +160,7 @@ export async function getStaticProps({ params: { slug } }) {
         require("rehype-katex"),
         require("rehype-slug"),
         // require("@jsdevtools/rehype-toc"),
-        require('rehype-autolink-headings'),
+        // require('rehype-autolink-headings'),
         // require('rehype-sanitize')
       ],
     },
