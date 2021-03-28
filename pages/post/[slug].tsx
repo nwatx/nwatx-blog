@@ -20,6 +20,7 @@ import { useRouter } from "next/router";
 import { format } from "date-fns";
 import Image from "next/image";
 import ProsCard from "../../components/Proscard";
+import ProblemCard from "../../components/ProblemCard";
 
 export const ImageLoader = (src) => {
   console.log(src);
@@ -54,6 +55,7 @@ export const MDXComponents = {
     </div>
   ),
   Pros: ProsCard,
+  Problem: ProblemCard
 };
 
 const BlogPost = ({ source, data }) => {

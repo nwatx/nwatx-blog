@@ -19,6 +19,7 @@ html.dark {
 ul {
   list-style-type: disc;
   padding-left: 0.25rem;
+  margin-left: 0.75rem;
   /* list-style-position: inside; */
   /* display: inline-block; */
 }
