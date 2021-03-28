@@ -27,15 +27,15 @@ export default function Home({ posts }: HomeProps) {
         return post.frontmatter.tags
           .trim()
           .split(",")
-          .map((s) => s);
+          .map((s) => s.trim());
     })
     .flat();
 
   const uniquePostTags = Array.from(new Set<string>(postTags))
     .sort()
-    .filter((e) => e);
+    .filter((e) => e.trim());
 
-  console.log(filters);
+  console.log(uniquePostTags);
 
   useEffect(() => {
     setFilters([]);
@@ -138,7 +138,7 @@ export default function Home({ posts }: HomeProps) {
                   if (filters.length === 0) return true;
                   if (!p.frontmatter.tags && filters.length) return false;
                   return filters.every((filter) =>
-                    p.frontmatter.tags.split(",").includes(filter)
+                    p.frontmatter.tags.split(",").map(e => e.trim()).includes(filter)
                   );
                 })
                 .sort((a, b) => {
