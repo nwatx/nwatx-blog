@@ -14,4 +14,8 @@
     .katex {
         @apply dark:text-white;
     }
+
+    .toc {
+        @apply lg:absolute flex flex-wrap w-52 -left-60 top-0
+    }
 }

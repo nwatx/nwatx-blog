@@ -28,7 +28,7 @@ export default function BlogPost({
         <div className="flex flex-col space-y-2 w-full">
           {tags && (
             <div className="flex flex-wrap items-baseline w-full mt-1 mb-2 space-y-1">
-              {tags.split(",").sort().map((tag) => (
+              {tags.split(",").sort((a, b) => a.trim().localeCompare(b.trim())).map((tag) => (
                 <div
                   key={tag}
                   className={`rounded-md dark:bg-gray-700 dark:text-white mr-2 ${

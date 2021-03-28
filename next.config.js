@@ -11,7 +11,7 @@ const withMDX = require("@next/mdx")({
 
 module.exports = withMDX({
   images: {
-    domains: ["https://res.cloudinary.com/dcg5b3jpt"],
+    domains: ["res.cloudinary.com"],
   },
   webpack: (config, { isServer }) => {
     if (isServer) {

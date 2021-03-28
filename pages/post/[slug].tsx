@@ -18,6 +18,8 @@ import { blockquote, h1, h2, h3, ol, p } from "../../components/mdx";
 import ViewCounter from "../../components/ViewCounter";
 import { useRouter } from "next/router";
 import { format } from "date-fns";
+import Image from "next/image";
+import ProsCard from "../../components/Proscard";
 
 export const ImageLoader = (src) => {
   console.log(src);
@@ -46,10 +48,16 @@ export const MDXComponents = {
   blockquote: blockquote,
   p: p,
   ol: ol,
-  // p: Tex,
+  NextImage: (props) => (
+    <div className="flex mt-5 w-full">
+      <Image className="rounded-md" {...props} />
+    </div>
+  ),
+  Pros: ProsCard,
 };
 
 const BlogPost = ({ source, data }) => {
+  // console.log(source);
   const content = hydrate(source, { components: MDXComponents });
   const router = useRouter();
 
@@ -109,7 +117,7 @@ const BlogPost = ({ source, data }) => {
             </div>
           </div>
           <div className="flex justify-center max-w-3xl pb-10 md:pb-4 w-full">
-            <div className="flex w-full flex-col">{content}</div>
+            <div className="flex w-full flex-col relative">{content}</div>
           </div>
         </div>
       </NavBarLayout>
@@ -147,12 +155,32 @@ export async function getStaticProps({ params: { slug } }) {
   const source = await renderToString(content, {
     components: MDXComponents,
     mdxOptions: {
-      remarkPlugins: [require("remark-math")],
-      rehypePlugins: [require("rehype-katex")],
+      remarkPlugins: [require("remark-math"), require('remark-slug'), require('remark-autolink-headings')],
+      rehypePlugins: [
+        require("rehype-katex"),
+        require("rehype-slug"),
+        // require("@jsdevtools/rehype-toc"),
+        require('rehype-autolink-headings'),
+        // require('rehype-sanitize')
+      ],
     },
+    scope: {
+      slug,
+    }
   });
 
-  console.log(data);
+  const provider = {
+    props: {
+    }
+  }
+
+  // const convertedSource = {
+  //   ...source,
+  //   renderedOutput: source.renderedOutput.split("[slug]").join(slug as string),
+  //   compiledSource: source.compiledSource.split("[slug]").join(slug as string),
+  // };
+
+  // console.log(source);
 
   const frontmatter = {
     ...data,
@@ -169,7 +197,7 @@ export async function getStaticProps({ params: { slug } }) {
 
   return {
     props: {
-      source,
+      source: source,
       data: frontmatter,
     },
   };
