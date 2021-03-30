@@ -19,7 +19,7 @@ import ViewCounter from "../../components/ViewCounter";
 import { useRouter } from "next/router";
 import { format } from "date-fns";
 import Image from "next/image";
-import ProsCard from "../../components/Proscard";
+import ProsCard from "../../components/ProsCard";
 import ProblemCard from "../../components/ProblemCard";
 
 export const ImageLoader = (src) => {
@@ -55,7 +55,7 @@ export const MDXComponents = {
     </div>
   ),
   Pros: ProsCard,
-  Problem: ProblemCard
+  Problem: ProblemCard,
 };
 
 const BlogPost = ({ source, data }) => {
@@ -157,7 +157,11 @@ export async function getStaticProps({ params: { slug } }) {
   const source = await renderToString(content, {
     components: MDXComponents,
     mdxOptions: {
-      remarkPlugins: [require("remark-math"), require('remark-slug'), require('remark-autolink-headings')],
+      remarkPlugins: [
+        require("remark-math"),
+        require("remark-slug"),
+        require("remark-autolink-headings"),
+      ],
       rehypePlugins: [
         require("rehype-katex"),
         require("rehype-slug"),
@@ -168,13 +172,12 @@ export async function getStaticProps({ params: { slug } }) {
     },
     scope: {
       slug,
-    }
+    },
   });
 
   const provider = {
-    props: {
-    }
-  }
+    props: {},
+  };
 
   // const convertedSource = {
   //   ...source,
