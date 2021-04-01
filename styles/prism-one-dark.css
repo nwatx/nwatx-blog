@@ -4,7 +4,7 @@
  * @author Joe Gibson (@gibsjose)
  */
 
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code&display=swap");
+ @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&display=swap');
 
 code[class*="language-"],
 pre[class*="language-"] {
@@ -12,6 +12,7 @@ pre[class*="language-"] {
   text-shadow: 0 1px rgba(0, 0, 0, 0.3);
   font-family: "Fira Code", Inconsolata, Monaco, Consolas, "Courier New",
     Courier, monospace;
+  /* font-weight: 500; */
   direction: ltr;
   text-align: left;
   white-space: pre;
@@ -60,7 +61,7 @@ p code {
   /* text-shadow: 0 1px rgba(0, 0, 0, 0.3); */
   font-family: "Fira Code", Inconsolata, Monaco, Consolas, "Courier New",
     Courier, monospace;
-  font-weight: 600;
+  /* font-weight: 600; */
   /* padding: 0.5rem; */
   direction: ltr;
   text-align: left;
