@@ -14,7 +14,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import Head from "next/head";
 import NextLink from "../../components/NextLink";
-import { blockquote, h1, h2, h3, ol, p } from "../../components/mdx";
+import { blockquote, code, h1, h2, h3, ol, p } from "../../components/mdx";
 import ViewCounter from "../../components/ViewCounter";
 import { useRouter } from "next/router";
 import { format } from "date-fns";
@@ -49,6 +49,7 @@ export const MDXComponents = {
   blockquote: blockquote,
   p: p,
   ol: ol,
+  inlineCode: code,
   NextImage: (props) => (
     <div className="flex mt-5 w-full">
       <Image className="rounded-md" {...props} />
