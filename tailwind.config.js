@@ -13,6 +13,7 @@ module.exports = {
       borderWidth: ["dark"],
       borderOpacity: ["dark"],
     },
+    scrollbar: ['rounded']
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar")],
 };

@@ -42,6 +42,7 @@
     "rich-markdown-editor": "^11.6.0",
     "styled-components": "^5.2.1",
     "swr": "^0.5.4",
+    "tailwind-scrollbar": "^1.2.4",
     "to-vfile": "^6.1.0",
     "unified": "^9.2.1"
   },

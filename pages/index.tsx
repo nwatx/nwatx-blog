@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { BlogPostProps } from "../components/BlogPost";
 import ViewCounter from "../components/ViewCounter";
 import { TagColor } from "../components/TagColors";
+import ProjectCard from "../components/ProjectCard";
 
 type Post = {
   slug;
@@ -54,7 +55,7 @@ export default function Home({ posts }: HomeProps) {
           content="nwatx, Neo Wang, Next.js, Next.js blog"
         />
       </Head>
-      <div className="flex h-full overflow-auto justify-between w-full flex-col max-w-7xl">
+      <div className="flex h-full scrollbar-thin overflow-auto scrollbar-thumb-rounded justify-between w-full flex-col max-w-7xl px-2">
         <div className="flex flex-col max-w-7xl w-full space-y-5">
           {/* <div className="flex w-full">
             <p className="text-4xl dark:text-white">Blog</p>
@@ -109,7 +110,7 @@ export default function Home({ posts }: HomeProps) {
                   {filters && (
                     <div
                       // style={{isolation: 'isolate'}}
-                      className={`text-xs font-semibold h-auto flex items-center border-2 py-1 px-2 ${
+                      className={`text-xs h-auto flex items-center border-2 py-1 px-2 ${
                         filters.length === 0
                           ? "disabled border-gray-300 dark:border-gray-700 text-gray-300 dark:text-gray-700 cursor-default"
                           : " text-gray-700 border-gray-700 dark:text-gray-300 dark:border-gray-300 cursor-pointer"
@@ -138,7 +139,10 @@ export default function Home({ posts }: HomeProps) {
                   if (filters.length === 0) return true;
                   if (!p.frontmatter.tags && filters.length) return false;
                   return filters.every((filter) =>
-                    p.frontmatter.tags.split(",").map(e => e.trim()).includes(filter)
+                    p.frontmatter.tags
+                      .split(",")
+                      .map((e) => e.trim())
+                      .includes(filter)
                   );
                 })
                 .sort((a, b) => {
@@ -156,7 +160,30 @@ export default function Home({ posts }: HomeProps) {
                 ))}
           </div>
         </div>
-        <div className="flex w-full px-3 max-w-7xl">
+        <div className="flex flex-col lg:flex-row mt-10 w-full px-1 lg:space-x-5 space-y-5">
+          <div className="flex flex-col w-full lg:w-1/2 space-y-5">
+            <p className="text-lg font-bold">Projects</p>
+            <ProjectCard
+              title="nwatx.me"
+              description="This blog. Built with Next.js, styled with Tailwind, and deployed on Vercel."
+              href="https://sharelatex.vercel.app/"
+            />
+            <ProjectCard
+              title="ShareLatex"
+              description="A LaTeX + Markdown sharing app tool."
+              href="https://sharelatex.vercel.app/"
+            />
+            <ProjectCard
+              title="Competitive Programming"
+              description="C++, macros, and a lot of bad practices (repo currently private)."
+              href="https://github.com/nwatx/CP"
+            />
+          </div>
+          <div className="flex flex-col w-full lg:w-1/2 space-y-5 border-dashed border-2 rounded-md justify-center">
+            <p className="text-gray-400 self-center">Coming soon!</p>
+          </div>
+        </div>
+        <div className="flex w-full px-3 mt-10 max-w-7xl">
           <div className="w-full justify-center text-center max-w-7xl">
             <ViewCounter slug={""} />
           </div>
