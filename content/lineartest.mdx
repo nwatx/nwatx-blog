@@ -1,0 +1,52 @@
+---
+title: Last minute cram for linear test
+author: neo
+tags: spam
+date: 2021-04-05
+---
+
+* A **markov matrix** will always have an eigenvalue of $1$. Since the **trace is the sum of all eigenvalues** then the remaining eigenvalue is simply $trace - 1$.
+
+* The determinant is the product of eigenvalues, so if the determinant is $0$, then at least one of the eigenvalues must also be $0$.
+
+* Breakdown of $S \Lambda S^{-1}$, $S$ is the eigenvectors where each eigenvector is one column. $\Lambda$ is the diagonal matrix of eigenvalues where $\Lambda_{ii}$ is the $i$-th eigenvalue. Make sure that the $i$-th eigenvalue is in the $i$-th column of $S$.
+
+$$
+\det(\begin{bmatrix}a&b\\d&c\end{bmatrix}) = \frac{1}{ad-bc}\begin{bmatrix}d&-b\\-c&a\end{bmatrix}
+$$
+
+* **Finding diagonalizable orthonormal matrices:** first, find the eigenvalues, then find the eigenvectors. Then, put the eigenvectors into a matrix, and then divide by the magnitude $\sqrt{A_{11}^2 + A_{22}^2 + ... + A_{nn}^2}$
+
+* Symmetric matrices: If a matrix is symmetric, then all of the eigenvectors will be *orthogonal* to each other.
+
+* Finding whether or not a matrix has negative eigenvalues: To solve this simply take the determinant of every square matrix with $A_{11}$ as the upper left corner. If any of these matrices have $\det(A) < 0$ then there exist some negative eigenvalues.
+
+* Positive definiteness: Given an function $f$ of the form $f(x, y) = ax^2+bxy+cy^2$ we can determine whether or not the minimum is at $(0,0)$ by converting it to a matrix of the form $\begin{bmatrix}a&\frac{b}{2} \\ \frac{b}{2} & d \end{bmatrix}$ and run our previous positive definite test on matrices.
+
+* If matrices $A$ and $B$ are _similar_ then there exists some matrix $S$ such that $A = S^{-1}BS$. This means that $A$ and $B$ have the same trace, determinant, and eigenvalues.
+
+* If matrix $A$ and $B$ are have the same eigenvalues, then their trace, rank, determinant, $\Lambda$ are the same.
+
+* If given a problem in the form
+
+> Using $M=\begin{bmatrix}2&5\\1&4\end{bmatrix}$, find a matrix similar to $A = \begin{bmatrix}2&4\\6&8\end{bmatrix}$
+
+ then use the multiplication of the form $MBM^{-1}$ to find a similar matrix to $B$.
+
+* Linear transformations must satisfy the properties
+
+$$
+T(x+y) = T(x) + T(y), T(ax) = aT(x)
+$$
+
+* Almost any time there is a constant in the equation, the transformation is not linear.
+
+* Cramer's rule is quite simple. On a $3\times 3$ matrix with columns $\begin{bmatrix}A&B&C\end{bmatrix}x = b$ we can simple compute the determinant of $\begin{bmatrix}A&B&C\end{bmatrix}$ by exchanging $b$ for position $A, B, C$ to find $x_1, x_2, x_3$ respectively.
+
+* Recall that 
+
+$$
+x_i = \frac{\text{Determinant of the replaced matrix}}{\begin{bmatrix}A&B&C\end{bmatrix}}
+$$
+
+This should be intuitive.
