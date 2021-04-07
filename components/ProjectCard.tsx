@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function ProjectCard({ title, description, href }) {
   return (
     <Link href={href} passHref={true}>
-      <div className="flex w-full flex-col lg:flex-row hover:shadow-inner cursor-pointer items-center border border-gray-200 dark:border-gray-600 rounded-lg p-4">
+      <div className="flex w-full flex-col lg:flex-row hover:shadow-inner dark:hover:bg-gray-700 cursor-pointer items-center border border-gray-200 dark:border-gray-600 rounded-lg p-4">
         <div className="flex flex-wrap w-full lg:w-1/4">
           {title === "ShareLatex" && (
             <p>
