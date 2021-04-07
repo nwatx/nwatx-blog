@@ -1,6 +1,7 @@
 module.exports = {
   purge: ["./**/*.{jsx,tsx}", "./styles/**.css"],
   darkMode: "class", // or 'media' or 'class'
+  mode: "jit",
   theme: {
     extend: {},
     fontFamily: {
@@ -13,7 +14,7 @@ module.exports = {
       borderWidth: ["dark"],
       borderOpacity: ["dark"],
     },
-    scrollbar: ['rounded']
+    scrollbar: ["rounded"],
   },
   plugins: [require("tailwind-scrollbar")],
 };
