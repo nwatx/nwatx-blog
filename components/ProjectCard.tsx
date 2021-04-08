@@ -21,7 +21,7 @@ export default function ProjectCard({ title, description, href }) {
             </p>
           )}
         </div>
-        <div className='flex flex-col w-full lg:w-3/4'>
+        <div className="flex flex-col w-full lg:w-3/4">
           <h4 className="text-lg font-bold tracking-tight text-gray-900 dark:text-gray-100">
             {title}
           </h4>
