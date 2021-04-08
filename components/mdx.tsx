@@ -20,7 +20,7 @@ export const ol = ({...rest}) => {
 
 export const code = ({children, ...rest}) => {
     // console.log(rest);
-    return <code {...rest}>`{children}`</code>
+    return <code className='font-semibold dark:text-blue-400' {...rest}>`{children}`</code>
 }
 
 export const blockquote = ({...rest}) => {
