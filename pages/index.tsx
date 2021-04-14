@@ -47,7 +47,7 @@ export default function Home({ posts }: HomeProps) {
       <Head>
         <title>Neo Wang - Blog</title>
         <meta
-          title="description"
+          name="description"
           content="Neo Wang's blog - code, ping pong, and more!"
         />
         <meta

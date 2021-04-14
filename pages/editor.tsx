@@ -6,6 +6,7 @@ import Editor from "rich-markdown-editor";
 import { useTheme } from "next-themes";
 import { dark } from "../lib/editorTheme";
 import ViewCounter from "../components/ViewCounter";
+import Head from "next/head";
 
 export default function mdxpreview({ children }) {
   const [mdxContent, setMdxContent] = useState("");
@@ -48,6 +49,9 @@ export default function mdxpreview({ children }) {
 
   return (
     <NavBarLayout>
+      <Head>
+        <meta name="description" content="LaTeX + Markdown Editor" />
+      </Head>
       <div className="flex flex-col w-full space-x-2 max-w-7xl">
         <div className="flex pb-2 px-2 w-full items-center justify-start space-x-3">
           <div className="flex text-sm items-center space-x-2 flex-row">
