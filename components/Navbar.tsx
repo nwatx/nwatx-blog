@@ -14,7 +14,7 @@ export default function Navbar({ children }) {
   return (
     <div className="min-h-screen flex flex-col">
       <nav
-        className={`w-full sticky z-10 top-0 bg-gray-50 dark:bg-gray-800 shadow-sm
+        className={`w-full sticky z-10 top-0 bg-white dark:bg-gray-900 shadow-sm
         }`}
       >
         <div className="max-w-7xl px-3 mx-auto">
