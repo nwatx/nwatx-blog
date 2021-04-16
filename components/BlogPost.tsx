@@ -24,7 +24,7 @@ export default function BlogPost({
 }: BlogPostProps) {
   return (
     <Link href={`/post/${slug}`}>
-      <div className="flex w-full justify-between pt-3 pb-5 pr-10 rounded-lg cursor-pointer antialiased dark:border-b dark:bg-gray-800 dark:border-gray-600">
+      <div className="flex w-full justify-between pt-3 pb-5 pr-10 rounded-lg cursor-pointer antialiased dark:bg-gray-800">
         <div className="flex flex-col space-y-2 w-full">
           {tags && (
             <div className="flex flex-wrap items-baseline w-full mt-1 mb-2 space-y-1">

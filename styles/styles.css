@@ -8,6 +8,10 @@ pre {
   border-radius: 5px;
 }
 
+html {
+  overflow-y: scroll;
+}
+
 /* html.dark {
   background-color: #282B30;
 } */
