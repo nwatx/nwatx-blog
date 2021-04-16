@@ -47,10 +47,7 @@ export default function Navbar({ children }) {
               <button
                 onClick={() => setOpen(!open)}
                 type="button"
-                className={`shadow:md inline-flex items-center justify-center p-2 rounded-md hover:shadow-md focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-gray-100
-                ${
-                  theme === "light" ? "text-black" : "text-white"
-                } focus:ring-white`}
+                className="`shadow:md inline-flex items-center justify-center p-2 rounded-md hover:shadow-md focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-gray-100 text-black dark:text-white focus:ring-white"
                 aria-controls="mobile-menu"
                 aria-expanded="false"
               >
