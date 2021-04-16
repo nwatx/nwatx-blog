@@ -132,7 +132,7 @@ export default function Home({ posts }: HomeProps) {
               )}
             </div>
           )}
-          <div className="flex flex-col w-full overflow-hidden divide-y dark:divide-gray-400">
+          <div className="flex flex-col w-full overflow-hidden divide-y dark:divide-gray-400 mt-0">
             {posts &&
               posts
                 .filter((p) => {
@@ -162,8 +162,8 @@ export default function Home({ posts }: HomeProps) {
                 ))}
           </div>
         </div>
-        <div className="flex flex-col lg:flex-row mt-10 w-full px-1 lg:space-x-5 space-y-5">
-          <div className="flex flex-col w-full lg:w-1/2 space-y-5">
+        <div className="flex flex-col h-auto lg:flex-row w-full px-1 lg:space-x-5 space-y-5">
+          <div className="flex flex-col w-full lg:w-1/2">
             <p className="text-lg font-bold">Projects</p>
             <ProjectCard
               title="nwatx.me"
