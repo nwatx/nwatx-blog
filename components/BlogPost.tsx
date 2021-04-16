@@ -23,12 +23,14 @@ export default function BlogPost({
   tags,
 }: BlogPostProps) {
   return (
-    <Link href={`/post/${slug}`}>
-      <div className="flex w-full justify-between pt-3 pb-5 pr-10 rounded-lg cursor-pointer antialiased dark:bg-gray-800">
-        <div className="flex flex-col space-y-2 w-full">
-          {tags && (
-            <div className="flex flex-wrap items-baseline w-full mt-1 mb-2 space-y-1">
-              {tags.split(",").sort((a, b) => a.trim().localeCompare(b.trim())).map((tag) => (
+    <div className="flex w-full justify-between pt-3 pl-2 pb-5 pr-10 rounded-lg antialiased dark:bg-gray-800">
+      <div className="flex flex-col space-y-2 w-full">
+        {tags && (
+          <div className="flex flex-wrap items-baseline w-full mt-1 mb-2 space-y-1">
+            {tags
+              .split(",")
+              .sort((a, b) => a.trim().localeCompare(b.trim()))
+              .map((tag) => (
                 <div
                   key={tag}
                   className={`rounded-md dark:bg-gray-900 dark:text-white mr-2 ${
@@ -44,24 +46,30 @@ export default function BlogPost({
                   </p>
                 </div>
               ))}
-            </div>
-          )}
-          <div className='flex flex-col sm:flex-row hover:underline'>
-            <p className="text-3xl text-gray-800 dark:text-gray-100">{title}</p>
+          </div>
+        )}
+        <Link href={`/post/${slug}`}>
+          <div className="flex flex-col sm:flex-row cursor-pointer">
+            <p className="text-3xl text-gray-800 dark:text-gray-100 hover:underline" style={{textDecorationColor: 'blue'}}>{title}</p>
             {author && (
-              <div className='mx-1 flex h-full w-full sm:w-auto'>
-                <p className="text-md text-gray-600 dark:text-gray-400 self-end font-light">by <b className=''>{author}</b> on <b>{date && new Date(date).toLocaleDateString()}</b></p>
+              <div className="mx-1 flex h-full w-full sm:w-auto">
+                <p className="text-md text-gray-600 dark:text-gray-400 self-end font-light">
+                  by <b className="">{author}</b> on{" "}
+                  <b>{date && new Date(date).toLocaleDateString()}</b>
+                </p>
               </div>
             )}
           </div>
-          <div>
-            <p className="text-md text-gray-800 dark:text-gray-200">{description}</p>
-          </div>
-        </div>
-        <div className="flex flex-col justify-center min-h-full">
-          <p className="text-3xl font-light animate-pulse">{">"}</p>
+        </Link>
+        <div>
+          <p className="text-md text-gray-800 dark:text-gray-200">
+            {description}
+          </p>
         </div>
       </div>
-    </Link>
+      <div className="flex flex-col justify-center min-h-full">
+        <p className="text-3xl font-light animate-pulse">{">"}</p>
+      </div>
+    </div>
   );
 }
