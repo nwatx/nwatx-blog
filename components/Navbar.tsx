@@ -14,8 +14,7 @@ export default function Navbar({ children }) {
   return (
     <div className="min-h-screen flex flex-col">
       <nav
-        className={`w-full sticky z-10 top-0 ${
-          theme === "dark" ? "bg-gray-700" : "bg-white"
+        className={`w-full sticky z-10 top-0 bg-gray-50 dark:bg-gray-800 shadow-sm
         }`}
       >
         <div className="max-w-7xl px-3 mx-auto">
@@ -89,7 +88,7 @@ export default function Navbar({ children }) {
               </button>
             </div>
           </div>
-          <div className="flex w-full justify-between border-b" />
+          {/* <div className="flex w-full justify-between border-b" /> */}
           {/* <div className="flex w-1/12 border-black border-box border-b dark:border-white"></div> */}
           {/* <div className="flex w-1/12 border-black border-box border-b dark:border-white"></div> */}
           {/* {/* </div> */}
