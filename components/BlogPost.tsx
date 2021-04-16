@@ -24,14 +24,14 @@ export default function BlogPost({
 }: BlogPostProps) {
   return (
     <Link href={`/post/${slug}`}>
-      <div className="flex w-full border justify-between pt-5 pb-7 px-10 rounded-lg shadow-sm cursor-pointer hover:shadow-inner antialiased dark:border-b dark:border-gray-600 dark:hover:bg-gray-700">
+      <div className="flex w-full justify-between pt-3 pb-5 pr-10 rounded-lg cursor-pointer antialiased dark:border-b dark:bg-gray-800 dark:border-gray-600">
         <div className="flex flex-col space-y-2 w-full">
           {tags && (
             <div className="flex flex-wrap items-baseline w-full mt-1 mb-2 space-y-1">
               {tags.split(",").sort((a, b) => a.trim().localeCompare(b.trim())).map((tag) => (
                 <div
                   key={tag}
-                  className={`rounded-md dark:bg-gray-700 dark:text-white mr-2 ${
+                  className={`rounded-md dark:bg-gray-900 dark:text-white mr-2 ${
                     TagColor[tag] && TagColor[tag][0]
                   }`}
                 >
@@ -46,7 +46,7 @@ export default function BlogPost({
               ))}
             </div>
           )}
-          <div className='flex flex-col sm:flex-row'>
+          <div className='flex flex-col sm:flex-row hover:underline'>
             <p className="text-3xl text-gray-800 dark:text-gray-100">{title}</p>
             {author && (
               <div className='mx-1 flex h-full w-full sm:w-auto'>

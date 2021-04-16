@@ -74,7 +74,7 @@ export default function Home({ posts }: HomeProps) {
                         className={`flex text-xs mr-2 uppercase flex-row items-center py-1.5 px-2 space-x-3 rounded-md cursor-pointer ${
                           TagColor[tag]
                             ? TagColor[tag][0]
-                            : "bg-gray-50 dark:bg-gray-700 dark:text-white"
+                            : "bg-gray-50 dark:bg-gray-900 dark:text-white"
                         }`}
                         onClick={() => {
                           if (!filters.includes(tag)) {
@@ -132,7 +132,7 @@ export default function Home({ posts }: HomeProps) {
               )}
             </div>
           )}
-          <div className="flex flex-col w-full space-y-5 overflow-hidden">
+          <div className="flex flex-col w-full overflow-hidden divide-y dark:divide-gray-400">
             {posts &&
               posts
                 .filter((p) => {
@@ -152,11 +152,13 @@ export default function Home({ posts }: HomeProps) {
                   );
                 })
                 .map((post) => (
-                  <BlogPost
-                    key={post.slug}
-                    slug={post.slug}
-                    {...post.frontmatter}
-                  />
+                  <div className="py-5">
+                    <BlogPost
+                      key={post.slug}
+                      slug={post.slug}
+                      {...post.frontmatter}
+                    />
+                  </div>
                 ))}
           </div>
         </div>
