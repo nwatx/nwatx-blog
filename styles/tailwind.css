@@ -3,19 +3,23 @@
 @tailwind utilities;
 
 @layer base {
-    p {
-        @apply dark:text-white;
-    }
+  p {
+    @apply dark:text-white;
+  }
 
-    li {
-        @apply dark:text-white;
-    }
+  li {
+    @apply dark:text-white;
+  }
 
-    .katex {
-        @apply dark:text-white;
-    }
+  #__next {
+    @apply dark:bg-gray-700;
+  }
 
-    .toc {
-        @apply lg:absolute flex flex-wrap w-52 -left-60 top-0
-    }
+  .katex {
+    @apply dark:text-white;
+  }
+
+  .toc {
+    @apply lg:absolute flex flex-wrap w-52 -left-60 top-0;
+  }
 }

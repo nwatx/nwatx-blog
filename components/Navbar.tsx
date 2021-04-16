@@ -12,8 +12,12 @@ export default function Navbar({ children }) {
   const { theme } = useTheme();
 
   return (
-    <div className="flex flex-1 flex-col w-full min-w-full h-screen justify-items-start overflow-hidden">
-      <nav className="w-full">
+    <div className="min-h-screen flex flex-col">
+      <nav
+        className={`w-full sticky z-10 top-0 ${
+          theme === "dark" ? "bg-gray-700" : "bg-white"
+        }`}
+      >
         <div className="max-w-7xl px-3 mx-auto">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
@@ -86,8 +90,8 @@ export default function Navbar({ children }) {
             </div>
           </div>
           <div className="flex w-full justify-between border-b" />
-            {/* <div className="flex w-1/12 border-black border-box border-b dark:border-white"></div> */}
-            {/* <div className="flex w-1/12 border-black border-box border-b dark:border-white"></div> */}
+          {/* <div className="flex w-1/12 border-black border-box border-b dark:border-white"></div> */}
+          {/* <div className="flex w-1/12 border-black border-box border-b dark:border-white"></div> */}
           {/* {/* </div> */}
         </div>
 
@@ -100,9 +104,9 @@ export default function Navbar({ children }) {
           </div>
         )}
       </nav>
-      <div className="flex flex-1 w-full flex-col min-h-0 overflow-hidden">
+      <main className="flex flex-1 flex-grow w-full flex-col min-h-0">
         {children}
-      </div>
+      </main>
     </div>
   );
 }

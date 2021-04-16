@@ -8,13 +8,9 @@ pre {
   border-radius: 5px;
 }
 
-html {
-  overflow: hidden;
-}
-
-html.dark {
+/* html.dark {
   background-color: #282B30;
-}
+} */
 
 ul {
   list-style-type: disc;
