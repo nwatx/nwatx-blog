@@ -21,6 +21,7 @@ import { format } from "date-fns";
 import Image from "next/image";
 import ProsCard from "../../components/ProsCard";
 import ProblemCard from "../../components/ProblemCard";
+import WarningCard from "../../components/Warning";
 
 export const ImageLoader = (src) => {
   console.log(src);
@@ -57,6 +58,7 @@ export const MDXComponents = {
   ),
   Pros: ProsCard,
   Problem: ProblemCard,
+  Warning: WarningCard,
 };
 
 const BlogPost = ({ source, data }) => {
