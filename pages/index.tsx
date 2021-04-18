@@ -168,7 +168,7 @@ export default function Home({ posts }: HomeProps) {
             <ProjectCard
               title="nwatx.me"
               description="This blog. Built with Next.js, styled with Tailwind, and deployed on Vercel."
-              href="https://sharelatex.vercel.app/"
+              href="https://github.com/nwatx/nwatx-blog"
             />
             <ProjectCard
               title="ShareLatex"
