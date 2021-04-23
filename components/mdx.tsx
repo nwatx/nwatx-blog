@@ -24,7 +24,7 @@ export const code = ({children, ...rest}) => {
 }
 
 export const blockquote = ({...rest}) => {
-    return <div className="w-full mx-auto rounded-lg p-1 text-gray-800 dark:Text-gray-100 justify-center">
+    return <div className="w-full mx-auto rounded-lg p-1 text-gray-800 dark:text-gray-100 justify-center">
         <div className="w-full mb-10">
             <div className="text-3xl text-gray-500 dark:text-gray-200 text-left leading-tight h-3 font-medium">“</div>
             <p className="text-lg text-gray-600 dark:text-gray-300 font-medium text-center px-5" {...rest}/>
