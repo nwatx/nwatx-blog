@@ -30,9 +30,9 @@ This corresponds to $...100011010$ which corresponds to $2^8+2^4+2^3+2^1=282$.
 
 Using this new representation, we can perform the following set operations using bitwise operators.
 
-1. Intersection - including two bits if they exist in both sets: $a\&b$.
-2. Union - including bits if they exist in either set: $a|b$.
-3. Symmetric difference - including bits if they are present in either set but not both: $a$ ^ $b$.
+* Intersection - including two bits if they exist in both sets: $a\&b$.
+* Union - including bits if they exist in either set: $a|b$.
+* Symmetric difference - including bits if they are present in either set but not both: $a$ ^ $b$.
 
 If we want to iterate through the $2^n$ subsets of $\{0, 1,\ldots,n-1\}$, we can simply loop from $0,1,\ldots ,n-1$ of our current bit representation of the set. In code this looks like
 
@@ -113,7 +113,7 @@ The first thing you might notice is that we are pushing in our directed flights 
 
 If both of the above conditions are true, then we continue looping. This equates to setting to mask to "ignore all instances of subsets that don't include the $n-1$-th city and are is not the subset that contains all cities."
 
-`for(int v : adj[d])` traverses the adjancency list of city $d$.
+`for(int v : adj[d])` traverses the adjacency list of city $d$.
 
 Then, for each vertex, we check if $v$ is in the mask with $s \& (1\ll (v-1))$.
 
