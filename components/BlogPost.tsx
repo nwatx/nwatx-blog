@@ -23,7 +23,7 @@ export default function BlogPost({
   tags,
 }: BlogPostProps) {
   return (
-    <div className="flex w-full justify-between pt-3 pl-2 pb-5 pr-10 rounded-lg antialiased dark:bg-gray-800">
+    <div className="flex w-full justify-between pt-3 pl-2 pb-5 pr-10 rounded-lg antialiased">
       <div className="flex flex-col space-y-2 w-full">
         {tags && (
           <div className="flex flex-wrap items-baseline w-full mt-1 mb-2 space-y-1">
@@ -33,7 +33,7 @@ export default function BlogPost({
               .map((tag) => (
                 <div
                   key={tag}
-                  className={`rounded-md dark:bg-gray-900 dark:text-white mr-2 ${
+                  className={`rounded-md dark:bg-gray-800 dark:text-white mr-2 ${
                     TagColor[tag] && TagColor[tag][0]
                   }`}
                 >

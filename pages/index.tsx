@@ -74,7 +74,7 @@ export default function Home({ posts }: HomeProps) {
                         className={`flex text-xs mr-2 uppercase flex-row items-center py-1.5 px-2 space-x-3 rounded-md cursor-pointer ${
                           TagColor[tag]
                             ? TagColor[tag][0]
-                            : "bg-gray-50 dark:bg-gray-900 dark:text-white"
+                            : "bg-gray-50 dark:bg-gray-800 dark:text-white"
                         }`}
                         onClick={() => {
                           if (!filters.includes(tag)) {
