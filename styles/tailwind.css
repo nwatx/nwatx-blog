@@ -22,4 +22,8 @@
   .toc {
     @apply lg:absolute flex flex-wrap w-52 -left-60 top-0;
   }
+
+  .frac-line {
+	  @apply border-black dark:border-white
+  }
 }
