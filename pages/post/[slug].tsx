@@ -93,7 +93,7 @@ const BlogPost = ({ source, data }) => {
 				/>
 			</Head>
 			<NavBarLayout>
-				<div className="flex xl:ml-2 w-full max-w-3xl flex-col items-center">
+				<div className="flex xl:ml-2 w-full flex-col items-center">
 					{/* <div className="flex w-full max-w-7xl p-1 border-b flex-col"> */}
 					<div className="flex flex-col w-full justify-center max-w-3xl mt-4 pb-10 md:pb-4 border-b">
 						<div className="text-4xl max-w-3xl flex flex-row w-full flex-wrap justify-between items-end">
@@ -123,7 +123,7 @@ const BlogPost = ({ source, data }) => {
 					</div>
 					{/* <div className="flex justify-center mt-5 pb-10 md:pb-4 w-full"> */}
 						{/* <div className="flex w-full flex-col relative"> */}
-						<article className="prose dark:prose-dark w-full mt-14 max-w-3xl mx-0">{content}</article>
+						<article className="prose overflow-x-auto dark:prose-dark w-full mt-14 max-w-3xl mx-0">{content}</article>
 						{/* </div> */}
 					{/* </div> */}
 				</div>
