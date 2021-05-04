@@ -9,7 +9,6 @@ import NavigationButtonMobile from "./NavigationButtonMobile";
 export default function Navbar({ children }) {
 	const router = useRouter();
 	const [open, setOpen] = useState(false);
-	const { theme } = useTheme();
 
 	return (
 		<div className="min-h-screen flex flex-col">

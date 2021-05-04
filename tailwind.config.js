@@ -141,7 +141,7 @@ module.exports = {
 			borderOpacity: ["dark"],
 		},
 		typography: ["dark"],
-		scrollbar: ["rounded"],
+		scrollbar: ["rounded", "dark"],
 	},
 	plugins: [require("tailwind-scrollbar"), require("@tailwindcss/typography")],
 };
