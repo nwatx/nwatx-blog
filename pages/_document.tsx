@@ -75,6 +75,7 @@ export default class MyDocument extends Document {
 						integrity="sha384-t5CR+zwDAROtph0PXGte6ia8heboACF9R5l/DiY+WZ3P2lxNgvJkQk5n7GPvLMYw"
 						crossOrigin="anonymous"
 					/>
+					<link rel="shortcut icon" href="/favicon.ico" />
 				</Head>
 				<body className="antialiased text-black dark:text-white">
 					<Main />

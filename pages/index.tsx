@@ -55,8 +55,8 @@ export default function Home({ posts }: HomeProps) {
           content="nwatx, Neo Wang, Next.js, Next.js blog"
         />
       </Head>
-      <div className="flex h-full scrollbar-thin overflow-auto scrollbar-thumb-rounded justify-between w-full flex-col max-w-7xl px-2">
-        <div className="flex flex-col max-w-7xl w-full space-y-5">
+      <div className="flex h-full scrollbar-thin overflow-auto scrollbar-thumb-rounded justify-between w-full flex-col max-w-7xl">
+        <div className="flex flex-col max-w-7xl w-full">
           {/* <div className="flex w-full">
             <p className="text-4xl dark:text-white">Blog</p>
           </div> */}
@@ -162,7 +162,7 @@ export default function Home({ posts }: HomeProps) {
                 ))}
           </div>
         </div>
-        <div className="flex flex-col h-auto lg:flex-row w-full px-1 lg:space-x-5 space-y-5">
+        <div className="flex flex-col h-auto lg:flex-row w-full lg:space-x-5 space-y-5">
           <div className="flex flex-col w-full lg:w-1/2">
             <p className="text-lg font-bold">Projects</p>
             <ProjectCard
