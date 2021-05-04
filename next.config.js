@@ -9,17 +9,15 @@ const withMDX = require("@next/mdx")({
 	},
 });
 
-module.exports = require("next-optimized-classnames")(
-	withMDX({
-		images: {
-			domains: ["res.cloudinary.com"],
-		},
-		webpack: (config, { isServer }) => {
-			if (isServer) {
-				require("./scripts/generate-sitemap");
-			}
+module.exports = withMDX({
+	images: {
+		domains: ["res.cloudinary.com"],
+	},
+	webpack: (config, { isServer }) => {
+		if (isServer) {
+			require("./scripts/generate-sitemap");
+		}
 
-			return config;
-		},
-	})
-);
+		return config;
+	},
+});

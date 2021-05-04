@@ -8,7 +8,9 @@
     "start": "next start"
   },
   "dependencies": {
+    "@babel/runtime": "^7.14.0",
     "@jsdevtools/rehype-toc": "^3.0.2",
+    "@mapbox/rehype-prism": "^0.6.0",
     "@mdx-js/loader": "^1.6.22",
     "@next/mdx": "^10.0.9",
     "@tailwindcss/typography": "^0.4.0",

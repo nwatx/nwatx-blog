@@ -5,10 +5,10 @@ import { MDXProvider } from "@mdx-js/react";
 import renderToString from "next-mdx-remote/render-to-string";
 import hydrate from "next-mdx-remote/hydrate";
 import NavBarLayout from "../../layouts/NavBarLayout";
-import Prism from "prismjs";
-import "prismjs/components/prism-c";
-import "prismjs/components/prism-cpp";
-import "prismjs/components/prism-java";
+// import Prism from "prismjs";
+// import "prismjs/components/prism-c";
+// import "prismjs/components/prism-cpp";
+// import "prismjs/components/prism-java";
 import matter from "gray-matter";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
@@ -66,9 +66,9 @@ const BlogPost = ({ source, data }) => {
 	const content = hydrate(source, { components: MDXComponents });
 	const router = useRouter();
 
-	useEffect(() => {
-		Prism.highlightAll();
-	});
+	// useEffect(() => {
+	// 	Prism.highlightAll();
+	// });
 
 	// useEffect(() => {
 	//   if (ref.current) {
@@ -122,9 +122,11 @@ const BlogPost = ({ source, data }) => {
 						</div>
 					</div>
 					{/* <div className="flex justify-center mt-5 pb-10 md:pb-4 w-full"> */}
-						{/* <div className="flex w-full flex-col relative"> */}
-						<article className="prose overflow-x-auto dark:prose-dark w-full mt-14 max-w-3xl mx-0">{content}</article>
-						{/* </div> */}
+					{/* <div className="flex w-full flex-col relative"> */}
+					<article className="prose overflow-x-auto dark:prose-dark w-full mt-14 max-w-3xl mx-0">
+						{content}
+					</article>
+					{/* </div> */}
 					{/* </div> */}
 				</div>
 			</NavBarLayout>
@@ -170,6 +172,7 @@ export async function getStaticProps({ params: { slug } }) {
 			rehypePlugins: [
 				require("rehype-katex"),
 				require("rehype-slug"),
+				require("@mapbox/rehype-prism"),
 				// require("@jsdevtools/rehype-toc"),
 				// require('rehype-autolink-headings'),
 				// require('rehype-sanitize')
