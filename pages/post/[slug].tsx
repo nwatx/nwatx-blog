@@ -167,6 +167,7 @@ export async function getStaticProps({ params: { slug } }) {
 			remarkPlugins: [
 				require("remark-math"),
 				require("remark-slug"),
+				require('remark-code-titles'),
 				require("remark-autolink-headings"),
 			],
 			rehypePlugins: [

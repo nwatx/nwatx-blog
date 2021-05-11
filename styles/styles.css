@@ -1,14 +1,14 @@
-pre {
-  border-radius: 5px;
-}
+/* pre {
+	border-radius: 5px;
+} */
 
 html {
 	scroll-behavior: smooth;
-  overflow-y: scroll;
+	overflow-y: scroll;
 }
 
 * {
-font-variant-ligatures: none;
+	font-variant-ligatures: none;
 }
 
 /* html.dark {
@@ -27,37 +27,38 @@ ol {
 } */
 
 .katex-display > .katex {
-  display: inline-block;
-  white-space: nowrap;
-  max-width: 100%;
-  /* overflow-x: scroll; */
-  text-align: initial;
+	display: inline-block;
+	white-space: nowrap;
+	max-width: 100%;
+	/* overflow-x: scroll; */
+	text-align: initial;
 }
 
 .katex {
-  font: normal 1.21em KaTeX_Main, Times New Roman, serif;
-  font-weight: 500;
-  line-height: 1.2;
-  white-space: normal;
-  text-indent: 0;
+	font: normal 1.21em KaTeX_Main, Times New Roman, serif;
+	font-weight: 500;
+	line-height: 1.2;
+	white-space: normal;
+	text-indent: 0;
 }
 
 .katex [class*="dark"] {
-  color:white;
+	color: white;
 }
 
 .katex-html {
-  white-space: nowrap;
+	white-space: nowrap;
 }
 
-a, button {
-  outline: 0 !important;
+a,
+button {
+	outline: 0 !important;
 }
 
 textarea {
-  overflow: auto !important;
-  height: auto;
-  white-space: normal;
+	overflow: auto !important;
+	height: auto;
+	white-space: normal;
 }
 
 /* p {

@@ -8,6 +8,9 @@ module.exports = {
 	important: true,
 	theme: {
 		extend: {
+			fontFamily: {
+				mono: ["Cascadia Code"],
+			},
 			colors: {
 				blue: colors.lightBlue,
 				code: {

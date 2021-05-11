@@ -2,28 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  p {
-    @apply dark:text-white;
-  }
-
-  li {
-    @apply dark:text-white;
-  }
-
-  #__next {
-    @apply dark:bg-gray-900;
-  }
-
-  .katex {
-    @apply dark:text-white;
-  }
-
-  .toc {
-    @apply lg:absolute flex flex-wrap w-52 -left-60 top-0;
-  }
-
-  .frac-line {
-	  @apply border-black dark:border-white
-  }
+/* @layer base { */
+p {
+	@apply dark:text-white;
 }
+
+li {
+	@apply dark:text-white;
+}
+
+#__next {
+	@apply dark:bg-gray-900;
+}
+
+.katex {
+	@apply dark:text-white;
+}
+
+.toc {
+	@apply lg:absolute flex flex-wrap w-52 -left-60 top-0;
+}
+
+.frac-line {
+	@apply border-black dark:border-white;
+}
+
+.remark-code-title {
+	@apply px-5 py-3 text-sm font-mono font-bold text-gray-200 bg-gray-700 rounded-t;
+}
+
+.remark-code-title + pre {
+	@apply mt-0 rounded-t-none;
+}
+/* } */
