@@ -123,7 +123,7 @@ const BlogPost = ({ source, data }) => {
 					</div>
 					{/* <div className="flex justify-center mt-5 pb-10 md:pb-4 w-full"> */}
 					{/* <div className="flex w-full flex-col relative"> */}
-					<article className="prose overflow-x-auto dark:prose-dark w-full mt-14 max-w-3xl mx-0">
+					<article className="prose overflow-x-auto dark:prose-dark w-full my-7 max-w-3xl mx-0">
 						{content}
 					</article>
 					{/* </div> */}

@@ -5,12 +5,13 @@
  */
 
 /* @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&display=swap'); */
+@import "~@fontsource/cascadia-code/index.css";
 
 code[class*="language-"],
 pre[class*="language-"] {
   color: #c5c8c6;
   /* text-shadow: 0 1px rgba(0, 0, 0, 0.3); */
-  font-family: 'Consolas', Monaco, Consolas, "Courier New",
+  font-family: 'Cascadia Code', 'Consolas', Monaco, Consolas, "Courier New",
     Courier, monospace;
   font-weight: 600;
   direction: ltr;
