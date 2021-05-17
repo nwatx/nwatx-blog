@@ -1,26 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://nwatx.me/aboutme</loc>
-  </url>
+	<url>
+		<loc>https://nwatx.me/aboutme</loc>
+	</url>
 
-  <url>
-    <loc>https://nwatx.me/editor</loc>
-  </url>
+	<url>
+		<loc>https://nwatx.me/editor</loc>
+	</url>
 
-  <url>
-    <loc>https://nwatx.me</loc>
-  </url>
+	<url>
+		<loc>https://nwatx.me</loc>
+	</url>
 
-  <url>
-    <loc>https://nwatx.me/post/calculus</loc>
-  </url>
+	<url>
+		<loc>https://nwatx.me/post/atcoderdp</loc>
+	</url>
 
-  <url>
-    <loc>https://nwatx.me/post/dpbitmasks</loc>
-  </url>
+	<url>
+		<loc>https://nwatx.me/post/calculus</loc>
+	</url>
 
-  <url>
-    <loc>https://nwatx.me/post/uilbreakdown</loc>
-  </url>
+	<url>
+		<loc>https://nwatx.me/post/dpbitmasks</loc>
+	</url>
+
+	<url>
+		<loc>https://nwatx.me/post/svd</loc>
+	</url>
 </urlset>
