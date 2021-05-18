@@ -52,7 +52,7 @@ export const MDXComponents = {
 	// ol: ol,
 	// inlineCode: code,
 	NextImage: (props) => (
-		<div className="flex my-12 w-full">
+		<div className="flex my-12 w-full justify-center">
 			<Image className="rounded-md" {...props} />
 		</div>
 	),

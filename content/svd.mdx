@@ -1,18 +1,16 @@
 ---
 title: Singular Value Decomposition
 author: nwatx
-description: A lovely little article about Singular Value Decomposition
+description: Singular Value Decomposition, and how to get it!
 tags: linear algebra, math
 date: 2021-04-28
 ---
 
 <NextImage
-	src="https://res.cloudinary.com/dcg5b3jpt/image/upload/v1619654707/blog/2472890_ek5xdn.png"
-	height={400}
-	width={800}
+	src="https://res.cloudinary.com/dcg5b3jpt/image/upload/v1621301300/blog/svd_awgmuh.png"
+	height={1090}
+	width={1200}
 />
-
-<!-- TODO: MAKE THIS BLOG ACTUALLY CORRECT -->
 
 # Introduction
 
@@ -26,9 +24,8 @@ able to realize the simple algorithm for computing singular value decomposition.
 Interestingly enough, not many of them covered the method that I'm about to
 write about.
 
-As usual (or not really "as usual", since this is the first explanatory blog
-post), explanations often make the most sense with an example, so I will provide
-one! Note that this is the same example as
+As usual, explanations often make the most sense with an example, so I will provide
+one below. Note that this is the same example as
 [this MIT OCW Example](https://youtu.be/cOUTpqlX-Xs), just in case you want to
 cross reference.
 
@@ -36,13 +33,32 @@ Since this is mainly about the solving process,
 [Wikipedia](https://en.wikipedia.org/wiki/Singular_value_decomposition) provides
 a fairly detailed explanation on what the matrix is being decomposed to.
 
-# Example
+If you are not yet familiar with solving for eigenvectors, eigenvalues, and such, I would recommend checking out the following resources:
+
+* [MIT Eigenvalues and Eigenvectors](http://math.mit.edu/~gs/linearalgebra/ila0601.pdf)
+* [MIT Lecture from Gilbert Strang](https://www.youtube.com/watch?v=cdZnhQjJu4I)
+* [A visualization by 3blue1brown](https://youtu.be/PFDu9oVAE-g)
+
+# Method
+
+The method that is about to be presented is fairly algorithmic, and involves solving for the eigenvalues and eigenvectors of two special matrices $AA^T$ and $A^TA$. One unique property to note is that the eigenvalues of $A^TA$ and $A^TA$ remain the same; we only need to solve for the eigenvalues once, thus making computation much faster. The steps are as follows:
+
+1. Find the eigenvalues of either $A^TA$ or $AA^T$
+2. Using the eigenvalues determined, find the eigenvectors of $A^TA$ and $AA^T$.
+3. Normalize the both of the eigenvectors determined in the previous step - making sure to put them into matrices $U$ and $V$ respectively. (Note that there exists a shortcut in the form $AV_i=\sigma_i U_i$ for finding the $U$'s that may be used as well).
+4. Place the $i$-th eigenvalue into $\Sigma_{ii}$ for each eigenvalue.
+5. Make sure that the $i$-th eigenvector in matrix $U$ and $V$ correspond to the $i$-th eigenvector in $\Sigma$. If not, rearrange them.
+6. Done, you can put the matrices in the form $A = U\Sigma V^T$.
+
+# Worked Example
 
 Find the Singular Value Decomposition of $A$.
 
 $$
 A = \begin{bmatrix}5&5\\-1&7\end{bmatrix}
 $$
+
+## Standard Method
 
 The key to finding the SVD is through the eigenvalues and eigenvectors of $AA^T$
 and $A^TA$. In fact, these two matrices correspond to $U$ and $V$ respectively,
@@ -57,13 +73,22 @@ A^TA = \begin{bmatrix}26&18\\18&74\end{bmatrix}
 $$
 
 We can then solve for the eigenvalues and eigenvectors respectively using
-standard methods. In this example, the $\lambda_1 = 80$ and $\lambda_2=20$. The
+standard methods. Recall that this equates to solving
+
+$$
+\det \left (\begin{bmatrix}
+26 - \lambda & 18 \\
+18 & 74 - \lambda
+\end{bmatrix}\right) = 0
+$$
+
+In this example, $\lambda_1 = 80$ and $\lambda_2=20$. The
 eigenvectors then are $\begin{bmatrix}1 \\ 3\end{bmatrix}$ and
 $\begin{bmatrix}-3\\1 \end{bmatrix}$ respectively. If we normalize these two
 vectors, then we get
 
 $$
-V = \begin{bmatrix}\frac{1}{\sqrt{10}}&\frac{-3}{\sqrt{10}}\\ \frac{3}{\sqrt{10}} & \frac{1}{\sqrt{10}}\end{bmatrix}
+V = \begin{bmatrix}\frac{1}{\sqrt{10}}&-\frac{3}{\sqrt{10}}\\[6pt] \frac{3}{\sqrt{10}} & \frac{1}{\sqrt{10}}\end{bmatrix}
 $$
 
 Next, we calculate $AA^T$
@@ -76,22 +101,52 @@ Recall that since the nonzero eigenvalues are the same for both $A^TA$ and
 $AA^T$, we can skip the calculation of those and directly find the eigenvectors
 of $AA^T$.
 
+The eigenvector matrix of $AA^T$ then, is equivalent to the nullspaces of
+
+$$
+\begin{bmatrix}
+50 - 80 & 30 \\
+30 & 50 - 80
+\end{bmatrix}
+=
+\begin{bmatrix}
+-30 & 30 \\
+30 & -30
+\end{bmatrix}
+$$
+
+and
+
+$$
+\begin{bmatrix}
+50 - 20 & 30 \\
+30 &  50 - 20
+\end{bmatrix}
+=
+\begin{bmatrix}
+30 & 30 \\
+30 & 30
+\end{bmatrix}
+$$
+
 The eigenvector matrix of $AA^T$ then, is
 
 $$
 AA^T=
 \begin{bmatrix}
- 1 & 1 \\
--1 & 1
+1 & -1 \\
+1 & 1
 \end{bmatrix}
 $$
 
-Which gets normalized to
+which again corresponds to the eigenvalues $\lambda_1 = 80, \lambda_2 = 20$ respectively.
+
+Afterwards, this gets gets normalized to
 
 $$
 U=\begin{bmatrix}
-\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \\
-\frac{-1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
+\frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} \\[6pt]
+\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
 \end{bmatrix}
 $$
 
@@ -120,19 +175,134 @@ $$
 All that's left now is to plug them into our initial equation, where we get
 
 $$
-M = \begin{bmatrix}
-\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \\
-\frac{-1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
+A = \begin{bmatrix}
+\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \\[6pt]
+-\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
 \end{bmatrix}
 \begin{bmatrix}
 4\sqrt{5} & 0 \\
 0 & 2\sqrt{5}
 \end{bmatrix}
 \begin{bmatrix}
-\frac{1}{\sqrt{10}}&\frac{-3}{\sqrt{10}}
-\\ \frac{3}{\sqrt{10}} & \frac{1}{\sqrt{10}}
+\frac{1}{\sqrt{10}}&-\frac{3}{\sqrt{10}}
+\\[6pt] \frac{3}{\sqrt{10}} & \frac{1}{\sqrt{10}}
+\end{bmatrix}^T
+$$
+
+or
+
+$$
+A = \begin{bmatrix}
+\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \\[6pt]
+-\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
+\end{bmatrix}
+\begin{bmatrix}
+4\sqrt{5} & 0 \\
+0 & 2\sqrt{5}
+\end{bmatrix}
+\begin{bmatrix}
+\frac{1}{\sqrt{10}}&\frac{3}{\sqrt{10}}
+\\[6pt] -\frac{3}{\sqrt{10}} & \frac{1}{\sqrt{10}}
 \end{bmatrix}
 $$
 
 We can verify our answer as correct using
-[Wolfram Alpha](https://www.wolframalpha.com/input/?i=svd+%7B%7B5%2C5%7D%2C%7B-1%2C7%7D%7D).
+[Wolfram Alpha's SVD tool](https://www.wolframalpha.com/input/?i=svd+%7B%7B5%2C5%7D%2C%7B-1%2C7%7D%7D) as well as [expanding it directly](https://www.wolframalpha.com/input/?i=%7B%7B1%2FSqrt%5B2%5D%2C+-%281%2FSqrt%5B2%5D%29%7D%2C+%7B1%2FSqrt%5B2%5D%2C+1%2FSqrt%5B2%5D%7D%7D%7B%7B4+Sqrt%5B5%5D%2C+0%7D%2C+%7B0%2C+2+Sqrt%5B5%5D%7D%7D%7B%7B1%2FSqrt%5B10%5D%2C+3%2FSqrt%5B10%5D%7D%2C+%7B-3%2FSqrt%5B10%5D%2C+1%2FSqrt%5B10%5D%7D%7D).
+
+## Shortcut Method
+
+Recall that for step 3, we can use the shortcut $AV_i=\sigma_i U_i$ to calculate our values of $U$. Let's see if this works.
+
+$$
+A = \begin{bmatrix}
+5 & 5 \\
+-1 & 7
+\end{bmatrix},
+V = \begin{bmatrix}
+\frac{1}{\sqrt{10}} & -\frac{3}{\sqrt{10}}\\[6pt]
+\frac{3}{\sqrt{10}} & \frac{1}{\sqrt{10}}\end{bmatrix}
+$$
+
+so using our shortcut, we get the following expansions:
+
+$$
+\frac{1}{\sigma_1}AV_{1}=
+\frac{1}{4\sqrt{5}}
+\begin{bmatrix}
+5 & 5 \\
+-1 & 7
+\end{bmatrix}
+\begin{bmatrix}
+\frac{1}{\sqrt{10}} \\[6pt]
+\frac{3}{\sqrt{10}}
+\end{bmatrix}
+=
+\begin{bmatrix}
+\frac{1}{\sqrt{2}} \\
+\frac{1}{\sqrt{2}}
+\end{bmatrix}
+$$
+
+$$
+\frac{1}{\sigma_2}AV_{2}=
+\frac{1}{2\sqrt{5}}
+\begin{bmatrix}
+5 & 5 \\
+-1 & 7
+\end{bmatrix}
+\begin{bmatrix}
+-\frac{3}{\sqrt{10}} \\[6pt]
+\frac{1}{\sqrt{10}}
+\end{bmatrix}
+=
+\begin{bmatrix}
+-\frac{1}{\sqrt{2}} \\
+\frac{1}{\sqrt{2}}
+\end{bmatrix}
+$$
+
+which produces the matrix
+
+$$
+U = \begin{bmatrix}
+\frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} \\[6pt]
+\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
+\end{bmatrix}
+$$
+
+which also produces another valid SVD of
+
+$$
+A =
+\begin{bmatrix}
+\frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} \\[6pt]
+\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
+\end{bmatrix}
+\begin{bmatrix}
+4\sqrt{5} & 0 \\
+0 & 2\sqrt{5}
+\end{bmatrix}
+\begin{bmatrix}
+\frac{1}{\sqrt{10}}&-\frac{3}{\sqrt{10}}
+\\[6pt] \frac{3}{\sqrt{10}} & \frac{1}{\sqrt{10}}
+\end{bmatrix}^T
+$$
+
+or
+
+$$
+A = \begin{bmatrix}
+\frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} \\[6pt]
+\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
+\end{bmatrix}
+\begin{bmatrix}
+4\sqrt{5} & 0 \\
+0 & 2\sqrt{5}
+\end{bmatrix}
+\begin{bmatrix}
+\frac{1}{\sqrt{10}}&\frac{3}{\sqrt{10}}
+\\[6pt] -\frac{3}{\sqrt{10}} & \frac{1}{\sqrt{10}}
+\end{bmatrix}
+$$
+
+We can verify this through [expansion](https://www.wolframalpha.com/input/?i=%7B%7B1%2Fsqrt%282%29%2C+-1%2Fsqrt%282%29%7D%2C%7B1%2Fsqrt%282%29%2C+1%2Fsqrt%282%29%7D%7D%7B%7B4+Sqrt%5B5%5D%2C+0%7D%2C+%7B0%2C+2+Sqrt%5B5%5D%7D%7DTranspose%28%7B%7B1%2FSqrt%5B10%5D%2C+-3%2FSqrt%5B10%5D%7D%2C+%7B3%2FSqrt%5B10%5D%2C+1%2FSqrt%5B10%5D%7D%7D%29) as well as noting that the columns of $U$ are orthonormal to each other.
