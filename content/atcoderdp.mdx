@@ -61,6 +61,12 @@ int main() {
 **Time Complexity:** $\mathcal{O}(NK)$
 
 This is the exact same problem as Frog 1, just with variable distances.
+Simply loop through each of the possible jumps, and use the previous
+transition where $\texttt{dp}[i]$ represents the best value for stone $i$.
+
+$$
+\texttt{dp}[i + j] = \min(\texttt{dp}[i + j], \texttt{dp}[i] + |\texttt{A}[i] - \texttt{A}[i + j]|)
+$$
 
 ```cpp
 #include <bits/stdc++.h>
@@ -84,7 +90,7 @@ int main() {
 	dp[0] = 0;
 
 	for(int i = 0; i < N; i++) {
-		for(int j = 1; j <= K; j++) {
+		for(int j = 1; j <= K; j++) { // j is jump
 			if(i + j < N) dp[i + j] = min(dp[i + j], dp[i] + abs(A[i] - A[i + j]));
 		}
 	}
@@ -95,11 +101,13 @@ int main() {
 
 ## [C - Vacation](https://atcoder.jp/contests/dp/tasks/dp_c)
 
+**Time Complexity:** $\mathcal{O}(N)
+
 Since Taro can't do the activities for two or more consecutive days, we
 can instead define $\texttt{dp}[i][j]$ as the best possible value on the $i$-th
 day that ends on activity $j$. Hence, the best we can do for any day $A$ is
-either the previous best for day $B$ added to the happiness attained from $C$,
-or day $C$ added to the happiness attained from $B$. The same goes for days
+either the previous best ending on day $B$ added to the happiness attained from $C$,
+or the previous best ending on day $C$ added to the happiness attained from $B$. The same goes for days
 $B, C$. In this sense, our formulation is:
 
 $$
@@ -136,6 +144,8 @@ int main() {
 ```
 
 ## [D - Knapsack 1](https://atcoder.jp/contests/dp/tasks/dp_d)
+
+**Time Complexity:** $\mathcal{O}(NW)**
 
 This is the classical knapsack problem. Notice that because $v_i \le 10^9$, it is not
 feasible to store $v_i$ in our $\texttt{dp}$ array.
@@ -174,6 +184,8 @@ int main() {
 ```
 
 ## [E - Knapsack 2](https://atcoder.jp/contests/dp/tasks/dp_e)
+
+**Time Complexity:** $\mathcal{O}(N^2V)**
 
 This is the exact same problem except instead of a high value of $v_i$,
 there is a high value of $w_i$. Now, we must minimize the value of $w_i$ for any
