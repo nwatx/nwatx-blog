@@ -62,28 +62,36 @@ export default function Home({ posts }: HomeProps) {
 					<div className="flex w-full md:w-1/2 relative">
 						<NextImage width={1120} height={750} src={"/landing.png"} />
 					</div>
-					<div className="flex flex-col w-full md:w-1/2 prose justify-center items-center">
-						<h1 className='dark:text-white'>Welcome to Neo's website</h1>
-						<p>A general hub of sorts for my personal interests.</p>
+					<div className="flex flex-col w-full md:w-1/2 justify-center items-center space-y-5">
+						{/* TODO: Make this tagline sound more catchy */}
+						<h1 className="dark:text-white text-4xl text-center">Welcome to Neo's website</h1>
+						<p className='dark:text-white text-lg text-gray-600'>A general hub of sorts for my personal interests.</p>
 					</div>
+				</div>
+				<div>
+					<p className="text-2xl font-bold">Featured Blog Posts</p>
 				</div>
 				<div className="w-full flex flex-1 space-x-4 my-5">
 					<Card
 						to="/post/svd"
-						src="/landing.png"
+						src="https://res.cloudinary.com/dcg5b3jpt/image/upload/v1621301300/blog/svd_awgmuh.png"
 						description="yes"
 						title="Singular Value Decomposition"
+						width={1200}
+						height={1090}
 					/>
 					<Card
-						src="/landing.png"
+						src="https://res.cloudinary.com/dcg5b3jpt/image/upload/v1623724811/blog/abstract-1278077_1920_tbzj7y.jpg"
 						to="/post/dpbitmasks"
 						description="Quick introduction of bitmask programming"
+						width={1920}
+						height={1357}
 						title="A Primer on Bitmask DP"
 					/>
 				</div>
 
-				<div className="flex flex-col h-auto lg:flex-row w-full lg:space-x-5 space-y-5">
-					<div className="flex flex-col w-full lg:w-1/2">
+				<div className="flex flex-col h-auto lg:flex-row w-full space-y-5">
+					<div className="flex flex-col w-full lg:w-1/2 lg:mr-4">
 						<p className="text-lg font-bold">Projects</p>
 						<ProjectCard
 							title="nwatx.me"
@@ -101,8 +109,16 @@ export default function Home({ posts }: HomeProps) {
 							href="https://github.com/nwatx/CP"
 						/>
 					</div>
-					<div className="flex flex-col w-full lg:w-1/2 space-y-5 border-dashed border-2 rounded-md justify-center">
-						<p className="text-gray-400 self-center">Coming soon!</p>
+					<div className="flex flex-col w-full lg:w-1/2 space-y-5 rounded-md justify-center">
+						{/* <p className="text-gray-400 self-center">Coming soon!</p> */}
+						<p className="text-lg font-bold">Music</p>
+						<iframe
+							className="w-full h-full rounded-md min-h-full"
+							src="https://open.spotify.com/embed/playlist/3X2aZB9PPnkE9aLdnVQLmH"
+							frameBorder="0"
+							allowTransparency={true}
+							allow="encrypted-media"
+						></iframe>
 					</div>
 				</div>
 				<div className="flex w-full px-3 mt-10 max-w-7xl">
