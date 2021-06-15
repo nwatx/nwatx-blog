@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* @layer base {
+	@font-face {
+		font-family: 'Eurostile';
+		src: url('../') format('ttf');
+	}
+ */
+/* } */
+@import url('http://fonts.cdnfonts.com/css/eurostile');
+
 /* @layer base { */
 p {
 	@apply dark:text-white;

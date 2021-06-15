@@ -9,6 +9,7 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
+				sans: ['Eurostile', 'Open Sans'],
 				mono: ["Cascadia Code"],
 			},
 			colors: {
