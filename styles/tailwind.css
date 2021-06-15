@@ -9,8 +9,6 @@
 	}
  */
 /* } */
-@import url('http://fonts.cdnfonts.com/css/eurostile');
-
 /* @layer base { */
 p {
 	@apply dark:text-white;

@@ -63,7 +63,7 @@ export default function Home({ posts }: HomeProps) {
 						<NextImage width={1120} height={750} src={"/landing.png"} />
 					</div>
 					<div className="flex flex-col w-full md:w-1/2 prose justify-center items-center">
-						<h1>Welcome to Neo's website</h1>
+						<h1 className='dark:text-white'>Welcome to Neo's website</h1>
 						<p>A general hub of sorts for my personal interests.</p>
 					</div>
 				</div>
