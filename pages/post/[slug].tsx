@@ -5,7 +5,7 @@ import { MDXProvider } from "@mdx-js/react";
 import renderToString from "next-mdx-remote/render-to-string";
 import hydrate from "next-mdx-remote/hydrate";
 import NavBarLayout from "../../layouts/NavBarLayout";
-// import Prism from "prismjs";
+import Prism from "prismjs";
 // import "prismjs/components/prism-c";
 // import "prismjs/components/prism-cpp";
 // import "prismjs/components/prism-java";
@@ -66,9 +66,9 @@ const BlogPost = ({ source, data }) => {
 	const content = hydrate(source, { components: MDXComponents });
 	const router = useRouter();
 
-	// useEffect(() => {
-	// 	Prism.highlightAll();
-	// });
+	useEffect(() => {
+		Prism.highlightAll();
+	});
 
 	// useEffect(() => {
 	//   if (ref.current) {
