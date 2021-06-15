@@ -28,7 +28,7 @@ export default function Home() {
 				/>
 			</Head>
 			<div className="flex h-full scrollbar-thin overflow-auto scrollbar-thumb-rounded justify-between w-full flex-col max-w-7xl">
-				<div className="flex flex-col md:flex-row max-w-7xl w-full">
+				<div className="flex flex-col md:flex-row w-full">
 					<div className="flex w-full p-3 md:w-1/2 relative mr-4">
 						<NextImage className='rounded-lg' width={1120} height={750} src={"/landing.svg"} />
 					</div>
