@@ -8,23 +8,27 @@ date: 2021-04-22
 
 # Introduction
 
-This post contains the editorials for tasks A-E contained in the [AtCoder DP Contest](https://atcoder.jp/contests/dp/tasks), since there is no official editorial.
+This post contains the editorials for tasks A-E contained in the
+[AtCoder DP Contest](https://atcoder.jp/contests/dp/tasks), since there is no
+official editorial.
 
 ## [A - Frog 1](https://atcoder.jp/contests/dp/tasks/dp_a)
 
 **Time Complexity:** $\mathcal{O}(N)$
 
-Use dynamic programming and define $\texttt{dp}[i]$ as the minimum cost to reach stone $i$. Then, there are only two transitions:
+Use dynamic programming and define $\texttt{dp}[i]$ as the minimum cost to reach
+stone $i$. Then, there are only two transitions:
 
 - Jump one stone:
-$$
-\texttt{dp}[i + 1] = \min(\texttt{dp}[i + 1], \texttt{dp}[i] + |\texttt{A}[i] - \texttt{A}[i + 1]|)
-$$
+
+  $$
+  \texttt{dp}[i + 1] = \min(\texttt{dp}[i + 1], \texttt{dp}[i] + |\texttt{A}[i] - \texttt{A}[i + 1]|)
+  $$
 
 - Jump two stones:
-$$
-\texttt{dp}[i + 2] = \min(\texttt{dp}[i + 2], \texttt{dp}[i] + |\texttt{A}[i] - \texttt{A}[i + 2]|)
-$$
+  $$
+  \texttt{dp}[i + 2] = \min_{0 \le i + j < N}(\texttt{dp}[i + 2], \texttt{dp}[i] + |\texttt{A}[i] - \texttt{A}[i + 2]|)
+  $$
 
 ```cpp
 #include <bits/stdc++.h>
@@ -37,7 +41,7 @@ int A[mx], dp[mx];
 
 int main() {
 	cin.tie(0)->sync_with_stdio(0);
-	
+
 	int N; cin >> N;
 
 	for(int i = 0; i < N; i++) {
@@ -60,12 +64,12 @@ int main() {
 
 **Time Complexity:** $\mathcal{O}(NK)$
 
-This is the exact same problem as Frog 1, just with variable distances.
-Simply loop through each of the possible jumps, and use the previous
-transition where $\texttt{dp}[i]$ represents the best value for stone $i$.
+This is the exact same problem as Frog 1, just with variable distances. Simply
+loop through each of the possible jumps, and use the previous transition where
+$\texttt{dp}[i]$ represents the best value for stone $i$.
 
 $$
-\texttt{dp}[i + j] = \min(\texttt{dp}[i + j], \texttt{dp}[i] + |\texttt{A}[i] - \texttt{A}[i + j]|)
+\texttt{dp}[i + j] = \min_{0 \le i + j < N}(\texttt{dp}[i + j], \texttt{dp}[i] + |\texttt{A}[i] - \texttt{A}[i + j]|)
 $$
 
 ```cpp
@@ -79,7 +83,7 @@ int A[mx], dp[mx];
 
 int main() {
 	cin.tie(0)->sync_with_stdio(0);
-	
+
 	int N, K; cin >> N >> K;
 
 	for(int i = 0; i < N; i++) {
@@ -103,15 +107,15 @@ int main() {
 
 **Time Complexity:** $\mathcal{O}(N)$
 
-Since Taro can't do the activities for two or more consecutive days, we
-can instead define $\texttt{dp}[i][j]$ as the best possible value on the $i$-th
-day that ends on activity $j$. Hence, the best we can do for any day $A$ is
-either the previous best ending on day $B$ added to the happiness attained from $C$,
-or the previous best ending on day $C$ added to the happiness attained from $B$. The same goes for days
-$B, C$. In this sense, our formulation is:
+Since Taro can't do the activities for two or more consecutive days, we can
+instead define $\texttt{dp}[i][j]$ as the best possible value on the $i$-th day
+that ends on activity $j$. Hence, the best we can do for any day $A$ is either
+the previous best ending on day $B$ added to the happiness attained from $C$, or
+the previous best ending on day $C$ added to the happiness attained from $B$.
+The same goes for days $B, C$. In this sense, our formulation is:
 
 $$
-\texttt{dp}[i][j] = \max_{k \neq j} dp[i-1][k] + V[d] : d \neq j, d \neq k
+\texttt{dp}[i][j] = \max_{k \neq j}(dp[i-1][k] + V[d] : d \neq j, d \neq k)
 $$
 
 ```cpp
@@ -122,7 +126,7 @@ using namespace std;
 const int mx = 1e5+1;
 
 bool ckmax(int& a, const int& b) {
-	return a < b ? a = b, 1 : 0; 
+	return a < b ? a = b, 1 : 0;
 }
 
 int dp[mx][3];
@@ -147,12 +151,12 @@ int main() {
 
 **Time Complexity:** $\mathcal{O}(NW)$
 
-This is the classical knapsack problem. Notice that because $v_i \le 10^9$, it is not
-feasible to store $v_i$ in our $\texttt{dp}$ array.
-Instead, store the possible values of $W (W \le 10^5)$.
-Let $\texttt{dp}[i][j]$ represent the maximum value that can be
-attained by the first $i$ weights with a weight of $j$. Then, this turns into
-the classical [knapsack problem](https://usaco.guide/CPH.pdf#page=82).
+This is the classical knapsack problem. Notice that because $v_i \le 10^9$, it
+is not feasible to store $v_i$ in our $\texttt{dp}$ array. Instead, store the
+possible values of $W (W \le 10^5)$. Let $\texttt{dp}[i][j]$ represent the
+maximum value that can be attained by the first $i$ weights with a weight of
+$j$. Then, this turns into the classical
+[knapsack problem](https://usaco.guide/CPH.pdf#page=82).
 
 ```cpp
 #include <bits/stdc++.h>
@@ -162,7 +166,7 @@ using namespace std;
 const int mx = 1e5+1;
 
 template<class T> bool ckmax(T& a, const T& b) {
-	return a < b ? a = b, 1 : 0; 
+	return a < b ? a = b, 1 : 0;
 }
 
 long long dp[101][mx];
@@ -187,9 +191,16 @@ int main() {
 
 **Time Complexity:** $\mathcal{O}(N^2V)$
 
-This is the exact same problem except instead of a high value of $v_i$,
-there is a high value of $w_i$. Now, we must minimize the value of $w_i$ for any
-given $v_i$, and then try to find out the maximum value of $v_i$ that can be reached.
+This is the exact same problem except instead of a high value of $v_i$, there is
+a high value of $w_i$. Now, we must minimize the value of $w_i$ for any given
+$v_i$, and then try to find out the maximum value of $v_i$ that can be reached.
+
+Define $\texttt{dp}[i]$ as the lowest weight we can achieve for value $i$. The
+transition then, is:
+
+$$
+\texttt{dp}[j + \texttt{v}[i]] = \min (\texttt{dp}[j + \texttt{v}[i]],\texttt{dp}[j] + \texttt{w}[i])
+$$
 
 ```cpp
 #include <bits/stdc++.h>
@@ -199,7 +210,7 @@ using namespace std;
 const int mx = 1e5+1;
 
 template<class T> bool ckmin(T& a, const T& b) {
-	return a > b ? a = b, 1 : 0; 
+	return a > b ? a = b, 1 : 0;
 }
 
 long long dp[mx];
@@ -210,7 +221,7 @@ int main() {
 
 	int N, W; cin >> N >> W;
 	for(int i = 0; i < N; i++) cin >> w[i] >> v[i];
-	for(int i = 0; i < mx; i++) dp[i] = 1e18; 
+	for(int i = 0; i < mx; i++) dp[i] = 1e18;
 
 	dp[0] = 0;
 
