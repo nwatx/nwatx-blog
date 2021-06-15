@@ -2,12 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @layer base {
+@layer base {
 	@font-face {
-		font-family: 'Eurostile';
-		src: url('../') format('ttf');
+		font-family: "Eurostile";
+		font-style: normal;
+		font-weight: 400;
+		src: local("Eurostile"),
+			url("https://fonts.cdnfonts.com/s/13662/eurostile.woff") format("woff");
 	}
- */
+}
 /* } */
 /* @layer base { */
 p {

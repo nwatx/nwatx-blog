@@ -29,8 +29,8 @@ export default function Home() {
 			</Head>
 			<div className="flex h-full scrollbar-thin overflow-auto scrollbar-thumb-rounded justify-between w-full flex-col max-w-7xl">
 				<div className="flex flex-col md:flex-row max-w-7xl w-full">
-					<div className="flex w-full md:w-1/2 relative">
-						<NextImage width={1120} height={750} src={"/landing.png"} />
+					<div className="flex w-full md:w-1/2 relative mr-4">
+						<NextImage className='rounded-lg' width={1120} height={750} src={"/landing.png"} />
 					</div>
 					<div className="flex flex-col w-full md:w-1/2 justify-center items-center space-y-5">
 						{/* TODO: Make this tagline sound more catchy */}
@@ -57,7 +57,7 @@ export default function Home() {
 						</div>
 					</div>
 				</div>
-				<div>
+				<div className='mt-5 pt-5 pb-3 text-center'>
 					<p className="text-2xl font-bold">Featured Blog Posts</p>
 				</div>
 				<div className="w-full flex flex-1 space-x-4 my-5">
