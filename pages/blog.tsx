@@ -15,11 +15,11 @@ type Post = {
 	frontmatter: BlogPostProps;
 };
 
-type HomeProps = {
+type BlogProps = {
 	posts: Post[];
 };
 
-export default function Home({ posts }: HomeProps) {
+export default function Blog({ posts }: BlogProps) {
 	// console.log(posts); // show graymatter data
 
 	const [filters, setFilters] = useState([]);
