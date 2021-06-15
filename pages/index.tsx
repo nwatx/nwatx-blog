@@ -13,39 +13,7 @@ import Card from "../components/Card";
 import { MailIcon } from "../components/Heroicons";
 import Link from "next/link";
 
-type Post = {
-	slug;
-	frontmatter: BlogPostProps;
-};
-
-type HomeProps = {
-	posts: Post[];
-};
-
-export default function Home({ posts }: HomeProps) {
-	// console.log(posts); // show graymatter data
-
-	const [filters, setFilters] = useState([]);
-	const postTags = posts
-		.map((post) => {
-			if (post.frontmatter.tags)
-				return post.frontmatter.tags
-					.trim()
-					.split(",")
-					.map((s) => s.trim());
-		})
-		.flat();
-
-	const uniquePostTags = Array.from(new Set<string>(postTags))
-		.sort()
-		.filter((e) => e.trim());
-
-	console.log(uniquePostTags);
-
-	useEffect(() => {
-		setFilters([]);
-	}, []);
-
+export default function Home() {
 	return (
 		<NavBarLayout>
 			<Head>
@@ -150,35 +118,4 @@ export default function Home({ posts }: HomeProps) {
 			</div>
 		</NavBarLayout>
 	);
-}
-
-export async function getStaticProps() {
-	const files = fs.readdirSync(`${process.cwd()}/content/`);
-
-	const posts = files.map((filename) => {
-		const markdownWithMetadata = fs
-			.readFileSync(`content/${filename}`)
-			.toString();
-
-		const { data } = matter(markdownWithMetadata);
-
-		console.log(data);
-
-		const frontmatter = {
-			...data,
-			date: data.date.toISOString(),
-			filename: filename.replace(".mdx", ""),
-		};
-
-		return {
-			slug: filename.replace(".mdx", ""),
-			frontmatter,
-		};
-	});
-
-	return {
-		props: {
-			posts,
-		},
-	};
 }
