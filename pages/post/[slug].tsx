@@ -1,14 +1,13 @@
 import React, { useEffect } from "react";
 import fs from "fs";
 import path from "path";
-import { MDXProvider } from "@mdx-js/react";
-import renderToString from "next-mdx-remote/render-to-string";
-import hydrate from "next-mdx-remote/hydrate";
+import { MDXRemote } from 'next-mdx-remote'
+import { serialize } from 'next-mdx-remote/serialize'
 import NavBarLayout from "../../layouts/NavBarLayout";
-// import Prism from "prismjs";
-// import "prismjs/components/prism-c";
-// import "prismjs/components/prism-cpp";
-// import "prismjs/components/prism-java";
+import Prism from "prismjs";
+import "prismjs/components/prism-c";
+import "prismjs/components/prism-cpp";
+import "prismjs/components/prism-java";
 import matter from "gray-matter";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
@@ -62,13 +61,13 @@ export const MDXComponents = {
 };
 
 const BlogPost = ({ source, data }) => {
-	// console.log(source);
-	const content = hydrate(source, { components: MDXComponents });
+	console.log(source);
+	// const content = hydrate(source, { components: MDXComponents });
 	const router = useRouter();
 
-	// useEffect(() => {
-	// 	Prism.highlightAll();
-	// });
+	useEffect(() => {
+		Prism.highlightAll();
+	});
 
 	// useEffect(() => {
 	//   if (ref.current) {
@@ -125,7 +124,8 @@ const BlogPost = ({ source, data }) => {
 					{/* <div className="flex justify-center mt-5 pb-10 md:pb-4 w-full"> */}
 					{/* <div className="flex w-full flex-col relative"> */}
 					<article className="prose overflow-x-auto dark:prose-dark w-full my-7 max-w-3xl mx-0">
-						{content}
+						{/* {content} */}
+						<MDXRemote {...source} components={MDXComponents} />
 					</article>
 					{/* </div> */}
 					{/* </div> */}
@@ -163,8 +163,8 @@ export async function getStaticProps({ params: { slug } }) {
 	// if(data['date']) data['date'] = data['date'].toLocaleDateString();
 	// console.log(data, content); to see data content
 
-	const source = await renderToString(content, {
-		components: MDXComponents,
+	const source = await serialize(content, {
+		// components: MDXComponents,
 		mdxOptions: {
 			remarkPlugins: [
 				require("remark-math"),

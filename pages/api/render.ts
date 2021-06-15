@@ -1,6 +1,7 @@
 import matter from "gray-matter";
 import { NextApiRequest, NextApiResponse } from "next";
-import renderToString from "next-mdx-remote/render-to-string";
+import { serialize } from "next-mdx-remote/serialize";
+// import renderToString from "next-mdx-remote/render-to-string";
 import { MDXComponents } from "../post/[slug]";
 
 export default async function (req: NextApiRequest, res: NextApiResponse) {
@@ -9,8 +10,8 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
 
     try {
       const { data, content } = matter(markdown);
-      const source = await renderToString(content, {
-        components: MDXComponents,
+      const source = await serialize(content, {
+        // components: MDXComponents,
         mdxOptions: {
           remarkPlugins: [require("remark-math")],
           rehypePlugins: [require("rehype-katex")],

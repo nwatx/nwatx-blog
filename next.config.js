@@ -20,4 +20,7 @@ module.exports = withMDX({
 
 		return config;
 	},
+	typescript: {
+		ignoreBuildErrors: true
+	}
 });

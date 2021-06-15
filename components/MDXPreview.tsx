@@ -1,21 +1,23 @@
 import { MDXProvider } from "@mdx-js/react";
-import hydrate from "next-mdx-remote/hydrate";
+import { MDXRemote } from "next-mdx-remote";
 import { useEffect } from "react";
 import { MDXComponents } from "../pages/post/[slug]";
-import Prism from 'prismjs'
+import Prism from "prismjs";
 
 const MDXPreview = ({ source }) => {
-  const content = hydrate(source, { components: MDXComponents });
+	// const content = hydrate(source, { components: MDXComponents });
 
-  useEffect(() => {
-    Prism.highlightAll();
-  })
+	useEffect(() => {
+		Prism.highlightAll();
+	});
 
-  return (
-    <MDXProvider>
-      <div className='flex rounded-md p-2 flex-col space-y-4 w-full prose dark:prose-dark'>{content}</div>
-    </MDXProvider>
-  );
+	return (
+		<MDXProvider>
+			<div className="flex rounded-md p-2 flex-col space-y-4 w-full prose dark:prose-dark">
+				<MDXRemote {...source} components={MDXComponents} />
+			</div>
+		</MDXProvider>
+	);
 };
 
 export default MDXPreview;
