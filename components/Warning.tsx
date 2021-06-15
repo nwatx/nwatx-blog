@@ -5,7 +5,7 @@ export default function WarningCard({ title, description }) {
 
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
-				className="mt-2 h-6 w-6 text-yellow-500 dark:text-yellow-200"
+				className="mt-9 h-6 w-6 text-yellow-500 dark:text-yellow-200"
 				fill="none"
 				viewBox="0 0 24 24"
 				stroke="currentColor"
