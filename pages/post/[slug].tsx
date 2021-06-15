@@ -203,6 +203,8 @@ export async function getStaticProps({ params: { slug } }) {
 		date: data.date.toISOString(),
 	};
 
+	frontmatter['author'] = frontmatter['author'] || 'nwatx'
+
 	// source.renderedOutput = source.renderedOutput.replaceAll('<!-- -->', '');
 
 	// source.renderedOutput = source.renderedOutput.split("<!-- -->").join("");
