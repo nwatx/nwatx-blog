@@ -21,7 +21,7 @@ export default function Card({
 }: CardProps) {
 	return (
 		<Link href={to}>
-			<div className="w-full cursor-pointer md:w-1/2 flex flex-col border dark:border-gray-800 rounded-md shadow-sm hover:shadow-md">
+			<div className="w-full cursor-pointer md:w-1/2 flex flex-col border dark:border-gray-800 rounded-md shadow-sm hover:shadow-md dark:hover:bg-gray-700">
 				<Image
 					className="rounded-t-lg"
 					src={src}

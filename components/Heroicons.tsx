@@ -3,9 +3,9 @@ export const MailIcon = ({...props}) => {
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			// className="h-10 w-10 p-2 text-white dark:text-black bg-black dark:bg-white rounded-full"
-			className='h-10 w-10 p-2 dark:text-white cursor-pointer'
+			className='h-10 w-10 p-2 dark:text-white cursor-pointer dark:hover:bg-gray-700 rounded-full'
 			fill="none"
-			viewBox="0 0 24 24"
+			viewBox="-1 0 24 24"
 			stroke="currentColor"
 			{...props}
 		>
