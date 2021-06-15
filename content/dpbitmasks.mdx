@@ -6,6 +6,12 @@ tags: dynamic programming,bitmasks,code
 date: 2021-03-20
 ---
 
+<NextImage
+	src="https://res.cloudinary.com/dcg5b3jpt/image/upload/v1623724811/blog/abstract-1278077_1920_tbzj7y.jpg"
+	width={1920}
+	height={1357}
+/>
+
 ## Introduction
 
 Before we begin, read [this problem](https://cses.fi/problemset/task/1690) and come up with possible strategies to tackle it. Note that $n$ is surprisingly low. Upon more careful consideration of your solution, you should realize that this problem is incredibly difficult to tackle in anything better than $\mathcal{O}(nm2^n)$ time complexity. In this blog post, we will discuss the dynamic programming technique that enables us to solve this problem.
@@ -30,9 +36,9 @@ This corresponds to $...100011010$ which corresponds to $2^8+2^4+2^3+2^1=282$.
 
 Using this new representation, we can perform the following set operations using bitwise operators.
 
-* Intersection - including two bits if they exist in both sets: $a\&b$.
-* Union - including bits if they exist in either set: $a|b$.
-* Symmetric difference - including bits if they are present in either set but not both: $a$ ^ $b$.
+- Intersection - including two bits if they exist in both sets: $a\&b$.
+- Union - including bits if they exist in either set: $a|b$.
+- Symmetric difference - including bits if they are present in either set but not both: $a$ ^ $b$.
 
 If we want to iterate through the $2^n$ subsets of $\{0, 1,\ldots,n-1\}$, we can simply loop from $0,1,\ldots ,n-1$ of our current bit representation of the set. In code this looks like
 
@@ -52,7 +58,7 @@ Read through [this chapter](/CPH.pdf#page=112) in order to get a general underst
 
 Below is the code used to solve the problem. We will perform a line-by-line analysis of what it does. It is a good idea to go back and forth between the explanation and the code itself.
 
-```for(int d = 1; d < n; d++)``` loops from the first day to the $n$-th day. This should be straightforward.
+`for(int d = 1; d < n; d++)` loops from the first day to the $n$-th day. This should be straightforward.
 
 `for(int s = 0; s < (1<<k); s++)` loops through each of the $2^k$ subsets of $\{0, 1,\ldots,k-1\}$. Reference our code above if you are confused.
 
@@ -166,6 +172,6 @@ int main() {
 		}
 	}
 
-	cout << dp[(1<<n)-1][n] % mod; 
+	cout << dp[(1<<n)-1][n] % mod;
 }
 ```

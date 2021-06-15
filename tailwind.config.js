@@ -5,10 +5,11 @@ module.exports = {
 	purge: ["./**/*.{jsx,tsx}", "./styles/**.css"],
 	darkMode: "class", // or 'media' or 'class'
 	mode: "jit",
-	important: true,
+	// important: true,
 	theme: {
 		extend: {
 			fontFamily: {
+				sans: ['Eurostile', 'Open Sans'],
 				mono: ["Cascadia Code"],
 			},
 			colors: {

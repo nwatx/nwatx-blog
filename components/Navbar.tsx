@@ -39,6 +39,7 @@ export default function Navbar({ children }) {
 								<GithubButton />
 								{/* <NavigationButton to='https://github.com/nwatx' src='/github.svg' /> */}
 								<NavigationButton to="/aboutme" label="About Me" />
+								<NavigationButton to="/blog" label="Blog" />
 								<NavigationButton to="/editor" label="Editor" />
 							</div>
 						</div>
