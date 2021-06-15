@@ -10,6 +10,8 @@ import { TagColor } from "../components/TagColors";
 import ProjectCard from "../components/ProjectCard";
 import NextImage from "next/image";
 import Card from "../components/Card";
+import { MailIcon } from "../components/Heroicons";
+import Link from "next/link";
 
 type Post = {
 	slug;
@@ -64,8 +66,27 @@ export default function Home({ posts }: HomeProps) {
 					</div>
 					<div className="flex flex-col w-full md:w-1/2 justify-center items-center space-y-5">
 						{/* TODO: Make this tagline sound more catchy */}
-						<h1 className="dark:text-white text-4xl text-center">Welcome to Neo's website</h1>
-						<p className='dark:text-white text-lg text-gray-600'>A general hub of sorts for my personal interests.</p>
+						<h1 className="dark:text-white text-4xl text-center">
+							Welcome to Neo's website
+						</h1>
+						<p className="dark:text-white text-lg text-gray-600">
+							A general hub of sorts for my personal interests.
+						</p>
+						<div className="flex flex-row justify-center space-x-5 h-10">
+							<Link href='mailto:neowangatx@gmail.com'>
+							<MailIcon />
+							</Link>
+
+							{/* <div className="h-10 w-10"> * TWITCH ICON, ADD WHEN READY
+								<NextImage
+									width={256}
+									height={256}
+									layout="intrinsic"
+									objectFit="contain"
+									src="https://res.cloudinary.com/dcg5b3jpt/image/upload/v1623726249/blog/twitch_PNG28_cqah7v.png"
+								/>
+							</div> */}
+						</div>
 					</div>
 				</div>
 				<div>
