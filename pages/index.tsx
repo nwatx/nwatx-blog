@@ -64,7 +64,7 @@ export default function Home() {
 					<Card
 						to="/post/svd"
 						src="https://res.cloudinary.com/dcg5b3jpt/image/upload/v1621301300/blog/svd_awgmuh.png"
-						description="yes"
+						// description="yes"
 						title="Singular Value Decomposition"
 						width={1200}
 						height={1090}
