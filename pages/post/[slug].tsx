@@ -61,7 +61,6 @@ export const MDXComponents = {
 };
 
 const BlogPost = ({ source, data }) => {
-	console.log(source);
 	// const content = hydrate(source, { components: MDXComponents });
 	const router = useRouter();
 
