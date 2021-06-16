@@ -238,3 +238,192 @@ int main() {
 	}
 }
 ```
+
+## [F - LCS](https://atcoder.jp/contests/dp/tasks/dp_f)
+
+First read [this](https://usaco.guide/gold/paths-grids?lang=cpp), then following
+the according $\texttt{dp}$ model, build the string accordingly.
+
+```cpp
+#include <bits/stdc++.h>
+
+using namespace std;
+
+template<class T> bool ckmax(T& a, const T& b) {
+	return a < b ? a = b, 1 : 0;
+}
+
+int dp[3001][3001];
+
+int main() {
+	cin.tie(0)->sync_with_stdio(0);
+	string s, t; cin >> s >> t;
+	int n = s.size(), m = t.size();
+
+	for(int i = 0 ; i <= n; i++) {
+		for(int j = 0; j <= m; j++)  {
+			if(!i || !j) dp[i][j] = 0;
+			else if(s[i - 1] == t[j - 1]) dp[i][j] = 1 + dp[i - 1][j - 1];
+			else dp[i][j] = max(dp[i - 1][j],dp[i][j - 1]);
+		}
+	}
+
+	string ret = "";
+
+	while(n && m) {
+		if(s[n - 1] == t[m - 1]) {
+			ret += s[n - 1];
+			n--;
+			m--;
+		}
+		else if(dp[n - 1][m] > dp[n][m - 1]) n--;
+		else m--;
+	 }
+
+	 reverse(ret.begin(), ret.end());
+
+	 cout << ret << endl;
+}
+```
+
+## [G - Longest Path](https://atcoder.jp/contests/dp/tasks/dp_g)
+
+Simply perform a DFS on the graph, defining $\texttt{dp}[i]$ as the longest path that
+node $i$ can take. Notice how the optimal substructure is formed: the best path for
+any node $x$ is one added to the best path for any of its children.
+
+```cpp
+#include <bits/stdc++.h>
+
+using namespace std;
+
+vector<int> dp(100001);
+vector<vector<int>> adj(100001);
+
+int dfs(int x) {
+	if (dp[x]) return dp[x];
+	for (auto e : adj[x]){
+			dp[e] = dfs(e);
+			dp[x] = max(dp[e] + 1, dp[x]);
+	}
+	return dp[x];
+}
+
+int main(){
+	int n,m;
+	cin >> n >> m;
+	
+	for(int i = 0; i < m; i++) {
+		int a, b;
+		cin >> a >> b;
+		a--; b--;
+		adj[a].push_back(b);
+	}
+
+	for (int i = 0; i < n; i++) {
+		dfs(i);
+	}
+
+	int ans = 0;
+
+	for (int i = 0;i < n; i++) {
+		ans = max(dp[i], ans);
+	}
+
+	cout << ans;
+}
+```
+
+## [H - Grid 1](https://atcoder.jp/contests/dp/tasks/dp_h)
+
+A full tutorial can be found
+[here](https://usaco.guide/gold/paths-grids?lang=cpp#tutorial).
+
+```cpp
+#include <bits/stdc++.h>
+
+using namespace std;
+
+bool ok[1000][1000];
+long long dp[1000][1000];
+
+int main() {
+	cin.tie(0)->sync_with_stdio(0);
+
+	int n; cin >> n;
+	for(int i = 0; i < n; i++) {
+		string s;
+		cin >> s;
+		for(int j = 0; j < n; j++) {
+			if(s[j] == '.') ok[i][j] = true;
+			else ok[i][j] = false;
+		}
+	}
+
+	dp[0][0] = 1;
+	for(int i = 0; i < n; i++) {
+		for(int j = 0; j < n; j++) {
+			if(!ok[i][j]) dp[i][j] = 0;
+			else {
+				if(i > 0) dp[i][j] += dp[i - 1][j];
+				if(j > 0) dp[i][j] += dp[i][j - 1];
+				dp[i][j] %= 1000000007;
+			}
+		}
+	}
+
+	cout << dp[n - 1][n - 1] << "\n";
+
+	return 0;
+}
+```
+
+## [I - Coins](https://atcoder.jp/contests/dp/tasks/dp_i)
+
+Define $\texttt{dp}[i][j]$ to be the probability after tossing the first $i$
+coins, and receiving $j$ heads. Then, our probability of flipping $j$ heads from
+the first $i$ coins is the addition of the following:
+
+- either we flipped a head with probability $p$
+  - then use $$\texttt{dp}[i-1][j-1]$$, the probability of receiving $j-1$ heads
+    from the previous toss.
+- we flipped a tail with probability $1-p$
+  - then use $\texttt{dp}[i-1][j]\cdot(1-\texttt{p}[i-1])$, the probability of
+    receiving $j$ heads from the previous toss.
+
+$$
+\texttt{dp}[i][j] = \texttt{dp}[i-1][j-1]\cdot \texttt{p}[i-1] + \texttt{dp}[i-1][j]\cdot(1-\texttt{p}[i-1])
+$$
+
+```cpp
+#include<bits/stdc++.h>
+
+using namespace std;
+
+long double dp[3001][3001];
+
+int main() {
+	cin.tie(0)->sync_with_stdio(0);
+
+	int n;
+	cin >> n;
+
+	vector<long double> p(n);
+
+	for(int i = 0; i < n; i++) cin >> p[i];
+
+	int leastHeads = n / 2 + 1;
+
+	for(int i = 0; i <= n; i++) {
+			dp[i][0] = 1;
+	}
+
+	for(int i = 1; i <= n; i++) {
+		for(int j = 1; j <= leastHeads; j++) {
+			dp[i][j] = dp[i - 1][j - 1]*p[i - 1] + dp[i - 1][j]*(1 - p[i - 1]);
+		}
+	}
+
+	cout << fixed << setprecision(10) << dp[n][leastHeads] << endl;
+}
+```
