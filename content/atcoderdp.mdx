@@ -241,6 +241,8 @@ int main() {
 
 ## [F - LCS](https://atcoder.jp/contests/dp/tasks/dp_f)
 
+**Time Complexity:** $\mathcal{O}(N^2)$
+
 First read [this](https://usaco.guide/gold/paths-grids?lang=cpp), then following
 the according $\texttt{dp}$ model, build the string accordingly.
 
@@ -287,6 +289,8 @@ int main() {
 ```
 
 ## [G - Longest Path](https://atcoder.jp/contests/dp/tasks/dp_g)
+
+**Time Complexity:** $\mathcal{O}(N + M)$
 
 Simply perform a DFS on the graph, defining $\texttt{dp}[i]$ as the longest path that
 node $i$ can take. Notice how the optimal substructure is formed: the best path for
@@ -336,6 +340,8 @@ int main(){
 
 ## [H - Grid 1](https://atcoder.jp/contests/dp/tasks/dp_h)
 
+**Time Complexity:** $\mathcal{O}(N^2)$
+
 A full tutorial can be found
 [here](https://usaco.guide/gold/paths-grids?lang=cpp#tutorial).
 
@@ -380,6 +386,8 @@ int main() {
 
 ## [I - Coins](https://atcoder.jp/contests/dp/tasks/dp_i)
 
+**Time Complexity:** $\mathcal{O}(N^2)$
+
 Define $\texttt{dp}[i][j]$ to be the probability after tossing the first $i$
 coins, and receiving $j$ heads. Then, our probability of flipping $j$ heads from
 the first $i$ coins is the addition of the following:
@@ -420,10 +428,247 @@ int main() {
 
 	for(int i = 1; i <= n; i++) {
 		for(int j = 1; j <= leastHeads; j++) {
-			dp[i][j] = dp[i - 1][j - 1]*p[i - 1] + dp[i - 1][j]*(1 - p[i - 1]);
+			dp[i][j] = dp[i - 1][j - 1] * p[i - 1] + dp[i - 1][j] * (1 - p[i - 1]);
 		}
 	}
 
 	cout << fixed << setprecision(10) << dp[n][leastHeads] << endl;
+}
+```
+
+## [J - Sushi](https://atcoder.jp/contests/dp/tasks/dp_j)
+
+**Time Complexity:** $\mathcal{O}(N^3)$
+
+Let $\texttt{dp}[x][y][z]$ represent the expected moves for
+$x$ number of plates 1-sushi remaining, $y$ number of plates
+2-sushi remaining, $z$ number of plates 3-sushi remaining.
+
+Then, we can use the relation
+
+$$
+\texttt{dp}[x][y][z] = n + x \cdot \texttt{dp}[x-1][y][z]
+												+ y \cdot \texttt{dp}[x+1][y-1][z]
+												+ z \cdot \texttt{dp}[x][y+1][z-1]
+$$
+
+Note that we add $1$ for the $y$ and $z$ equations because
+we take from one sushi platter which transitions into one
+more sushi in another grouping of either $x,y$. For example,
+by taking one sushi away from a group of size $2$ then there is a
+corresponding increase in a sushi group of size $1$.
+
+```cpp
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int n;
+
+long double dp[301][301][301];
+// let dp[i][j][k] be
+// i dishes of 1 sushi
+// j dishes of 2 sushi
+// k dishes of 3 sushi
+
+double memo(int x, int y, int z) {
+	if(x < 0 || y < 0 || z < 0) return 0;
+	if(x == 0 && y == 0 && z == 0) return 0;
+	// if(x + y + z < 1) return 0;
+	if(dp[x][y][z] > 0) return dp[x][y][z];
+
+	long double ret = n + x * memo(x - 1, y, z)  // # 1 sushi
+					+ y * memo(x + 1, y - 1, z)  // # 2 sushi
+					+ z * memo(x, y + 1, z - 1); // # 3 sushi
+
+	return dp[x][y][z] = ret / (x + y + z);
+}
+
+int main() {
+	cin.tie(0)->sync_with_stdio(0);
+
+	cin >> n;
+	vector<int> a(n); for(int i = 0; i < n; i++) cin >> a[i];
+
+	vector<int> freq(3);
+	for(int x : a) freq[x-1]++; 
+
+	memset(dp, -1, sizeof dp);
+
+	cout << fixed << setprecision(10) << memo(freq[0], freq[1], freq[2]) << endl;
+}
+```
+
+## [K - Stones](https://atcoder.jp/contests/dp/tasks/dp_k)
+
+Define $\texttt{dp}[i]$ as if it's possible to win with $i$ stones remaining.
+Then keep two loops, one for values of $i (1 \le i \le K)$, and the other for
+each value in $A$. If $i \ge j$ and it was not possible to win a game with
+$i - a_j$ stones, then - because the turns alternate - a game with $i$ stones
+is winnable.
+
+```
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	cin.tie(0)->sync_with_stdio(0);
+
+	int n, k;
+	cin >> n >> k;
+	vector<int> a(n);
+	for (int& x : a) cin >> x;
+	vector<bool> dp(k + 1);
+	for (int i = 1; i <= k; i++)
+		for (int j : a)
+			if (i >= j && !dp[i - j])
+				dp[i] = 1;
+	cout << (dp[k] ? "First" : "Second") << '\n';
+}
+```
+
+## [L - Deque]
+
+Define $\texttt{dp}[i][j]$ as the optimal score for Jiro $(X - Y)$
+using the range $[i, j]$. Then, we can either choose $a_i$
+to append to the left of the range, or $a_j$ on the right. Then,
+our two transitions are
+
+$$
+\texttt{dp}[i][j] = \max_{j > i}
+\left\{\begin{matrix}
+a_i - \texttt{dp}[i+1][j] \\ 
+a_j - \texttt{dp}[i][j-1]
+\end{matrix}\right.
+$$
+
+Our initial states $\texttt{dp}_[i][i] = 0$, since any range of size $0$
+will have difference $0$
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+long long dp[3001][3001];
+	
+int main() {
+	cin.tie(0)->sync_with_stdio(0);
+	
+	int n;
+	cin >> n;
+
+	vector<int> a(n);
+	for (int& x : a) cin >> x;
+
+	for (int i = 0; i < n; ++i) dp[i][i] = a[i];
+
+	for (int i = n - 1; i >= 0; i--)
+		for (int j = i + 1; j < n; j++)
+			dp[i][j] = max(a[i] - dp[i + 1][j], a[j] - dp[i][j - 1]);
+	cout << dp[0][n - 1] << '\n';
+}
+```
+
+## [M - Candies]()
+
+```
+#include <bits/stdc++.h>
+using namespace std;
+	
+const int MAXK = 100000;
+const int MOD = 1000000007;
+	
+int add(int i, int j) {
+	if ((i += j) >= MOD)
+		i -= MOD;
+	return i;
+}
+	
+int sub(int i, int j) {
+	if ((i -= j) < 0)
+		i += MOD;
+	return i;
+}
+	
+int main() {
+	cin.tie(0)->sync_with_stdio(0);
+	
+	int n, k, a;
+	cin >> n >> k;
+	
+	static int dp[MAXK + 1], dq[MAXK + 1];
+	dp[0] = 1;
+	for (int i = 1; i <= n; ++i) {
+		cin >> a;
+		for (int j = 1; j <= k; ++j)
+			dp[j] = add(dp[j - 1], dp[j]);
+		for (int j = 0; j <= k; ++j)
+			dq[j] = sub(dp[j], (j > a ? dp[j - a - 1] : 0));
+		swap(dp, dq);
+	}
+	cout << dp[k] << '\n';
+}
+```
+
+## [O - Matching](https://atcoder.jp/contests/dp/tasks/dp_o)
+
+**Time Complexity:** $\mathcal{O}(N\cdot 2^N)$
+
+If we define $\texttt{dp}[S]$ to be the number of matchings for females in the
+set $S$ to the first $|S|$ males, this problem boils down to the following:
+
+$$
+\texttt{dp}[S] = \sum \texttt{dp}[S\backslash x]:  \texttt{compatible}[|S|][x]
+$$
+
+(The `:` stands for "such that".)
+In English, this is equivalent to the following:
+
+> The number of matchings in a subset $S$ to include a certain female $x$ is
+> equivalent to the sum of all the matchings without female $x$ where female $x$
+> is compatible with the $|S|$-th male.
+
+Our base case is the empty set, which has a value of $1$ (the empty set can be
+considered as a single matching involving zero pairs).
+	
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+const int MOD = 1e9 + 7;
+const int MAX_N = 21;
+
+bool compat[MAX_N][MAX_N];
+int dp[1 << MAX_N];
+
+int main() {
+	int N;
+	cin >> N;
+	for (int i = 0; i < N; i++) {
+		for (int j = 0; j < N; j++) {
+			cin >> compat[i][j];
+		}
+	}
+
+	dp[0] = 1;
+
+	for (int s = 0; s < (1 << N); s++) {
+		int pair_num = __builtin_popcount(s);
+		for (int w = 0; w < N; w++) {
+			/*
+			 * check that
+			 * 1. this woman hasn't been paired already
+			 * 2. she's also compatible with the {pair_num + 1}th man
+			 */
+			if ((s & (1 << w)) || !compat[pair_num][w])
+				continue;
+			
+			// add the amount to future dp states
+			dp[s | (1 << w)] += dp[s];
+			dp[s | (1 << w)] %= MOD;
+		}
+	}
+
+   	cout << dp[(1 << N) - 1] << endl;
 }
 ```
