@@ -52,7 +52,7 @@ export const MDXComponents = {
 	// inlineCode: code,
 	NextImage: (props) => (
 		<div className="flex my-12 w-full justify-center">
-			<Image layout='responsive' className="rounded-md" {...props} />
+			<Image layout='intrinsic' className="rounded-md" {...props} />
 		</div>
 	),
 	Pros: ProsCard,
