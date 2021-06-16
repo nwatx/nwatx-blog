@@ -1,26 +1,18 @@
-const rehypeKatex = require("rehype-katex");
-const remarkMath = require("remark-math");
-
-const withMDX = require("@next/mdx")({
-	extension: /\.mdx$/,
-	options: {
-		remarkPlugins: [remarkMath],
-		rehypePlugins: [rehypeKatex],
-	},
-});
-
-module.exports = withMDX({
+module.exports = {
 	images: {
+		// deviceSizes: [320, 420, 768, 1024, 1200],
 		domains: ["res.cloudinary.com"],
+		loader: 'cloudinary',
+		path: 'https://res.cloudinary.com/dcg5b3jpt/image/upload/'
 	},
-	webpack: (config, { isServer }) => {
-		if (isServer) {
-			require("./scripts/generate-sitemap");
-		}
+	// webpack: (config, { isServer }) => {
+	// 	if (isServer) {
+	// 		require("./scripts/generate-sitemap");
+	// 	}
 
-		return config;
-	},
+	// 	return config;
+	// },
 	typescript: {
 		ignoreBuildErrors: true
 	}
-});
+};

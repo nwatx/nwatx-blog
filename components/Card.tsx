@@ -9,11 +9,13 @@ type CardProps = {
 	description?: string;
 	width?: number;
 	height?: number;
+	alt?: string;
 };
 
 export default function Card({
 	to,
 	src,
+	alt,
 	title,
 	description,
 	width,
@@ -24,7 +26,9 @@ export default function Card({
 			<div className="w-full cursor-pointer md:w-1/2 flex flex-col border dark:border-gray-800 rounded-md shadow-sm hover:shadow-md dark:hover:bg-gray-700">
 				<Image
 					className="rounded-t-lg"
+					layout='responsive'
 					src={src}
+					alt={alt || title}
 					width={width || 300}
 					height={height || 300}
 				/>
