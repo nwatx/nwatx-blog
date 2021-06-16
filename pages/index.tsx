@@ -68,15 +68,15 @@ export default function Home() {
 						to="/post/svd"
 						src="v1621301300/blog/svd_awgmuh.png"
 						title="Singular Value Decomposition"
-						width={1200}
-						height={1090}
+						width={600}
+						height={545}
 					/>
 					<Card
 						src="v1623724811/blog/abstract-1278077_1920_tbzj7y.jpg"
 						to="/post/dpbitmasks"
 						description="Quick introduction of bitmask programming"
-						width={1920}
-						height={1357}
+						width={960}
+						height={675}
 						title="A Primer on Bitmask DP"
 					/>
 				</div>
