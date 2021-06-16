@@ -510,8 +510,9 @@ each value in $A$. If $i \ge j$ and it was not possible to win a game with
 $i - a_j$ stones, then - because the turns alternate - a game with $i$ stones
 is winnable.
 
-```
+```cpp
 #include <bits/stdc++.h>
+
 using namespace std;
 
 int main() {
@@ -550,6 +551,7 @@ will have difference $0$
 
 ```cpp
 #include <bits/stdc++.h>
+
 using namespace std;
 
 long long dp[3001][3001];
@@ -587,6 +589,7 @@ We can use prefix sums to speed this up from $\mathcal O(N\cdot K^2)$ to $\mathc
 
 ```cpp
 #include <bits/stdc++.h>
+
 using namespace std;
 	
 const int MAXK = 100000;
@@ -647,6 +650,7 @@ considered as a single matching involving zero pairs).
 	
 ```cpp
 #include <bits/stdc++.h>
+
 using namespace std;
 
 const int MOD = 1e9 + 7;
@@ -705,10 +709,11 @@ $$
 
 ```cpp
 #include <bits/stdc++.h>
+
 using namespace std;
 
-const int MAXN = 100000;
-const int MOD = 1000000007;
+const int MAXN = 1e5;
+const int MOD = 1e9 + 7;
 
 int add(int i, int j) {
 	if ((i += j) >= MOD)
@@ -764,9 +769,10 @@ In other words, we're querying the maximum $\texttt{dp}[j]$ which $h_j\in[1, h_i
 
 ```cpp
 #include <bits/stdc++.h>
+
 using namespace std;
 
-const int MAXN = 200000;
+const int MAXN = 2e5;
 
 int n;
 long long bit[MAXN + 1];
@@ -807,9 +813,10 @@ Thus, we're looking for $m^k$, which can be calculated with fast exponentiation.
 
 ```cpp
 #include <bits/stdc++.h>
+
 using namespace std;
 
-const int MOD = 1000000007;
+const int MOD = 1e9 + 7;
 
 int add(int i, int j) {
 	if ((i += j) >= MOD)
@@ -898,11 +905,12 @@ To find the answer, we will take a prefix of $K$ and calculate the number of way
 
 ```cpp
 #include <bits/stdc++.h>
+
 using namespace std;
 
 const int MAXL = 10000;
 const int MAXD = 100;
-const int MOD = 1000000007;
+const int MOD = 1e9 + 7;
 
 int dp[MAXL + 1][MAXD];
 
@@ -952,11 +960,12 @@ Otherwise, $\texttt{dp}[i][j]=\sum{\texttt{dp}[i-1][k]}$ for all $k < j$. This c
 
 ```cpp
 #include <bits/stdc++.h>
+
 using namespace std;
 
 const int MAXN = 3000;
 
-const int MOD = 1000000007;
+const int MOD = 1e9 + 7;
 
 int add(int i, int j) {
 	if ((i += j) >= MOD)
