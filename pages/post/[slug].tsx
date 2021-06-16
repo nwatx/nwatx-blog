@@ -51,8 +51,8 @@ export const MDXComponents = {
 	// ol: ol,
 	// inlineCode: code,
 	NextImage: (props) => (
-		<div className="flex my-12 w-full justify-center">
-			<Image layout='intrinsic' className="rounded-md" {...props} />
+		<div className="my-12 w-full justify-center">
+			<Image layout='responsive' className="rounded-md" {...props} />
 		</div>
 	),
 	Pros: ProsCard,
@@ -136,7 +136,7 @@ const BlogPost = ({ source, data }) => {
 	);
 };
 
-export default BlogPost;
+export default React.memo(BlogPost);
 
 export async function getStaticPaths() {
 	const files = fs.readdirSync("content");

@@ -6,7 +6,7 @@ import Card from "../components/Card";
 import { MailIcon } from "../components/Heroicons";
 import Link from "next/link";
 import { defaultLoader } from "../lib/defaultLoader";
-import NextImage from "../components/NextImage";
+import Image from 'next/image'
 
 export default function Home() {
 	return (
@@ -25,13 +25,14 @@ export default function Home() {
 			<div className="flex h-full scrollbar-thin overflow-auto scrollbar-thumb-rounded justify-between w-full flex-col max-w-7xl">
 				<div className="flex flex-col md:flex-row w-full">
 					<div className="flex w-full p-3 md:w-1/2 relative mr-4">
-						<NextImage
+						<Image
 							loader={defaultLoader}
 							alt="chill code svg"
 							className="rounded-lg"
 							width={1120}
 							height={750}
 							src={"/landing.svg"}
+							priority
 						/>
 					</div>
 					<div className="flex flex-col w-full md:w-1/2 justify-center items-center space-y-5">

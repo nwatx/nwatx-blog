@@ -39,14 +39,15 @@ export default class MyDocument extends Document {
 					/>
 					{/* <link href="http://fonts.cdnfonts.com/css/eurostile" as="font" rel="stylesheet" /> */}
 					<link
+						rel="preload"
 						href="https://fonts.cdnfonts.com/s/13662/eurostile.woff"
 						as="font"
 						type="font/woff"
 					/>
-					<link
+					{/* <link
 						href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
 						rel="stylesheet"
-					/>
+					/> */}
 					<link
 						rel="preload"
 						href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/fonts/KaTeX_Main-Regular.woff2"
@@ -76,8 +77,9 @@ export default class MyDocument extends Document {
 						crossOrigin="anonymous"
 					/>
 					<link
-						rel="stylesheet"
+						rel="preload"
 						href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css"
+						as="font"
 						integrity="sha384-t5CR+zwDAROtph0PXGte6ia8heboACF9R5l/DiY+WZ3P2lxNgvJkQk5n7GPvLMYw"
 						crossOrigin="anonymous"
 					/>

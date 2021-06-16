@@ -31,11 +31,12 @@ export default function Card({
 					alt={alt || title}
 					width={width || 300}
 					height={height || 300}
+					priority
 				/>
 				<div className="w-full border-b dark:border-gray-800" />
 				<div className="m-3">
 					<h1 className="text-xl dark:text-white font-bold">{title}</h1>
-					<h3>{description}</h3>
+					<p>{description}</p>
 				</div>
 			</div>
 		</Link>
