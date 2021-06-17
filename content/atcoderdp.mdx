@@ -699,6 +699,8 @@ int main() {
 
 ## [P - Independent Set](https://atcoder.jp/contests/dp/tasks/dp_p)
 
+**Time Complexity:** $\mathcal{O}(N\log N)$
+
 First, lets root the tree arbitrary. Let $\texttt{dp}[i][j]$ represent the number of ways to color subtree $i$, coloring node $i$ color $j$.
 
 Here, $j=0$ is black and $j=1$ is white. If we color node $i$ black, then it's children must be all white. So, we have
@@ -818,6 +820,8 @@ We're given a adjacency matrix $a$ and we want to calculate the number of paths 
 Notice that when we multiply $m$ by $m$, we get the number of paths with length $2$. If we take $m^p$, we end up with the number of paths of length $p$ from each $i$ to $j$.
 
 Thus, we're looking for $m^k$, which can be calculated with fast exponentiation. 
+
+**Time Complexity:** $\mathcal{O}(N^3\log K)$
 
 ```cpp
 #include <bits/stdc++.h>
