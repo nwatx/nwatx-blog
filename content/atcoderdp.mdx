@@ -1014,6 +1014,8 @@ int main() {
 
 ## [U - Grouping](https://atcoder.jp/contests/dp/tasks/dp_u)
 
+**Time Complexity:** $\mathcal{O}(3^N)$
+
 Let $\texttt{cost}[S]$ represent the score of assigning all Rabbits in set $S$ into the same group. This can be calculated in $\mathcal O(2^N \cdot N^2)$.
 
 Now, we calculate $\texttt{dp}[S]$, the maximum score of assigning the rabbits in set $S$. To calculate $\texttt{dp}[S]$, we have to loop through all subsets of $S$ and simulate putting all the rabbits in the subset in the same group. Fortunately, you can do this in [$\mathcal O(3^N)$](https://cp-algorithms.com/algebra/all-submasks.html#toc-tgt-1), which runs in time for $N\leq 16$.
