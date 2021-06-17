@@ -494,7 +494,7 @@ int main() {
 	vector<int> a(n); for(int i = 0; i < n; ++i) cin >> a[i];
 
 	vector<int> freq(3);
-	for(int x : a) freq[x-1]++; 
+	for(int x : a) freq[x - 1]++; 
 
 	memset(dp, -1, sizeof dp);
 
@@ -503,6 +503,8 @@ int main() {
 ```
 
 ## [K - Stones](https://atcoder.jp/contests/dp/tasks/dp_k)
+
+**Time Complexity:** $\mathcal{O}(N^2)$
 
 Define $\texttt{dp}[i]$ as if it's possible to win with $i$ stones remaining.
 Then keep two loops, one for values of $i (1 \le i \le K)$, and the other for
@@ -532,6 +534,8 @@ int main() {
 ```
 
 ## [L - Deque](https://atcoder.jp/contests/dp/tasks/dp_l)
+
+**Time Complexity:** $\mathcal{O}(N^2)$
 
 Define $\texttt{dp}[i][j]$ as the optimal score for Jiro $(X - Y)$
 using the range $[i, j]$. Then, we can either choose $a_i$
@@ -575,6 +579,8 @@ int main() {
 ```
 
 ## [M - Candies](https://atcoder.jp/contests/dp/tasks/dp_m)
+
+**Time Complexity:** $\mathcal{O}(NK)$
 
 Let $\texttt{dp}[i][j]$ represent the number of ways to distribute $j$ candies to the first $i$ children.
 
@@ -693,6 +699,8 @@ int main() {
 
 ## [P - Independent Set](https://atcoder.jp/contests/dp/tasks/dp_p)
 
+**Time Complexity:** $\mathcal{O}(N)$
+
 First, lets root the tree arbitrary. Let $\texttt{dp}[i][j]$ represent the number of ways to color subtree $i$, coloring node $i$ color $j$.
 
 Here, $j=0$ is black and $j=1$ is white. If we color node $i$ black, then it's children must be all white. So, we have
@@ -753,6 +761,8 @@ int main() {
 
 ## [Q - Flowers](https://atcoder.jp/contests/dp/tasks/dp_q)
 
+**Time Complexity:** $\mathcal{O}(N\log N)$
+
 Let $\texttt{dp}[i]$ represent the maximum beauty of a subsequence of flowers ending at $i$.
 
 $$
@@ -810,6 +820,8 @@ We're given a adjacency matrix $a$ and we want to calculate the number of paths 
 Notice that when we multiply $m$ by $m$, we get the number of paths with length $2$. If we take $m^p$, we end up with the number of paths of length $p$ from each $i$ to $j$.
 
 Thus, we're looking for $m^k$, which can be calculated with fast exponentiation. 
+
+**Time Complexity:** $\mathcal{O}(N^3\log K)$
 
 ```cpp
 #include <bits/stdc++.h>
@@ -899,6 +911,8 @@ int main() {
 
 ## [S - Digit Sum](https://atcoder.jp/contests/dp/tasks/dp_s)
 
+**Time Complexity:** $\mathcal{O}(|K|D)$
+
 We can use digit dp to solve this problem. Let $\texttt{dp}[i][j]$ represent the number of ways to create a length $|K|$ number which is a multiple of $D$ given that we've already done $i$ digits and a sum equivalent to $j \pmod D$.
 
 To find the answer, we will take a prefix of $K$ and calculate the number of ways to create the remaining suffix, which can be mapped to a dp state.
@@ -951,6 +965,8 @@ int main() {
 ```
 
 ## [T - Permutation](https://atcoder.jp/contests/dp/tasks/dp_t)
+
+**Time Complexity:** $\mathcal{O}(N^2)$
 
 Let $\texttt{dp}[i][j]$ represent the number of ways to create a permutation with length $i+1$ the first $i$ signs, using $j$ as the last element of the permutation.
 
@@ -1005,6 +1021,8 @@ int main() {
 ```
 
 ## [U - Grouping](https://atcoder.jp/contests/dp/tasks/dp_u)
+
+**Time Complexity:** $\mathcal{O}(3^N + 2^N\cdot N^2)$
 
 Let $\texttt{cost}[S]$ represent the score of assigning all Rabbits in set $S$ into the same group. This can be calculated in $\mathcal O(2^N \cdot N^2)$.
 
