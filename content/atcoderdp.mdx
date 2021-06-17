@@ -140,9 +140,9 @@ int main() {
 
 	for(int i = 1; i <= N; ++i) {
 		int a, b, c; cin >> a >> b >> c;
-		ckmax(dp[i][0], max(dp[i-1][1] + b, dp[i-1][2] + c));
-		ckmax(dp[i][1], max(dp[i-1][0] + a, dp[i-1][2] + c));
-		ckmax(dp[i][2], max(dp[i-1][0] + a, dp[i-1][1] + b));
+		ckmax(dp[i][0], max(dp[i - 1][1] + b, dp[i - 1][2] + c));
+		ckmax(dp[i][1], max(dp[i - 1][0] + a, dp[i - 1][2] + c));
+		ckmax(dp[i][2], max(dp[i - 1][0] + a, dp[i - 1][1] + b));
 	}
 
 	cout << max(dp[N][0], max(dp[N][1], dp[N][2])) << endl;
@@ -269,7 +269,7 @@ int main() {
 		for(int j = 0; j <= m; ++j)  {
 			if(!i || !j) dp[i][j] = 0;
 			else if(s[i - 1] == t[j - 1]) dp[i][j] = 1 + dp[i - 1][j - 1];
-			else dp[i][j] = max(dp[i - 1][j],dp[i][j - 1]);
+			else dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
 		}
 	}
 
@@ -546,8 +546,8 @@ a_j - \texttt{dp}[i][j-1]
 \end{matrix}\right.
 $$
 
-Our initial states $\texttt{dp}_[i][i] = 0$, since any range of size $0$
-will have difference $0$
+Our initial states are $\texttt{dp}[i][i] = 0$, since any range of size $0$
+will have difference $0$.
 
 ```cpp
 #include <bits/stdc++.h>
