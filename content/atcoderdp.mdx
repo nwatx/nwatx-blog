@@ -907,6 +907,8 @@ int main() {
 
 ## [S - Digit Sum](https://atcoder.jp/contests/dp/tasks/dp_s)
 
+**Time Complexity:** $\mathcal{O}(|K|D)$
+
 We can use digit dp to solve this problem. Let $\texttt{dp}[i][j]$ represent the number of ways to create a length $|K|$ number which is a multiple of $D$ given that we've already done $i$ digits and a sum equivalent to $j \pmod D$.
 
 To find the answer, we will take a prefix of $K$ and calculate the number of ways to create the remaining suffix, which can be mapped to a dp state.
@@ -959,6 +961,8 @@ int main() {
 ```
 
 ## [T - Permutation](https://atcoder.jp/contests/dp/tasks/dp_t)
+
+**Time Complexity:** $\mathcal{O}(N^2)$
 
 Let $\texttt{dp}[i][j]$ represent the number of ways to create a permutation with length $i+1$ the first $i$ signs, using $j$ as the last element of the permutation.
 
