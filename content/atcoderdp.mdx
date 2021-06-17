@@ -46,16 +46,16 @@ int main() {
 
 	int N; cin >> N;
 
-	for(int i = 0; i < N; i++) {
+	for(int i = 0; i < N; ++i) {
 		cin >> A[i];
 		dp[i] = 1e9 + 7;
 	}
 
 	dp[0] = 0;
 
-	for(int i = 0; i < N; i++) {
-		if(i + 1 < N) dp[i + 1] = min(dp[i + 1], dp[i] + abs(A[i] - A[i+1]));
-		if(i + 2 < N) dp[i + 2] = min(dp[i + 2], dp[i] + abs(A[i] - A[i+2]));
+	for(int i = 0; i < N; ++i) {
+		if(i + 1 < N) dp[i + 1] = min(dp[i + 1], dp[i] + abs(A[i] - A[i + 1]));
+		if(i + 2 < N) dp[i + 2] = min(dp[i + 2], dp[i] + abs(A[i] - A[i + 2]));
 	}
 
 	cout << dp[N - 1] << endl;
@@ -88,15 +88,15 @@ int main() {
 
 	int N, K; cin >> N >> K;
 
-	for(int i = 0; i < N; i++) {
+	for(int i = 0; i < N; ++i) {
 		cin >> A[i];
 		dp[i] = 1e9 + 7;
 	}
 
 	dp[0] = 0;
 
-	for(int i = 0; i < N; i++) {
-		for(int j = 1; j <= K; j++) { // j is jump
+	for(int i = 0; i < N; ++i) {
+		for(int j = 1; j <= K; ++j) { // j is jump
 			if(i + j < N) dp[i + j] = min(dp[i + j], dp[i] + abs(A[i] - A[i + j]));
 		}
 	}
@@ -138,7 +138,7 @@ int main() {
 
 	int N; cin >> N;
 
-	for(int i = 1; i <= N; i++) {
+	for(int i = 1; i <= N; ++i) {
 		int a, b, c; cin >> a >> b >> c;
 		ckmax(dp[i][0], max(dp[i-1][1] + b, dp[i-1][2] + c));
 		ckmax(dp[i][1], max(dp[i-1][0] + a, dp[i-1][2] + c));
@@ -178,9 +178,9 @@ int main() {
 	cin.tie(0)->sync_with_stdio(0);
 
 	int N, W; cin >> N >> W;
-	for(int i = 0; i < N; i++) cin >> w[i] >> v[i];
+	for(int i = 0; i < N; ++i) cin >> w[i] >> v[i];
 
-	for(int i = 0; i < N; i++) for(int j = 0; j <= W; j++) {
+	for(int i = 0; i < N; ++i) for(int j = 0; j <= W; ++j) {
 		if(j + w[i] <= W) ckmax(dp[i + 1][j + w[i]], dp[i][j] + v[i]);
 		ckmax(dp[i + 1][j], dp[i][j]);
 	}
@@ -222,12 +222,12 @@ int main() {
 	cin.tie(0)->sync_with_stdio(0);
 
 	int N, W; cin >> N >> W;
-	for(int i = 0; i < N; i++) cin >> w[i] >> v[i];
-	for(int i = 0; i < mx; i++) dp[i] = 1e18;
+	for(int i = 0; i < N; ++i) cin >> w[i] >> v[i];
+	for(int i = 0; i < mx; ++i) dp[i] = 1e18;
 
 	dp[0] = 0;
 
-	for(int i = 0; i < N; i++) {
+	for(int i = 0; i < N; ++i) {
 		for(int j = mx - 1; j >= 0; j--) {
 			if(dp[j] + w[i] <= W) ckmin(dp[j + v[i]], dp[j] + w[i]);
 		}
@@ -265,8 +265,8 @@ int main() {
 	string s, t; cin >> s >> t;
 	int n = s.size(), m = t.size();
 
-	for(int i = 0 ; i <= n; i++) {
-		for(int j = 0; j <= m; j++)  {
+	for(int i = 0 ; i <= n; ++i) {
+		for(int j = 0; j <= m; ++j)  {
 			if(!i || !j) dp[i][j] = 0;
 			else if(s[i - 1] == t[j - 1]) dp[i][j] = 1 + dp[i - 1][j - 1];
 			else dp[i][j] = max(dp[i - 1][j],dp[i][j - 1]);
@@ -320,20 +320,20 @@ int main(){
 	int n,m;
 	cin >> n >> m;
 	
-	for(int i = 0; i < m; i++) {
+	for(int i = 0; i < m; ++i) {
 		int a, b;
 		cin >> a >> b;
 		a--; b--;
 		adj[a].push_back(b);
 	}
 
-	for (int i = 0; i < n; i++) {
+	for (int i = 0; i < n; ++i) {
 		dfs(i);
 	}
 
 	int ans = 0;
 
-	for (int i = 0;i < n; i++) {
+	for (int i = 0;i < n; ++i) {
 		ans = max(dp[i], ans);
 	}
 
@@ -360,18 +360,18 @@ int main() {
 	cin.tie(0)->sync_with_stdio(0);
 
 	int n; cin >> n;
-	for(int i = 0; i < n; i++) {
+	for(int i = 0; i < n; ++i) {
 		string s;
 		cin >> s;
-		for(int j = 0; j < n; j++) {
+		for(int j = 0; j < n; ++j) {
 			if(s[j] == '.') ok[i][j] = true;
 			else ok[i][j] = false;
 		}
 	}
 
 	dp[0][0] = 1;
-	for(int i = 0; i < n; i++) {
-		for(int j = 0; j < n; j++) {
+	for(int i = 0; i < n; ++i) {
+		for(int j = 0; j < n; ++j) {
 			if(!ok[i][j]) dp[i][j] = 0;
 			else {
 				if(i > 0) dp[i][j] += dp[i - 1][j];
@@ -421,16 +421,16 @@ int main() {
 
 	vector<long double> p(n);
 
-	for(int i = 0; i < n; i++) cin >> p[i];
+	for(int i = 0; i < n; ++i) cin >> p[i];
 
 	int leastHeads = n / 2 + 1;
 
-	for(int i = 0; i <= n; i++) {
+	for(int i = 0; i <= n; ++i) {
 			dp[i][0] = 1;
 	}
 
-	for(int i = 1; i <= n; i++) {
-		for(int j = 1; j <= leastHeads; j++) {
+	for(int i = 1; i <= n; ++i) {
+		for(int j = 1; j <= leastHeads; ++j) {
 			dp[i][j] = dp[i - 1][j - 1] * p[i - 1] + dp[i - 1][j] * (1 - p[i - 1]);
 		}
 	}
@@ -491,7 +491,7 @@ int main() {
 	cin.tie(0)->sync_with_stdio(0);
 
 	cin >> n;
-	vector<int> a(n); for(int i = 0; i < n; i++) cin >> a[i];
+	vector<int> a(n); for(int i = 0; i < n; ++i) cin >> a[i];
 
 	vector<int> freq(3);
 	for(int x : a) freq[x-1]++; 
@@ -523,7 +523,7 @@ int main() {
 	vector<int> a(n);
 	for (int& x : a) cin >> x;
 	vector<bool> dp(k + 1);
-	for (int i = 1; i <= k; i++)
+	for (int i = 1; i <= k; ++i)
 		for (int j : a)
 			if (i >= j && !dp[i - j])
 				dp[i] = 1;
@@ -568,7 +568,7 @@ int main() {
 	for (int i = 0; i < n; ++i) dp[i][i] = a[i];
 
 	for (int i = n - 1; i >= 0; i--)
-		for (int j = i + 1; j < n; j++)
+		for (int j = i + 1; j < n; ++j)
 			dp[i][j] = max(a[i] - dp[i + 1][j], a[j] - dp[i][j - 1]);
 	cout << dp[0][n - 1] << '\n';
 }
@@ -662,8 +662,8 @@ int dp[1 << MAX_N];
 int main() {
 	int N;
 	cin >> N;
-	for (int i = 0; i < N; i++) {
-		for (int j = 0; j < N; j++) {
+	for (int i = 0; i < N; ++i) {
+		for (int j = 0; j < N; ++j) {
 			cin >> compat[i][j];
 		}
 	}
