@@ -113,7 +113,7 @@ The first thing you might notice is that we are pushing in our directed flights 
 
 `for(int s = 2; s < (1<<n); s++)` starts from the second city (represented as $...10_2=2$), and iterates through all the subsets as before.
 
-`s & (1 << (n-1))` checks if the $n$-th bit is set.
+`s & (1 << (n-1))` checks if the $n-1$-th bit is set.
 
 `s != ((1 << n) - 1)` checks that the current set is not equal to $011\ldots 11$ where $0$ is the $n$-th bit from the right.
 
