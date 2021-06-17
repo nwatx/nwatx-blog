@@ -494,7 +494,7 @@ int main() {
 	vector<int> a(n); for(int i = 0; i < n; ++i) cin >> a[i];
 
 	vector<int> freq(3);
-	for(int x : a) freq[x-1]++; 
+	for(int x : a) freq[x - 1]++; 
 
 	memset(dp, -1, sizeof dp);
 
@@ -503,6 +503,8 @@ int main() {
 ```
 
 ## [K - Stones](https://atcoder.jp/contests/dp/tasks/dp_k)
+
+**Time Complexity:** $\mathcal{O}(N^2)$
 
 Define $\texttt{dp}[i]$ as if it's possible to win with $i$ stones remaining.
 Then keep two loops, one for values of $i (1 \le i \le K)$, and the other for
@@ -532,6 +534,8 @@ int main() {
 ```
 
 ## [L - Deque](https://atcoder.jp/contests/dp/tasks/dp_l)
+
+**Time Complexity:** $\mathcal{O}(N^2)$
 
 Define $\texttt{dp}[i][j]$ as the optimal score for Jiro $(X - Y)$
 using the range $[i, j]$. Then, we can either choose $a_i$
@@ -575,6 +579,8 @@ int main() {
 ```
 
 ## [M - Candies](https://atcoder.jp/contests/dp/tasks/dp_m)
+
+**Time Complexity:** $\mathcal{O}(NK)$
 
 Let $\texttt{dp}[i][j]$ represent the number of ways to distribute $j$ candies to the first $i$ children.
 
@@ -752,6 +758,8 @@ int main() {
 ```
 
 ## [Q - Flowers](https://atcoder.jp/contests/dp/tasks/dp_q)
+
+**Time Complexity:** $\mathcal{O}(N\log N)$
 
 Let $\texttt{dp}[i]$ represent the maximum beauty of a subsequence of flowers ending at $i$.
 
