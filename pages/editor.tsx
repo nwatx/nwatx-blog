@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import NavBarLayout from "../layouts/NavBarLayout";
-import { MdxRemote } from "next-mdx-remote/types";
+import { MDXRemote } from "next-mdx-remote";
 import MDXPreview from "../components/MDXPreview";
 import Editor from "rich-markdown-editor";
 import { useTheme } from "next-themes";
@@ -11,7 +11,7 @@ import Head from "next/head";
 export default function mdxpreview({ children }) {
   const [mdxContent, setMdxContent] = useState("");
   const [renderOutput, setRenderOutput] = useState("");
-  const [source, setSource] = useState<MdxRemote.Source>();
+  const [source, setSource] = useState<any>();
   const [richEditor, setRichEditor] = useState(false);
   const [editorType, setEditorType] = useState("column");
   const { theme } = useTheme();

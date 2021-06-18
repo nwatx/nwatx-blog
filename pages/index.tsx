@@ -7,6 +7,7 @@ import { MailIcon } from "../components/Heroicons";
 import Link from "next/link";
 import { defaultLoader } from "../lib/defaultLoader";
 import Image from 'next/image'
+import ParticleJs from "../components/ParticleJs";
 
 export default function Home() {
 	return (
@@ -22,6 +23,7 @@ export default function Home() {
 					content="nwatx, Neo Wang, Next.js, Next.js blog"
 				/>
 			</Head>
+			<ParticleJs />
 			<div className="flex h-full scrollbar-thin overflow-auto scrollbar-thumb-rounded justify-between w-full flex-col max-w-7xl">
 				<div className="flex flex-col md:flex-row w-full">
 					<div className="flex w-full p-3 md:w-1/2 relative mr-4">
