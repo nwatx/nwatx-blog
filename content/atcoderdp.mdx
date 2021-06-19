@@ -1120,10 +1120,10 @@ less $s_i + w_i$ on the top.
 
 Then, define $\texttt{dp}[i]$ as the maximum value we can achieve for a weight
 of $i$. We process the tower top-down, only calculating weights $j : j \le s_i$
-since any more would break the tower.
+since any more would break the tower. Our relation is then:
 
 $$
-\texttt{dp}[\texttt{w}[x] - j] = \max(\texttt{dp}[\texttt{w}[x] - j], \texttt{dp}[j] + \texttt{v}[x])
+\texttt{dp}[j + \texttt{w}[x]] = \max(j + \texttt{dp}[\texttt{w}[x]], \texttt{dp}[j] + \texttt{v}[x])
 $$
 
 ```cpp
