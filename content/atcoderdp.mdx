@@ -295,9 +295,9 @@ int main() {
 
 **Time Complexity:** $\mathcal{O}(N + M)$
 
-Simply perform a DFS on the graph, defining $\texttt{dp}[i]$ as the longest path that
-node $i$ can take. Notice how the optimal substructure is formed: the best path for
-any node $x$ is one added to the best path for any of its children.
+Simply perform a DFS on the graph, defining $\texttt{dp}[i]$ as the longest path
+that node $i$ can take. Notice how the optimal substructure is formed: the best
+path for any node $x$ is one added to the best path for any of its children.
 
 ```cpp
 #include <bits/stdc++.h>
@@ -319,7 +319,7 @@ int dfs(int x) {
 int main(){
 	int n,m;
 	cin >> n >> m;
-	
+
 	for(int i = 0; i < m; ++i) {
 		int a, b;
 		cin >> a >> b;
@@ -443,9 +443,9 @@ int main() {
 
 **Time Complexity:** $\mathcal{O}(N^3)$
 
-Let $\texttt{dp}[x][y][z]$ represent the expected moves for
-$x$ number of plates 1-sushi remaining, $y$ number of plates
-2-sushi remaining, $z$ number of plates 3-sushi remaining.
+Let $\texttt{dp}[x][y][z]$ represent the expected moves for $x$ number of plates
+1-sushi remaining, $y$ number of plates 2-sushi remaining, $z$ number of plates
+3-sushi remaining.
 
 Then, we can use the relation
 
@@ -455,11 +455,10 @@ $$
 												+ z \cdot \texttt{dp}[x][y+1][z-1]
 $$
 
-Note that we add $1$ for the $y$ and $z$ equations because
-we take from one sushi platter which transitions into one
-more sushi in another grouping of either $x,y$. For example,
-by taking one sushi away from a group of size $2$ then there is a
-corresponding increase in a sushi group of size $1$.
+Note that we add $1$ for the $y$ and $z$ equations because we take from one
+sushi platter which transitions into one more sushi in another grouping of
+either $x,y$. For example, by taking one sushi away from a group of size $2$
+then there is a corresponding increase in a sushi group of size $1$.
 
 ```cpp
 #include <bits/stdc++.h>
@@ -494,7 +493,7 @@ int main() {
 	vector<int> a(n); for(int i = 0; i < n; ++i) cin >> a[i];
 
 	vector<int> freq(3);
-	for(int x : a) freq[x - 1]++; 
+	for(int x : a) freq[x - 1]++;
 
 	memset(dp, -1, sizeof dp);
 
@@ -509,8 +508,8 @@ int main() {
 Define $\texttt{dp}[i]$ as if it's possible to win with $i$ stones remaining.
 Then keep two loops, one for values of $i (1 \le i \le K)$, and the other for
 each value in $A$. If $i \ge j$ and it was not possible to win a game with
-$i - a_j$ stones, then - because the turns alternate - a game with $i$ stones
-is winnable.
+$i - a_j$ stones, then - because the turns alternate - a game with $i$ stones is
+winnable.
 
 ```cpp
 #include <bits/stdc++.h>
@@ -537,21 +536,20 @@ int main() {
 
 **Time Complexity:** $\mathcal{O}(N^2)$
 
-Define $\texttt{dp}[i][j]$ as the optimal score for Jiro $(X - Y)$
-using the range $[i, j]$. Then, we can either choose $a_i$
-to append to the left of the range, or $a_j$ on the right. Then,
-our two transitions are
+Define $\texttt{dp}[i][j]$ as the optimal score for Jiro $(X - Y)$ using the
+range $[i, j]$. Then, we can either choose $a_i$ to append to the left of the
+range, or $a_j$ on the right. Then, our two transitions are
 
 $$
 \texttt{dp}[i][j] = \max_{j > i}
 \left\{\begin{matrix}
-a_i - \texttt{dp}[i+1][j] \\ 
+a_i - \texttt{dp}[i+1][j] \\
 a_j - \texttt{dp}[i][j-1]
 \end{matrix}\right.
 $$
 
-Our initial states are $\texttt{dp}[i][i] = 0$, since any range of size $0$
-will have difference $0$.
+Our initial states are $\texttt{dp}[i][i] = 0$, since any range of size $0$ will
+have difference $0$.
 
 ```cpp
 #include <bits/stdc++.h>
@@ -559,10 +557,10 @@ will have difference $0$.
 using namespace std;
 
 long long dp[3001][3001];
-	
+
 int main() {
 	cin.tie(0)->sync_with_stdio(0);
-	
+
 	int n;
 	cin >> n;
 
@@ -582,43 +580,46 @@ int main() {
 
 **Time Complexity:** $\mathcal{O}(NK)$
 
-Let $\texttt{dp}[i][j]$ represent the number of ways to distribute $j$ candies to the first $i$ children.
+Let $\texttt{dp}[i][j]$ represent the number of ways to distribute $j$ candies
+to the first $i$ children.
 
-Then we have 
+Then we have
 
 $$
 \texttt{dp}[i][j]=\sum{\texttt{dp}[i-1][j']}
 $$
+
 such that $0\leq j - j' \leq a_i$.
 
-We can use prefix sums to speed this up from $\mathcal O(N\cdot K^2)$ to $\mathcal O(N\cdot K)$.
+We can use prefix sums to speed this up from $\mathcal O(N\cdot K^2)$ to
+$\mathcal O(N\cdot K)$.
 
 ```cpp
 #include <bits/stdc++.h>
 
 using namespace std;
-	
+
 const int MAXK = 100000;
 const int MOD = 1000000007;
-	
+
 int add(int i, int j) {
 	if ((i += j) >= MOD)
 		i -= MOD;
 	return i;
 }
-	
+
 int sub(int i, int j) {
 	if ((i -= j) < 0)
 		i += MOD;
 	return i;
 }
-	
+
 int main() {
 	cin.tie(0)->sync_with_stdio(0);
-	
+
 	int n, k, a;
 	cin >> n >> k;
-	
+
 	static int dp[MAXK + 1], dq[MAXK + 1];
 	dp[0] = 1;
 	for (int i = 1; i <= n; ++i) {
@@ -644,8 +645,8 @@ $$
 \texttt{dp}[S] = \sum \texttt{dp}[S\backslash x]:  \texttt{compatible}[|S|][x]
 $$
 
-(The `:` stands for "such that".)
-In English, this is equivalent to the following:
+(The `:` stands for "such that".) In English, this is equivalent to the
+following:
 
 > The number of matchings in a subset $S$ to include a certain female $x$ is
 > equivalent to the sum of all the matchings without female $x$ where female $x$
@@ -653,7 +654,7 @@ In English, this is equivalent to the following:
 
 Our base case is the empty set, which has a value of $1$ (the empty set can be
 considered as a single matching involving zero pairs).
-	
+
 ```cpp
 #include <bits/stdc++.h>
 
@@ -686,7 +687,7 @@ int main() {
 			 */
 			if ((s & (1 << w)) || !compat[pair_num][w])
 				continue;
-			
+
 			// add the amount to future dp states
 			dp[s | (1 << w)] += dp[s];
 			dp[s | (1 << w)] %= MOD;
@@ -701,15 +702,18 @@ int main() {
 
 **Time Complexity:** $\mathcal{O}(N)$
 
-First, lets root the tree arbitrary. Let $\texttt{dp}[i][j]$ represent the number of ways to color subtree $i$, coloring node $i$ color $j$.
+First, lets root the tree arbitrary. Let $\texttt{dp}[i][j]$ represent the
+number of ways to color subtree $i$, coloring node $i$ color $j$.
 
-Here, $j=0$ is black and $j=1$ is white. If we color node $i$ black, then it's children must be all white. So, we have
+Here, $j=0$ is black and $j=1$ is white. If we color node $i$ black, then it's
+children must be all white. So, we have
 
 $$
 \texttt{dp}[i][0]=\prod \texttt{dp}[c][1]
 $$
 
-such that $c$ is $i$'s child, and if we color node $i$ white, then it's children can be either white or black:
+such that $c$ is $i$'s child, and if we color node $i$ white, then it's children
+can be either white or black:
 
 $$
 \texttt{dp}[i][1]=\prod{\texttt{dp}[c][0] + \texttt{dp}[c][1]}
@@ -763,7 +767,8 @@ int main() {
 
 **Time Complexity:** $\mathcal{O}(N\log N)$
 
-Let $\texttt{dp}[i]$ represent the maximum beauty of a subsequence of flowers ending at $i$.
+Let $\texttt{dp}[i]$ represent the maximum beauty of a subsequence of flowers
+ending at $i$.
 
 $$
 \texttt{dp}[i]=\max(\texttt{dp}[j]) + a_i
@@ -771,11 +776,16 @@ $$
 
 such that $j < i$ and $h_j < h_i$.
 
-However, looping through all values of $j$ would result in a complexity of $\mathcal O(N^2)$, which would TLE.
+However, looping through all values of $j$ would result in a complexity of
+$\mathcal O(N^2)$, which would TLE.
 
-We can use a data-structure to speed this up. Notice that when calculating $\texttt{dp}[i]$, we're querying the maximum $\texttt{dp}[j]$ such that $h_j < h_i$ and adding $a_i$.
+We can use a data-structure to speed this up. Notice that when calculating
+$\texttt{dp}[i]$, we're querying the maximum $\texttt{dp}[j]$ such that
+$h_j < h_i$ and adding $a_i$.
 
-In other words, we're querying the maximum $\texttt{dp}[j]$ which $h_j\in[1, h_i - 1]$, which can be handled with a data-structure like a segment tree or a binary indexed tree.
+In other words, we're querying the maximum $\texttt{dp}[j]$ which
+$h_j\in[1, h_i - 1]$, which can be handled with a data-structure like a segment
+tree or a binary indexed tree.
 
 ```cpp
 #include <bits/stdc++.h>
@@ -815,11 +825,15 @@ int main() {
 
 ## [R - Walk](https://atcoder.jp/contests/dp/tasks/dp_r)
 
-We're given a adjacency matrix $a$ and we want to calculate the number of paths of length $k$. First, lets convert $a$ into a [Matrix](https://en.wikipedia.org/wiki/Matrix_(mathematics)), $m$. 
+We're given a adjacency matrix $a$ and we want to calculate the number of paths
+of length $k$. First, lets convert $a$ into a
+[Matrix](<https://en.wikipedia.org/wiki/Matrix_(mathematics)>), $m$.
 
-Notice that when we multiply $m$ by $m$, we get the number of paths with length $2$. If we take $m^p$, we end up with the number of paths of length $p$ from each $i$ to $j$.
+Notice that when we multiply $m$ by $m$, we get the number of paths with length
+$2$. If we take $m^p$, we end up with the number of paths of length $p$ from
+each $i$ to $j$.
 
-Thus, we're looking for $m^k$, which can be calculated with fast exponentiation. 
+Thus, we're looking for $m^k$, which can be calculated with fast exponentiation.
 
 **Time Complexity:** $\mathcal{O}(N^3\log K)$
 
@@ -913,9 +927,12 @@ int main() {
 
 **Time Complexity:** $\mathcal{O}(|K|D)$
 
-We can use digit dp to solve this problem. Let $\texttt{dp}[i][j]$ represent the number of ways to create a length $|K|$ number which is a multiple of $D$ given that we've already done $i$ digits and a sum equivalent to $j \pmod D$.
+We can use digit dp to solve this problem. Let $\texttt{dp}[i][j]$ represent the
+number of ways to create a length $|K|$ number which is a multiple of $D$ given
+that we've already done $i$ digits and a sum equivalent to $j \pmod D$.
 
-To find the answer, we will take a prefix of $K$ and calculate the number of ways to create the remaining suffix, which can be mapped to a dp state.
+To find the answer, we will take a prefix of $K$ and calculate the number of
+ways to create the remaining suffix, which can be mapped to a dp state.
 
 ```cpp
 #include <bits/stdc++.h>
@@ -968,11 +985,15 @@ int main() {
 
 **Time Complexity:** $\mathcal{O}(N^2)$
 
-Let $\texttt{dp}[i][j]$ represent the number of ways to create a permutation with length $i+1$ the first $i$ signs, using $j$ as the last element of the permutation.
+Let $\texttt{dp}[i][j]$ represent the number of ways to create a permutation
+with length $i+1$ the first $i$ signs, using $j$ as the last element of the
+permutation.
 
-If $s[i]$ is $>$, then, $\texttt{dp}[i][j]=\sum{\texttt{dp}[i-1][k]}$ for all $k\geq j$.
+If $s[i]$ is $>$, then, $\texttt{dp}[i][j]=\sum{\texttt{dp}[i-1][k]}$ for all
+$k\geq j$.
 
-Otherwise, $\texttt{dp}[i][j]=\sum{\texttt{dp}[i-1][k]}$ for all $k < j$. This can be sped up to $\mathcal O(N^2)$ with prefix sums.
+Otherwise, $\texttt{dp}[i][j]=\sum{\texttt{dp}[i-1][k]}$ for all $k < j$. This
+can be sped up to $\mathcal O(N^2)$ with prefix sums.
 
 ```cpp
 #include <bits/stdc++.h>
@@ -1024,9 +1045,15 @@ int main() {
 
 **Time Complexity:** $\mathcal{O}(3^N + 2^N\cdot N^2)$
 
-Let $\texttt{cost}[S]$ represent the score of assigning all Rabbits in set $S$ into the same group. This can be calculated in $\mathcal O(2^N \cdot N^2)$.
+Let $\texttt{cost}[S]$ represent the score of assigning all Rabbits in set $S$
+into the same group. This can be calculated in $\mathcal O(2^N \cdot N^2)$.
 
-Now, we calculate $\texttt{dp}[S]$, the maximum score of assigning the rabbits in set $S$. To calculate $\texttt{dp}[S]$, we have to loop through all subsets of $S$ and simulate putting all the rabbits in the subset in the same group. Fortunately, you can do this in [$\mathcal O(3^N)$](https://cp-algorithms.com/algebra/all-submasks.html#toc-tgt-1), which runs in time for $N\leq 16$.
+Now, we calculate $\texttt{dp}[S]$, the maximum score of assigning the rabbits
+in set $S$. To calculate $\texttt{dp}[S]$, we have to loop through all subsets
+of $S$ and simulate putting all the rabbits in the subset in the same group.
+Fortunately, you can do this in
+[$\mathcal O(3^N)$](https://cp-algorithms.com/algebra/all-submasks.html#toc-tgt-1),
+which runs in time for $N\leq 16$.
 
 ```cpp
 #include <bits/stdc++.h>
@@ -1056,5 +1083,78 @@ int main() {
 			dp[i ^ k] = max(dp[i ^ k], dp[i] + cost[k]);
 	}
 	cout << dp[(1 << n) - 1] << '\n';
+}
+```
+
+## [X - Towers](https://atcoder.jp/contests/dp/tasks/dp_x)
+
+Notice that the optimal sorting of elements is by the sum of their weight and
+strength.
+
+Consider two orderings for blocks $a$ and $b$.
+
+- If the tower $a$ is on the bottom, then the strength of the tower is
+
+$$
+s_a - w_b
+$$
+
+- If the tower $b$ is on the bottom, then the strength of the tower is
+
+$$
+s_b - w_a
+$$
+
+This produces the equation
+
+$$
+s_a - w_b \overset{?}{=} s_b - w_a
+$$
+
+$$
+s_a + w_a \overset{?}{=} s_b + w_b
+$$
+
+Obviously, we want to maximize the strength of our tower, so put the one with
+less $s_i + w_i$ on the top.
+
+Then, define $\texttt{dp}[i]$ as the maximum value we can achieve for a weight
+of $i$. We process the tower top-down, only calculating weights $j : j \le s_i$
+since any more would break the tower. Our relation is then:
+
+$$
+\texttt{dp}[j + \texttt{w}[x]] = \max(j + \texttt{dp}[\texttt{w}[x]], \texttt{dp}[j] + \texttt{v}[x])
+$$
+
+```cpp
+#include <bits/stdc++.h>
+
+using namespace std;
+
+const int MAX_N = 1e3+1;
+
+long long dp[20001];
+int w[MAX_N], s[MAX_N], v[MAX_N], p[MAX_N];
+
+int main() {
+	cin.tie(0)->sync_with_stdio(0);
+
+	int N; cin >> N;
+	for(int i = 0; i < N; ++i) cin >> w[i] >> s[i] >> v[i];
+
+	iota(p, p + N, 0);
+
+	sort(p, p + N, [&](const int &a, const int &b) {
+		return w[a] + s[a] < w[b] + s[b];
+	});
+
+	for(int i = 0; i < N; ++i) {
+		int x = p[i];
+		for(int j = s[x]; j >= 0; --j) {
+			dp[j + w[x]] = max(dp[j + w[x]], dp[j] + v[x]);
+		}
+	}
+
+	cout << *max_element(dp, dp + 20001) << endl;
 }
 ```
