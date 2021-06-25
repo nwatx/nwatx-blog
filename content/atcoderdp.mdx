@@ -822,7 +822,7 @@ int main() {
 }
 ```
 
-## [R - Walk ](https://atcoder.jp/contests/dp/tasks/dp_r)
+## [R - Walk](https://atcoder.jp/contests/dp/tasks/dp_r)
 
 We're given a adjacency matrix $a$ and we want to calculate the number of paths
 of length $k$. First, lets convert $a$ into a
@@ -1361,9 +1361,7 @@ struct Line {
  
 struct CHT {
 	deque<Line> hull;
-	static const ll inf = LLONG_MA
-  
-  ;
+	static const ll inf = LLONG_MAX;
  
 	ll div(ll a, ll b) { // floored division
 		return a / b - ((a ^ b) < 0 && a % b); }
@@ -1405,4 +1403,5 @@ int main() {
 		ins(i);
 	}
 	cout << dp[n - 1] << '\n';
+}
 ```
