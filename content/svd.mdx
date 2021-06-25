@@ -63,10 +63,10 @@ $$
 The key to finding the SVD is through the eigenvalues and eigenvectors of $AA^T$
 and $A^TA$. In fact, these two matrices correspond to $U$ and $V$ respectively,
 although they must be normalized first. What's even nicer is that you only have
-to solve for the eigenvalues once; the _nonzero_ eigenvalues of $AA^T$ are the
-same as $A^TA$. Since $A^TA$ is guranteed to be a
-[definite symmetric matrix](https://en.wikipedia.org/wiki/Definite_symmetric_matrix),
-I usually chose to solve for this one first.
+to solve for the eigenvalues once; the eigenvalues of $AA^T$ are the
+same as $A^TA$. Since both $A^TA$ and $A^TA$ are guranteed to be
+[definite symmetric matrices](https://en.wikipedia.org/wiki/Definite_symmetric_matrix),
+I usually chose to solve for the one with lower dimension.
 
 $$
 A^TA = \begin{bmatrix}26&18\\18&74\end{bmatrix}

@@ -7,8 +7,7 @@ import { useEffect, useState } from "react";
 import { BlogPostProps } from "../components/BlogPost";
 import ViewCounter from "../components/ViewCounter";
 import { TagColor } from "../components/TagColors";
-import ProjectCard from "../components/ProjectCard";
-import NextImage from 'next/image'
+import React from 'react'
 
 type Post = {
 	slug;
@@ -19,7 +18,7 @@ type BlogProps = {
 	posts: Post[];
 };
 
-export default function Blog({ posts }: BlogProps) {
+const Blog = ({ posts }: BlogProps) => {
 	// console.log(posts); // show graymatter data
 
 	const [filters, setFilters] = useState([]);
@@ -174,6 +173,8 @@ export default function Blog({ posts }: BlogProps) {
 		</NavBarLayout>
 	);
 }
+
+export default React.memo(Blog);
 
 export async function getStaticProps() {
 	const files = fs.readdirSync(`${process.cwd()}/content/`);
