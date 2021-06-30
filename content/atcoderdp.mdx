@@ -8,11 +8,9 @@ date: 2021-04-22
 
 # Introduction
 
-This post contains the editorials for some tasks contained in the
+This post contains the editorials for all tasks contained in the
 [AtCoder DP Contest](https://atcoder.jp/contests/dp/tasks), since there is no
 official editorial.
-
-# Solutions
 
 ## [A - Frog 1](https://atcoder.jp/contests/dp/tasks/dp_a)
 
@@ -634,6 +632,50 @@ int main() {
 }
 ```
 
+## [N - Slimes](https://atcoder.jp/contests/dp/tasks/dp_n)
+
+Let $\texttt{dp}[i][j]$ represent the minimum cost to merge the slimes $i\dots j$ into one slime.
+
+To calculate $\texttt{dp}[i][j]$, we want to merge two smaller (combined) slimes in the range $[i, j]$. To do this, we loop through all $k$ in the range $[i, j - 1]$ and simulate merging $[i, k]$ and $[k + 1, j]$. Note that the cost of this is $\texttt{dp}[i][k] + \texttt{dp}[k + 1][j] + a[i] + a[i + 1] + \dots + a[j]$. Here, $a[i] + a[i + 1] + \dots + a[j]$ can be precalculated with prefix sums.
+
+This takes $\mathcal O(N^3)$ which fits in the Time Limit but can be optimized to $\mathcal O(N^2)$ with [Knuth's Optimization](https://jeffreyxiao.me/blog/knuths-optimization).
+
+The code below is $\mathcal O(N^3)$.
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+const int MAXN = 400;
+const long long INF = 0x3f3f3f3f3f3f3f3f;
+
+int main() {
+	cin.tie(0)->sync_with_stdio(0);
+
+	int n;
+	cin >> n;
+	vector<long long> a(n), p(n);
+	for (long long& x : a) cin >> x;
+	for (int i = 0; i < n; ++i)
+		p[i] = (i == 0 ? 0 : p[i - 1]) + a[i];
+	auto query = [&](int l, int r) {
+		return p[r] - (l == 0 ? 0 : p[l - 1]); };
+
+	static long long dp[MAXN][MAXN];
+	memset(dp, 0x3f, sizeof(dp));
+	for (int i = 0; i + 1 < n; ++i) dp[i][i + 1] = a[i] + a[i + 1];
+	for (int i = 0; i < n; ++i) dp[i][i] = 0;
+	for (int i = n - 1; i >= 0; --i)
+		for (int j = i + 2; j < n; ++j) {
+			long long best = INF;
+			for (int k = i; k < j; ++k)
+				best = min(best, dp[i][k] + dp[k + 1][j]);
+			dp[i][j] = query(i, j) + best;
+		}
+	cout << dp[0][n - 1] << '\n';
+}
+```
+
 ## [O - Matching](https://atcoder.jp/contests/dp/tasks/dp_o)
 
 **Time Complexity:** $\mathcal{O}(N\cdot 2^N)$
@@ -716,7 +758,7 @@ such that $c$ is $i$'s child, and if we color node $i$ white, then it's children
 can be either white or black:
 
 $$
-\texttt{dp}[i][1]=\prod{\texttt{dp}[c][0] + \texttt{dp}[c][1]}
+\texttt{dp}[i][1]=\prod({\texttt{dp}[c][0] + \texttt{dp}[c][1]})
 $$
 
 ```cpp
@@ -732,7 +774,6 @@ int add(int i, int j) {
 		i -= MOD;
 	return i;
 }
-
 int mul(int i, int j) {
 	return int((long long) i * j % MOD);
 }
@@ -833,7 +874,7 @@ Notice that when we multiply $m$ by $m$, we get the number of paths with length
 $2$. If we take $m^p$, we end up with the number of paths of length $p$ from
 each $i$ to $j$.
 
-Thus, we're looking for $m^k$, which can be calculated with fast exponentiation.
+Thus, we're looking for $m^k$, which can be calculated with binary exponentiation.
 
 **Time Complexity:** $\mathcal{O}(N^3\log K)$
 
@@ -927,11 +968,11 @@ int main() {
 
 **Time Complexity:** $\mathcal{O}(|K|D)$
 
-We can use digit dp to solve this problem. Let $\texttt{dp}[i][j]$ represent the
+We can use [digit dp](https://codeforces.com/blog/entry/53960) to solve this problem. Let $\texttt{dp}[i][j]$ represent the
 number of ways to create a length $|K|$ number which is a multiple of $D$ given
-that we've already done $i$ digits and a sum equivalent to $j \pmod D$.
+that the $i$ digits is fixed and has a sum equivalent to $j \pmod D$.
 
-To find the answer, we will take a prefix of $K$ and calculate the number of
+To find the answer, we will loop through all prefixes of $K$ and calculate the number of
 ways to create the remaining suffix, which can be mapped to a dp state.
 
 ```cpp
@@ -1051,9 +1092,7 @@ into the same group. This can be calculated in $\mathcal O(2^N \cdot N^2)$.
 Now, we calculate $\texttt{dp}[S]$, the maximum score of assigning the rabbits
 in set $S$. To calculate $\texttt{dp}[S]$, we have to loop through all subsets
 of $S$ and simulate putting all the rabbits in the subset in the same group.
-Fortunately, you can do this in
-[$\mathcal O(3^N)$](https://cp-algorithms.com/algebra/all-submasks.html#toc-tgt-1),
-which runs in time for $N\leq 16$.
+Fortunately, you can do this in $\mathcal O(3^N)$ (see https://cp-algorithms.com/algebra/all-submasks.html#toc-tgt-1 ), which runs in time for $N\leq 16$.
 
 ```cpp
 #include <bits/stdc++.h>
@@ -1083,6 +1122,100 @@ int main() {
 			dp[i ^ k] = max(dp[i ^ k], dp[i] + cost[k]);
 	}
 	cout << dp[(1 << n) - 1] << '\n';
+}
+```
+
+## [V - Subtrees](https://atcoder.jp/contests/dp/tasks/dp_v)
+
+[This](https://usaco.guide/problems/ac-subtree/solution) explains it pretty well.
+
+## [W - Intervals](https://atcoder.jp/contests/dp/tasks/dp_w)
+
+Let $\texttt{dp}[i]$ represent the maximum score of a string with the $i$th bit turned on.
+
+For our relation, we have
+
+$$
+\texttt{dp}[i] = \max(\texttt{dp}[j] + \texttt{cost}(i, j))
+$$
+
+such that $j < i$ and $\texttt{cost}(i, j)$ contains the sum of all $a$ such that $l\leq i\leq r$ but not $l\leq j\leq r$.
+
+This works, in $\mathcal O(N^2)$, which unfortunately, TLEs.
+
+However, we can use a segment tree to speed this up. To calculate $\texttt{dp}[i]$, we can query the maximum of $[0, i - 1]$ in the segment tree. Now, we just need to support activating/deactivating each query.
+
+- When we reach a $l$, we add $a$ to each dp value in the range $[0, a - 1]$
+- When we reach a $r$, we subtract $a$ from each dp value in the range $[0, a - 1]$
+
+Now, we can just query the maximum of $\texttt{dp}[0\dots i-1]$ and update it into our segment tree!
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+const long long INF = 0x3f3f3f3f3f3f3f3f;
+
+template<class T> struct LazySeg {
+	int sz; vector<T> st, lz;
+
+	T comb(T a, T b) {
+		return max(a, b);
+	}
+	void init(int n) {
+		sz = 1; while (sz < n) sz <<= 1;
+		st.assign(2 * sz, 0), lz.assign(2 * sz, 0);
+	}
+	void pull(int i) {
+		st[i] = comb(st[i << 1], st[i << 1 | 1]);
+	}
+	void push(int i, int l, int r) {
+		st[i] += lz[i];
+		if (l != r) lz[i << 1] += lz[i], lz[i << 1 | 1] += lz[i];
+		lz[i] = 0;
+	}
+	void update(int ql, int qr, T x, int i, int l, int r) {
+		push(i, l, r); if (ql > r || qr < l) return;
+		if (ql <= l && qr >= r) { lz[i] += x; return void(push(i, l, r)); }
+		int m = (l + r) >> 1; update(ql, qr, x, i << 1, l, m);
+		update(ql, qr, x, i << 1 | 1, m + 1, r); pull(i);
+	}
+	void update(int ql, int qr, T x) {
+		update(ql, qr, x, 1, 0, sz - 1);
+	}
+	T query(int ql, int qr, int i, int l, int r) {
+		push(i, l, r); if (ql > r || qr < l) return -INF;
+		if (ql <= l && qr >= r) return st[i]; int m = (l + r) >> 1;
+		return comb(query(ql, qr, i << 1, l, m), query(ql, qr, i << 1 | 1, m + 1, r));
+	}
+	T query(int ql, int qr) {
+		return query(ql, qr, 1, 0, sz - 1);
+	}
+};
+
+LazySeg<long long> st;
+
+int main() {
+	cin.tie(0)->sync_with_stdio(0);
+
+	int n, m;
+	cin >> n >> m;
+	vector<long long> add(n + 2);
+	vector<vector<array<int, 2>>> todo(n + 2);
+	while (m--) {
+		int l, r, a;
+		cin >> l >> r >> a;
+		add[l] += a;
+		todo[r + 1].push_back({a, l});
+	}
+	st.init(n + 1);
+	for (int i = 1; i <= n + 1; ++i) {
+		st.update(0, i - 1, add[i]);
+		for (array<int, 2> ar : todo[i])
+			st.update(0, ar[1] - 1, -ar[0]);
+		st.update(i, i, st.query(0, i - 1));
+	}
+	cout << st.query(0, n) << '\n';
 }
 ```
 
@@ -1156,5 +1289,160 @@ int main() {
 	}
 
 	cout << *max_element(dp, dp + 20001) << endl;
+}
+```
+
+## [Y - Grids 2](https://atcoder.jp/contests/dp/tasks/dp_y)
+
+**Time Complexity:** $\mathcal O(H+W+N^2)$
+
+First, note that the number of ways to walk from cell $(i, j)$ to $(x, y)$ is ${x-i+y-j}\choose{x-i}$, which can be calculated in $\mathcal O(1)$ if you precompute factorials.
+
+Let $\texttt{dp}[i]$ represent the number of ways to walk from $(1, 1)$ to the ith square without passing any other squares other than the ith one.
+
+To calculate this, note that if there are no squares in between $(1, 1)$ and $(r_i, c_i)$, then there are a total of ${r_i-1+c_i-1}\choose{r_i-1}$ ways to do this.
+
+We can subtract this value from the number of ways to pass through a square in the path from $(1, 1)$ to $(r_i, c_i$). This can be done by looping through all squares $j$ such that $r_j\leq r_i$ and $c_j\leq c_i$.
+
+To calculate the answer, we can simply add an extra square at $(H, W)$ and take the resulting $\texttt{dp}$ value.
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+#define N	100000
+#define M	3000
+#define MOD	1000000007
+
+int n, m, k, dp[M + 1];
+long long fac[N << 1], ifac[N << 1];
+struct P {
+	int x, y;
+	bool operator<(const P& other) const {
+		if (x == other.x) return y < other.y;
+		return x < other.x;
+	}
+} point[M + 1];
+
+int power(long long x, int p) {
+	long long res = 1;
+	while (p > 0) {
+		if (p & 1) res = res * x % MOD;
+		x = x * x % MOD, p >>= 1;
+	}
+	return res;
+}
+
+void genFac(int size) {
+	fac[0] = 1;
+	for (int i = 1; i <= size; ++i)
+		fac[i] = fac[i - 1] * i % MOD;
+	ifac[size] = power(fac[size], MOD - 2);
+	for (int i = size; i >= 1; --i)
+		ifac[i - 1] = ifac[i] * i % MOD;
+}
+int choose(int n, int k) {
+	assert(n >= k);
+	return fac[n] * ifac[k] % MOD * ifac[n - k] % MOD;
+}
+int path(int i, int j, int x, int y) {
+	assert(i <= x && j <= y);
+	return choose(x - i + y - j, x - i);
+}
+
+int main() {
+	scanf("%d%d%d", &n, &m, &k);
+	genFac(n + m - 1);
+	for (int i = 0; i < k; ++i)
+		scanf("%d%d", &point[i].x, &point[i].y);
+	point[k] = {n, m};
+	sort(point, point + k + 1);
+	for (int i = 0; i <= k; ++i) {
+		long long sum = path(1, 1, point[i].x, point[i].y);
+		for (int j = 0; j < i; ++j)
+			if (point[i].y - point[j].y >= 0) {
+				sum = sum - (long long) dp[j] * path(point[j].x, point[j].y, point[i].x, point[i].y) % MOD;
+				if (sum < 0) sum += MOD;
+			}
+		dp[i] = sum;
+	}
+	printf("%d\n", dp[k]);
+}
+```
+
+## [Z - Frog 3](https://atcoder.jp/contests/dp/tasks/dp_z)
+
+**Time Complexity:** $\mathcal O(N)$
+
+Lets think of a $\mathcal O(N^2)$ dp first. Let $\texttt{dp}[i]$ represent the minimum cost to travel from stone $1$ to stone $i$. We have the following recurrence:
+
+$$
+\texttt{dp}[i]=\max(\texttt{dp}[j] + (h_i-h_j)^2 + C)
+$$
+
+Lets expand the equation take out the constants and we have
+
+$$
+\texttt{dp}[i]=C+h_i^2 + \max(\texttt{dp}[j] + -2h_ih_j+h_j^2)
+$$
+
+$\texttt{dp}[j] + -2h_ih_j+h_j^2$ can be rerwritten as $(-2h_j)x+(\texttt{dp}[j] + h_j^2)$ where $x=h_i$. This forms a line ($mx+b$). Now, we just want to query the minimum value with $x=h_i$. This can be achieved with [Convex Hull Trick](https://codeforces.com/blog/entry/63823).
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+using ll = long long;
+struct Line {
+	mutable ll k, m, p;
+	bool operator<(const Line& o) const { return k < o.k; }
+	bool operator<(ll x) const { return p < x; }
+	long long eval(long long x) const { return k * x + m; }
+};
+
+struct CHT {
+	deque<Line> hull;
+	static const ll inf = LLONG_MAX;
+
+	ll div(ll a, ll b) { // floored division
+		return a / b - ((a ^ b) < 0 && a % b); }
+	bool isect(Line &x, const Line &y) {
+		if (x.k == y.k) x.p = x.m > y.m ? inf : -inf;
+		else x.p = div(y.m - x.m, x.k - y.k);
+		return x.p >= y.p;
+	}
+	void add(long long k, long long m) {
+		Line L = {k, m, 0};
+		while ((int) hull.size() >= 2 && (isect(L, hull.back()),
+			isect(hull.back(), hull[(int) hull.size() - 2]), L.p < hull.back().p))
+			hull.pop_back();
+		hull.push_back(L);
+	}
+	long long query(long long x) {
+		while ((int) hull.size() >= 2 && hull[0].eval(x) >= hull[1].eval(x))
+			hull.pop_front();
+		return hull[0].eval(x);
+	}
+};
+
+int main() {
+	cin.tie(0)->sync_with_stdio(0);
+
+	int n; long long c;
+	cin >> n >> c;
+	vector<long long> h(n), dp(n);
+	for (long long&x : h) cin >> x;
+
+	CHT ch;
+	auto ins = [&](int i) {
+		ch.add(-h[i] * 2, (dp[i] + (h[i] * h[i])));
+	};
+	dp[0] = 0; ins(0);
+	for (int i = 1; i < n; ++i) {
+		long long x = ch.query(h[i]);
+		dp[i] = c + (h[i] * h[i]) + x;
+		ins(i);
+	}
+	cout << dp[n - 1] << '\n';
 }
 ```
