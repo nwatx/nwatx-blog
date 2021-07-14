@@ -46,19 +46,30 @@
 
 export const blockquote = ({ ...rest }) => {
 	return (
-		<div className="w-full mx-auto rounded-lg p-1 text-gray-800 dark:text-gray-100 justify-center">
-			<div className="w-full mb-10">
-				<div className="text-3xl text-gray-500 dark:text-gray-200 text-left leading-tight font-medium">
-					“
-				</div>
-				<p
+		<div style={{borderLeftColor: '#0ea5e9'}} className='border rounded-md border-l-4'>
+ 				<p
 					className="text-lg text-gray-600 dark:text-gray-300 font-medium text-center px-5"
 					{...rest}
 				/>
-				<div className="text-3xl text-gray-500 dark:text-gray-200 text-right leading-tight h-3 -mt-3 font-medium">
-					”
-				</div>
-			</div>
 		</div>
 	);
 };
+
+// export const blockquote = ({ ...rest }) => {
+// 	return (
+// 		<div className="w-full mx-auto rounded-lg p-1 text-gray-800 dark:text-gray-100 justify-center">
+// 			<div className="w-full mb-10">
+// 				<div className="text-3xl text-gray-500 dark:text-gray-200 text-left leading-tight font-medium">
+// 					“
+// 				</div>
+// 				<p
+// 					className="text-lg text-gray-600 dark:text-gray-300 font-medium text-center px-5"
+// 					{...rest}
+// 				/>
+// 				<div className="text-3xl text-gray-500 dark:text-gray-200 text-right leading-tight h-3 -mt-3 font-medium">
+// 					”
+// 				</div>
+// 			</div>
+// 		</div>
+// 	);
+// };
