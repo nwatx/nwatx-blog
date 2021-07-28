@@ -86,6 +86,7 @@ export default function Home() {
 							className="w-full h-full rounded-md min-h-full"
 							src="https://open.spotify.com/embed/playlist/3X2aZB9PPnkE9aLdnVQLmH"
 							frameBorder="0"
+							loading='lazy'
 							allowTransparency={true}
 							allow="encrypted-media"
 						></iframe>
