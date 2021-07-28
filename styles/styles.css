@@ -11,6 +11,35 @@ html {
 	font-variant-ligatures: none;
 }
 
+@font-face {
+	font-family: "MessinaSans";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("fonts/MessinaSans-Regular.woff2") format("woff2");
+}
+@font-face {
+	font-family: "MessinaSans";
+	font-style: bold;
+	font-weight: 600;
+	font-display: swap;
+	src: url("fonts/MessinaSans-Bold.woff2") format("woff2");
+}
+@font-face {
+	font-family: "MessinaSans";
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: url("fonts/MessinaSans-RegularItalic.woff2") format("woff2");
+}
+@font-face {
+	font-family: "MessinaSans";
+	font-style: light;
+	font-weight: 200;
+	font-display: swap;
+	src: url("fonts/MessinaSans-Light.woff2") format("woff2");
+}
+
 /* html.dark {
   background-color: #282B30;
 } */

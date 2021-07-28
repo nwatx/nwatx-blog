@@ -24,8 +24,8 @@ export default function Home() {
 			</Head>
 			<div className="flex h-full scrollbar-thin overflow-auto scrollbar-thumb-rounded justify-between w-full flex-col max-w-7xl">
 				<div className="flex flex-col md:flex-row w-full">
-					<div className="flex w-full p-3 md:w-1/2 relative mr-4">
-						<Image
+					<div className="flex flex-col w-full p-3  justify-center text-center relative">
+						{/* <Image
 							loader={defaultLoader}
 							alt="chill code svg"
 							className="rounded-lg"
@@ -33,36 +33,13 @@ export default function Home() {
 							height={750}
 							src={"/landing.svg"}
 							priority
-						/>
-					</div>
-					<div className="flex flex-col w-full md:w-1/2 justify-center items-center space-y-5">
-						{/* TODO: Make this tagline sound more catchy */}
-						<h1 className="dark:text-white text-4xl text-center">
-							Welcome to Neo's website
-						</h1>
-						<p className="dark:text-white text-lg text-gray-600 text-center max-w-md">
-							A general hub of sorts for my personal interests. Maybe it will be
-							interesting to you, too.
-						</p>
-						<div className="flex flex-row justify-center space-x-5 h-10">
-							<Link href="mailto:neowangatx@gmail.com">
-								<MailIcon />
-							</Link>
-
-							{/* <div className="h-10 w-10"> * TWITCH ICON, ADD WHEN READY
-								<NextImage
-									width={256}
-									height={256}
-									layout="intrinsic"
-									objectFit="contain"
-									src="https://res.cloudinary.com/dcg5b3jpt/image/upload/v1623726249/blog/twitch_PNG28_cqah7v.png"
-								/>
-							</div> */}
-						</div>
+						/> */}
+						<h1 className='text-3xl my-3'>Neo Wang - WHS '22</h1>
+						<h1 className='font-light'>Welcome to my website. I store resources, notes, and editorials here for reference.</h1>
 					</div>
 				</div>
 				<div className="mt-5 pt-5 pb-3 text-center">
-					<p className="text-2xl font-bold">Featured Blog Posts</p>
+					<p className="text-3xl">Featured Blog Posts</p>
 				</div>
 				<div className="w-full flex flex-1 space-x-4 my-5">
 					<Card

@@ -9,7 +9,7 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ['Eurostile', 'Open Sans'],
+				sans: ['MessinaSans', 'Open Sans', 'Arial'],
 				mono: ["Cascadia Code"],
 			},
 			colors: {
@@ -52,7 +52,8 @@ module.exports = {
 					css: {
 						color: theme("colors.gray.700"),
 						a: {
-							color: theme("colors.blue.500"),
+							// color: theme("colors.blue.500"),
+							textDecorationColor: theme("colors.blue.500"),
 							"&:hover": {
 								color: theme("colors.blue.600"),
 							},

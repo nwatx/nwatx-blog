@@ -26,7 +26,7 @@ export default function Card({
 			<div className="w-full cursor-pointer md:w-1/2 flex flex-col border dark:border-gray-800 rounded-md shadow-sm hover:shadow-md dark:hover:bg-gray-700">
 				<Image
 					className="rounded-t-lg"
-					layout='responsive'
+					layout="responsive"
 					src={src}
 					alt={alt || title}
 					width={width || 300}
@@ -35,8 +35,8 @@ export default function Card({
 				/>
 				<div className="w-full border-b dark:border-gray-800" />
 				<div className="m-3">
-					<h1 className="text-xl dark:text-white font-bold">{title}</h1>
-					<p>{description}</p>
+					<h1 className="text-xl dark:text-white">{title}</h1>
+					<p className='text-gray-600 dark:text-gray-300'>{description}</p>
 				</div>
 			</div>
 		</Link>
