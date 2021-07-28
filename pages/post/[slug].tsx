@@ -202,7 +202,7 @@ export async function getStaticProps({ params: { slug } }) {
 		date: data.date.toISOString(),
 	};
 
-	frontmatter['author'] = frontmatter['author'] || 'nwatx'
+	frontmatter['author'] = frontmatter['author'] || 'Neo Wang'
 
 	// source.renderedOutput = source.renderedOutput.replaceAll('<!-- -->', '');
 
