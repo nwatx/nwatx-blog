@@ -19,7 +19,7 @@ const NavigationButton = ({ to, label, src }: ButtonProps) => {
       <div
         className={`${
           router.asPath === to
-            ? "shadow-inner cursor-default text-gray-300 dark:text-gray-600"
+            ? "shadow-inner cursor-default text-gray-400 dark:text-gray-600"
             : " text-gray-700 dark:text-gray-100 hover:shadow-inner cursor-pointer"
         } ${src ? 'p-1' : 'p-3'} rounded-md text-sm`}
       >

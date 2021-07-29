@@ -38,7 +38,7 @@ export default function Navbar({ children }) {
 							<div className="ml-10 flex items-end space-x-4">
 								<GithubButton />
 								{/* <NavigationButton to='https://github.com/nwatx' src='/github.svg' /> */}
-								<NavigationButton to="/aboutme" label="About Me" />
+								{/* <NavigationButton to="/aboutme" label="About Me" /> */}
 								<NavigationButton to="/blog" label="Blog" />
 								<NavigationButton to="/editor" label="Editor" />
 							</div>
@@ -94,7 +94,7 @@ export default function Navbar({ children }) {
 				{open && (
 					<div className="md:hidden" id="mobile-menu">
 						<div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-							<NavigationButtonMobile to="/aboutme" label="About Me" />
+							{/* <NavigationButtonMobile to="/aboutme" label="About Me" /> */}
 							<NavigationButtonMobile to="/blog" label="Blog" />
 							<NavigationButtonMobile to="/editor" label="Editor" />
 						</div>

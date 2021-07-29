@@ -84,7 +84,7 @@ const BlogPost = ({ source, data }) => {
 		<>
 			<Head>
 				<title>
-					{data.title} - {data.author || "nwatx"}
+					{data.title} - {data.author || "Neo Wang"}
 				</title>
 				<meta
 					name="description"

@@ -34,37 +34,39 @@ export default function Home() {
 							src={"/landing.svg"}
 							priority
 						/> */}
-						<h1 className="text-3xl my-3">Neo Wang - WHS '22</h1>
-						<h1 className="font-light">
+						<h1 className="text-3xl my-3 font-bold">Neo Wang - WHS '22</h1>
+						<h1>
 							Welcome to my website. I store resources, notes, and editorials
 							here for reference.
 						</h1>
-						<h2 className='text-2xl mt-5 mb-3'>Things that I like</h2>
-						<div className='prose pl-2'>
+						<h2 className='text-2xl mt-5 mb-3 font-bold'>Things that I like</h2>
+						<div className='pl-2'>
 							<li className='ml-2'>Data Structures, Algorithms</li>
 							<li className='ml-2'>Software Development: Web, Mobile, etc.</li>
 							<li className='ml-2'>Taking notes w/ LaTeX</li>
-							<li className='ml-2'>My editor of choice is VSCode on a customized Ubuntu environment.</li>
+							<li className='ml-2'>Vim, VSCode</li>
+							<li className='ml-2'>Mechanical Keyboards!</li>
 						</div>
 					</div>
 				</div>
 				<div className="mt-5 pt-5 pb-3">
-					<p className="text-3xl">Featured Blog Posts</p>
+					<p className="text-3xl font-bold">Featured Blog Posts</p>
 				</div>
 				<div className="w-full flex flex-1 space-x-4 my-5">
 					<Card
 						to="/post/svd"
-						src="v1621301300/blog/svd_awgmuh.png"
+						// src="v1621301300/blog/svd_awgmuh.png"
 						title="Singular Value Decomposition"
+						description="Singular Value Decomposition worked two-ways"
 						width={600}
-						height={545}
+						height={200}
 					/>
 					<Card
-						src="v1623724811/blog/abstract-1278077_1920_tbzj7y.jpg"
+						// src="v1623724811/blog/abstract-1278077_1920_tbzj7y.jpg"
 						to="/post/dpbitmasks"
 						description="Quick introduction of bitmask programming"
-						width={960}
-						height={675}
+						width={600}
+						height={200}
 						title="A Primer on Bitmask DP"
 					/>
 				</div>
