@@ -6,7 +6,7 @@ import Card from "../components/Card";
 import { MailIcon } from "../components/Heroicons";
 import Link from "next/link";
 import { defaultLoader } from "../lib/defaultLoader";
-import Image from 'next/image'
+import Image from "next/image";
 
 export default function Home() {
 	return (
@@ -24,7 +24,7 @@ export default function Home() {
 			</Head>
 			<div className="flex h-full scrollbar-thin overflow-auto scrollbar-thumb-rounded justify-between w-full flex-col max-w-7xl">
 				<div className="flex flex-col md:flex-row w-full">
-					<div className="flex flex-col w-full p-3  justify-center text-center relative">
+					<div className="flex flex-col w-full p-3  justify-center relative">
 						{/* <Image
 							loader={defaultLoader}
 							alt="chill code svg"
@@ -34,11 +34,21 @@ export default function Home() {
 							src={"/landing.svg"}
 							priority
 						/> */}
-						<h1 className='text-3xl my-3'>Neo Wang - WHS '22</h1>
-						<h1 className='font-light'>Welcome to my website. I store resources, notes, and editorials here for reference.</h1>
+						<h1 className="text-3xl my-3">Neo Wang - WHS '22</h1>
+						<h1 className="font-light">
+							Welcome to my website. I store resources, notes, and editorials
+							here for reference.
+						</h1>
+						<h2 className='text-2xl mt-5 mb-3'>Things that I like</h2>
+						<div className='prose pl-2'>
+							<li>Data Structures, Algorithms</li>
+							<li>Software Development: Web, Mobile, etc.</li>
+							<li>Taking notes w/ LaTeX</li>
+							<li>My editor of choice is VSCode on a customized Ubuntu environment.</li>
+						</div>
 					</div>
 				</div>
-				<div className="mt-5 pt-5 pb-3 text-center">
+				<div className="mt-5 pt-5 pb-3">
 					<p className="text-3xl">Featured Blog Posts</p>
 				</div>
 				<div className="w-full flex flex-1 space-x-4 my-5">
@@ -86,7 +96,7 @@ export default function Home() {
 							className="w-full h-full rounded-md min-h-full"
 							src="https://open.spotify.com/embed/playlist/3X2aZB9PPnkE9aLdnVQLmH"
 							frameBorder="0"
-							loading='lazy'
+							loading="lazy"
 							allowTransparency={true}
 							allow="encrypted-media"
 						></iframe>
