@@ -40,12 +40,12 @@ export default function Home() {
 							here for reference.
 						</h1>
 						<h2 className='text-2xl mt-5 mb-3 font-bold'>Things that I like</h2>
-						<div className='pl-2 list-disc'>
-							<li className='ml-2'>Data Structures, Algorithms</li>
-							<li className='ml-2'>Software Development: Web, Mobile, etc.</li>
-							<li className='ml-2'>Taking notes w/ LaTeX</li>
-							<li className='ml-2'>Vim, VSCode</li>
-							<li className='ml-2'>Mechanical Keyboards!</li>
+						<div className='pl-2 list-disc list-inside'>
+							<li>Data Structures, Algorithms</li>
+							<li>Software Development: Web, Mobile, etc.</li>
+							<li>Taking notes w/ LaTeX</li>
+							<li>Vim, VSCode</li>
+							<li>Mechanical Keyboards</li>
 						</div>
 					</div>
 				</div>
