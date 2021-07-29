@@ -22,12 +22,12 @@ export default function Card({
 	height,
 }: CardProps) {
 	return (
-		<Link href={to}>
-			<div className="w-full mx-2 cursor-pointer flex flex-row dark:border-gray-800 rounded-md md:w-1/2 dark:hover:bg-gray-700">
-				<div className="w-24 h-24 relative rounded-md">
-					{src && (
+		<div className="w-full mx-2 my-1 flex flex-row dark:border-gray-800 rounded-md md:w-1/2 dark:hover:bg-gray-700">
+			<div className="w-24 h-24 relative rounded-md">
+				{src && (
+					<Link href={to}>
 						<Image
-							className="rounded-lg"
+							className="rounded-lg cursor-pointer"
 							layout="fill"
 							src={src}
 							alt={alt || title}
@@ -35,18 +35,20 @@ export default function Card({
 							// height={height || 300}
 							priority
 						/>
-					)}
-				</div>
-				<div className="ml-6 mr-2 mt-2">
-					<h1 className="dark:text-white box-border ">
+					</Link>
+				)}
+			</div>
+			<div className="ml-6 mr-2 mt-2">
+				<Link href={to}>
+					<h1 className="dark:text-white box-border cursor-pointer">
 						<b className="border-b border-b-600 border-blue-600 hover:text-blue-600">
 							{title}
 						</b>
 					</h1>
-					<p className="text-gray-600 dark:text-gray-300 mt-1">{description}</p>
-				</div>
-				{/* <div className="w-full border-b dark:border-gray-800" /> */}
+				</Link>
+				<p className="text-gray-600 dark:text-gray-300 mt-1">{description}</p>
 			</div>
-		</Link>
+			{/* <div className="w-full border-b dark:border-gray-800" /> */}
+		</div>
 	);
 }
