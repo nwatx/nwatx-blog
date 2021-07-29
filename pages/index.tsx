@@ -24,7 +24,7 @@ export default function Home() {
 			</Head>
 			<div className="flex h-full scrollbar-thin overflow-auto scrollbar-thumb-rounded justify-between w-full flex-col max-w-7xl">
 				<div className="flex flex-col md:flex-row w-full">
-					<div className="flex flex-col w-full p-3  justify-center relative">
+					<div className="flex flex-col w-full py-3 justify-center relative">
 						{/* <Image
 							loader={defaultLoader}
 							alt="chill code svg"
