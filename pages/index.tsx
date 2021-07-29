@@ -40,11 +40,11 @@ export default function Home() {
 							here for reference.
 						</h1>
 						<h2 className='text-2xl mt-5 mb-3'>Things that I like</h2>
-						<div className='prose pl-2 ml-2'>
-							<li>Data Structures, Algorithms</li>
-							<li>Software Development: Web, Mobile, etc.</li>
-							<li>Taking notes w/ LaTeX</li>
-							<li>My editor of choice is VSCode on a customized Ubuntu environment.</li>
+						<div className='prose pl-2'>
+							<li className='ml-2'>Data Structures, Algorithms</li>
+							<li className='ml-2'>Software Development: Web, Mobile, etc.</li>
+							<li className='ml-2'>Taking notes w/ LaTeX</li>
+							<li className='ml-2'>My editor of choice is VSCode on a customized Ubuntu environment.</li>
 						</div>
 					</div>
 				</div>
