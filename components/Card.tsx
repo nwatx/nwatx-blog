@@ -30,14 +30,13 @@ export default function Card({
 						layout="responsive"
 						src={src}
 						alt={alt || title}
-						width={width || 300}
-						height={height || 300}
+						width={width || 300} height={height || 300}
 						priority
 					/>
 				)}
 				<div className="w-full border-b dark:border-gray-800" />
 				<div className="m-3">
-					<h1 className="text-xl dark:text-white">{title}</h1>
+					<h1 className="dark:text-white"><b>{title}</b></h1>
 					<p className="text-gray-600 dark:text-gray-300">{description}</p>
 				</div>
 			</div>
