@@ -39,8 +39,9 @@ export default function Home() {
 							Welcome to my website. I store resources, notes, and editorials
 							here for reference.
 						</h1>
-						<h2 className='text-2xl mt-5 mb-3 font-bold'>Things that I like</h2>
-						<div className='pl-2 list-disc list-inside'>
+						<div className="w-full mt-4 border-b dark:border-gray-800" />
+						<h2 className="text-2xl mt-5 mb-3 font-bold">Things that I like</h2>
+						<div className="pl-2 list-disc list-inside">
 							<li>Data Structures, Algorithms</li>
 							<li>Software Development: Web, Mobile, etc.</li>
 							<li>Taking notes w/ LaTeX</li>
@@ -51,25 +52,24 @@ export default function Home() {
 				</div>
 				<div className="mt-5 pt-5 pb-3">
 					<p className="text-3xl font-bold">Featured Blog Posts</p>
+					<div className="w-full mt-4 border-b dark:border-gray-800" />
 				</div>
-				<div className="w-full flex flex-1 space-x-4 my-5">
+				<div className="w-full flex flex-col md:flex-row mt-4 mb-5">
 					<Card
 						to="/post/svd"
-						// src="v1621301300/blog/svd_awgmuh.png"
+						src="c_scale,h_300,w_300/v1621301300/blog/svd_awgmuh.png"
 						title="Singular Value Decomposition"
 						description="Singular Value Decomposition worked two-ways"
-						width={600}
-						height={200}
 					/>
 					<Card
-						// src="v1623724811/blog/abstract-1278077_1920_tbzj7y.jpg"
+						src="c_scale,w_400/v1623724811/blog/abstract-1278077_1920_tbzj7y.jpg"
 						to="/post/dpbitmasks"
 						description="Quick introduction of bitmask programming"
-						width={600}
-						height={200}
 						title="A Primer on Bitmask DP"
 					/>
 				</div>
+
+				<div className="w-full mb-4 border-b dark:border-gray-800" />
 
 				<div className="flex flex-col h-auto lg:flex-row w-full space-y-5">
 					<div className="flex flex-col w-full lg:w-1/2 lg:mr-4">
