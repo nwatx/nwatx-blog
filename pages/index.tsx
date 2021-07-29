@@ -40,7 +40,7 @@ export default function Home() {
 							here for reference.
 						</h1>
 						<h2 className='text-2xl mt-5 mb-3'>Things that I like</h2>
-						<div className='prose pl-2'>
+						<div className='prose pl-2 ml-2'>
 							<li>Data Structures, Algorithms</li>
 							<li>Software Development: Web, Mobile, etc.</li>
 							<li>Taking notes w/ LaTeX</li>
