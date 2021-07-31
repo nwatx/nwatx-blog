@@ -22,7 +22,7 @@ export default function Card({
 	height,
 }: CardProps) {
 	return (
-		<div className="w-full mx-2 my-1 flex flex-row dark:border-gray-800 rounded-md md:w-1/2 dark:hover:bg-gray-700">
+		<div className="w-full mx-2 my-1 flex flex-row rounded-md md:w-1/2">
 			<div className="w-24 h-24 relative rounded-md">
 				{src && (
 					<Link href={to}>
