@@ -186,13 +186,13 @@ export async function getStaticProps() {
 
 		const { data } = matter(markdownWithMetadata);
 
-		console.log(data);
-
 		const frontmatter = {
 			...data,
 			date: data.date.toISOString(),
 			filename: filename.replace(".mdx", ""),
 		};
+
+		frontmatter['author'] = frontmatter['author'] || 'Neo Wang'
 
 		return {
 			slug: filename.replace(".mdx", ""),

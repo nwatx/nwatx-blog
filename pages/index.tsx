@@ -23,6 +23,7 @@ export default function Home() {
 				/>
 			</Head>
 			<div className="flex h-full scrollbar-thin overflow-auto scrollbar-thumb-rounded justify-between w-full flex-col max-w-7xl">
+				{/* about me section */}
 				<div className="flex flex-col md:flex-row w-full">
 					<div className="flex flex-col w-full py-3 justify-center relative">
 						{/* <Image
@@ -39,20 +40,31 @@ export default function Home() {
 							Welcome to my website. I store resources, notes, and editorials
 							here for reference.
 						</h1>
-						<div className="w-full mt-4 border-b dark:border-gray-800" />
+						<div className="w-full mt-4 border-b dark:border-gray-500" />
+
 						<h2 className="text-2xl mt-5 mb-3 font-bold">Things that I like</h2>
 						<div className="pl-2 list-disc list-inside">
-							<li>Data Structures, Algorithms</li>
-							<li>Software Development: Web, Mobile, etc.</li>
-							<li>Taking notes w/ LaTeX</li>
-							<li>Vim, VSCode</li>
-							<li>Mechanical Keyboards</li>
+							<li>Computers: Data Structures, Algorithms, Linux</li>
+							<li>Software development: web, mobile, backend, frontend, etc.</li>
+							<li>Design and quality: Mechanical Keyboards, Hi-Fi Audio, playing cards</li>
+							<li>Writing: Taking notes with LaTeX, Blogging</li>
+							<li>Editing: Vim, VSCode</li>
 						</div>
+
+						<h2 className="text-2xl mt-5 mb-3 font-bold">Knowledge</h2>
+						<div className="pl-2 list-disc list-inside">
+							<li>General Programming Languages: Python, JavaScript/Typescript, Java, C++</li>
+							<li>JavaScript Frameworks: React, Next.js, Node.js, Express.js</li>
+							<li>Web Automation: Selenium, Tampermonkey</li>
+							<li>CI/CD: Vercel, Github, Github Actions</li>
+						</div>
+
 					</div>
 				</div>
+				{/* featured blog posts */}
 				<div className="mt-5 pt-5 pb-3">
 					<p className="text-3xl font-bold">Featured Blog Posts</p>
-					<div className="w-full mt-4 border-b dark:border-gray-800" />
+					<div className="w-full mt-4 border-b dark:border-gray-500" />
 				</div>
 				<div className="w-full flex flex-col md:flex-row mt-4 mb-5">
 					<Card
@@ -70,6 +82,8 @@ export default function Home() {
 				</div>
 
 				<div className="w-full mb-4 border-b dark:border-gray-800" />
+
+				{/* projects and music */}
 
 				<div className="flex flex-col h-auto lg:flex-row w-full space-y-5">
 					<div className="flex flex-col w-full lg:w-1/2 lg:mr-4">
