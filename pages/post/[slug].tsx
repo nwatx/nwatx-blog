@@ -90,7 +90,6 @@ const BlogPost = ({ source, data }) => {
 	let titleSecondPart;
 	if (titleFirstPart && titleFirstPart.length >= 4) titleSecondPart = titleFirstPart?.splice(-2)?.join(" ");
 	titleFirstPart = titleFirstPart.join(" ");
-
 	console.log(titleFirstPart, titleSecondPart);
 
 	return (
