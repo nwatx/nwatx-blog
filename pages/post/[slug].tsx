@@ -107,8 +107,8 @@ const BlogPost = ({ source, data }) => {
 			<NavBarLayout>
 				<div className="flex xl:ml-2 w-full flex-col items-center">
 					{/* <div className="flex w-full max-w-7xl p-1 border-b flex-col"> */}
-					<div className="flex flex-col w-full justify-center max-w-3xl mt-4 pb-10 md:pb-4 border-b my-4">
-						<div className="text-4xl max-w-3xl flex flex-row w-full flex-wrap items-end">
+					<div className="flex flex-col w-full justify-center max-w-4xl mt-4 pb-10 md:pb-4 border-b my-4">
+						<div className="text-4xl max-w-4xl flex flex-row w-full flex-wrap items-end">
 							<p className="dark:text-gray-100 font-extrabold text-5xl">
 								{titleFirstPart} <b className='text-blue-500'>{titleSecondPart}</b>
 							</p>
@@ -137,7 +137,7 @@ const BlogPost = ({ source, data }) => {
 					</div>
 					{/* <div className="flex justify-center mt-5 pb-10 md:pb-4 w-full"> */}
 					{/* <div className="flex w-full flex-col relative"> */}
-					<article className="prose overflow-x-auto dark:prose-dark w-full my-7 max-w-3xl mx-0">
+					<article className="prose overflow-x-auto dark:prose-dark w-full my-7 max-w-4xl mx-0">
 						{/* {content} */}
 						<MDXRemote {...source} components={MDXComponents} />
 					</article>

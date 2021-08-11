@@ -16,7 +16,7 @@ export default function Navbar({ children }) {
 				className={`w-full sticky z-10 top-0 px-4 bg-white dark:bg-gray-900 shadow-sm
         }`}
 			>
-				<div className="max-w-7xl mx-auto">
+				<div className="max-w-4xl mx-auto">
 					<div className="flex items-center justify-between h-16">
 						<div className="flex items-center">
 							<div className="flex-shrink-0">
