@@ -21,7 +21,7 @@ html {
 @font-face {
 	font-family: "MessinaSans";
 	font-style: bold;
-	font-weight: 600;
+	font-weight: 700;
 	font-display: swap;
 	src: url("fonts/MessinaSans-Bold.woff2") format("woff2");
 }
@@ -38,6 +38,13 @@ html {
 	font-weight: 200;
 	font-display: swap;
 	src: url("fonts/MessinaSans-Light.woff2") format("woff2");
+}
+@font-face {
+	font-family: "MessinaSans";
+	font-style: extrabold;
+	font-weight: 800;
+	font-display: swap;
+	src: url("fonts/MessinaSans-Black.woff2") format("woff2");
 }
 
 /* html.dark {

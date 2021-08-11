@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import fs from "fs";
 import path from "path";
-import { MDXRemote } from 'next-mdx-remote'
-import { serialize } from 'next-mdx-remote/serialize'
+import { MDXRemote } from "next-mdx-remote";
+import { serialize } from "next-mdx-remote/serialize";
 import NavBarLayout from "../../layouts/NavBarLayout";
 import Prism from "prismjs";
 import "prismjs/components/prism-c";
@@ -52,7 +52,7 @@ export const MDXComponents = {
 	// inlineCode: code,
 	NextImage: (props) => (
 		<div className="my-12 w-full justify-center">
-			<Image layout='responsive' className="rounded-md" {...props} />
+			<Image layout="responsive" className="rounded-md" {...props} />
 		</div>
 	),
 	Pros: ProsCard,
@@ -79,6 +79,20 @@ const BlogPost = ({ source, data }) => {
 	//   }
 	// }, [ref.current]);
 
+	// split a string by whitespace
+
+	const split = (str) => {
+		return str.split(/\s+/);
+	};
+
+	let titleFirstPart;
+	if (data.title) titleFirstPart = split(data.title);
+	let titleSecondPart;
+	if (titleFirstPart && titleFirstPart.length >= 4) titleSecondPart = titleFirstPart?.splice(-2)?.join(" ");
+	titleFirstPart = titleFirstPart.join(" ");
+
+	console.log(titleFirstPart, titleSecondPart);
+
 	return (
 		// <MDXProvider>
 		<>
@@ -94,9 +108,11 @@ const BlogPost = ({ source, data }) => {
 			<NavBarLayout>
 				<div className="flex xl:ml-2 w-full flex-col items-center">
 					{/* <div className="flex w-full max-w-7xl p-1 border-b flex-col"> */}
-					<div className="flex flex-col w-full justify-center max-w-3xl mt-4 pb-10 md:pb-4 border-b">
-						<div className="text-4xl max-w-3xl flex flex-row w-full flex-wrap justify-between items-end">
-							<p className="dark:text-gray-100 font-bold">{data.title} </p>
+					<div className="flex flex-col w-full justify-center max-w-3xl mt-4 pb-10 md:pb-4 border-b my-4">
+						<div className="text-4xl max-w-3xl flex flex-row w-full flex-wrap items-end">
+							<p className="dark:text-gray-100 font-extrabold text-5xl">
+								{titleFirstPart} <b className='text-blue-500'>{titleSecondPart}</b>
+							</p>
 						</div>
 						<div className="flex items-end flex-row flex-wrap w-full justify-between">
 							{/* {data.description && (
@@ -130,7 +146,7 @@ const BlogPost = ({ source, data }) => {
 					{/* </div> */}
 				</div>
 			</NavBarLayout>
-			</>
+		</>
 		// </MDXProvider>
 	);
 };
@@ -168,7 +184,7 @@ export async function getStaticProps({ params: { slug } }) {
 			remarkPlugins: [
 				require("remark-math"),
 				require("remark-slug"),
-				require('remark-code-titles'),
+				require("remark-code-titles"),
 				require("remark-autolink-headings"),
 			],
 			rehypePlugins: [
@@ -202,7 +218,7 @@ export async function getStaticProps({ params: { slug } }) {
 		date: data.date.toISOString(),
 	};
 
-	frontmatter['author'] = frontmatter['author'] || 'Neo Wang'
+	frontmatter["author"] = frontmatter["author"] || "Neo Wang";
 
 	// source.renderedOutput = source.renderedOutput.replaceAll('<!-- -->', '');
 
