@@ -45,20 +45,45 @@ export default function Home() {
 						<h2 className="text-2xl mt-5 mb-3 font-bold">Things that I like</h2>
 						<div className="pl-2 list-disc list-inside">
 							<li>Computers: Data Structures, Algorithms, Linux</li>
-							<li>Software development: web, mobile, backend, frontend, etc.</li>
-							<li>Design and quality: Mechanical Keyboards, Hi-Fi Audio, playing cards</li>
+							<li>
+								Software development: web, mobile, backend, frontend, etc.
+							</li>
+							<li>
+								Design and quality: Mechanical Keyboards, Hi-Fi Audio, playing
+								cards
+							</li>
 							<li>Writing: Taking notes with LaTeX, Blogging</li>
 							<li>Editing: Vim, VSCode</li>
 						</div>
 
 						<h2 className="text-2xl mt-5 mb-3 font-bold">Knowledge</h2>
 						<div className="pl-2 list-disc list-inside">
-							<li>General Programming Languages: Python, JavaScript/Typescript, Java, C++</li>
-							<li>JavaScript Frameworks: React, Next.js, Node.js, Express.js</li>
+							<li>
+								General Programming Languages: Python, JavaScript/Typescript,
+								Java, C++
+							</li>
+							<li>
+								JavaScript Frameworks: React, Next.js, Node.js, Express.js
+							</li>
 							<li>Web Automation: Selenium, Tampermonkey</li>
 							<li>CI/CD: Vercel, Github, Github Actions</li>
 						</div>
 
+						<h2 className="text-2xl mt-5 mb-3 font-bold">Website Plans</h2>
+						<div className="pl-2 list-disc list-inside">
+							<li>Add an email subscription list for blog posts</li>
+							<li>Add a continuously deployed section for LaTeX Notes</li>
+							<li>
+								Review tools I have been using: Notion, GitHub Copilot,
+								Obsidian.md, etc.
+							</li>
+							<li>
+								Want to contribute or have an idea? Email me at{" "}
+								<a className="underline" href="mailto:neowangatx@gmail.com">
+									neowangatx@gmail.com
+								</a>
+							</li>
+						</div>
 					</div>
 				</div>
 				{/* featured blog posts */}

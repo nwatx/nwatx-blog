@@ -9,7 +9,7 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ['MessinaSans', 'Open Sans', 'Arial'],
+				sans: ["MessinaSans", "Open Sans", "Arial"],
 				mono: ["Cascadia Code"],
 			},
 			colors: {
@@ -129,6 +129,9 @@ module.exports = {
 						},
 						h3: {
 							fontWeight: "600",
+							color: theme("colors.gray.100"),
+						},
+						p: {
 							color: theme("colors.gray.100"),
 						},
 						"h4,h5,h6": {

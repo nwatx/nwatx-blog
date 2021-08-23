@@ -1,6 +1,7 @@
 import "../styles/tailwind.css";
 import "../styles/styles.css";
 import "../styles/prism-one-dark.css";
+import "../styles/embla.css";
 import { ThemeProvider } from "next-themes";
 
 function MyApp({ Component, pageProps }) {
