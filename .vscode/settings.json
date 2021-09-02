@@ -15,5 +15,5 @@
 			"password": "root"
 		}
 	],
-	"gitdoc.enabled": true
+	"gitdoc.enabled": false
 }
