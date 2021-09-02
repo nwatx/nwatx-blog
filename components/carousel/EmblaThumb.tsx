@@ -3,7 +3,7 @@ import NextImage from "../NextImage";
 
 export const Thumb = ({ selected, onClick, ...props }) => (
 	<div
-		className={`mx-4 embla__slide--thumb h-24 w-24 ${
+		className={`mx-1 embla__slide--thumb h-24 w-24 ${
 			selected ? "is-selected" : ""
 		}`}
 	>

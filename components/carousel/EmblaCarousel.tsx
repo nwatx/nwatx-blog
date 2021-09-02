@@ -94,7 +94,7 @@ const EmblaCarousel = ({ slides }) => {
 				<div className="embla__container p-5">
 					{slides.map(({ ...props }, index) => (
 						<div className="embla__slide" key={index}>
-							<div className="embla__slide__inner h-48 sm:h-96 lg:h-110">
+							<div className="embla__slide__inner rounded-lg h-48 sm:h-96 lg:h-110">
 								<div
 									className="embla__slide__parallax"
 									style={{ transform: `translateX(${parallaxValues[index]}%)` }}
@@ -118,11 +118,11 @@ const EmblaCarousel = ({ slides }) => {
 				</div>
 			</div>
 			<div className="embla embla--thumb w-full h-24">
-        <div className="embla__viewport" ref={thumbViewportRef}>
+        <div ref={thumbViewportRef}>
           <div className="embla__container--thumb flex flex-row justify-center">
             {slides.map(({...props}, index) => (
               <Thumb
-							className='w-24 bg-gray-200 border-2 border-gray-500 rounded-md dark:border-gray-200'
+							className='w-24 bg-gray-200  p-1 border-gray-500 rounded-md dark:border-gray-200'
                 onClick={() => onThumbClick(index)}
                 selected={index === selectedIndex}
 								{...props}
