@@ -109,7 +109,7 @@ const EmblaCarousel = ({ slides }) => {
 										className="embla__slide__img"
 										width={1920}
 										height={1080}
-										{...props}
+										src={props.src}
 									></NextImage>
 								</div>
 							</div>
