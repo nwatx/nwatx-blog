@@ -106,7 +106,7 @@ const EmblaCarousel = ({ slides }) => {
 										alt="A cool cat."
 									/> */}
 									<NextImage
-										className="embla__slide__img"
+										className="embla__slide__img rounded-3xl"
 										width={1920}
 										height={1080}
 										{...props}

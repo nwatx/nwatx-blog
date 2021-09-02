@@ -14,5 +14,6 @@
 			"database": "airbnb",
 			"password": "root"
 		}
-	]
+	],
+	"gitdoc.enabled": true
 }
