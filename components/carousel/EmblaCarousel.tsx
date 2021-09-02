@@ -96,7 +96,7 @@ const EmblaCarousel = ({ slides }) => {
 						<div className="embla__slide" key={index}>
 							<div className="embla__slide__inner h-48 sm:h-96 lg:h-110">
 								<div
-									className="embla__slide__parallax rounded-2xl"
+									className="embla__slide__parallax"
 									style={{ transform: `translateX(${parallaxValues[index]}%)` }}
 								>
 									{/* <img
