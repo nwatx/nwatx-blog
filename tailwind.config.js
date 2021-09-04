@@ -8,9 +8,9 @@ module.exports = {
 	// important: true,
 	theme: {
 		extend: {
-			height: {
-				"110": "34rem"
-			},
+			// height: {
+			// 	"110": "34rem"
+			// },
 			fontFamily: {
 				sans: ["MessinaSans", "Open Sans", "Arial"],
 				mono: ["Cascadia Code"],

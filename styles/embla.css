@@ -38,7 +38,7 @@
 .embla__slide__inner {
   position: relative;
   /* height: 2160px; */
-  display: flex;
+  /* display: flex; */
   align-items: center;
   justify-content: center;
   overflow: hidden;
