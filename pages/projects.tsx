@@ -26,13 +26,12 @@ const RobotImages = {
 			src:
 				"v1629669742/blog/robotics/ActualRobot_2020-Mar-22_09-26-47PM-000_CustomizedView11585814194_png_e67fon.png",
 			caption:
-				"Various renders of world-finalists Team 7161; rendered in Fusion 360"
+				"Various renders of world-finalists Team 7161; rendered in Fusion 360",
 		},
 		{
 			src:
 				"v1629669744/blog/robotics/ActualRobot_2020-Mar-22_09-41-10PM-000_CustomizedView12169216135_png_njfkfz.png",
-			caption:
-				"Adaptation for new scenery"
+			caption: "Adaptation for new scenery",
 		},
 		{
 			src:
@@ -41,26 +40,40 @@ const RobotImages = {
 	],
 };
 
+const CenterWrapper = ({ children }) => {
+	return <div className="flex w-full max-w-7xl justify-center">{children}</div>;
+};
+
 export default function projects() {
 	return (
 		<NavBarLayout>
-			<div className="text-left w-full max-w-7xl space-y-3 prose">
-				<h1>Projects</h1>
-				<p>
-					A collection of projects and various hobbies I enjoyed doing in my
-					freetime. Currently, the images are not lazy-loaded, which means they
-					might take a bit to load, so be patient!
-				</p>
-				<h2 className="dark:text-white">Rendering Robots</h2>
-				<p>
-					During my period in the FIRST Tech Challenge, I found out that I quite
-					enjoyed creating renderings for purposes of visualization. Here are
-					some renderings I have done for various teams.
-				</p>
-				<h3 className="dark:text-white">Gluten Free - Team 11115</h3>
-				{/* <ImageCarousel images={RobotImages.glutenFree} /> */}
-				<EmblaCarousel slides={RobotImages.glutenFree} />
-				<h2 className="dark:text-white">Hydra - Team 7161</h2>
+			<div className="flex flex-col w-full max-w-7xl">
+				<CenterWrapper>
+					<div className="text-left w-full max-w-5xl space-y-3 prose">
+						<h1>Projects</h1>
+						<p>
+							A collection of projects and various hobbies I enjoyed doing in my
+							freetime. Currently, the images are not lazy-loaded, which means
+							they might take a bit to load, so be patient!
+						</p>
+						<h2 className="dark:text-white">Rendering Robots</h2>
+						<p>
+							During my period in the FIRST Tech Challenge, I found out that I
+							quite enjoyed creating renderings for purposes of visualization.
+							Here are some renderings I have done for various teams.
+						</p>
+						<h3 className="dark:text-white">Gluten Free - Team 11115</h3>
+						{/* <ImageCarousel images={RobotImages.glutenFree} /> */}
+					</div>
+				</CenterWrapper>
+				<div className="w-full max-w-7xl">
+					<EmblaCarousel slides={RobotImages.glutenFree} />
+				</div>
+				<CenterWrapper>
+					<div className="text-left w-full max-w-5xl space-y-3 prose">
+						<h2 className="dark:text-white">Hydra - Team 7161</h2>
+					</div>
+				</CenterWrapper>
 				<EmblaCarousel slides={RobotImages.hydra} />
 			</div>
 		</NavBarLayout>

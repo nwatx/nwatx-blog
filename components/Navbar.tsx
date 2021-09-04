@@ -96,6 +96,7 @@ export default function Navbar({ children }) {
 						<div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
 							{/* <NavigationButtonMobile to="/aboutme" label="About Me" /> */}
 							<NavigationButtonMobile to="/blog" label="Blog" />
+							{/* <NavigationButtonMobile to="/projects" label="Projects" /> */}
 							<NavigationButtonMobile to="/editor" label="Editor" />
 						</div>
 					</div>

@@ -98,7 +98,7 @@ const EmblaCarousel = ({ slides }) => {
 					<p>Drag to scroll, or click the thumbnails at the bottom!</p>
 				</ReactToolTip>
 			</div> */}
-			<div className='w-full border dark:border-gray-600'/>
+			<div className='w-full border my-2 dark:border-gray-600'/>
 			<div className="embla__viewport" ref={viewportRef}>
 				<div className="embla__container pt-5">
 					{slides.map(({ ...props }, index) => (
@@ -122,12 +122,12 @@ const EmblaCarousel = ({ slides }) => {
 									></NextImage>
 								</div>
 							</div>
-							<p>{props.caption}</p>
+							<p className='m-6'>{props.caption}</p>
 						</div>
 					))}
 				</div>
 			</div>
-			<div className='w-full border dark:border-gray-600'/>
+			<div className='w-full border my-6 dark:border-gray-600'/>
 			<div className="embla w-full h-24">
 				<div ref={thumbViewportRef}>
 					<div className="embla__container--thumb flex flex-row justify-center">
