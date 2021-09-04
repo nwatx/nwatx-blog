@@ -12,7 +12,7 @@ export const Thumb = ({ selected, onClick, ...props }) => (
 			className="embla__slide__inner embla__slide__inner--thumb"
 			type="button"
 		>
-			<img className="embla__slide__thumbnail" {...props} src={`https://res.cloudinary.com/dcg5b3jpt/image/upload/${props.src}`} />
+			<NextImage width={640} height={320} className="embla__slide__thumbnail" {...props} src={props.src} />
 			{/* <NextImage
 				className="embla__slide__thumbnail"
 				width={512}

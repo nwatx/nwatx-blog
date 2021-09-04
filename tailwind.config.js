@@ -9,7 +9,7 @@ module.exports = {
 	theme: {
 		extend: {
 			height: {
-				"110": "36rem"
+				"110": "34rem"
 			},
 			fontFamily: {
 				sans: ["MessinaSans", "Open Sans", "Arial"],

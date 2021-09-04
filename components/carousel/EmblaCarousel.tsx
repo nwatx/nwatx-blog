@@ -3,6 +3,8 @@ import { useEmblaCarousel } from "embla-carousel/react";
 import NextImage from "../NextImage";
 import { Thumb } from "./EmblaThumb";
 import { getStaticProps } from "../../pages/post/[slug]";
+import { Popover } from "@headlessui/react";
+import ReactToolTip from "react-tooltip";
 
 const PARALLAX_FACTOR = 0.8;
 
@@ -12,15 +14,14 @@ const EmblaCarousel = ({ slides }) => {
 		// dragFree: true,
 	});
 	const [thumbViewportRef, emblaThumbs] = useEmblaCarousel({
-    containScroll: "keepSnaps",
-    selectedClass: "",
-    dragFree: true
-  });
+		// containScroll: "keepSnaps",
+		selectedClass: "",
+		dragFree: true,
+	});
 	const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
 
 	const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
 	const [parallaxValues, setParallaxValues] = useState([]);
-
 
 	const scrollPrev = useCallback(() => embla && embla.scrollPrev(), [embla]);
 	const scrollNext = useCallback(() => embla && embla.scrollNext(), [embla]);
@@ -32,26 +33,25 @@ const EmblaCarousel = ({ slides }) => {
 	// }, [embla]);
 	const [selectedIndex, setSelectedIndex] = useState(0);
 
-
 	const onThumbClick = useCallback(
-    (index) => {
-      if (!embla || !emblaThumbs) return;
-      if (emblaThumbs.clickAllowed()) embla.scrollTo(index);
-    },
-    [embla, emblaThumbs]
-  );
+		(index) => {
+			if (!embla || !emblaThumbs) return;
+			if (emblaThumbs.clickAllowed()) embla.scrollTo(index);
+		},
+		[embla, emblaThumbs]
+	);
 
-  const onSelect = useCallback(() => {
-    if (!embla || !emblaThumbs) return;
-    setSelectedIndex(embla.selectedScrollSnap());
-    emblaThumbs.scrollTo(embla.selectedScrollSnap());
-  }, [embla, emblaThumbs, setSelectedIndex]);
+	const onSelect = useCallback(() => {
+		if (!embla || !emblaThumbs) return;
+		setSelectedIndex(embla.selectedScrollSnap());
+		emblaThumbs.scrollTo(embla.selectedScrollSnap());
+	}, [embla, emblaThumbs, setSelectedIndex]);
 
-  useEffect(() => {
-    if (!embla) return;
-    onSelect();
-    embla.on("select", onSelect);
-  }, [embla, onSelect]);
+	useEffect(() => {
+		if (!embla) return;
+		onSelect();
+		embla.on("select", onSelect);
+	}, [embla, onSelect]);
 
 	const onScroll = useCallback(() => {
 		if (!embla) return;
@@ -89,12 +89,21 @@ const EmblaCarousel = ({ slides }) => {
 	}, [embla, onSelect, onScroll]);
 
 	return (
-		<div className="embla">
+		<div className="embla py-5 rounded-lg">
+			{/* <div className="flex flex-row w-full">
+				<div className='text-gray-400 rounded-full w-8 h-8 pt-1 text-center cursor-default dark:bg-gray-900' data-tip data-for="howToUse">
+					?
+				</div>
+				<ReactToolTip id="howToUse">
+					<p>Drag to scroll, or click the thumbnails at the bottom!</p>
+				</ReactToolTip>
+			</div> */}
+			<div className='w-full border dark:border-gray-600'/>
 			<div className="embla__viewport" ref={viewportRef}>
-				<div className="embla__container p-5">
+				<div className="embla__container pt-5">
 					{slides.map(({ ...props }, index) => (
 						<div className="embla__slide" key={index}>
-							<div className="embla__slide__inner rounded-lg h-48 sm:h-96 lg:h-110">
+							<div className="embla__slide__inner rounded-lg h-48 sm:h-96 lg:h-110 shadow-lg">
 								<div
 									className="embla__slide__parallax"
 									style={{ transform: `translateX(${parallaxValues[index]}%)` }}
@@ -106,32 +115,34 @@ const EmblaCarousel = ({ slides }) => {
 										alt="A cool cat."
 									/> */}
 									<NextImage
-										className="embla__slide__img"
+										className="embla__slide__img rounded-md"
 										width={1920}
 										height={1080}
 										src={props.src}
 									></NextImage>
 								</div>
 							</div>
+							<p>{props.caption}</p>
 						</div>
 					))}
 				</div>
 			</div>
-			<div className="embla embla--thumb w-full h-24">
-        <div ref={thumbViewportRef}>
-          <div className="embla__container--thumb flex flex-row justify-center">
-            {slides.map(({...props}, index) => (
-              <Thumb
-							className='w-24 bg-gray-200  p-1 border-gray-500 rounded-md dark:border-gray-200'
-                onClick={() => onThumbClick(index)}
-                selected={index === selectedIndex}
+			<div className='w-full border dark:border-gray-600'/>
+			<div className="embla w-full h-24">
+				<div ref={thumbViewportRef}>
+					<div className="embla__container--thumb flex flex-row justify-center">
+						{slides.map(({ ...props }, index) => (
+							<Thumb
+								className="w-24 bg-gray-50 dark:bg-gray-700 rounded-md shadow-md"
+								onClick={() => onThumbClick(index)}
+								selected={index === selectedIndex}
 								{...props}
-                key={index}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
+								key={index}
+							/>
+						))}
+					</div>
+				</div>
+			</div>
 			{/* <button onClick={scrollPrev}>a</button>
 			<button onClick={scrollNext}>b</button> */}
 		</div>

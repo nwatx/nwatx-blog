@@ -9,6 +9,8 @@ const RobotImages = {
 		{
 			src:
 				"v1629671370/blog/robotics/gfrobit_2020-Mar-28_07-37-18PM-000_CustomizedView7667272270_png_dpnabk.png",
+			caption:
+				"Various photorealistic renders of world-champions Team 11115; rendered in Fusion 360 using an HDRI.",
 		},
 		{
 			src:
@@ -23,10 +25,14 @@ const RobotImages = {
 		{
 			src:
 				"v1629669742/blog/robotics/ActualRobot_2020-Mar-22_09-26-47PM-000_CustomizedView11585814194_png_e67fon.png",
+			caption:
+				"Various renders of world-finalists Team 7161; rendered in Fusion 360"
 		},
 		{
 			src:
 				"v1629669744/blog/robotics/ActualRobot_2020-Mar-22_09-41-10PM-000_CustomizedView12169216135_png_njfkfz.png",
+			caption:
+				"Adaptation for new scenery"
 		},
 		{
 			src:

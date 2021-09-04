@@ -64,37 +64,9 @@
   /* transform: translate(-50%, -50%); */
 }
 
-.embla__button {
-  outline: 0;
-  cursor: pointer;
-  background-color: transparent;
-  touch-action: manipulation;
-  position: absolute;
-  z-index: 1;
-  top: 50%;
-  transform: translateY(-50%);
-  border: 0;
-  width: 30px;
-  height: 30px;
-  justify-content: center;
-  align-items: center;
-  fill: #1bcacd;
-  padding: 0;
-}
-
-.embla__button:disabled {
-  cursor: default;
-  opacity: 0.3;
-}
-
-.embla__button__svg {
-  width: 100%;
-  height: 100%;
-}
-
 .embla__container--thumb {
   cursor: default;
-  margin-left: -8px;
+  /* margin-left: -8px; */
 }
 
 .embla__button--prev {
@@ -107,7 +79,7 @@
 
 .embla--thumb {
   padding-top: 0;
-  margin-top: -12px;
+  /* margin-top: -12px; */
 }
 .embla__slide__inner--thumb {
   touch-action: manipulation;
