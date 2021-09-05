@@ -15,7 +15,7 @@ export default function NextImage({ blurred = true, ...props }) {
 			},
 		});
 
-	if (blurred) console.log(blurredUrl);
+	// if (blurred) console.log(blurredUrl);
 
 	return (
 		// @ts-ignore

@@ -43,7 +43,7 @@ const RobotImages = {
 
 const CenterWrapper = ({ children }) => {
 	return (
-		<div className="flex w-full max-w-7xl justify-center">
+		<div className="flex w-full max-w-7xl justify-left">
 			<div className="flex w-full max-w-5xl">{children}</div>
 		</div>
 	);
@@ -54,18 +54,22 @@ export default function projects() {
 		<NavBarLayout>
 			<div className="flex flex-col w-full max-w-7xl">
 				<CenterWrapper>
-					<div className="text-left w-full max-w-5xl space-y-3 prose">
-						<h1>Projects</h1>
-						<p>
-							A collection of projects and various hobbies I enjoyed doing in my
-							freetime.
-						</p>
-						<h2 className="dark:text-white">Rendering Robots</h2>
-						<p>
-							During my period in the FIRST Tech Challenge, I found out that I
-							quite enjoyed creating renderings for purposes of visualization.
-							Here are some renderings I have done for various teams.
-						</p>
+					<div className="text-left w-full max-w-5xl space-y-3 ">
+						<h1 className="text-6xl w-full font-extrabold">Projects</h1>
+						<div className="prose">
+							<p>
+								A collection of projects and various hobbies I enjoyed doing in
+								my freetime.
+							</p>
+						<div className='w-full border' />
+							<h2 className="dark:text-white">Robotics</h2>
+							<h3>Photorealistic Rendering</h3>
+							<p>
+								During my period in the FIRST Tech Challenge, I found out that I
+								quite enjoyed creating renderings for purposes of visualization.
+								Here are some renderings I have done for various teams.
+							</p>
+						</div>
 					</div>
 				</CenterWrapper>
 
