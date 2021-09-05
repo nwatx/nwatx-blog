@@ -67,18 +67,34 @@ export default function projects() {
 						<article className="prose overflow-x-auto dark:prose-dark w-full my-10 max-w-3xl mx-0">
 							<h1 className="dark:text-white">Robotics</h1>
 							<p>
-								I have competed in both the FIRST TECH Challenge and FIRST
-								Robotics Challenge, designing various mechanisms and developing
-								path-planning algorithms. Check out{" "}
-								<Link href="https://gm0.org/en/latest/">Game Manual Zero</Link>{" "}
-								for an excellent resource for the FIRST Tech Challenge. I
-								primarily use{" "}
+								I have competed in both the FIRST TECH Challenge (Teams{" "}
+								<Link href="https://theorangealliance.org/teams/3781">
+									3781
+								</Link>
+								,{" "}
+								<Link href="https://theorangealliance.org/teams/11549">
+									11549
+								</Link>
+								,{" "}
+								<Link href="https://theorangealliance.org/teams/6710">
+									6710
+								</Link>
+								) and am currently competing in the FIRST Robotics Challenge
+								(Team{" "}
+								<Link href="https://www.thebluealliance.com/team/2468">
+									2468
+								</Link>
+								). I design and manufacture various mechanisms, develop
+								path-planning algorithms, work with finances, and have led both
+								mechanical and software teams. I primarily use{" "}
 								<Link href="https://www.solidworks.com/">SOLIDWORKS</Link> for
 								CAD purposes, and{" "}
 								<Link href="https://www.autodesk.com/products/fusion-360/overview">
 									Fusion 360
 								</Link>{" "}
-								for high-quality and convenient cloud-rendering.
+								for high-quality and convenient cloud-rendering. Check out{" "}
+								<Link href="https://gm0.org/en/latest/">Game Manual Zero</Link>{" "}
+								for an excellent resource for the FIRST Tech Challenge.
 							</p>
 							<h2 className="dark:text-white">Photorealistic Rendering</h2>
 							<p>
