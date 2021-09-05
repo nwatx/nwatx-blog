@@ -3,6 +3,7 @@ import NextImage from "../components/NextImage";
 import NavBarLayout from "../layouts/NavBarLayout";
 import { useEmblaCarousel } from "embla-carousel/react";
 import EmblaCarousel from "../components/carousel/EmblaCarousel";
+import Collapsible from "../components/Collapsible";
 
 const RobotImages = {
 	glutenFree: [
@@ -41,8 +42,13 @@ const RobotImages = {
 };
 
 const CenterWrapper = ({ children }) => {
-	return <div className="flex w-full max-w-7xl justify-center">{children}</div>;
+	return (
+		<div className="flex w-full max-w-7xl justify-center">
+			<div className="flex w-full max-w-5xl">{children}</div>
+		</div>
+	);
 };
+
 
 export default function projects() {
 	return (
@@ -53,8 +59,7 @@ export default function projects() {
 						<h1>Projects</h1>
 						<p>
 							A collection of projects and various hobbies I enjoyed doing in my
-							freetime. Currently, the images are not lazy-loaded, which means
-							they might take a bit to load, so be patient!
+							freetime.
 						</p>
 						<h2 className="dark:text-white">Rendering Robots</h2>
 						<p>
@@ -62,13 +67,20 @@ export default function projects() {
 							quite enjoyed creating renderings for purposes of visualization.
 							Here are some renderings I have done for various teams.
 						</p>
-						<h3 className="dark:text-white">Gluten Free - Team 11115</h3>
-						{/* <ImageCarousel images={RobotImages.glutenFree} /> */}
 					</div>
 				</CenterWrapper>
-				<div className="w-full max-w-7xl">
-					<EmblaCarousel slides={RobotImages.glutenFree} />
-				</div>
+
+				<Collapsible
+				title='Gluten Free - Team 11115'
+				>
+					{/* <CenterWrapper> */}
+					{/* <h3 className="prose dark:text-white">Gluten Free - Team 11115</h3> */}
+					{/* </CenterWrapper> */}
+					{/* <ImageCarousel images={RobotImages.glutenFree} /> */}
+					<div className="w-full max-w-7xl">
+						<EmblaCarousel slides={RobotImages.glutenFree} />
+					</div>
+				</Collapsible>
 				<CenterWrapper>
 					<div className="text-left w-full max-w-5xl space-y-3 prose">
 						<h2 className="dark:text-white">Hydra - Team 7161</h2>
