@@ -58,9 +58,9 @@ export default function projects() {
 				<CenterWrapper>
 					<div className="text-left w-full">
 						<h1 className="text-6xl w-full font-extrabold">Projects</h1>
-						<p className='my-3'>
+						<p className="my-3">
 							A collection of projects and various hobbies I enjoyed doing in my
-							freetime.
+							freetime.{" "}
 						</p>
 						<div className="w-full border mb-10" />
 						{/* <article className="w-full overflow-auto !max-w-6xl prose"> */}
@@ -71,13 +71,20 @@ export default function projects() {
 								Robotics Challenge, designing various mechanisms and developing
 								path-planning algorithms. Check out{" "}
 								<Link href="https://gm0.org/en/latest/">Game Manual Zero</Link>{" "}
-								for an excellent resource for the FIRST Tech Challenge.
+								for an excellent resource for the FIRST Tech Challenge. I
+								primarily use{" "}
+								<Link href="https://www.solidworks.com/">SOLIDWORKS</Link> for
+								CAD purposes, and{" "}
+								<Link href="https://www.autodesk.com/products/fusion-360/overview">
+									Fusion 360
+								</Link>{" "}
+								for high-quality and convenient cloud-rendering.
 							</p>
 							<h2 className="dark:text-white">Photorealistic Rendering</h2>
 							<p>
 								During my period in the FIRST Tech Challenge, I found out that I
 								quite enjoyed creating renderings for purposes of visualization.
-								Here are some renderings I have done for various teams.
+								Here are some renderings I have done for various teams:
 							</p>
 						</article>
 					</div>
@@ -103,16 +110,18 @@ export default function projects() {
 						bit.
 					</p>
 				</div>
-				<div className="flex flex-col my-3 lg:flex-row items-center w-full space-y-3 lg:space-y-0">
-					<ReactPlayer
-						className="mx-1 rounded-md"
-						url="https://www.youtube.com/watch?v=aETaRclTDDo"
-					/>
-					<ReactPlayer
-						className="mx-1 rounded-md"
-						url="https://youtu.be/GXJ5LX4zIpI"
-					/>
-				</div>
+				<Collapsible title="Some videos I produced">
+					<div className="flex flex-col my-3 lg:flex-row items-center w-full space-y-3 lg:space-y-0">
+						<ReactPlayer
+							className="mx-1 rounded-md"
+							url="https://www.youtube.com/watch?v=aETaRclTDDo"
+						/>
+						<ReactPlayer
+							className="mx-1 rounded-md"
+							url="https://youtu.be/GXJ5LX4zIpI"
+						/>
+					</div>
+				</Collapsible>
 			</div>
 		</NavBarLayout>
 	);
