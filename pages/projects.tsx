@@ -96,6 +96,7 @@ export default function projects() {
 								<Link href="https://gm0.org/en/latest/">Game Manual Zero</Link>{" "}
 								for an excellent resource for the FIRST Tech Challenge.
 							</p>
+							{/* TODO: 3d modeling */}
 							<h2 className="dark:text-white">Photorealistic Rendering</h2>
 							<p>
 								During my period in the FIRST Tech Challenge, I found out that I
