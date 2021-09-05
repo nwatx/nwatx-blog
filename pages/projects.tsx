@@ -49,7 +49,6 @@ const CenterWrapper = ({ children }) => {
 	);
 };
 
-
 export default function projects() {
 	return (
 		<NavBarLayout>
@@ -70,9 +69,7 @@ export default function projects() {
 					</div>
 				</CenterWrapper>
 
-				<Collapsible
-				title='Gluten Free - Team 11115'
-				>
+				<Collapsible title="Gluten Free - Team 11115">
 					{/* <CenterWrapper> */}
 					{/* <h3 className="prose dark:text-white">Gluten Free - Team 11115</h3> */}
 					{/* </CenterWrapper> */}
@@ -81,12 +78,9 @@ export default function projects() {
 						<EmblaCarousel slides={RobotImages.glutenFree} />
 					</div>
 				</Collapsible>
-				<CenterWrapper>
-					<div className="text-left w-full max-w-5xl space-y-3 prose">
-						<h2 className="dark:text-white">Hydra - Team 7161</h2>
-					</div>
-				</CenterWrapper>
-				<EmblaCarousel slides={RobotImages.hydra} />
+				<Collapsible title="Hydra - Team 7161">
+					<EmblaCarousel slides={RobotImages.hydra} />
+				</Collapsible>
 			</div>
 		</NavBarLayout>
 	);
