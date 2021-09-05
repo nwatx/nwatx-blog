@@ -6,6 +6,7 @@ import EmblaCarousel from "../components/carousel/EmblaCarousel";
 import Collapsible from "../components/Collapsible";
 import Link from "next/link";
 import ReactPlayer from "react-player/lazy";
+import ViewCounter from "../components/ViewCounter";
 
 const RobotImages = {
 	glutenFree: [
@@ -54,91 +55,103 @@ const CenterWrapper = ({ children }) => {
 export default function projects() {
 	return (
 		<NavBarLayout>
-			<div className="flex flex-col w-full max-w-7xl">
-				<CenterWrapper>
-					<div className="text-left w-full">
-						<h1 className="text-6xl w-full font-extrabold">Projects</h1>
-						<p className="my-3">
-							A collection of projects and various hobbies I enjoyed doing in my
-							freetime.{" "}
+			<div className="flex flex-col w-full max-w-7xl justify-between">
+				<div>
+					<CenterWrapper>
+						<div className="text-left w-full">
+							<h1 className="text-6xl w-full font-extrabold">Projects</h1>
+							<p className="my-3">
+								A collection of projects and various hobbies I enjoyed doing in
+								my freetime.{" "}
+							</p>
+							<div className="w-full border mb-10" />
+							{/* <article className="w-full overflow-auto !max-w-6xl prose"> */}
+							<article className="prose dark:prose-dark w-full my-10 max-w-3xl mx-0">
+								<h1 className="dark:text-white">Robotics</h1>
+								<p>
+									I have competed in both the FIRST TECH Challenge (Teams{" "}
+									<Link href="https://theorangealliance.org/teams/3781">
+										3781
+									</Link>
+									,{" "}
+									<Link href="https://theorangealliance.org/teams/11549">
+										11549
+									</Link>
+									,{" "}
+									<Link href="https://theorangealliance.org/teams/6710">
+										6710
+									</Link>
+									) and am currently competing in the FIRST Robotics Challenge
+									(Team{" "}
+									<Link href="https://www.thebluealliance.com/team/2468">
+										2468
+									</Link>
+									). I design and manufacture various mechanisms, develop
+									path-planning algorithms, work with finances, and have led
+									both mechanical and software teams. I primarily use{" "}
+									<Link href="https://www.solidworks.com/">SOLIDWORKS</Link> for
+									CAD purposes, and{" "}
+									<Link href="https://www.autodesk.com/products/fusion-360/overview">
+										Fusion 360
+									</Link>{" "}
+									for high-quality and convenient cloud-rendering. Check out{" "}
+									<Link href="https://gm0.org/en/latest/">
+										Game Manual Zero
+									</Link>{" "}
+									for an excellent resource for the FIRST Tech Challenge.
+								</p>
+								{/* TODO: 3d modeling */}
+								<h2 className="dark:text-white">Photorealistic Rendering</h2>
+								<p>
+									During my period in the FIRST Tech Challenge, I found out that
+									I quite enjoyed creating renderings for purposes of
+									visualization. Here are some renderings I have done for
+									various teams:
+								</p>
+							</article>
+						</div>
+					</CenterWrapper>
+
+					<Collapsible title="Gluten Free - Team 11115">
+						{/* <CenterWrapper> */}
+						{/* <h3 className="prose dark:text-white">Gluten Free - Team 11115</h3> */}
+						{/* </CenterWrapper> */}
+						{/* <ImageCarousel images={RobotImages.glutenFree} /> */}
+						<div className="w-full max-w-7xl">
+							<EmblaCarousel slides={RobotImages.glutenFree} />
+						</div>
+					</Collapsible>
+					<Collapsible title="Hydra - Team 7161">
+						<EmblaCarousel slides={RobotImages.hydra} />
+					</Collapsible>
+
+					<div className="text-left mt-4 w-full prose">
+						<h2 className="dark:text-white">Video Editing</h2>
+						<p>
+							Video editing is not really my fore, but I've dabbled with it for
+							a bit.
 						</p>
-						<div className="w-full border mb-10" />
-						{/* <article className="w-full overflow-auto !max-w-6xl prose"> */}
-						<article className="prose overflow-x-auto dark:prose-dark w-full my-10 max-w-3xl mx-0">
-							<h1 className="dark:text-white">Robotics</h1>
-							<p>
-								I have competed in both the FIRST TECH Challenge (Teams{" "}
-								<Link href="https://theorangealliance.org/teams/3781">
-									3781
-								</Link>
-								,{" "}
-								<Link href="https://theorangealliance.org/teams/11549">
-									11549
-								</Link>
-								,{" "}
-								<Link href="https://theorangealliance.org/teams/6710">
-									6710
-								</Link>
-								) and am currently competing in the FIRST Robotics Challenge
-								(Team{" "}
-								<Link href="https://www.thebluealliance.com/team/2468">
-									2468
-								</Link>
-								). I design and manufacture various mechanisms, develop
-								path-planning algorithms, work with finances, and have led both
-								mechanical and software teams. I primarily use{" "}
-								<Link href="https://www.solidworks.com/">SOLIDWORKS</Link> for
-								CAD purposes, and{" "}
-								<Link href="https://www.autodesk.com/products/fusion-360/overview">
-									Fusion 360
-								</Link>{" "}
-								for high-quality and convenient cloud-rendering. Check out{" "}
-								<Link href="https://gm0.org/en/latest/">Game Manual Zero</Link>{" "}
-								for an excellent resource for the FIRST Tech Challenge.
-							</p>
-							{/* TODO: 3d modeling */}
-							<h2 className="dark:text-white">Photorealistic Rendering</h2>
-							<p>
-								During my period in the FIRST Tech Challenge, I found out that I
-								quite enjoyed creating renderings for purposes of visualization.
-								Here are some renderings I have done for various teams:
-							</p>
-						</article>
 					</div>
-				</CenterWrapper>
-
-				<Collapsible title="Gluten Free - Team 11115">
-					{/* <CenterWrapper> */}
-					{/* <h3 className="prose dark:text-white">Gluten Free - Team 11115</h3> */}
-					{/* </CenterWrapper> */}
-					{/* <ImageCarousel images={RobotImages.glutenFree} /> */}
-					<div className="w-full max-w-7xl">
-						<EmblaCarousel slides={RobotImages.glutenFree} />
-					</div>
-				</Collapsible>
-				<Collapsible title="Hydra - Team 7161">
-					<EmblaCarousel slides={RobotImages.hydra} />
-				</Collapsible>
-
-				<div className="text-left mt-4 w-full prose">
-					<h2 className="dark:text-white">Video Editing</h2>
-					<p>
-						Video editing is not really my fore, but I've dabbled with it for a
-						bit.
-					</p>
+					<Collapsible title="Some videos I produced">
+						<div className="flex flex-col my-3 lg:flex-row items-center w-full space-y-3 lg:space-y-0">
+							<ReactPlayer
+								className="mx-1 rounded-md"
+								controls
+								url="https://www.youtube.com/watch?v=aETaRclTDDo"
+							/>
+							<ReactPlayer
+								className="mx-1 rounded-md"
+								controls
+								url="https://youtu.be/GXJ5LX4zIpI"
+							/>
+						</div>
+					</Collapsible>
 				</div>
-				<Collapsible title="Some videos I produced">
-					<div className="flex flex-col my-3 lg:flex-row items-center w-full space-y-3 lg:space-y-0">
-						<ReactPlayer
-							className="mx-1 rounded-md"
-							url="https://www.youtube.com/watch?v=aETaRclTDDo"
-						/>
-						<ReactPlayer
-							className="mx-1 rounded-md"
-							url="https://youtu.be/GXJ5LX4zIpI"
-						/>
+				<div className="flex w-full px-3 mt-40 max-w-7xl">
+					<div className="w-full justify-center text-center max-w-7xl">
+						<ViewCounter slug={"projects"} />
 					</div>
-				</Collapsible>
+				</div>
 			</div>
 		</NavBarLayout>
 	);
