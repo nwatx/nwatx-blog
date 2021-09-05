@@ -48,7 +48,7 @@ export default function Collapsible({ title, children }) {
 			transitionTime={100}
 			trigger={
 				<div className="flex w-full my-2 max-w-7xl justify-left shadow-md rounded-lg px-2">
-					<div className="flex flex-end w-full max-w-5xl">
+					<div className="flex flex-end w-full max-w-5xl cursor-pointer">
 						<div className="flex flex-col w-6 mr-2 h-full">
 							{chevronOpen ? <UpChevron /> : <DownChevron />}
 						</div>
