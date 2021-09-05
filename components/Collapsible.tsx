@@ -47,12 +47,12 @@ export default function Collapsible({ title, children }) {
 			onClose={() => setChevronOpen(false)}
 			transitionTime={100}
 			trigger={
-				<div className="flex w-full max-w-7xl justify-left">
+				<div className="flex w-full my-2 max-w-7xl justify-left shadow-md rounded-lg px-2">
 					<div className="flex flex-end w-full max-w-5xl">
 						<div className="flex flex-col w-6 mr-2 h-full">
 							{chevronOpen ? <UpChevron /> : <DownChevron />}
 						</div>
-						<h3 className="prose my-3 font-bold text-2xl text-black dark:text-white">
+						<h3 className="prose my-3 font-bold text-lg text-black dark:text-white">
 							{title}
 						</h3>
 					</div>

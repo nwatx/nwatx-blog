@@ -4,6 +4,8 @@ import NavBarLayout from "../layouts/NavBarLayout";
 import { useEmblaCarousel } from "embla-carousel/react";
 import EmblaCarousel from "../components/carousel/EmblaCarousel";
 import Collapsible from "../components/Collapsible";
+import Link from "next/link";
+import ReactPlayer from "react-player/lazy";
 
 const RobotImages = {
 	glutenFree: [
@@ -44,7 +46,7 @@ const RobotImages = {
 const CenterWrapper = ({ children }) => {
 	return (
 		<div className="flex w-full max-w-7xl justify-left">
-			<div className="flex w-full max-w-5xl">{children}</div>
+			<div className="flex w-full max-w-6xl">{children}</div>
 		</div>
 	);
 };
@@ -54,22 +56,30 @@ export default function projects() {
 		<NavBarLayout>
 			<div className="flex flex-col w-full max-w-7xl">
 				<CenterWrapper>
-					<div className="text-left w-full max-w-5xl space-y-3 ">
+					<div className="text-left w-full">
 						<h1 className="text-6xl w-full font-extrabold">Projects</h1>
-						<div className="prose">
+						<p className='my-3'>
+							A collection of projects and various hobbies I enjoyed doing in my
+							freetime.
+						</p>
+						<div className="w-full border mb-10" />
+						{/* <article className="w-full overflow-auto !max-w-6xl prose"> */}
+						<article className="prose overflow-x-auto dark:prose-dark w-full my-10 max-w-3xl mx-0">
+							<h1 className="dark:text-white">Robotics</h1>
 							<p>
-								A collection of projects and various hobbies I enjoyed doing in
-								my freetime.
+								I have competed in both the FIRST TECH Challenge and FIRST
+								Robotics Challenge, designing various mechanisms and developing
+								path-planning algorithms. Check out{" "}
+								<Link href="https://gm0.org/en/latest/">Game Manual Zero</Link>{" "}
+								for an excellent resource for the FIRST Tech Challenge.
 							</p>
-						<div className='w-full border' />
-							<h2 className="dark:text-white">Robotics</h2>
-							<h3>Photorealistic Rendering</h3>
+							<h2 className="dark:text-white">Photorealistic Rendering</h2>
 							<p>
 								During my period in the FIRST Tech Challenge, I found out that I
 								quite enjoyed creating renderings for purposes of visualization.
 								Here are some renderings I have done for various teams.
 							</p>
-						</div>
+						</article>
 					</div>
 				</CenterWrapper>
 
@@ -85,6 +95,24 @@ export default function projects() {
 				<Collapsible title="Hydra - Team 7161">
 					<EmblaCarousel slides={RobotImages.hydra} />
 				</Collapsible>
+
+				<div className="text-left mt-4 w-full prose">
+					<h2 className="dark:text-white">Video Editing</h2>
+					<p>
+						Video editing is not really my fore, but I've dabbled with it for a
+						bit.
+					</p>
+				</div>
+				<div className="flex flex-col my-3 lg:flex-row items-center w-full space-y-3 lg:space-y-0">
+					<ReactPlayer
+						className="mx-1 rounded-md"
+						url="https://www.youtube.com/watch?v=aETaRclTDDo"
+					/>
+					<ReactPlayer
+						className="mx-1 rounded-md"
+						url="https://youtu.be/GXJ5LX4zIpI"
+					/>
+				</div>
 			</div>
 		</NavBarLayout>
 	);
