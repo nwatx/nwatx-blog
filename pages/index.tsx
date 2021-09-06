@@ -7,6 +7,7 @@ import { MailIcon } from "../components/Heroicons";
 import Link from "next/link";
 import { defaultLoader } from "../lib/defaultLoader";
 import Image from "next/image";
+import Subscribe from "../components/Subscribe";
 
 export default function Home() {
 	return (
@@ -71,18 +72,24 @@ export default function Home() {
 
 						<h2 className="text-2xl mt-5 mb-3 font-bold">Website Plans</h2>
 						<div className="pl-2 list-disc list-inside">
-							<li>Add an email subscription list for blog posts</li>
+							{/* <li>Add an email subscription list for blog posts</li>
 							<li>Add a continuously deployed section for LaTeX Notes</li>
 							<li>
 								Review tools I have been using: Notion, GitHub Copilot,
 								Obsidian.md, etc.
-							</li>
+							</li> */}
 							<li>
 								Want to contribute or have an idea? Email me at{" "}
 								<a className="underline" href="mailto:neowangatx@gmail.com">
 									neowangatx@gmail.com
 								</a>
 							</li>
+							<li>
+								You can also subscribe to the mailing list below for updates!
+							</li>
+						</div>
+						<div className="px-1 py-2">
+							<Subscribe />
 						</div>
 					</div>
 				</div>
