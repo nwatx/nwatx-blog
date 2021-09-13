@@ -7,6 +7,7 @@ import Collapsible from "../components/Collapsible";
 import Link from "next/link";
 import ReactPlayer from "react-player/lazy";
 import ViewCounter from "../components/ViewCounter";
+import { PDFViewer } from "../components/PDFViewer";
 
 const RobotImages = {
 	glutenFree: [
