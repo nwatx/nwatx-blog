@@ -3,6 +3,19 @@ import { Fragment, useState } from "react";
 import { PDFViewer } from "../components/PDFViewer";
 import Link from "next/link";
 
+export const BookIcon = () => {
+	return (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			className="h-5 w-5"
+			viewBox="0 0 20 20"
+			fill="currentColor"
+		>
+			<path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
+		</svg>
+	);
+};
+
 export default function Notecard({ url, alt, description = "" }) {
 	let [isOpen, setIsOpen] = useState(false);
 
@@ -16,13 +29,15 @@ export default function Notecard({ url, alt, description = "" }) {
 
 	return (
 		<>
+			{/* Button */}
 			<button
 				type="button"
 				onClick={openModal}
 				// className="px-4 py-2 border text-blue-800 font-semibold border-blue-400 hover:border-blue-600 hover:text-blue-600 opacity-60 rounded-md hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
-				className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+				className="inline-flex w-full justify-between px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
 			>
 				{alt}
+				<BookIcon />
 			</button>
 
 			<Transition appear show={isOpen} as={Fragment}>
@@ -55,16 +70,16 @@ export default function Notecard({ url, alt, description = "" }) {
 							leaveTo="opacity-0 scale-95"
 						>
 							<div
-								className="flex flex-col p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl"
+								className="flex flex-col p-6 pt-3 my-8 overflow-hidden text-left align-middle transition-all transform bg-white dark:bg-gray-700 shadow-xl rounded-2xl"
 								style={{ height: "90vh", width: "95vw" }}
 							>
 								<Dialog.Title
 									as="h3"
-									className="flex flex-col sm:flex-row w-full justify-between text-xl font-medium my-3 leading-6 text-gray-900"
+									className="flex flex-col sm:flex-row w-full justify-between text-xl font-medium leading-6 text-gray-900"
 								>
 									<div className="flex h-full">
 										<Link href={url}>
-											<div className="mt-auto cursor-pointer text-blue-600 hover:text-blue-900 text-2xl underline">
+											<div className="mt-auto cursor-pointer text-blue-600 hover:text-blue-900 dark:text-blue-300 text-2xl underline">
 												{alt}
 											</div>
 										</Link>
@@ -74,7 +89,7 @@ export default function Notecard({ url, alt, description = "" }) {
 										className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
 										onClick={closeModal}
 									>
-										Finished reading notes
+										Finish reading
 									</button>
 								</Dialog.Title>
 								<div className="mt-2">

@@ -41,6 +41,7 @@ export default function Navbar({ children }) {
 								{/* <NavigationButton to="/aboutme" label="About Me" /> */}
 								<NavigationButton to="/blog" label="Blog" />
 								<NavigationButton to="/projects" label="Projects" />
+								<NavigationButton to="/notes" label="Notes" />
 								<NavigationButton to="/editor" label="Editor" />
 							</div>
 						</div>
@@ -98,6 +99,7 @@ export default function Navbar({ children }) {
 							{/* <NavigationButtonMobile to="/aboutme" label="About Me" /> */}
 							<NavigationButtonMobile to="/blog" label="Blog" />
 							<NavigationButtonMobile to="/projects" label="Projects" />
+							<NavigationButtonMobile to="/notes" label="Projects" />
 							<NavigationButtonMobile to="/editor" label="Editor" />
 						</div>
 					</div>
