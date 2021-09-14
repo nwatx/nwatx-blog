@@ -47,12 +47,12 @@ html {
 	src: url("fonts/MessinaSans-Black.woff2") format("woff2");
 }
 
-@font-face {
+/* @font-face {
 	font-family: "KaiseiTokumin";
 	src: url("fonts/KaiseiTokumin-Regular.ttf") format("truetype");
 	font-weight: 400;
 	font-style: normal;
-}
+} */
 
 /* html.dark {
   background-color: #282B30;

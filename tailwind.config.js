@@ -107,9 +107,6 @@ module.exports = {
 							color: theme("colors.gray.900"),
 							borderLeftColor: theme("colors.gray.200"),
 						},
-						p: {
-							fontFamily: ["KaiseiTokumin", "sans-serif"],
-						},
 					},
 				},
 				dark: {
