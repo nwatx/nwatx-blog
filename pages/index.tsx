@@ -36,57 +36,61 @@ export default function Home() {
 							src={"/landing.svg"}
 							priority
 						/> */}
-						<h1 className="text-3xl my-3 font-bold">Neo Wang - WHS '22</h1>
-						<h1>
-							Welcome to my website. I store resources, notes, and editorials
-							here for reference.
-						</h1>
+						<h1 className="text-4xl my-3 font-extrabold">Neo Wang</h1>
+						<div className="prose max-w-3xl">
+							<p>
+								Welcome to my website! I store resources, notes, and editorials
+								here for future reference, as well keep track of some projects
+								I've done.
+							</p>
+						</div>
 						<div className="w-full mt-4 border-b dark:border-gray-500" />
 
 						<h2 className="text-2xl mt-5 mb-3 font-bold">Things that I like</h2>
-						<div className="pl-2 list-disc list-inside">
-							<li>Computers: Data Structures, Algorithms, Linux</li>
+						<div className="prose overflow-x-auto dark:prose-dark w-full max-w-3xl mx-0">
 							<li>
-								Software development: web, mobile, backend, frontend, etc.
+								In my freetime, I play table tennis. Most non-covid years I
+								travel to US Nationals and Open to play. You find my profile{" "}
+								<a href="https://usatt.simplycompete.com/userAccount/up/8291">
+									here.
+								</a>
 							</li>
 							<li>
-								Design and quality: Mechanical Keyboards, Hi-Fi Audio, playing
-								cards
+								I've created several websites and apps - like this one - using
+								Next.js, React, TailwindCSS, and various other modern
+								frameworks. Aside from the web, I compete in various
+								competitions using C++ and have created web automation tools
+								using both Python and TypeScript.
 							</li>
-							<li>Writing: Taking notes with LaTeX, Blogging</li>
-							<li>Editing: Vim, VSCode</li>
-						</div>
+							<li>
+								I enjoy experiencing new senses, from the tactility from
+								Mechanical Keyboards to the timbre of Hi-Fi Audio, or the
+								artistry of playing cards.
+							</li>
 
-						<h2 className="text-2xl mt-5 mb-3 font-bold">Knowledge</h2>
-						<div className="pl-2 list-disc list-inside">
-							<li>
-								General Programming Languages: Python, JavaScript/Typescript,
-								Java, C++
-							</li>
-							<li>
-								JavaScript Frameworks: React, Next.js, Node.js, Express.js
-							</li>
-							<li>Web Automation: Selenium, Tampermonkey</li>
-							<li>CI/CD: Vercel, Github, Github Actions</li>
-						</div>
-
-						<h2 className="text-2xl mt-5 mb-3 font-bold">Website Plans</h2>
-						<div className="pl-2 list-disc list-inside">
-							{/* <li>Add an email subscription list for blog posts</li>
+							<h2 className="text-2xl font-bold">Website Plans</h2>
+							<div>
+								{/* <li>Add an email subscription list for blog posts</li>
 							<li>Add a continuously deployed section for LaTeX Notes</li>
 							<li>
 								Review tools I have been using: Notion, GitHub Copilot,
 								Obsidian.md, etc.
 							</li> */}
-							<li>
-								Want to contribute or have an idea? Email me at{" "}
-								<a className="underline" href="mailto:neowangatx@gmail.com">
-									neowangatx@gmail.com
-								</a>
-							</li>
-							<li>
-								You can also subscribe to the mailing list below for updates!
-							</li>
+								<li>
+									A future plan is to review my various workflows, since I think
+									they are significantly better than what I see on the internet.
+									For example,{" "}
+									<a href="https://copilot.github.com/">GitHub Copilot</a> is
+									often not brought up as a note-taking autocomplete tool.
+								</li>
+								<li>
+									Want to contribute or have an idea? Email me at{" "}
+									<a href="mailto:neowangatx@gmail.com">neowangatx@gmail.com</a>
+								</li>
+								<li>
+									You can also subscribe to the mailing list below for updates!
+								</li>
+							</div>
 						</div>
 						<div className="px-1 py-2">
 							<Subscribe />
