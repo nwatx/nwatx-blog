@@ -50,12 +50,12 @@ export default function BlogPost({
         )}
         <Link href={`/post/${slug}`}>
           <div className="flex flex-col sm:flex-row cursor-pointer">
-            <p className="text-3xl text-gray-800 dark:text-gray-100 hover:underline">{title}</p>
+            <p className="text-3xl font-semibold text-gray-800 dark:text-gray-100 hover:underline">{title}</p>
             {author && (
               <div className="mx-1 flex h-full w-full sm:w-auto">
                 <p className="text-md text-gray-600 dark:text-gray-400 self-end font-light">
-                  by <b className="">{author}</b> on{" "}
-                  <b>{date && new Date(date).toLocaleDateString()}</b>
+                  by <b className="font-semibold">{author}</b> on{" "}
+                  <b className='font-semibold'>{date && new Date(date).toLocaleDateString()}</b>
                 </p>
               </div>
             )}
