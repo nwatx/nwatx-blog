@@ -47,6 +47,16 @@ html {
 	src: url("fonts/MessinaSans-Black.woff2") format("woff2");
 }
 
+.full-width {
+	left: 50%;
+	margin-left: -50vw;
+	margin-right: -50vw;
+	max-width: 100vw;
+	position: relative;
+	right: 50%;
+	width: 100vw;
+}
+
 /* @font-face {
 	font-family: "KaiseiTokumin";
 	src: url("fonts/KaiseiTokumin-Regular.ttf") format("truetype");

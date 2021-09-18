@@ -127,7 +127,7 @@ const BlogPost = ({ source, data }) => {
 							)}
 						</div>
 					</div>
-					<article className="prose overflow-x-auto dark:prose-dark w-full my-7 max-w-3xl mx-0">
+					<article className="prose dark:prose-dark xl:prose-lg overflow-x-auto w-full my-7 max-w-3xl mx-0">
 						{/* {content} */}
 						<MDXRemote {...source} components={MDXComponents} />
 					</article>

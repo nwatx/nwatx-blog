@@ -1,0 +1,276 @@
+---
+title: Design of a FIRST TECH CHALLENGE robot in 5 days
+description: A documentation of our team's project during a 5-day CADathon
+tags: robotics, CAD
+date: 2019-12-21
+---
+
+# Introduction
+
+<NextImage
+	src="/v1631751283/blog/robotics/1_uAdMApemmUuHD1-GKfrmXw_qw093q.png"
+	width={1920}
+	height={1080}
+/>
+
+As a high schooler competing in FIRST, I love to build robots. However, robots
+require money. During the offseason, it is both costly and grants little
+competitive advantage to build entire robots. Typically, doing 3d CAD modeling
+and preparing autonomous routines for the upcoming season is how we spend our
+time.
+
+As a result, I decided to ask two of my friends to compete in the Valor CAD
+Challenge to determine who could design the best robot in one week. Up to three
+people form a team, competing in a hypothetical FIRST game. This year, it was
+[SuperShot](https://docs.google.com/document/d/1VxZ_uT60IzYI4vUXYl7QVfYJL4FF1KRHi-K8Gg2Pgl8/edit),
+a frisbee shooting game.
+
+<NextImage
+	src="v1631751383/blog/robotics/1_mEHaR_YGC2LuRNGK5xlisA_gdloh9.png"
+	width={1920}
+	height={1080}
+/>
+
+You can find SuperShot's rules and guidelines
+[here](https://docs.google.com/document/d/1VxZ_uT60IzYI4vUXYl7QVfYJL4FF1KRHi-K8Gg2Pgl8/edit).
+Read this to be more familiar with the challenge; **it's strongly recommended.**
+
+**You can find a final STEP file of our robot
+[here](https://grabcad.com/library/vcc-team-3-robot-1).**
+
+Tools used Dassault Systèmes SolidWorks
+
+- CAD Modeling Fusion 360: CAD Modeling and Photorealistic Rendering
+- Keyshot: Photorealistic Rendering
+- Gravit Designer: Robot graphics
+- Slack: The team communication
+
+# Design Process
+
+At the game release, our team's brainstorming strategy was to **generate ideas
+for all subsystems and divide each subsystem into a person.** This brainstorming
+technique proved to be effective: almost all of the designs were unique in one
+way or another, and it was somewhat easy to distinguish which ones would be
+viable or not.
+
+For us, this made sense from our actual team experience, **too many people
+working on a single subsystem often leads to repeated steps, meaning wasted
+time.**
+
+## Drive Subassembly
+
+Our philosophy was to keep the drive base simple. Since in other FTC games,
+using a mecanum (aka Swedish Wheel) chassis would provide finer control,
+stability, and maneuverability without sacrificing the speed of a tank drive
+(otherwise known as a six-wheel-drive), we decided to design one for this game.
+Our time was limited (5 days), so we wanted to finish this assembly as quickly
+as possible and mount the other sub-assemblies on top.
+
+Naturally, we gravitated towards using aluminum box tube extrusion. It is
+lightweight, durable, and relatively easy to work with 3D CAD software (for this
+competition, we used a combination of SolidWorks and Fusion 360). We assembled
+the frame in an H-Shape, as shown below:
+
+<NextImage
+	src="v1631751749/blog/robotics/final_0_frame_0_0_kzlrcc.jpg"
+	width={1920}
+	height={1080}
+/>
+
+Another core design feature of our drive was the three odometer wheels located
+as shown below:
+
+<NextImage
+	src="v1631751851/blog/robotics/1_VxCdsCFU9or46v2Gz51cKQ_wu875n.png"
+	width={1581}
+	height={679}
+/>
+
+These wheels allow the robot to triangulate its position by measuring the delta
+in encoder ticks for each wheel and accumulating them over time. You can find a
+more detailed paper on this system
+[here.](https://core.ac.uk/download/pdf/153403880.pdf)
+
+## Frisbee Shooter Subassembly
+
+We brainstormed the following ideas for our frisbee shooting subassembly:
+
+- Vertically-oriented shooter
+- Horizontal-oriented shooter
+- Diagonal-oriented shooter
+- Linear extension
+
+<NextImage
+	src="v1631751878/blog/robotics/RENDER_THIS_NEO_YEA_YEA_2019-Jul-19_03-38-34PM-000_CustomizedView26552434606_png_alpha_gltaup.png"
+	width={1920}
+	height={1080}
+/>
+
+As we took a closer look at the proposed linear extension implementation, we
+determined that the extension would be far too slow as our robot would have to
+travel the field's distance to score. It was at this point that we decided the
+robot needed a frisbee shooter. Since our proposed frisbee-intake takes in the
+frisbees horizontally, it would make sense that we would choose a
+horizontally-oriented shooter, as the transfer mechanism from the frisbee-intake
+to the shooter would be more straightforward.
+
+Also, since separating the shooter's rotary (actual rotation of the turret vs.
+the flywheel) motors would be relatively easy, and we had a bit of spare time,
+we decided to power share the motors using a differential.
+
+## Frisbee Intake Subassembly
+
+The shape of the frisbee proved to both be a challenge and an ally. The 6"
+diameter disks used for the CADathon The challenging part was that the disk was
+relatively hard to pick off the ground, as there was a hollow cavity separating
+the middle portions of the disk and the floor. However, the circular shape meant
+it would be aligned no matter which angle the intake grabbed it.
+
+Since the disk was low to the ground, it was clear that a low-but-wide vacuum
+cleaner type sucker would be the best fit for the task.
+
+<NextImage
+	src="v1631751914/blog/robotics/1_dZLQSI96ZjUsniU_rqr7rQ_ap8s3d.png"
+	width={1920}
+	height={1080}
+/>
+
+Our design consisted of a belt-driven intake because it allowed us to contain
+the motor within the intake area. Also, directly driven motors tend to break
+much more quickly because the load is placed on the shaft. Our motor belt
+transferred power to the conveyer belt system, which would then transmit power
+through the outer blue roller of the intake (we ran a hex axle through the
+conveyer belt, which was connected by another pulley to the blue roller).
+
+## Climb Subassembly
+
+<NextImage
+	src="v1631751933/blog/robotics/1_505kvrup_n8IpejvwV267Q_wscugt.png"
+	width={1626 / 4}
+	height={2180 / 4}
+/>
+
+We noticed that the area that we needed to climb was located relatively high off
+the ground (23"), and because of the 18" x 18" x 18" size restriction placed on
+our robot, a compact but robust extension system would be ideal. As a result, we
+implemented a straight winch-driven linkage to climb. The subsystem would extend
+upwards quickly (<1 second in simulations), and the robot would be off the
+ground in ~1.5 seconds. A topology study was used to optimize the selective
+pocketing to lighten the climb.
+
+<NextImage
+	src="v1631751947/blog/robotics/1_-WfjRM14gESVGmu-dJZk0Q_qr3bh0.png"
+	width={1920}
+	height={1080}
+/>
+
+## Integrating Subassemblies
+
+Since our team distributed the workload of all the subassemblies among my other
+two teammates, we would need to figure out a way to combine these subassemblies
+without fighting for space. To accomplish this goal, we created an approximate
+3d layout sketch of the robot. Each subsystem would be placed in its associated
+region to solve the conflicts.
+
+There are several challenges we encountered while integrating the systems.
+
+- Mounting all the pieces onto the robot — we solved this by using organic
+  brackets that would generate no matter where we moved the parts.
+- Electronics mounting — we needed a way to position the electronics to
+  interfere with our critical subassemblies. To solve this, we used the unused
+  space on the robot's side to package a Logitech C270 camera and our two
+  control hubs.
+- Mounting the climb subassembly — in our layout sketch, we anticipated the
+  climb to be positioned in the robot's back. However, the climb took up more
+  space than expected, so it had to be moved to either side or the front. We
+  ended up choosing the side since if it were to be mounted on the front, not
+  only would the camera have to move, but the body of the intake and the climb
+  would intersect.
+
+<NextImage
+	src="v1631751959/blog/robotics/1_NsBf5FNotq1AVglBVMXAMg_zyvzbz.png"
+	width={1920}
+	height={1080}
+/>
+
+# Judging
+
+## Overview
+
+<NextImage
+	src="v1631751988/blog/robotics/1_POQC2L19r_yiLHj4x3MsDQ_owdcfp.png"
+	width={1920}
+	height={1080}
+/>
+
+This stage of the competition both delivers the results and feedback that we
+could use to improve our skills next time (as well as for the upcoming season).
+Since this was our first CADathon, we were naturally nervous and didn't know
+what to expect. We included several renders and key notebook slides explaining
+how our robot would function to distinguish ourselves from our competitors.
+
+## Results
+
+### Feedback Delivered on Our Robot
+
+- Unable to get over the barrier. Our tri-wheel positional localizer ended up
+  hurting us since the judges believed it was impossible to get over the
+  barrier. Although one of our other teammates had already implemented this
+  system in real life, having no trouble getting over physical boundaries, we
+  were still marked off.
+
+- Intake could not transfer. Since we mounted our intake mechanism at a
+  90-degree angle, we overlooked that it would not be able to deposit the
+  frisbees into our shooter. Although the rubrics were not released, we believed
+  this to be the main downfall of our placement.
+
+Despite these remarks on our robot, we still placed 7th out of 53 teams overall,
+even beating out the larger
+[F4 Cadathon's](https://www.chiefdelphi.com/t/7th-bi-annual-f4-cadathon/360628/18)
+1st place prize-winning team.
+
+# Changes in Philosophy
+
+1. Design process: Design the parts first and then decide on mounting later =>
+   choose available mounting positions first, design the mounts, and then fit
+   the part to the mount.
+
+2. Use of sheet metal: The use of sheet metal also surprised us. The
+   second-place team's use of sheet metal made almost perfect use of the space
+   constraints. Their design looked complex when studying their robot more
+   closely because of their clever arrangement of sheet metal. Team 10
+   (second-place team)
+
+<NextImage
+	src="v1631752026/blog/robotics/1_H8M4smj7RiFbfZw_9nNItQ_qgub4h.png"
+	width={1920}
+	height={1080}
+/>
+
+3. Workspace collaboration: Ideally we would transition from Fusion 360 Cloud
+   Integrated => GrabCAD Workbench. Since two of us used SolidWorks while the
+   other used Fusion 360, it was relatively hard to collaborate. Transferring
+   files was a pain; we would commonly have to export our SolidWorks files as a
+   .STEP file, which would be uneditable in the Fusion 360 viewer. In
+   retrospect, it would be wiser for our Fusion 360 user to switch to
+   SolidWorks; after all, CAD programs are relatively similar.
+
+4. Rendering Dassault Systèmes SolidWorks Visualize => Fusion 360 or Keyshot.
+   From our experience, the time it would take to tune the Visualize materials
+   to more resemble reality was too much work compared to using the presets that
+   both Fusion 360 and Keyshot provided.
+
+# Final Thoughts
+
+Regarding the competition as a whole, I felt that it was a massive boost to both
+my 3d modeling and collaborative skills. After several days of competing, I
+found that I could design and model things much faster than during the beginning
+of the competition. For example, the first iteration of the intake took me 1.5
+days to finish, but then I managed to complete both the second and the final
+iteration of the intake mechanism in a single day.
+
+This year in the 2019–2020 SkyStone (the actual game), I have found that I have
+put the skills I've attained from the CADathon to use. I designed, modeled, and
+rendered every component shown on the robot below, moving far more quickly than
+the previous year, and indeed the practice of 3D modeling for hours on end
+helped.

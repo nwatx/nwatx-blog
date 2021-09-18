@@ -4,7 +4,7 @@ const colors = require("tailwindcss/colors");
 module.exports = {
 	purge: ["./**/*.{jsx,tsx}", "./styles/**.css"],
 	darkMode: "class", // or 'media' or 'class'
-	// mode: "jit",
+	mode: "jit",
 	// important: true,
 	theme: {
 		extend: {
@@ -27,30 +27,30 @@ module.exports = {
 				},
 			},
 			typography: (theme) => ({
-				none: {
-					css: {
-						h1: {
-							"margin-top": "0",
-							"margin-bottom": "0",
-						},
-						h2: {
-							"margin-top": "0",
-							"margin-bottom": "0",
-						},
-						h3: {
-							"margin-top": "0",
-							"margin-bottom": "0",
-						},
-						h4: {
-							"margin-top": "0",
-							"margin-bottom": "0",
-						},
-						p: {
-							"margin-top": "0",
-							"margin-bottom": "0",
-						},
-					},
-				},
+				// none: {
+				// 	css: {
+				// 		h1: {
+				// 			"margin-top": "0",
+				// 			"margin-bottom": "0",
+				// 		},
+				// 		h2: {
+				// 			"margin-top": "0",
+				// 			"margin-bottom": "0",
+				// 		},
+				// 		h3: {
+				// 			"margin-top": "0",
+				// 			"margin-bottom": "0",
+				// 		},
+				// 		h4: {
+				// 			"margin-top": "0",
+				// 			"margin-bottom": "0",
+				// 		},
+				// 		p: {
+				// 			"margin-top": "0",
+				// 			"margin-bottom": "0",
+				// 		},
+				// 	},
+				// },
 				DEFAULT: {
 					css: {
 						color: theme("colors.gray.700"),
@@ -64,12 +64,13 @@ module.exports = {
 						},
 						h1: {
 							fontWeight: "700",
-							letterSpacing: theme("letterSpacing.tight"),
+							// letterSpacing: theme("letterSpacing.tight"),
+							marginTop: "3rem",
 							color: theme("colors.gray.900"),
 						},
 						h2: {
 							fontWeight: "700",
-							letterSpacing: theme("letterSpacing.tight"),
+							// letterSpacing: theme("letterSpacing.tight"),
 							color: theme("colors.gray.900"),
 						},
 						h3: {

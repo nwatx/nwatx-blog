@@ -99,7 +99,7 @@ export default function Navbar({ children }) {
 							{/* <NavigationButtonMobile to="/aboutme" label="About Me" /> */}
 							<NavigationButtonMobile to="/blog" label="Blog" />
 							<NavigationButtonMobile to="/projects" label="Projects" />
-							<NavigationButtonMobile to="/notes" label="Projects" />
+							<NavigationButtonMobile to="/notes" label="Notes" />
 							<NavigationButtonMobile to="/editor" label="Editor" />
 						</div>
 					</div>
