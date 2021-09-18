@@ -11,7 +11,7 @@ const notesInfo = {
 		},
 		{
 			url:
-				"https://nwatx.github.io/Notes-2021-2022/ap-macroeconomics/template.pdf",
+				"https://nwatx.github.io/Notes-2021-2022/ap-macroeconomics/ap-macroeconomics.pdf",
 			alt: "AP Macroeconomics",
 		},
 	],
