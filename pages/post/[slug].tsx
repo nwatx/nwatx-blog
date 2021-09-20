@@ -21,6 +21,7 @@ import Image from "next/image";
 import ProsCard from "../../components/ProsCard";
 import ProblemCard from "../../components/ProblemCard";
 import WarningCard from "../../components/Warning";
+import EmblaCarousel from "../../components/carousel/EmblaCarousel";
 
 export const ImageLoader = (src) => {
 	console.log(src);
@@ -58,6 +59,7 @@ export const MDXComponents = {
 	Pros: ProsCard,
 	Problem: ProblemCard,
 	Warning: WarningCard,
+	Gallery: EmblaCarousel,
 };
 
 const BlogPost = ({ source, data }) => {
@@ -83,12 +85,12 @@ const BlogPost = ({ source, data }) => {
 		return str.split(/\s+/);
 	};
 
-
 	// takes the last two elements if the array >= 4 elements, making them blue
 	let titleFirstPart;
 	if (data.title) titleFirstPart = split(data.title);
 	let titleSecondPart;
-	if (titleFirstPart && titleFirstPart.length >= 4) titleSecondPart = titleFirstPart?.splice(-2)?.join(" ");
+	if (titleFirstPart && titleFirstPart.length >= 4)
+		titleSecondPart = titleFirstPart?.splice(-2)?.join(" ");
 	titleFirstPart = titleFirstPart.join(" ");
 
 	return (
@@ -107,7 +109,8 @@ const BlogPost = ({ source, data }) => {
 					<div className="flex flex-col w-full justify-center max-w-3xl mt-4 pb-10 md:pb-4 border-b my-4">
 						<div className="text-4xl max-w-3xl flex flex-row w-full flex-wrap items-end">
 							<p className="dark:text-gray-100 font-extrabold text-5xl">
-								{titleFirstPart} <b className='text-blue-500'>{titleSecondPart}</b>
+								{titleFirstPart}{" "}
+								<b className="text-blue-500">{titleSecondPart}</b>
 							</p>
 						</div>
 						<div className="flex items-end flex-row flex-wrap w-full justify-between">
@@ -131,6 +134,11 @@ const BlogPost = ({ source, data }) => {
 						{/* {content} */}
 						<MDXRemote {...source} components={MDXComponents} />
 					</article>
+					<div className="flex flex-row justify-center w-full pt-24 pb-36 items-center text-center">
+						{/* <h1 className="text-center w-full text-2xl font-semibold">
+							End of Article. Thanks for reading!
+						</h1> */}
+					</div>
 				</div>
 			</NavBarLayout>
 		</>

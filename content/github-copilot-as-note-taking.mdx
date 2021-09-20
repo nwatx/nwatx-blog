@@ -1,0 +1,226 @@
+---
+title: GitHub Copilot. But for taking notes.
+description:
+  You would be surprised by how effective Github Copilot is at taking notes.
+tags: Technlogy, Notes, GitHub, AI
+date: 2021-09-18
+---
+
+<NextImage
+	src="v1631996704/resources_recitation_example_zen_qxxob8.gif"
+	width={1920}
+	height={1080}
+/>
+
+## Table of Contents
+
+- [Introduction](##Introduction)
+
+## Introduction
+
+Wow. [GitHub Copilot](https://copilot.github.com/) has stunned me - and the
+world with its AI-enhanced auto-complete prowess. As of writing, its
+predecessors [Kite](https://kite.com) and other predecessors cannot compete with
+it in creativity, accuracy, or strength.
+
+I noticed its prowess particularly when taking notes at school. For example,
+during AP Macroeconomics, Copilot's autocomplete already knew the definitions for
+the vocabulary presented in class, so I could automatically fill in the
+descriptions. Furthermore, Copilot occasionally suggested correct equations
+for both physics and mathematics, and had an astoundingly high knowledge of
+LaTeX - even while using a library.
+
+Most people utilize GitHub Copilot for code autocompletion, so the purpose of
+this blog is to explore something new: its efficacy within the realm of writing
+notes and other texts within a multidisciplinary context.
+
+## The setup
+
+The setup will consist of various tasks in my daily coding/notetaking
+environment, which is described below:
+
+### Editor: **[Visual Studio Code](https://code.visualstudio.com/)**
+
+- Obviously, this is a requirement because GitHub Copilot requires it to run.
+
+### Testing repository: **[Notes 2021-2022](https://github.com/nwatx/Notes-2021-2022)**
+
+- This repository contains my daily note-taking tools, and includes various
+  texts across many disciplines.
+
+- This repository also uses an external LaTeX library, namely
+  [chezlib](https://github.com/chezbgone/chez-sty).
+  - As a result, we can test the efficacy of autocomplete with external
+    libraries.
+
+## Testing
+
+Our testing procedure is as follows:
+
+1. I create a blank LaTeX file using the template file provided in the
+   `template` folder in the root directory. This file is prescribed as:
+
+```tex
+\documentclass{scrreprt} % comment this out when done editing
+% \documentclass{standalone}
+% \usepackage{standalone}
+\usepackage{chez}
+
+\begin{document}
+
+\section{New Section}
+
+New Content
+
+\end{document}
+```
+
+The only hint that Copilot receive will be renaming the `\section` command to
+the appropriate subject.
+
+2. The blank LaTeX file will then be put in its corresponding `subject` folder.
+3. We will then test the autocomplete functionality of the LaTeX file based on a
+   variety of prompts. To encourage the machine to produce valid results,
+   phrases like "the answer is..." may be included. Before testing, I will list
+   the prompts that Copilot will use. Since you cannot determine the legitimacy
+   of my tests (since this is online), you are welcome to recreate this
+   experiment yourself on your local machine using this testing procedure.
+
+Our prompts are as follows across the various subjects and will be tested in the
+following order:
+
+1. Physics
+
+   - What are the laws of physics?
+   - Derive the range equation for a trajectory.
+   - What are the gravitational coefficients for the planets in the solar
+     system?
+   - Name the most famous physicists in the 20th century.
+   - Who won the Nobel Prize for Physics in 2012?
+   - A projectile has an initial velocity of $10$ m/s, and is shot directly
+     upward, what is the time it takes to reach the ground?
+   - The speed of light minus the speed of sound is equal to...
+
+2. Mathematics
+
+   - What is the derivative of tangent?
+   - What is the average velocity for a particle whose velocity is given by the
+     equation $v = \sqrt{3x^2 - 5x}$?
+   - We can reasonably infer that the relationship between the derivative of a
+     function and its integral is...
+   - Proof by contradiction entails...
+   - The Gaussian summation method is...
+
+3. Computer Science
+
+   - The minimum spanning tree of a graph can be found using which algorithm?
+   - The fast fourier transform can be applied to...
+   - The number of nodes in a tree can be at most...
+   - The team that won the International Olympiad in Informatics in 2016 was...
+   - Graphs can be represented in the following ways:
+   - The best known time complexity for solving the closest pair problem is...
+
+## Results
+
+The full results are available on an imgur album available
+[here](https://imgur.com/a/zES3rTA).
+
+I will be discussing the most interesting ones below:
+
+### Prompt: What are the gravitational coefficients for the planets in the solar system?
+
+The gravitational constant for a planet refers to its acceleration of gravity on
+the surface. For reference, the acceleration of gravity on the surface of the
+Earth is 9.8 m/s^2. Also, fun fact, the latter half of the previous sentence was
+_entirely_ completed by Copilot.
+
+After testing, I realized that the term "gravitational coefficient" was used
+instead of "gravitational constant," so initial results were incorrect. Copilot
+gave bogus responses such as
+`Mercury has a gravitational coefficient of 0.33m\s^{-2}` and so on... with
+various wrong values for the acceleration.
+
+I decided to test whether or not this was because it did not know the values, or
+because of my incorrect prompt, so I fed Copilot the sentence: "Mercury has a
+gravitational coefficient of $3.7$ m/s^2."
+
+Miraculously, Copilot was able to correct itself and produce additional
+responses for the rest of the planets in the solar system. Note that Venus,
+Earth, Mars, Jupiter were all filled in by autocomplete. Furthermore, it's
+important to note that Copilot is smart enough to organize the planets by their
+proximity to the sun.
+
+<NextImage
+	src="v1632000577/blog/y9DE4zY_fkcke2.png"
+	width={1387}
+	height={470}
+/>
+
+### Prompt: Graphs can be represented in the following ways:
+
+This prompt was particularly interesting because it proves that Github Copilot
+can "think" about various representations/classifications of objects.
+Furthermore, note the structure of the solutions that Copilot generates -
+particularly the following:
+
+```tex
+\item Adjacency list with weights
+\item Incidence matrix
+\item Incidence matrix with weights
+\item Incidence matrix with multiple edges
+\item Incidence matrix with multiple edges and weights
+```
+
+Even though it is not entirely correct, this implies that Copilot can build on
+top of previous sentence structures - which is fascinating in itself.
+
+Below is a screenshot of the results (drag to scroll):
+
+<Gallery
+	slides={[
+		{
+			src: "v1632002812/blog/4qWOKhR_caowpk.png",
+			width: 642,
+			height: 290,
+		},
+		{
+			src: "v1632002812/blog/vzD7INM_dsikpq.png",
+			width: 570,
+			height: 247,
+		},
+		{
+			src: "v1632002812/blog/FQIF3Jq_zt8ep6.png",
+			width: 554,
+			height: 211,
+		},
+	]}
+/>
+
+and the following is the expanded result:
+
+<NextImage src="v1632003464/blog/W4ZX5ub_so04uj.png" width={663} height={789} />
+
+### Prompt: What is the best known time complexity for solving the closest pair problem?
+
+Interestingly enough, this one does not answer the prompt correctly, but it
+reveals something more significant about the internal structure of Copilot. It
+includes knowledge for known time complexities and obscure algorithms like the
+"Bentley and Ottmann" algorithm; I had not known of it previously. Therefore,
+during the training phase of Copilot, it must have scavenged across such
+algorithms and has developed a deep sense for their general information.
+
+<NextImage
+	src="v1632003920/blog/IzjbQFC_ouwneh.png"
+	width={1138}
+	height={1016}
+/>
+
+## Conclusion
+
+Having previous experience using Copilot for taking notes, I was confident this
+experiment would produce some amazing results - just not all the time. I
+observed that (from previous experience) Copilot's interpolation skills depend
+on context, so the number of successful results is likely lower in this article
+than in general use cases. That being said, I would definitely encourage users
+to try it out on either Markdown or LaTeX files. It might surprise you to learn
+a thing or two from Copilot itself!

@@ -89,7 +89,7 @@ const EmblaCarousel = ({ slides }) => {
 	}, [embla, onSelect, onScroll]);
 
 	return (
-		<div className="embla py-5 rounded-lg">
+		<div className="embla py-5 overflow-hidden rounded-lg">
 			{/* <div className="flex flex-row w-full">
 				<div className='text-gray-400 rounded-full w-8 h-8 pt-1 text-center cursor-default dark:bg-gray-900' data-tip data-for="howToUse">
 					?
@@ -115,8 +115,8 @@ const EmblaCarousel = ({ slides }) => {
 									/> */}
 									<NextImage
 										className="embla__slide__img rounded-md"
-										width={1920}
-										height={1080}
+										width={props.width || 1920}
+										height={props.height || 1080}
 										src={props.src}
 									></NextImage>
 								</div>
