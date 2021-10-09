@@ -62,11 +62,11 @@ export default function Home() {
 								competitions using C++ and have created web automation tools
 								using both Python and TypeScript.
 							</li>
-							<li>
-								I enjoy experiencing new senses, from the tactility from
+							{/* <li>
+								I enjoy experiencing new things, from the tactility from
 								Mechanical Keyboards to the timbre of Hi-Fi Audio, or the
 								artistry of playing cards.
-							</li>
+							</li> */}
 
 							<h2 className="text-2xl font-bold">Website Plans</h2>
 							<div>
@@ -76,13 +76,13 @@ export default function Home() {
 								Review tools I have been using: Notion, GitHub Copilot,
 								Obsidian.md, etc.
 							</li> */}
-								<li>
+								{/* <li>
 									A future plan is to review my various workflows, since I think
 									they are significantly better than what I see on the internet.
 									For example,{" "}
 									<a href="https://copilot.github.com/">GitHub Copilot</a> is
 									often not brought up as a note-taking autocomplete tool.
-								</li>
+								</li> */}
 								<li>
 									Want to contribute or have an idea? Email me at{" "}
 									<a href="mailto:neowangatx@gmail.com">neowangatx@gmail.com</a>
