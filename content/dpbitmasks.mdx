@@ -127,7 +127,7 @@ If $v$ is in the mask, then we can add the total amount of flights to the subset
 We can finally query the flights that travel through the cities $\{1,2,\ldots,n\}$ with $\texttt{dp}[(1\ll n)-1][n]$.
 This works because $(1\ll n)-1$ contains exactly $n$ toggled bits (ex. $2^5-1=011111_2$).
 
-**Time Complexity:** $\mathcal{O}(nm2^n)$
+**Time Complexity:** $\mathcal{O}((n+m)2^n)$
 
 ```cpp:hflights.cpp
 #include <bits/stdc++.h> // see /general/running-code-locally
