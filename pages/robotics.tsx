@@ -43,6 +43,32 @@ const RobotImages = {
 				"v1629669744/blog/robotics/ActualRobot_2020-Mar-22_09-26-47PM-000_CustomizedView11585814194_png_alpha_qohnst.png",
 		},
 	],
+	neo: [
+		{
+			src: "v1635117431/blog/robotics/final_0_frame_0_0_qbyuev.jpg",
+			caption: "My 2019-2020 season robot",
+		},
+		{
+			src: "v1635119759/blog/robotics/asdf_pw2bju.jpg",
+			caption: "Real life version!",
+		},
+		{
+			src: "v1635117548/blog/robotics/final_0_frame_0_0_ucplbk.jpg",
+			caption: "The final version of our VCC CADathon robot",
+		},
+		{
+			src: "v1635117556/blog/robotics/final_0_frame_0_0_tjakxm.jpg",
+			caption: "A prototype version for a drive-base",
+		},
+		{
+			src: "v1635117327/blog/robotics/final_0_frame_0_0_gqisfp.jpg",
+			caption: "My F4 Cadathon Robot",
+		},
+		{
+			src: "v1635117954/blog/robotics/final_0_frame_0_0_ia4ynh.jpg",
+			caption: "Off-season FRC turret",
+		},
+	],
 };
 
 const CenterWrapper = ({ children }) => {
@@ -60,15 +86,20 @@ export default function projects() {
 				<div>
 					<CenterWrapper>
 						<div className="text-left w-full">
-							<h1 className="text-6xl w-full font-extrabold">Projects</h1>
+							<h1 className="text-6xl w-full font-extrabold">Robotics</h1>
 							<p className="my-3">
-								A collection of projects and various hobbies I enjoyed doing in
-								my freetime.{" "}
+								A collection of the robotics I enjoyed doing in my freetime.{" "}
 							</p>
 							<div className="w-full border mb-10" />
 							{/* <article className="w-full overflow-auto !max-w-6xl prose"> */}
+							<NextImage
+								className="rounded-lg"
+								src="v1635119941/blog/robotics/final_0_frame_0_0_e6hfhh.jpg"
+								width={1920}
+								height={1080}
+							/>
 							<article className="prose dark:prose-dark w-full my-10 max-w-3xl mx-0">
-								<h1 className="dark:text-white">Robotics</h1>
+								{/* <h1 className="dark:text-white">Robotics</h1> */}
 								<p>
 									I have competed in both the FIRST TECH Challenge (Teams{" "}
 									<Link href="https://theorangealliance.org/teams/3781">
@@ -102,6 +133,11 @@ export default function projects() {
 									for an excellent resource for the FIRST Tech Challenge.
 								</p>
 								{/* TODO: 3d modeling */}
+							</article>
+							<Collapsible title="A Subset of My Robots">
+								<EmblaCarousel slides={RobotImages.neo} />
+							</Collapsible>
+							<article className="prose dark:prose-dark w-full my-10 max-w-3xl mx-0">
 								<h2 className="dark:text-white">Photorealistic Rendering</h2>
 								<p>
 									During my period in the FIRST Tech Challenge, I found out that
@@ -128,10 +164,7 @@ export default function projects() {
 
 					<div className="text-left mt-4 w-full prose">
 						<h2 className="dark:text-white">Video Editing</h2>
-						<p>
-							Video editing is not really my fore, but I've dabbled with it for
-							a bit.
-						</p>
+						<p>I've dabbled with video editing for a bit.</p>
 					</div>
 					<Collapsible title="Some videos I produced">
 						<div className="flex flex-col my-3 lg:flex-row items-center w-full space-y-3 lg:space-y-0">
