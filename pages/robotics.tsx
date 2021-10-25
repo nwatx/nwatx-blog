@@ -57,6 +57,10 @@ const RobotImages = {
 			caption: "The final version of our VCC CADathon robot",
 		},
 		{
+			src: "v1635125761/blog/robotics/xf1mkdo_szqhlb.png",
+			caption: "It began with this robot"
+		},
+		{
 			src: "v1635117556/blog/robotics/final_0_frame_0_0_tjakxm.jpg",
 			caption: "A prototype version for a drive-base",
 		},
