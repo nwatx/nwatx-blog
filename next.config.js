@@ -12,6 +12,7 @@ module.exports = {
 
 	// 	return config;
 	// },
+	swcMinifiy: true,
 	typescript: {
 		ignoreBuildErrors: true
 	}
