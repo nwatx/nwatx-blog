@@ -47,7 +47,7 @@ const RobotImages = {
 		{
 			src: "v1635117431/blog/robotics/final_0_frame_0_0_qbyuev.jpg",
 			caption:
-				"My 2019-2020 season robot. Fun fact, I designed and modelee the whole thing!",
+				"My 2019-2020 season robot. Fun fact, I designed and modeled the whole thing!",
 		},
 		{
 			src: "v1635119759/blog/robotics/asdf_pw2bju.jpg",
