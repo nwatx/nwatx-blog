@@ -46,7 +46,8 @@ const RobotImages = {
 	neo: [
 		{
 			src: "v1635117431/blog/robotics/final_0_frame_0_0_qbyuev.jpg",
-			caption: "My 2019-2020 season robot",
+			caption:
+				"My 2019-2020 season robot. Fun fact, I designed and modelee the whole thing!",
 		},
 		{
 			src: "v1635119759/blog/robotics/asdf_pw2bju.jpg",
@@ -58,7 +59,7 @@ const RobotImages = {
 		},
 		{
 			src: "v1635125761/blog/robotics/xf1mkdo_szqhlb.png",
-			caption: "It began with this robot"
+			caption: "My robotics journey began with this robot",
 		},
 		{
 			src: "v1635117556/blog/robotics/final_0_frame_0_0_tjakxm.jpg",
@@ -105,7 +106,7 @@ export default function projects() {
 							<article className="prose dark:prose-dark w-full my-10 max-w-3xl mx-0">
 								{/* <h1 className="dark:text-white">Robotics</h1> */}
 								<p>
-									I have competed in both the FIRST TECH Challenge (Teams{" "}
+									I have competed in and captained the FIRST TECH Challenge (Teams{" "}
 									<Link href="https://theorangealliance.org/teams/3781">
 										3781
 									</Link>
@@ -122,9 +123,12 @@ export default function projects() {
 									<Link href="https://www.thebluealliance.com/team/2468">
 										2468
 									</Link>
-									). I design and manufacture various mechanisms, develop
-									path-planning algorithms, work with finances, and have led
-									both mechanical and software teams. I primarily use{" "}
+									). My primary areas are the design and manufacturing of
+									various mechanisms, as well as developing path-planning and
+									computer vision algorithms.
+								</p>
+								<p>
+									I primarily use{" "}
 									<Link href="https://www.solidworks.com/">SOLIDWORKS</Link> for
 									CAD purposes, and{" "}
 									<Link href="https://www.autodesk.com/products/fusion-360/overview">
