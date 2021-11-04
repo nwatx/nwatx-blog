@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "lib/darkmode.js"  ],
+, "lib/darkmode.js", "lib/ga.js"  ],
   "exclude": [
     "node_modules"
   ]

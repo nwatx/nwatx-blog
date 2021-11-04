@@ -8,6 +8,7 @@ import Link from "next/link";
 import ReactPlayer from "react-player/lazy";
 import ViewCounter from "../components/ViewCounter";
 import { PDFViewer } from "../components/PDFViewer";
+import Head from "next/head";
 
 const RobotImages = {
 	glutenFree: [
@@ -87,6 +88,10 @@ const CenterWrapper = ({ children }) => {
 export default function projects() {
 	return (
 		<NavBarLayout>
+			<title>Neo Wang - Robotics</title>
+      <Head>
+        <meta name="description" content="A brief description of robotics" />
+      </Head>
 			<div className="flex flex-col w-full max-w-7xl justify-between">
 				<div>
 					<CenterWrapper>
@@ -106,7 +111,8 @@ export default function projects() {
 							<article className="prose dark:prose-dark w-full my-10 max-w-3xl mx-0">
 								{/* <h1 className="dark:text-white">Robotics</h1> */}
 								<p>
-									I have competed in and captained the FIRST TECH Challenge (Teams{" "}
+									I have competed in and captained the FIRST TECH Challenge
+									(Teams{" "}
 									<Link href="https://theorangealliance.org/teams/3781">
 										3781
 									</Link>
