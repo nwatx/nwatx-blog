@@ -7,7 +7,7 @@ import Collapsible from "../components/Collapsible";
 import Link from "next/link";
 import ReactPlayer from "react-player/lazy";
 import ViewCounter from "../components/ViewCounter";
-import { PDFViewer } from "../components/PDFViewer";
+import Card from "../components/Card";
 import Head from "next/head";
 
 const RobotImages = {
@@ -89,9 +89,9 @@ export default function projects() {
 	return (
 		<NavBarLayout>
 			<title>Neo Wang - Robotics</title>
-      <Head>
-        <meta name="description" content="A brief description of robotics" />
-      </Head>
+			<Head>
+				<meta name="description" content="A brief description of robotics" />
+			</Head>
 			<div className="flex flex-col w-full max-w-7xl justify-between">
 				<div>
 					<CenterWrapper>
@@ -102,53 +102,75 @@ export default function projects() {
 							</p>
 							<div className="w-full border mb-10" />
 							{/* <article className="w-full overflow-auto !max-w-6xl prose"> */}
-							<NextImage
-								className="rounded-lg"
-								src="v1635119941/blog/robotics/final_0_frame_0_0_e6hfhh.jpg"
-								width={1920}
-								height={1080}
-							/>
-							<article className="prose dark:prose-dark w-full my-10 max-w-3xl mx-0">
-								{/* <h1 className="dark:text-white">Robotics</h1> */}
-								<p>
-									I have competed in and captained the FIRST TECH Challenge
-									(Teams{" "}
-									<Link href="https://theorangealliance.org/teams/3781">
-										3781
-									</Link>
-									,{" "}
-									<Link href="https://theorangealliance.org/teams/11549">
-										11549
-									</Link>
-									,{" "}
-									<Link href="https://theorangealliance.org/teams/6710">
-										6710
-									</Link>
-									) and am currently competing in the FIRST Robotics Challenge
-									(Team{" "}
-									<Link href="https://www.thebluealliance.com/team/2468">
-										2468
-									</Link>
-									). My primary areas are the design and manufacturing of
-									various mechanisms, as well as developing path-planning and
-									computer vision algorithms.
-								</p>
-								<p>
-									I primarily use{" "}
-									<Link href="https://www.solidworks.com/">SOLIDWORKS</Link> for
-									CAD purposes, and{" "}
-									<Link href="https://www.autodesk.com/products/fusion-360/overview">
-										Fusion 360
-									</Link>{" "}
-									for high-quality and convenient cloud-rendering. Check out{" "}
-									<Link href="https://gm0.org/en/latest/">
-										Game Manual Zero
-									</Link>{" "}
-									for an excellent resource for the FIRST Tech Challenge.
-								</p>
-								{/* TODO: 3d modeling */}
-							</article>
-							<Collapsible title="A Subset of My Robots">
+							<div className="flex flex-row">
+								<article className="prose dark:prose-dark w-2/3 mb-10 mx-0">
+									{/* <h1 className="dark:text-white">Robotics</h1> */}
+									<h2>About Me</h2> 
+									<p>
+										I have competed in and captained the FIRST TECH Challenge
+										(Teams{" "}
+										<Link href="https://theorangealliance.org/teams/3781">
+											3781
+										</Link>
+										,{" "}
+										<Link href="https://theorangealliance.org/teams/11549">
+											11549
+										</Link>
+										,{" "}
+										<Link href="https://theorangealliance.org/teams/6710">
+											6710
+										</Link>
+										) and am currently competing in the FIRST Robotics Challenge
+										(Team{" "}
+										<Link href="https://www.thebluealliance.com/team/2468">
+											2468
+										</Link>
+										). My primary areas are the design and manufacturing of
+										various mechanisms, as well as developing path-planning and
+										computer vision algorithms.
+									</p>
+									<p>
+										I primarily use{" "}
+										<Link href="https://www.solidworks.com/">SOLIDWORKS</Link>{" "}
+										for CAD purposes, and{" "}
+										<Link href="https://www.autodesk.com/products/fusion-360/overview">
+											Fusion 360
+										</Link>{" "}
+										for high-quality and convenient cloud-rendering. Check out{" "}
+										<Link href="https://gm0.org/en/latest/">
+											Game Manual Zero
+										</Link>{" "}
+										for an excellent resource for the FIRST Tech Challenge.
+									</p>
+									{/* TODO: 3d modeling */}
+								</article>
+								<div className="w-1/3 mx-auto p-3">
+									<NextImage
+										className="rounded-lg"
+										src="v1635119941/blog/robotics/final_0_frame_0_0_e6hfhh.jpg"
+										width={960}
+										height={540}
+									/>
+								</div>
+							</div>
+							<div className="my-4 prose">
+								<h2 className="my-3">Posts</h2>
+							</div>
+							<div className="flex flex-row mb-10">
+								<Card
+									to="/post/detecting-tennis-balls"
+									src="c_scale,h_300,w_300/v1636081627/blog/robotics/4IwHrVR_dqrpqu.jpg"
+									title="Real-time deep detection and tracking of Tennis Balls"
+									description="Computer vision; also part of tennis ball robot project :eyes:"
+								/>
+								<Card
+									to="/post/design-of-a-first-tech-challenge-robot-in-5-days"
+									src="c_scale,h_300,w_300/v1631751283/blog/robotics/1_uAdMApemmUuHD1-GKfrmXw_qw093q.png"
+									title="Design of a FIRST Tech Challege Robot in 5 Days"
+									description="An overview of one freshmen year CADathon experience"
+								/>
+							</div>
+							<Collapsible title="Some robots I've made">
 								<EmblaCarousel slides={RobotImages.neo} />
 							</Collapsible>
 							<article className="prose dark:prose-dark w-full my-10 max-w-3xl mx-0">

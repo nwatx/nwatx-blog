@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import fs from "fs";
 import path from "path";
 import { MDXRemote } from "next-mdx-remote";
-import { serialize } from "next-mdx-remote/serialize";
+import { bundleMDX } from "mdx-bundler";
 import NavBarLayout from "../../layouts/NavBarLayout";
 import Prism from "prismjs";
 import "prismjs/components/prism-c";
@@ -22,6 +22,18 @@ import ProsCard from "../../components/ProsCard";
 import ProblemCard from "../../components/ProblemCard";
 import WarningCard from "../../components/Warning";
 import EmblaCarousel from "../../components/carousel/EmblaCarousel";
+import { getMDXComponent } from 'mdx-bundler/client'
+
+// remark
+import remarkGfm from 'remark-gfm'
+import remarkMath from "remark-math";
+import remarkTocHeadings from '../../lib/remark-toc-headings'
+import remarkCodeTitles from '../../lib/remark-code-title'
+// rehype
+import rehypeSlug from 'rehype-slug'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypeKatex from 'rehype-katex'
+import rehypePrismPlus from 'rehype-prism-plus'
 
 export const ImageLoader = (src) => {
 	console.log(src);
@@ -62,7 +74,7 @@ export const MDXComponents = {
 	Gallery: EmblaCarousel,
 };
 
-const BlogPost = ({ source, data }) => {
+const BlogPost = ({ source, data, ...rest }) => {
 	const router = useRouter();
 
 	useEffect(() => {
@@ -92,6 +104,8 @@ const BlogPost = ({ source, data }) => {
 	if (titleFirstPart && titleFirstPart.length >= 4)
 		titleSecondPart = titleFirstPart?.splice(-2)?.join(" ");
 	titleFirstPart = titleFirstPart.join(" ");
+
+	const MDXLayout = React.useMemo(() => getMDXComponent(source), [source]);
 
 	return (
 		<>
@@ -130,9 +144,10 @@ const BlogPost = ({ source, data }) => {
 							)}
 						</div>
 					</div>
-					<article className="prose dark:prose-dark xl:prose-lg overflow-x-auto w-full my-7 max-w-3xl mx-0">
+					<article className="prose dark:prose-dark 2xl:prose-lg overflow-x-auto w-full my-7 max-w-3xl mx-0">
 						{/* {content} */}
-						<MDXRemote {...source} components={MDXComponents} />
+						{/* <MDXRemote {...source} components={MDXComponents} /> */}
+						<MDXLayout components={MDXComponents} {...rest} />
 					</article>
 					<div className="flex flex-row justify-center w-full pt-24 pb-36 items-center text-center">
 						{/* <h1 className="text-center w-full text-2xl font-semibold">
@@ -167,28 +182,46 @@ export async function getStaticProps({ params: { slug } }) {
 		.readFileSync(path.join("content", slug + ".mdx"))
 		.toString();
 
-	const { data, content } = matter(markdownWithMetadata);
+	// const { data, content } = matter(markdownWithMetadata);
 
 	// if(data['date']) data['date'] = data['date'].toLocaleDateString();
 	// console.log(data, content); to see data content
 
-	const source = await serialize(content, {
-		// components: MDXComponents,
-		mdxOptions: {
-			remarkPlugins: [
-				require("remark-math"),
-				require("remark-slug"),
-				require("remark-code-titles"),
-				require("remark-autolink-headings"),
-			],
-			rehypePlugins: [
-				require("rehype-katex"),
-				require("rehype-slug"),
-				require("@mapbox/rehype-prism"),
-			],
+	let toc = [];
+
+	let { frontmatter, code } = await bundleMDX(markdownWithMetadata, {
+		// mdx imports can be automatically source from the components directory
+		cwd: path.join(process.cwd(), "components"),
+		xdmOptions(options) {
+			// this is the recommended way to add custom remark/rehype plugins:
+			// The syntax might look weird, but it protects you in case we add/remove
+			// plugins in the future.
+			options.remarkPlugins = [
+				...(options.remarkPlugins ?? []),
+				// [remarkTocHeadings, { exportRef: toc }],
+				remarkGfm,
+				remarkCodeTitles,
+				remarkMath,
+			];
+			options.rehypePlugins = [
+				// ...(options.rehypePlugins ?? []),
+				// @ts-ignore
+				rehypeSlug,
+				// @ts-ignore
+				rehypeAutolinkHeadings,
+				// @ts-ignore
+				rehypeKatex,
+				// @ts-ignore
+				[rehypePrismPlus, { ignoreMissing: true }],
+			];
+			return options;
 		},
-		scope: {
-			slug,
+		esbuildOptions: (options) => {
+			options.loader = {
+				...options.loader,
+				".js": "jsx"
+			};
+			return options;
 		},
 	});
 
@@ -196,16 +229,13 @@ export async function getStaticProps({ params: { slug } }) {
 		props: {},
 	};
 
-	const frontmatter = {
-		...data,
-		date: data.date.toISOString(),
-	};
-
 	frontmatter["author"] = frontmatter["author"] || "Neo Wang";
+	frontmatter['date'] = frontmatter['date'].toString();
 
 	return {
 		props: {
-			source: source,
+			source: code,
+			toc,
 			data: frontmatter,
 		},
 	};

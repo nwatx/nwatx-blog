@@ -17,13 +17,16 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "types": []
+    "types": [],
+    "incremental": true
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "lib/darkmode.js", "lib/ga.js"  ],
+    "**/*.tsx",
+    "lib/darkmode.js",
+    "lib/ga.js"
+  ],
   "exclude": [
     "node_modules"
   ]

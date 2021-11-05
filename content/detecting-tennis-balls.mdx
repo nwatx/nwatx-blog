@@ -1,0 +1,65 @@
+---
+title: Detecting Tennis Balls in a Live Camera Feed
+description: What the title says. For a fun robotics project
+tags: computer vision, programming
+date: 2021-11-04
+---
+
+## Demo Video
+
+<center>
+<iframe
+	width="560"
+	height="315"
+	src="https://www.youtube.com/embed/5d-6dGMbmLk"
+	title="YouTube video player"
+	frameborder="0"
+	allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+	allowfullscreen
+></iframe>
+</center>
+
+## Description
+
+As part of a fun robotics project, I have created a program that will detect
+tennis balls in a live camera feed. Of course, the end goal is to create a fully
+autonomous tennis collection system, but detection plays a critical part in the
+deeper control system I'm aiming to develop.
+
+The program is written in Python and uses OpenCV to detect tennis balls. Here is
+the detection pipeline:
+
+1. Resize the image to 640 x 480 pixels.
+2. Run the image through my custom trained version (yes, I did label an entire
+   dataset) of the YOLO neural network. Below is a diagram of the model
+   architecture
+
+   <NextImage
+   	src="v1636078743/blog/robotics/The-network-architecture-of-Yolov5-It-consists-of-three-parts-1-Backbone-CSPDarknet_vvs3nx.jpg"
+   	width={850}
+   	height={634}
+   />
+
+   For the curious, here is the YoloV5 loss function:
+
+$$
+\begin{aligned}
+&\lambda_{coord} \sum_{i=0}^{S^2}\sum_{j=0}^B \mathbb{1}_{ij}^{obj}[(x_i-\hat{x}_i)^2 + (y_i-\hat{y}_i)^2 ] \\&+ \lambda_{coord} \sum_{i=0}^{S^2}\sum_{j=0}^B \mathbb{1}_{ij}^{obj}[(\sqrt{w_i}-\sqrt{\hat{w}_i})^2 +(\sqrt{h_i}-\sqrt{\hat{h}_i})^2 ]\\
+&+ \sum_{i=0}^{S^2}\sum_{j=0}^B \mathbb{1}_{ij}^{obj}(C_i - \hat{C}_i)^2 + \lambda_{noobj}\sum_{i=0}^{S^2}\sum_{j=0}^B \mathbb{1}_{ij}^{noobj}(C_i - \hat{C}_i)^2 \\
+&+ \sum_{i=0}^{S^2} \mathbb{1}_{i}^{obj}\sum_{c \in classes}(p_i(c) - \hat{p}_i(c))^2 \\
+\end{aligned}
+$$
+
+3. Cache past detection areas of interest, and feed the points to the robot to
+   pathfind to the next points of interest.
+
+4. Run the image through a traveling salesman optimization algorithm to find the
+   best path to traverse the image.
+
+5. Draw the path on the image.
+
+<NextImage
+	width={4032}
+	height={3024}
+	src="v1636081627/blog/robotics/4IwHrVR_dqrpqu.jpg"
+/>
