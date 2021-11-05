@@ -8,15 +8,15 @@ date: 2021-11-04
 ## Demo Video
 
 <center>
-<iframe
-	width="560"
-	height="315"
-	src="https://www.youtube.com/embed/5d-6dGMbmLk"
-	title="YouTube video player"
-	frameborder="0"
-	allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-	allowfullscreen
-></iframe>
+	<iframe
+		width="560"
+		height="315"
+		src="https://www.youtube.com/embed/5d-6dGMbmLk"
+		title="YouTube video player"
+		frameborder="0"
+		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+		allowfullscreen
+	></iframe>
 </center>
 
 ## Description
@@ -26,7 +26,7 @@ tennis balls in a live camera feed. Of course, the end goal is to create a fully
 autonomous tennis collection system, but detection plays a critical part in the
 deeper control system I'm aiming to develop.
 
-The program is written in Python and uses OpenCV to detect tennis balls. Here is
+The program is written in Python and uses [OpenCV](https://opencv.org/) to detect tennis balls. Here is
 the detection pipeline:
 
 1. Resize the image to 640 x 480 pixels.
@@ -53,8 +53,9 @@ $$
 3. Cache past detection areas of interest, and feed the points to the robot to
    pathfind to the next points of interest.
 
-4. Run the image through a traveling salesman optimization algorithm to find the
-   best path to traverse the image.
+4. Run the image through a
+   [traveling salesman](https://en.wikipedia.org/wiki/Travelling_salesman_problem)
+   optimization algorithm to find the best path to traverse the image.
 
 5. Draw the path on the image.
 

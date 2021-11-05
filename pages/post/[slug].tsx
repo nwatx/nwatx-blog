@@ -1,14 +1,12 @@
 import React, { useEffect } from "react";
 import fs from "fs";
 import path from "path";
-import { MDXRemote } from "next-mdx-remote";
 import { bundleMDX } from "mdx-bundler";
 import NavBarLayout from "../../layouts/NavBarLayout";
 import Prism from "prismjs";
 import "prismjs/components/prism-c";
 import "prismjs/components/prism-cpp";
 import "prismjs/components/prism-java";
-import matter from "gray-matter";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import Head from "next/head";

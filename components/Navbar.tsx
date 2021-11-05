@@ -1,7 +1,5 @@
-import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import DarkModeButton from "./DarkModeButton";
 import GithubButton from "./GithubButton";
 import NavigationButton from "./NavigationButton";
 import NavigationButtonMobile from "./NavigationButtonMobile";
