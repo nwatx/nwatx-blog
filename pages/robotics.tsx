@@ -156,7 +156,7 @@ export default function projects() {
 							<div className="my-4 prose">
 								<h2 className="my-3">Posts</h2>
 							</div>
-							<div className="flex flex-row mb-10">
+							<div className="flex flex-col xl:flex-row mb-10">
 								<Card
 									to="/post/detecting-tennis-balls"
 									src="c_scale,h_300,w_300/v1636081627/blog/robotics/4IwHrVR_dqrpqu.jpg"
