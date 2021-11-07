@@ -8,6 +8,7 @@ import Link from "next/link";
 import { defaultLoader } from "../lib/defaultLoader";
 import Image from "next/image";
 import Subscribe from "../components/Subscribe";
+import Tag from "../components/Tag";
 
 export default function Home() {
 	return (
@@ -27,15 +28,7 @@ export default function Home() {
 				{/* about me section */}
 				<div className="flex flex-col md:flex-row w-full">
 					<div className="flex flex-col w-full py-3 justify-center relative">
-						{/* <Image
-							loader={defaultLoader}
-							alt="chill code svg"
-							className="rounded-lg"
-							width={1120}
-							height={750}
-							src={"/landing.svg"}
-							priority
-						/> */}
+						{/* TODO: add image of myself later */}
 						<h1 className="text-4xl my-3 font-extrabold">Neo Wang</h1>
 						<div className="prose max-w-3xl">
 							<p>
@@ -46,8 +39,12 @@ export default function Home() {
 						</div>
 						<div className="w-full mt-4 border-b dark:border-gray-500" />
 
-						<h2 className="text-2xl mt-5 mb-3 font-bold">Things that I like</h2>
+						<h2 className="text-2xl mt-5 mb-3 font-bold">Interests</h2>
 						<div className="prose overflow-x-auto dark:prose-dark w-full max-w-3xl mx-0">
+							<li>
+								My primary interests are in the research and development of
+								intelligent robots
+							</li>
 							<li>
 								In my freetime, I play table tennis. Most non-covid years I
 								travel to US Nationals and Open to play. You find my profile{" "}
@@ -62,27 +59,9 @@ export default function Home() {
 								competitions using C++ and have created web automation tools
 								using both Python and TypeScript.
 							</li>
-							{/* <li>
-								I enjoy experiencing new things, from the tactility from
-								Mechanical Keyboards to the timbre of Hi-Fi Audio, or the
-								artistry of playing cards.
-							</li> */}
 
 							<h2 className="text-2xl font-bold">Website Plans</h2>
 							<div>
-								{/* <li>Add an email subscription list for blog posts</li>
-							<li>Add a continuously deployed section for LaTeX Notes</li>
-							<li>
-								Review tools I have been using: Notion, GitHub Copilot,
-								Obsidian.md, etc.
-							</li> */}
-								{/* <li>
-									A future plan is to review my various workflows, since I think
-									they are significantly better than what I see on the internet.
-									For example,{" "}
-									<a href="https://copilot.github.com/">GitHub Copilot</a> is
-									often not brought up as a note-taking autocomplete tool.
-								</li> */}
 								<li>
 									Want to contribute or have an idea? Email me at{" "}
 									<a href="mailto:neowangatx@gmail.com">neowangatx@gmail.com</a>
@@ -141,7 +120,6 @@ export default function Home() {
 						/>
 					</div>
 					<div className="flex flex-col w-full lg:w-1/2 space-y-5 rounded-md justify-center">
-						{/* <p className="text-gray-400 self-center">Coming soon!</p> */}
 						<p className="text-lg font-bold">Music</p>
 						<iframe
 							title="Spotify Playlist"
