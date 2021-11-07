@@ -161,7 +161,7 @@ export default function projects() {
 									to="/post/detecting-tennis-balls"
 									src="c_scale,h_300,w_300/v1636081627/blog/robotics/4IwHrVR_dqrpqu.jpg"
 									title="Real-time deep detection and tracking of Tennis Balls"
-									description="Computer vision; also part of tennis ball robot project :eyes:"
+									description="Computer vision 👀; also part of tennis ball robot project"
 								/>
 								<Card
 									to="/post/design-of-a-first-tech-challenge-robot-in-5-days"
