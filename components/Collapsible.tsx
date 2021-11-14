@@ -39,7 +39,17 @@ const UpChevron = () => {
 	);
 };
 
-export default function Collapsible({ title, opened, children }) {
+type CollapsibleProps = {
+	title: string;
+	opened?: boolean;
+	children: React.ReactNode;
+};
+
+export default function Collapsible({
+	title,
+	opened,
+	children,
+}: CollapsibleProps) {
 	const [chevronOpen, setChevronOpen] = React.useState(opened || false);
 	return (
 		<Collapser
