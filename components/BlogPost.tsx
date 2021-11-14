@@ -27,27 +27,29 @@ export default function BlogPost({
 	return (
 		<div className="flex flex-row w-full justify-between pt-3 pb-5 pr-10 rounded-lg antialiased">
 			{image && (
-				<div className="w-36 mr-10 h-auto">
-					<NextImage
-            className='rounded-xl'
-						src={buildUrl(image, {
-							cloud: {
-								cloudName: "dcg5b3jpt",
-							},
-							transformations: {
-								resize: {
-									type: "scale",
-									width: 500,
-									height: 500,
+				<Link href={`/post/${slug}`}>
+					<div className="w-36 mr-10 h-auto cursor-pointer">
+						<NextImage
+							className="rounded-xl"
+							src={buildUrl(image, {
+								cloud: {
+									cloudName: "dcg5b3jpt",
 								},
-							},
-						})}
-						noLoader
-						width={500}
-						height={500}
-						alt={title}
-					/>
-				</div>
+								transformations: {
+									resize: {
+										type: "scale",
+										width: 500,
+										height: 500,
+									},
+								},
+							})}
+							noLoader
+							width={500}
+							height={500}
+							alt={title}
+						/>
+					</div>
+				</Link>
 			)}
 			<div className="flex flex-col space-y-2 w-full">
 				{tags && (
