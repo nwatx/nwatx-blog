@@ -40,7 +40,7 @@ If you are not yet familiar with solving for eigenvectors, eigenvalues, and such
 
 # Method
 
-The method that is about to be presented is fairly algorithmic, and involves solving for the eigenvalues and eigenvectors of two special matrices $AA^T$ and $A^TA$. One unique property to note is that the eigenvalues of $A^TA$ and $A^TA$ remain the same; we only need to solve for the eigenvalues once, thus making computation much faster. The steps are as follows:
+The method that is about to be presented is fairly algorithmic, and involves solving for the eigenvalues and eigenvectors of two special matrices $AA^T$ and $A^TA$. One unique property to note is that the eigenvalues of $A^TA$ and $AA^T$ remain the same; we only need to solve for the eigenvalues once, thus making computation much faster. The steps are as follows:
 
 1. Find the eigenvalues of either $A^TA$ or $AA^T$
 2. Using the eigenvalues determined, find the eigenvectors of $A^TA$ and $AA^T$.
@@ -63,7 +63,7 @@ The key to finding the SVD is through the eigenvalues and eigenvectors of $AA^T$
 and $A^TA$. In fact, these two matrices correspond to $U$ and $V$ respectively,
 although they must be normalized first. What's even nicer is that you only have
 to solve for the eigenvalues once; the eigenvalues of $AA^T$ are the
-same as $A^TA$. Since both $A^TA$ and $A^TA$ are guranteed to be
+same as $A^TA$. Since both $A^TA$ and $AA^T$ are guranteed to be
 [definite symmetric matrices](https://en.wikipedia.org/wiki/Definite_symmetric_matrix),
 I usually chose to solve for the one with lower dimension.
 
