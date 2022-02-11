@@ -39,12 +39,23 @@ const UpChevron = () => {
 	);
 };
 
-export default function Collapsible({ title, children }) {
-	const [chevronOpen, setChevronOpen] = React.useState(false);
+type CollapsibleProps = {
+	title: string;
+	opened?: boolean;
+	children: React.ReactNode;
+};
+
+export default function Collapsible({
+	title,
+	opened,
+	children,
+}: CollapsibleProps) {
+	const [chevronOpen, setChevronOpen] = React.useState(opened || false);
 	return (
 		<Collapser
 			onOpen={() => setChevronOpen(true)}
 			onClose={() => setChevronOpen(false)}
+			open={opened}
 			transitionTime={100}
 			trigger={
 				<div className="flex w-full my-2 max-w-7xl justify-left shadow-md rounded-lg px-2">

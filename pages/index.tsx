@@ -47,7 +47,7 @@ export default function Home() {
 							</li>
 							<li>
 								In my freetime, I play table tennis. Most non-covid years I
-								travel to US Nationals and Open to play. You find my profile{" "}
+								travel to US Nationals and Open to play. You can find my profile{" "}
 								<a href="https://usatt.simplycompete.com/userAccount/up/8291">
 									here.
 								</a>

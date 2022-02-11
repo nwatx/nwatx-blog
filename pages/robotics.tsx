@@ -13,46 +13,48 @@ import Head from "next/head";
 const RobotImages = {
 	glutenFree: [
 		{
-			src:
-				"v1629671370/blog/robotics/gfrobit_2020-Mar-28_07-37-18PM-000_CustomizedView7667272270_png_dpnabk.png",
+			src: "v1629671370/blog/robotics/gfrobit_2020-Mar-28_07-37-18PM-000_CustomizedView7667272270_png_dpnabk.png",
 			caption:
 				"Various photorealistic renders of world-champions Team 11115; rendered in Fusion 360 using an HDRI.",
 		},
 		{
-			src:
-				"v1629671338/blog/robotics/gfrobit_2020-Mar-28_07-35-34PM-000_CustomizedView7444426906_png_momk8q.png",
+			src: "v1629671338/blog/robotics/gfrobit_2020-Mar-28_07-35-34PM-000_CustomizedView7444426906_png_momk8q.png",
 		},
 		{
-			src:
-				"v1629671350/blog/robotics/gfrobit_2020-Mar-28_07-35-48PM-000_CustomizedView11615114976_png_alpha_rjyvuq.png",
+			src: "v1629671350/blog/robotics/gfrobit_2020-Mar-28_07-35-48PM-000_CustomizedView11615114976_png_alpha_rjyvuq.png",
 		},
 	],
 	hydra: [
 		{
-			src:
-				"v1629669742/blog/robotics/ActualRobot_2020-Mar-22_09-26-47PM-000_CustomizedView11585814194_png_e67fon.png",
+			src: "v1629669742/blog/robotics/ActualRobot_2020-Mar-22_09-26-47PM-000_CustomizedView11585814194_png_e67fon.png",
 			caption:
 				"Various renders of world-finalists Team 7161; rendered in Fusion 360",
 		},
 		{
-			src:
-				"v1629669744/blog/robotics/ActualRobot_2020-Mar-22_09-41-10PM-000_CustomizedView12169216135_png_njfkfz.png",
+			src: "v1629669744/blog/robotics/ActualRobot_2020-Mar-22_09-41-10PM-000_CustomizedView12169216135_png_njfkfz.png",
 			caption: "Adaptation for new scenery",
 		},
 		{
-			src:
-				"v1629669744/blog/robotics/ActualRobot_2020-Mar-22_09-26-47PM-000_CustomizedView11585814194_png_alpha_qohnst.png",
+			src: "v1629669744/blog/robotics/ActualRobot_2020-Mar-22_09-26-47PM-000_CustomizedView11585814194_png_alpha_qohnst.png",
 		},
 	],
 	neo: [
 		{
 			src: "v1635117431/blog/robotics/final_0_frame_0_0_qbyuev.jpg",
 			caption:
-				"My 2019-2020 season robot. Fun fact, I designed and modeled the whole thing!",
+				"My 2019-2020 season robot, which I spent quite a bit of time modeling.",
 		},
 		{
 			src: "v1635119759/blog/robotics/asdf_pw2bju.jpg",
 			caption: "Real life version!",
+		},
+		{
+			src: "v1636815443/blog/robotics/A21-Full_Robot_2021-Nov-13_08-41-46AM-000_CustomizedView22289634272_png_rrxkiv.png",
+			caption: "2020-2021 FRC Robot",
+		},
+		{
+			src: "c_crop,h_2160,w_3840/v1636786820/blog/robotics/image_from_ios_w2nvwz.jpg",
+			caption: "Real life version of our 2021-2021 FRC robot",
 		},
 		{
 			src: "v1635117548/blog/robotics/final_0_frame_0_0_ucplbk.jpg",
@@ -105,7 +107,7 @@ export default function projects() {
 							<div className="flex flex-row">
 								<article className="prose dark:prose-dark w-2/3 mb-10 mx-0">
 									{/* <h1 className="dark:text-white">Robotics</h1> */}
-									<h2>About Me</h2> 
+									<h2>About Me</h2>
 									<p>
 										I have competed in and captained the FIRST TECH Challenge
 										(Teams{" "}
@@ -136,11 +138,12 @@ export default function projects() {
 										<Link href="https://www.autodesk.com/products/fusion-360/overview">
 											Fusion 360
 										</Link>{" "}
-										for high-quality and convenient cloud-rendering. Check out{" "}
+										for high-quality and convenient cloud-rendering. I've also
+										worked on{" "}
 										<Link href="https://gm0.org/en/latest/">
-											Game Manual Zero
+											Game Manual Zero,
 										</Link>{" "}
-										for an excellent resource for the FIRST Tech Challenge.
+										an excellent resource for the FIRST Tech Challenge.
 									</p>
 									{/* TODO: 3d modeling */}
 								</article>
@@ -170,7 +173,7 @@ export default function projects() {
 									description="An overview of one freshmen year CADathon experience"
 								/>
 							</div>
-							<Collapsible title="Some robots I've made">
+							<Collapsible title="Robot Portfolio" opened>
 								<EmblaCarousel slides={RobotImages.neo} />
 							</Collapsible>
 							<article className="prose dark:prose-dark w-full my-10 max-w-3xl mx-0">
