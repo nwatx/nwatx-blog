@@ -42,7 +42,7 @@ const RobotImages = {
 		{
 			src: "v1635117431/blog/robotics/final_0_frame_0_0_qbyuev.jpg",
 			caption:
-				"My 2019-2020 season robot, which I spent quite a bit of time modeling.",
+				"My 2019-2020 season robot—spent quite a bit of time modeling this one",
 		},
 		{
 			src: "v1635119759/blog/robotics/asdf_pw2bju.jpg",
@@ -108,7 +108,7 @@ export default function projects() {
 								<article className="prose dark:prose-dark w-2/3 mb-10 mx-0">
 									{/* <h1 className="dark:text-white">Robotics</h1> */}
 									<h2>About Me</h2>
-									<p>
+									{/* <p>
 										I have competed in and captained the FIRST TECH Challenge
 										(Teams{" "}
 										<Link href="https://theorangealliance.org/teams/3781">
@@ -127,9 +127,11 @@ export default function projects() {
 										<Link href="https://www.thebluealliance.com/team/2468">
 											2468
 										</Link>
-										). My primary areas are the design and manufacturing of
-										various mechanisms, as well as developing path-planning and
-										computer vision algorithms.
+										). My primary areas are the design and manufacturing of */}
+									<p>
+										My primary areas are the design and manufacturing of various
+										mechanisms, as well as developing path-planning and computer
+										vision algorithms.
 									</p>
 									<p>
 										I primarily use{" "}
@@ -179,10 +181,7 @@ export default function projects() {
 							<article className="prose dark:prose-dark w-full my-10 max-w-3xl mx-0">
 								<h2 className="dark:text-white">Photorealistic Rendering</h2>
 								<p>
-									During my period in the FIRST Tech Challenge, I found out that
-									I quite enjoyed creating renderings for purposes of
-									visualization. Here are some renderings I have done for
-									various teams:
+									Here are some Fusion 360 renders I have done for various teams:
 								</p>
 							</article>
 						</div>
@@ -203,7 +202,7 @@ export default function projects() {
 
 					<div className="text-left mt-4 w-full prose">
 						<h2 className="dark:text-white">Video Editing</h2>
-						<p>I've dabbled with video editing for a bit.</p>
+						<p>Dabbled with video editing for a bit. A bit time consuming :p</p>
 					</div>
 					<Collapsible title="Some videos I produced">
 						<div className="flex flex-col my-3 lg:flex-row items-center w-full space-y-3 lg:space-y-0">

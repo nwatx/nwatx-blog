@@ -121,7 +121,7 @@ const EmblaCarousel = ({ slides }) => {
 									></NextImage>
 								</div>
 							</div>
-							<p className='m-6'>{props.caption}</p>
+							<p className='m-6 text-gray-600'>{props.caption}</p>
 						</div>
 					))}
 				</div>
