@@ -30,22 +30,22 @@ export default function Home() {
 					<div className="flex flex-col w-full py-3 justify-center relative">
 						{/* TODO: add image of myself later */}
 						<h1 className="text-4xl my-3 font-extrabold">Neo Wang</h1>
-						<div className="prose max-w-3xl">
+						<div className="w-full mt-4 border-b dark:border-gray-500" />
+						<div className="prose max-w-3xl mt-6">
 							<p>
 								Welcome to my website! I store resources, notes, and editorials
 								here for future reference, as well keep track of some projects
 								I've done.
 							</p>
 						</div>
-						<div className="w-full mt-4 border-b dark:border-gray-500" />
 
-						<h2 className="text-2xl mt-5 mb-3 font-bold">Interests</h2>
+						{/* <h2 className="text-2xl mt-5 mb-3 font-bold">Interests</h2> */}
 						<div className="prose overflow-x-auto dark:prose-dark w-full max-w-3xl mx-0">
-							<li>
+							{/* <li>
 								My primary interests are in the research and development of
 								intelligent robots
-							</li>
-							<li>
+							</li> */}
+							{/* <li>
 								In my freetime, I play table tennis. Most non-covid years I
 								travel to US Nationals and Open to play. You can find my profile{" "}
 								<a href="https://usatt.simplycompete.com/userAccount/up/8291">
@@ -58,9 +58,9 @@ export default function Home() {
 								frameworks. Aside from the web, I compete in various
 								competitions using C++ and have created web automation tools
 								using both Python and TypeScript.
-							</li>
+							</li> */}
 
-							<h2 className="text-2xl font-bold">Website Plans</h2>
+							{/* <h2 className="text-2xl font-bold">Website Plans</h2> */}
 							<div>
 								<li>
 									Want to contribute or have an idea? Email me at{" "}

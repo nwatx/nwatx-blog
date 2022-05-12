@@ -40,7 +40,7 @@ export default function Navbar({ children }) {
 								{/* <NavigationButton to='https://github.com/nwatx' src='/github.svg' /> */}
 								{/* <NavigationButton to="/aboutme" label="About Me" /> */}
 								<NavigationButton to="/blog" label="Blog" />
-								<NavigationButton to="/robotics" label="Robotics" />
+								{/* <NavigationButton to="/robotics" label="Robotics" /> */}
 								<NavigationButton to="/editor" label="Editor" />
 							</div>
 						</div>
@@ -97,7 +97,7 @@ export default function Navbar({ children }) {
 						<div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
 							{/* <NavigationButtonMobile to="/aboutme" label="About Me" /> */}
 							<NavigationButtonMobile to="/blog" label="Blog" />
-							<NavigationButtonMobile to="/robotics" label="Robotics" />
+							{/* <NavigationButtonMobile to="/robotics" label="Robotics" /> */}
 							<NavigationButtonMobile to="/editor" label="Editor" />
 						</div>
 					</div>
