@@ -33,9 +33,11 @@ export default function Home() {
 						<div className="w-full mt-4 border-b dark:border-gray-500" />
 						<div className="prose max-w-3xl mt-6">
 							<p>
-								Welcome to my website! I store resources, notes, and editorials
-								here for future reference, as well keep track of some projects
-								I've done.
+								Welcome to my website! I'm a student at UT Austin studying
+								Computer Science (Turing Scholar Honors) and Mathematics. My
+								academic interests are in deep learning and game theory. I also
+								enjoy playing ping pong. I'm currently seeking
+								opportunities for Summer 2023.
 							</p>
 						</div>
 
@@ -63,17 +65,17 @@ export default function Home() {
 							{/* <h2 className="text-2xl font-bold">Website Plans</h2> */}
 							<div>
 								<li>
-									Want to contribute or have an idea? Email me at{" "}
-									<a href="mailto:neowangatx@gmail.com">neowangatx@gmail.com</a>
+									You can email me at{" "}
+									<a href="mailto:neowangatx@gmail.com">neowangatx@gmail.com</a>{" "}
 								</li>
-								<li>
+								{/* <li>
 									You can also subscribe to the mailing list below for updates!
-								</li>
+								</li> */}
 							</div>
 						</div>
-						<div className="px-1 py-2">
-							<Subscribe />
-						</div>
+						{/* <div className="px-1 py-2"> */}
+						{/* <Subscribe /> */}
+						{/* </div> */}
 					</div>
 				</div>
 				{/* featured blog posts */}
@@ -119,7 +121,7 @@ export default function Home() {
 							href="https://github.com/nwatx/CP"
 						/>
 					</div>
-					<div className="flex flex-col w-full lg:w-1/2 space-y-5 rounded-md justify-center">
+					{/* <div className="flex flex-col w-full lg:w-1/2 space-y-5 rounded-md justify-center">
 						<p className="text-lg font-bold">Music</p>
 						<iframe
 							title="Spotify Playlist"
@@ -130,7 +132,7 @@ export default function Home() {
 							allowTransparency={true}
 							allow="encrypted-media"
 						></iframe>
-					</div>
+					</div> */}
 				</div>
 				<div className="flex w-full px-3 mt-10 max-w-7xl">
 					<div className="w-full justify-center text-center max-w-7xl">
