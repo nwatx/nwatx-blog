@@ -6,13 +6,13 @@ import NoteCard from "../components/NoteCard";
 const notesInfo = {
 	CURRENT: [
 		{
-			url: "https://nwatx.github.io/Notes-2021-2022/ap-physics-c/main.pdf",
-			alt: "AP Physics C",
+			url: "https://nwatx.github.io/LaTeX/CS311H/main.pdf",
+			alt: "Discrete Mathematics Honors (CS311H)",
 		},
 		{
 			url:
-				"https://nwatx.github.io/Notes-2021-2022/ap-macroeconomics/ap-macroeconomics.pdf",
-			alt: "AP Macroeconomics",
+				"https://nwatx.github.io/LaTeX/M427L/main.pdf",
+			alt: "Vector Calculus--Honors (M427L)",
 		},
 	],
 	REVIEWS: [],
@@ -35,9 +35,9 @@ export default function Notes() {
 						errors.
 					</p>
 				</div>
-				<div className="flex w-full">
+				<div className="flex w-full justify-center">
 					{notesInfo.CURRENT.map((note) => (
-						<div className="mr-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/5 xl:w-1/6">
+						<div className="mx-2 w-full sm:w-1/2 md:w-1/3 lg:w-1/5 xl:w-1/6">
 							<NoteCard key={note.alt} url={note.url} alt={note.alt} />
 						</div>
 					))}
