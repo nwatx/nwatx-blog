@@ -31,13 +31,12 @@ export default function Home() {
 						{/* TODO: add image of myself later */}
 						<h1 className="text-4xl my-3 font-extrabold">Neo Wang</h1>
 						<div className="w-full mt-4 border-b dark:border-gray-500" />
-						<div className="prose max-w-3xl mt-6">
+						<div className="flex prose max-w-full w-full md:w-2/3 mt-6">
 							<p>
-								Welcome to my website! I'm a student at UT Austin studying
-								Computer Science (Turing Scholar Honors) and Mathematics. My
-								academic interests are in deep learning and game theory. I also
-								enjoy playing ping pong. I'm currently seeking
-								opportunities for Summer 2023.
+								Hi! I'm a Turing Scholar at UT Austin studying Computer Science
+								and Mathematics. My academic interests are in deep learning and
+								robotics. I also play table tennis for the UT team. This summer,
+								I will join Roblox as a SWE intern!
 							</p>
 						</div>
 
@@ -85,10 +84,10 @@ export default function Home() {
 				</div>
 				<div className="w-full flex flex-col md:flex-row mt-4 mb-5">
 					<Card
-						to="/post/svd"
-						src="c_scale,h_300,w_300/v1621301300/blog/svd_awgmuh.png"
-						title="Singular Value Decomposition"
-						description="Singular Value Decomposition worked two-ways"
+						to="/post/atcoderdp"
+						src="c_scale,h_300,w_300/v1621301300/blog/2472890_ek5xdn.png"
+						title="AtCoder DP Editorial"
+						description="An editorial for all the problems contained in the AtCoder DP Contest"
 					/>
 					<Card
 						src="c_scale,w_400/v1623724811/blog/abstract-1278077_1920_tbzj7y.jpg"
