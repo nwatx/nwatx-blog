@@ -6,26 +6,20 @@ image: "v1621301300/blog/svd_awgmuh.png"
 date: 2021-05-17
 ---
 
-<NextImage
-	src="v1621301300/blog/svd_awgmuh.png"
-	width={1200}
-	height={1090}
-/>
+<NextImage src="v1621301300/blog/svd_awgmuh.png" width={1200} height={1090} />
 
 # Introduction
 
-This morning, I had just taken a Linear Algebra test, which in the post-mortem
+This morning, I had just taken a Linear Algebra test. In the post-mortem
 discussion of the test, realized that Singular Value Decomposition had most
-likely been the most missed topic. In fact, people even chose to skip questions
-that simply contained the wrongly-accursed words of "Singular Value
-Decomposition." The previous evening, I experienced a similar feeling, though it
-was through several Youtube videos and quite a bit of lecture notes that I was
-able to realize the simple algorithm for computing singular value decomposition.
-Interestingly enough, not many of them covered the method that I'm about to
-write about.
+likely been the most missed topic. The previous evening, I was quite confused on
+the topic, though it was through several Youtube videos and quite a bit of
+lecture notes that I was able to realize the simple algorithm for computing
+singular value decomposition. Interestingly enough, not many of them covered the
+method that I'm about to write about.
 
-As usual, explanations often make the most sense with an example, so I will provide
-one below. Note that this is the same example as
+As usual, explanations often make the most sense with an example, so I will
+provide one below. Note that this is the same example as
 [this MIT OCW Example](https://youtu.be/cOUTpqlX-Xs), just in case you want to
 cross reference.
 
@@ -33,21 +27,30 @@ Since this is mainly about the solving process,
 [Wikipedia](https://en.wikipedia.org/wiki/Singular_value_decomposition) provides
 a fairly detailed explanation on what the matrix is being decomposed to.
 
-If you are not yet familiar with solving for eigenvectors, eigenvalues, and such, I would recommend checking out the following resources:
+If you are not yet familiar with solving for eigenvectors, eigenvalues, and
+such, I would recommend checking out the following resources:
 
-* [MIT Eigenvalues and Eigenvectors](http://math.mit.edu/~gs/linearalgebra/ila0601.pdf)
-* [MIT Lecture from Gilbert Strang](https://www.youtube.com/watch?v=cdZnhQjJu4I)
-* [A visualization by 3blue1brown](https://youtu.be/PFDu9oVAE-g)
+- [MIT Eigenvalues and Eigenvectors](http://math.mit.edu/~gs/linearalgebra/ila0601.pdf)
+- [MIT Lecture from Gilbert Strang](https://www.youtube.com/watch?v=cdZnhQjJu4I)
+- [A visualization by 3blue1brown](https://youtu.be/PFDu9oVAE-g)
 
 # Method
 
-The method that is about to be presented is fairly algorithmic, and involves solving for the eigenvalues and eigenvectors of two special matrices $AA^T$ and $A^TA$. One unique property to note is that the eigenvalues of $A^TA$ and $AA^T$ remain the same; we only need to solve for the eigenvalues once, thus making computation much faster. The steps are as follows:
+The method that is about to be presented is fairly algorithmic, and involves
+solving for the eigenvalues and eigenvectors of two special matrices $AA^T$ and
+$A^TA$. One unique property to note is that the eigenvalues of $A^TA$ and $AA^T$
+remain the same; we only need to solve for the eigenvalues once, thus making
+computation much faster. The steps are as follows:
 
 1. Find the eigenvalues of either $A^TA$ or $AA^T$
 2. Using the eigenvalues determined, find the eigenvectors of $A^TA$ and $AA^T$.
-3. Normalize the both of the eigenvectors determined in the previous step - making sure to put them into matrices $U$ and $V$ respectively. (Note that there exists a shortcut in the form $AV_i=\sigma_i U_i$ for finding the $U$'s that may be used as well).
+3. Normalize the both of the eigenvectors determined in the previous step -
+   making sure to put them into matrices $U$ and $V$ respectively. (Note that
+   there exists a shortcut in the form $AV_i=\sigma_i U_i$ for finding the $U$'s
+   that may be used as well).
 4. Place the $i$-th eigenvalue into $\Sigma_{ii}$ for each eigenvalue.
-5. Make sure that the $i$-th eigenvector in matrix $U$ and $V$ correspond to the $i$-th eigenvector in $\Sigma$. If not, rearrange them.
+5. Make sure that the $i$-th eigenvector in matrix $U$ and $V$ correspond to the
+   $i$-th eigenvector in $\Sigma$. If not, rearrange them.
 6. Done, you can put the matrices in the form $A = U\Sigma V^T$.
 
 # Worked Example
@@ -63,8 +66,8 @@ $$
 The key to finding the SVD is through the eigenvalues and eigenvectors of $AA^T$
 and $A^TA$. In fact, these two matrices correspond to $U$ and $V$ respectively,
 although they must be normalized first. What's even nicer is that you only have
-to solve for the eigenvalues once; the eigenvalues of $AA^T$ are the
-same as $A^TA$. Since both $A^TA$ and $AA^T$ are guranteed to be
+to solve for the eigenvalues once; the eigenvalues of $AA^T$ are the same as
+$A^TA$. Since both $A^TA$ and $AA^T$ are guranteed to be
 [definite symmetric matrices](https://en.wikipedia.org/wiki/Definite_symmetric_matrix),
 I usually chose to solve for the one with lower dimension.
 
@@ -82,10 +85,9 @@ $$
 \end{bmatrix}\right) = 0
 $$
 
-In this example, $\lambda_1 = 80$ and $\lambda_2=20$. The
-eigenvectors then are $\begin{bmatrix}1 \\ 3\end{bmatrix}$ and
-$\begin{bmatrix}-3\\1 \end{bmatrix}$ respectively. If we normalize these two
-vectors, then we get
+In this example, $\lambda_1 = 80$ and $\lambda_2=20$. The eigenvectors then are
+$\begin{bmatrix}1 \\ 3\end{bmatrix}$ and $\begin{bmatrix}-3\\1 \end{bmatrix}$
+respectively. If we normalize these two vectors, then we get
 
 $$
 V = \begin{bmatrix}\frac{1}{\sqrt{10}}&-\frac{3}{\sqrt{10}}\\[6pt] \frac{3}{\sqrt{10}} & \frac{1}{\sqrt{10}}\end{bmatrix}
@@ -138,7 +140,8 @@ $$
 \end{bmatrix}
 $$
 
-which again corresponds to the eigenvalues $\lambda_1 = 80, \lambda_2 = 20$ respectively.
+which again corresponds to the eigenvalues $\lambda_1 = 80, \lambda_2 = 20$
+respectively.
 
 Afterwards, this gets gets normalized to
 
@@ -206,11 +209,14 @@ A = \begin{bmatrix}
 $$
 
 We can verify our answer as correct using
-[Wolfram Alpha's SVD tool](https://www.wolframalpha.com/input/?i=svd+%7B%7B5%2C5%7D%2C%7B-1%2C7%7D%7D) as well as [expanding it directly](https://www.wolframalpha.com/input/?i=%7B%7B1%2FSqrt%5B2%5D%2C+-%281%2FSqrt%5B2%5D%29%7D%2C+%7B1%2FSqrt%5B2%5D%2C+1%2FSqrt%5B2%5D%7D%7D%7B%7B4+Sqrt%5B5%5D%2C+0%7D%2C+%7B0%2C+2+Sqrt%5B5%5D%7D%7D%7B%7B1%2FSqrt%5B10%5D%2C+3%2FSqrt%5B10%5D%7D%2C+%7B-3%2FSqrt%5B10%5D%2C+1%2FSqrt%5B10%5D%7D%7D).
+[Wolfram Alpha's SVD tool](https://www.wolframalpha.com/input/?i=svd+%7B%7B5%2C5%7D%2C%7B-1%2C7%7D%7D)
+as well as
+[expanding it directly](https://www.wolframalpha.com/input/?i=%7B%7B1%2FSqrt%5B2%5D%2C+-%281%2FSqrt%5B2%5D%29%7D%2C+%7B1%2FSqrt%5B2%5D%2C+1%2FSqrt%5B2%5D%7D%7D%7B%7B4+Sqrt%5B5%5D%2C+0%7D%2C+%7B0%2C+2+Sqrt%5B5%5D%7D%7D%7B%7B1%2FSqrt%5B10%5D%2C+3%2FSqrt%5B10%5D%7D%2C+%7B-3%2FSqrt%5B10%5D%2C+1%2FSqrt%5B10%5D%7D%7D).
 
 ## Shortcut Method
 
-Recall that for step 3, we can use the shortcut $AV_i=\sigma_i U_i$ to calculate our values of $U$. Let's see if this works.
+Recall that for step 3, we can use the shortcut $AV_i=\sigma_i U_i$ to calculate
+our values of $U$. Let's see if this works.
 
 $$
 A = \begin{bmatrix}
@@ -304,4 +310,6 @@ A = \begin{bmatrix}
 \end{bmatrix}
 $$
 
-We can verify this through [expansion](https://www.wolframalpha.com/input/?i=%7B%7B1%2Fsqrt%282%29%2C+-1%2Fsqrt%282%29%7D%2C%7B1%2Fsqrt%282%29%2C+1%2Fsqrt%282%29%7D%7D%7B%7B4+Sqrt%5B5%5D%2C+0%7D%2C+%7B0%2C+2+Sqrt%5B5%5D%7D%7DTranspose%28%7B%7B1%2FSqrt%5B10%5D%2C+-3%2FSqrt%5B10%5D%7D%2C+%7B3%2FSqrt%5B10%5D%2C+1%2FSqrt%5B10%5D%7D%7D%29) as well as noting that the columns of $U$ are orthonormal to each other.
+We can verify this through
+[expansion](https://www.wolframalpha.com/input/?i=%7B%7B1%2Fsqrt%282%29%2C+-1%2Fsqrt%282%29%7D%2C%7B1%2Fsqrt%282%29%2C+1%2Fsqrt%282%29%7D%7D%7B%7B4+Sqrt%5B5%5D%2C+0%7D%2C+%7B0%2C+2+Sqrt%5B5%5D%7D%7DTranspose%28%7B%7B1%2FSqrt%5B10%5D%2C+-3%2FSqrt%5B10%5D%7D%2C+%7B3%2FSqrt%5B10%5D%2C+1%2FSqrt%5B10%5D%7D%7D%29)
+as well as noting that the columns of $U$ are orthonormal to each other.
