@@ -31,22 +31,65 @@ export default function Home() {
 						{/* TODO: add image of myself later */}
 						<h1 className="text-4xl my-3 font-extrabold">Neo Wang</h1>
 						<div className="w-full mt-4 border-b dark:border-gray-500" />
-						<div className="flex prose max-w-full w-full md:w-2/3 mt-6">
-							<p>
-								Hi! I'm a Turing Scholar at UT Austin studying Computer Science
-								and Mathematics. My academic interests are in deep learning and
-								robotics. I also play table tennis for the UT team. This summer,
-								I will join Roblox as a SWE intern!
-							</p>
+						<div className="flex flex-row">
+							<div className="prose max-w-full w-full md:w-2/3 mt-6">
+								<p>
+									Hi! I'm a{" "}
+									<Link href="https://www.cs.utexas.edu/turing-scholars">
+										Turing Scholar
+									</Link>{" "}
+									at UT Austin studying Computer Science and Mathematics. My
+									academic interests are in deep learning and robotics. Outside
+									of the classroom, I play table tennis for the UT team. I'm
+									also a part of the{" "}
+									<Link href="https://www.cs.utexas.edu/users/utpc/">
+										UT Programming Contest
+									</Link>{" "}
+									(Officer/Problem Writer) and{" "}
+									<Link href="https://texasucf.org/">
+										Texas Undergraduate Computational Finance
+									</Link>
+									. This summer, I will join Roblox as a SWE intern!
+								</p>
+								<h2>Coursework</h2>
+								<ul>
+									<li>
+										<b>Fall 2023 (Tentative): </b>Honors Operating Systems
+										(CS439H), Computer Vision (CS376), Real Analysis (M365C),
+										Differential Equations with Linear Algebra (M427J)
+									</li>
+									<li>
+										<b>Spring 2023: </b> Honors Computer Architecture (CS429H),
+										Natural Language Processing (CS378), Stochastic Processes
+										(M362M), Linear Algebra (M340L)
+									</li>
+									<li>
+										<b>Fall 2022: </b>Honors Data Structures (CS314H), Honors
+										Discrete Math (CS311H), Honors Vector Calculus (M427LH),
+										Probability (M362K)
+									</li>
+								</ul>
+							</div>
+							<div className="m-4 p-4">
+								<Image
+									loader={defaultLoader}
+									src="/headshot.png"
+									alt="headshot"
+									width={200}
+									height={200}
+									className="rounded-md bg-gray-200"
+								/>
+							</div>
 						</div>
+						<div className="prose max-w-full w-full"></div>
 
 						{/* <h2 className="text-2xl mt-5 mb-3 font-bold">Interests</h2> */}
-						<div className="prose overflow-x-auto dark:prose-dark w-full max-w-3xl mx-0">
-							{/* <li>
+						{/* <div className="prose overflow-x-auto dark:prose-dark w-full max-w-3xl mx-0"> */}
+						{/* <li>
 								My primary interests are in the research and development of
 								intelligent robots
 							</li> */}
-							{/* <li>
+						{/* <li>
 								In my freetime, I play table tennis. Most non-covid years I
 								travel to US Nationals and Open to play. You can find my profile{" "}
 								<a href="https://usatt.simplycompete.com/userAccount/up/8291">
@@ -61,17 +104,17 @@ export default function Home() {
 								using both Python and TypeScript.
 							</li> */}
 
-							{/* <h2 className="text-2xl font-bold">Website Plans</h2> */}
-							<div>
+						{/* <h2 className="text-2xl font-bold">Website Plans</h2> */}
+						{/* <div>
 								<li>
 									You can email me at{" "}
 									<a href="mailto:neowangatx@gmail.com">neowangatx@gmail.com</a>{" "}
-								</li>
-								{/* <li>
+								</li> */}
+						{/* <li>
 									You can also subscribe to the mailing list below for updates!
 								</li> */}
-							</div>
-						</div>
+						{/* </div> */}
+						{/* </div> */}
 						{/* <div className="px-1 py-2"> */}
 						{/* <Subscribe /> */}
 						{/* </div> */}
