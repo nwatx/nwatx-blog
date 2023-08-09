@@ -40,16 +40,12 @@ export default function Home() {
 									</Link>{" "}
 									at UT Austin studying Computer Science and Mathematics. My
 									academic interests are in deep learning and robotics. Outside
-									of the classroom, I play table tennis for the UT team. I'm
-									also a part of the{" "}
+									of the classroom, I play table tennis for the UT team. I also
+									write problems for{" "}
 									<Link href="https://www.cs.utexas.edu/users/utpc/">
 										UT Programming Contest
-									</Link>{" "}
-									(Officer/Problem Writer) and{" "}
-									<Link href="https://texasucf.org/">
-										Texas Undergraduate Computational Finance
 									</Link>
-									. This summer, I will join Roblox as a SWE intern!
+									.
 								</p>
 								<h2>Coursework</h2>
 								<ul>

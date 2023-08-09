@@ -12,6 +12,10 @@ li {
 	@apply dark:text-white;
 }
 
+a {
+	@apply dark:text-white;
+}
+
 /* a {
 	text-decoration-color: theme('colors.blue.400');
 } */
