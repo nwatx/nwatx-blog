@@ -3,12 +3,7 @@ import Head from "next/head";
 import ViewCounter from "../components/ViewCounter";
 import ProjectCard from "../components/ProjectCard";
 import Card from "../components/Card";
-import { MailIcon } from "../components/Heroicons";
 import Link from "next/link";
-import { defaultLoader } from "../lib/defaultLoader";
-import Image from "next/image";
-import Subscribe from "../components/Subscribe";
-import Tag from "../components/Tag";
 
 export default function Home() {
 	return (
@@ -45,14 +40,13 @@ export default function Home() {
 									<Link href="https://www.cs.utexas.edu/users/utpc/">
 										UT Programming Contest
 									</Link>
-									.
+									. I have also previously interned at Roblox.
 								</p>
 								<h2>Coursework</h2>
 								<ul>
 									<li>
-										<b>Fall 2023 (Tentative): </b>Honors Operating Systems
-										(CS439H), Computer Vision (CS376), Real Analysis (M365C),
-										Differential Equations with Linear Algebra (M427J)
+										<b>Fall 2023: </b>Honors Operating Systems
+										(CS439H), Computer Vision (CS376), Programming for Performance (CS377P)
 									</li>
 									<li>
 										<b>Spring 2023: </b> Honors Computer Architecture (CS429H),
@@ -66,16 +60,16 @@ export default function Home() {
 									</li>
 								</ul>
 							</div>
-							<div className="m-4 p-4">
+							{/* <div className="m-4 p-4">
 								<Image
 									loader={defaultLoader}
 									src="/headshot.png"
 									alt="headshot"
-									width={200}
+									width={180}
 									height={200}
 									className="rounded-md bg-gray-200"
 								/>
-							</div>
+							</div> */}
 						</div>
 						<div className="prose max-w-full w-full"></div>
 
