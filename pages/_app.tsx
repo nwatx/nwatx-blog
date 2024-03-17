@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps }) {
 	}, [router.events]);
 
 	return (
-		<ThemeProvider attribute="class">
+		<ThemeProvider attribute="class" defaultTheme="light">
 			<Component {...pageProps} />
 		</ThemeProvider>
 	);
