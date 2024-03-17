@@ -25,7 +25,7 @@ export default function BlogPost({
 	tags,
 }: BlogPostProps) {
 	return (
-		<div className="flex flex-row w-full justify-between pt-3 pb-5 pr-10 rounded-lg antialiased">
+		<div className="cursor-pointer flex flex-row w-full justify-between pl-3 pt-3 pb-5 pr-10 antialiased hover:bg-gray-100 transition-colors duration-300">
 			{/* {image && (
 				<Link href={`/post/${slug}`}>
 					<div className="w-36 mr-10 h-auto cursor-pointer">
@@ -52,32 +52,9 @@ export default function BlogPost({
 				</Link>
 			)} */}
 			<div className="flex flex-col space-y-2 w-full">
-				{tags && (
-					<div className="flex flex-wrap items-baseline w-full mt-1 mb-2 space-y-1">
-						{tags
-							.split(",")
-							.sort((a, b) => a.trim().localeCompare(b.trim()))
-							.map((tag) => (
-								<div
-									key={tag}
-									className={`rounded-md dark:bg-gray-800 dark:text-white mr-2 ${
-										TagColor[tag] && TagColor[tag][0]
-									}`}
-								>
-									<p
-										className={`uppercase m-0 text-xs dark:text-white py-1 px-2 ${
-											TagColor[tag] && TagColor[tag][1]
-										}`}
-									>
-										{tag}
-									</p>
-								</div>
-							))}
-					</div>
-				)}
 				<Link href={`/post/${slug}`}>
-					<div className="flex flex-col cursor-pointer">
-						<p className="text-2xl font-semibold text-gray-800 dark:text-gray-100 hover:underline">
+					<div className="flex flex-col">
+						<p className="text-2xl font-semibold text-gray-800 dark:text-gray-100">
 							{title}
 						</p>
 						{author && (
@@ -90,6 +67,29 @@ export default function BlogPost({
 								</p>
 							</div>
 						)}
+				{tags && (
+					<div className="flex flex-wrap items-baseline w-full mt-2 mb-3">
+						{tags
+							.split(",")
+							.sort((a, b) => a.trim().localeCompare(b.trim()))
+							.map((tag) => (
+								<div
+									key={tag}
+									className={`rounded-full bg-gray-100 pl-2 dark:bg-gray-800 dark:text-white mr-2 ${
+										TagColor[tag] && TagColor[tag][0]
+									}`}
+								>
+									<p
+										className={`uppercase m-0 text-xs dark:text-white py-1 pr-2 ${
+											TagColor[tag] && TagColor[tag][1]
+										}`}
+									>
+										{tag}
+									</p>
+								</div>
+							))}
+					</div>
+				)}
 					</div>
 				</Link>
 				<div>
@@ -98,9 +98,9 @@ export default function BlogPost({
 					</p>
 				</div>
 			</div>
-			<div className="flex flex-col justify-center min-h-full">
+			{/* <div className="flex flex-col justify-center min-h-full">
 				<p className="text-3xl font-light animate-pulse">{">"}</p>
-			</div>
+			</div> */}
 		</div>
 	);
 }

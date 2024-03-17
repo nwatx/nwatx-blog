@@ -55,7 +55,7 @@ const Blog = ({ posts }: BlogProps) => {
 					content="nwatx, Neo Wang, Next.js, Next.js blog"
 				/>
 			</Head>
-			<div className="flex h-full scrollbar-thin overflow-auto scrollbar-thumb-rounded justify-between w-full flex-col max-w-7xl items-center">
+			<div className="flex h-full scrollbar-thin overflow-visible scrollbar-thumb-rounded justify-between w-full flex-col max-w-7xl items-center">
 
 				{/* begin blog post section (filter etc...) */}
 				<div className="flex flex-col max-w-3xl w-full">
@@ -65,7 +65,7 @@ const Blog = ({ posts }: BlogProps) => {
 					{/* <div className="flex w-full">
           <p className="text-lg">Tags</p>
         </div> */}
-					{posts && (
+					{/* {posts && (
 						<div className="flex w-full flex-row items-baseline">
 							{uniquePostTags && (
 								<div className="flex flex-row flex-wrap items-baseline mt-1 mb-2 space-y-2">
@@ -133,8 +133,8 @@ const Blog = ({ posts }: BlogProps) => {
 								</div>
 							)}
 						</div>
-					)}
-					<div className="flex flex-col w-full overflow-hidden divide-y dark:divide-gray-400 mt-0">
+					)} */}
+					<div className="flex flex-col w-full dark:divide-gray-400 mt-0">
 						{posts &&
 							posts
 								.filter((p) => {
@@ -154,7 +154,7 @@ const Blog = ({ posts }: BlogProps) => {
 									);
 								})
 								.map((post) => (
-									<div className="py-5">
+									<div className="py-2 block -mx-3">
 										<BlogPost
 											key={post.slug}
 											slug={post.slug}
