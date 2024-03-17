@@ -12,6 +12,16 @@ li {
 	@apply dark:text-white;
 }
 
+.prose ul {
+	margin-top: 0.5rem;
+}
+
+.prose li {
+
+  margin-top: 0.25rem; /* Adjust the value as needed */
+	margin-bottom: 0.25rem;
+}
+
 a {
 	@apply dark:text-white;
 }

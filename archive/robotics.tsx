@@ -7,7 +7,7 @@ import Collapsible from "../components/Collapsible";
 import Link from "next/link";
 import ReactPlayer from "react-player/lazy";
 import ViewCounter from "../components/ViewCounter";
-import Card from "../components/Card";
+import PhotoCard from "../components/PhotoCard";
 import Head from "next/head";
 
 const RobotImages = {
@@ -162,13 +162,13 @@ export default function projects() {
 								<h2 className="my-3">Posts</h2>
 							</div>
 							<div className="flex flex-col xl:flex-row mb-10">
-								<Card
+								<PhotoCard
 									to="/post/detecting-tennis-balls"
 									src="c_scale,h_300,w_300/v1636081627/blog/robotics/4IwHrVR_dqrpqu.jpg"
 									title="Real-time deep detection and tracking of Tennis Balls"
 									description="Computer vision 👀; also part of tennis ball robot project"
 								/>
-								<Card
+								<PhotoCard
 									to="/post/design-of-a-first-tech-challenge-robot-in-5-days"
 									src="c_scale,h_300,w_300/v1631751283/blog/robotics/1_uAdMApemmUuHD1-GKfrmXw_qw093q.png"
 									title="Design of a FIRST Tech Challege Robot in 5 Days"

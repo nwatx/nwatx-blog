@@ -1,6 +1,6 @@
 import Head from "next/head";
 import React from "react";
-import DarkModeButton from "../components/DarkModeButton";
+// import DarkModeButton from "../components/DarkModeButton";
 import Navbar from "../components/Navbar";
 
 export default function NavBarLayout({ children }) {
@@ -11,7 +11,7 @@ export default function NavBarLayout({ children }) {
 					{children}
 				</div>
 			</div>
-			<DarkModeButton />
+			{/* <DarkModeButton /> */}
 		</Navbar>
 	);
 }

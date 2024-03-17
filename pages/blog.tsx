@@ -55,10 +55,10 @@ const Blog = ({ posts }: BlogProps) => {
 					content="nwatx, Neo Wang, Next.js, Next.js blog"
 				/>
 			</Head>
-			<div className="flex h-full scrollbar-thin overflow-auto scrollbar-thumb-rounded justify-between w-full flex-col max-w-7xl">
+			<div className="flex h-full scrollbar-thin overflow-auto scrollbar-thumb-rounded justify-between w-full flex-col max-w-7xl items-center">
 
 				{/* begin blog post section (filter etc...) */}
-				<div className="flex flex-col max-w-7xl w-full">
+				<div className="flex flex-col max-w-3xl w-full">
 					{/* <div className="flex w-full">
             <p className="text-4xl dark:text-white">Blog</p>
           </div> */}

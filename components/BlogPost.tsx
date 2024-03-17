@@ -26,7 +26,7 @@ export default function BlogPost({
 }: BlogPostProps) {
 	return (
 		<div className="flex flex-row w-full justify-between pt-3 pb-5 pr-10 rounded-lg antialiased">
-			{image && (
+			{/* {image && (
 				<Link href={`/post/${slug}`}>
 					<div className="w-36 mr-10 h-auto cursor-pointer">
 						<NextImage
@@ -50,7 +50,7 @@ export default function BlogPost({
 						/>
 					</div>
 				</Link>
-			)}
+			)} */}
 			<div className="flex flex-col space-y-2 w-full">
 				{tags && (
 					<div className="flex flex-wrap items-baseline w-full mt-1 mb-2 space-y-1">
@@ -76,12 +76,12 @@ export default function BlogPost({
 					</div>
 				)}
 				<Link href={`/post/${slug}`}>
-					<div className="flex flex-col sm:flex-row cursor-pointer">
-						<p className="text-3xl font-semibold text-gray-800 dark:text-gray-100 hover:underline">
+					<div className="flex flex-col cursor-pointer">
+						<p className="text-2xl font-semibold text-gray-800 dark:text-gray-100 hover:underline">
 							{title}
 						</p>
 						{author && (
-							<div className="mx-1 flex h-full w-full sm:w-auto">
+							<div className="mt-1 flex h-full w-full sm:w-auto">
 								<p className="text-md text-gray-600 dark:text-gray-400 self-end font-light">
 									by <b className="font-semibold">{author}</b> on{" "}
 									<b className="font-semibold">

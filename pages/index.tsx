@@ -1,7 +1,7 @@
 import NavBarLayout from "../layouts/NavBarLayout";
 import Head from "next/head";
 import ViewCounter from "../components/ViewCounter";
-import ProjectCard from "../components/ProjectCard";
+// import ProjectCard from "../components/ProjectCard";
 import Card from "../components/Card";
 import Link from "next/link";
 
@@ -19,46 +19,101 @@ export default function Home() {
 					content="nwatx, Neo Wang, Next.js, Next.js blog"
 				/>
 			</Head>
-			<div className="flex h-full scrollbar-thin overflow-auto scrollbar-thumb-rounded justify-between w-full flex-col max-w-7xl">
+			<div className="flex h-full scrollbar-thin overflow-auto scrollbar-thumb-rounded w-full flex-col max-w-3xl">
 				{/* about me section */}
 				<div className="flex flex-col md:flex-row w-full">
 					<div className="flex flex-col w-full py-3 justify-center relative">
 						{/* TODO: add image of myself later */}
-						<h1 className="text-4xl my-3 font-extrabold">Neo Wang</h1>
-						<div className="w-full mt-4 border-b dark:border-gray-500" />
+						{/* <h1 className="text-4xl my-3 font-extrabold">Neo Wang</h1> */}
+						{/* <div className="w-full mt-4 border-b dark:border-gray-500" /> */}
 						<div className="flex flex-row">
-							<div className="prose max-w-full w-full md:w-2/3 mt-6">
+							<div className="prose max-w-full w-full">
 								<p>
 									Hi! I'm a{" "}
 									<Link href="https://www.cs.utexas.edu/turing-scholars">
 										Turing Scholar
 									</Link>{" "}
-									at UT Austin studying Computer Science and Mathematics. My
-									academic interests are in deep learning and robotics. Outside
-									of the classroom, I play table tennis for the UT team. I also
-									write problems for{" "}
+									at UT Austin studying Computer Science and Mathematics.
+								</p>
+								<p>
+									I'm deeply passionate about <i>efficiency</i>, and I hope to
+									allow computers to run new things faster and with more
+									reliability.
+								</p>
+								<p>
+									I've previously interned at{" "}
+									<Link href="https://corp.roblox.com/">Roblox</Link>, working
+									on Search and Discovery. This summer, I will be joining{" "}
+									<Link href="https://drw.com">DRW</Link> as a software
+									engineering intern.
+								</p>
+								<p>
+									My academic interests are in deep learning and robotics.
+									Outside of the classroom, I play competitive table tennis. I
+									also write problems for{" "}
 									<Link href="https://www.cs.utexas.edu/users/utpc/">
 										UT Programming Contest
 									</Link>
-									. I have also previously interned at Roblox.
+									.
 								</p>
-								<h2>Coursework</h2>
+
+								<p>
+									Some of my other interests are Chess, Poker, and Civilization
+									6. I also am a huge fan of food, cooking, and hikes &#8212;
+									coming to this blog soon :)
+								</p>
+
+								<b>Projects</b>
+
 								<ul>
 									<li>
-										<b>Fall 2023: </b>Honors Operating Systems
-										(CS439H), Computer Vision (CS376), Programming for Performance (CS377P)
+										<Link href="https://usaco.guide">USACO Guide</Link> &#8212;
+										leading competitive programming resource: 70K+ registered
+										users, 17M+ pageviews, 1500+ Github stars.
 									</li>
 									<li>
-										<b>Spring 2023: </b> Honors Computer Architecture (CS429H),
-										Natural Language Processing (CS378), Stochastic Processes
-										(M362M), Linear Algebra (M340L)
+										<Link href="https://www.ftx.markets/">FTX Markets</Link>{" "}
+										&#8212; event-contract exchange and interface for betting on
+										a fish's swimming patterns.
+									</li>
+									{/* <li>
+										OS Kernel &#8212; implement syscalls, user-mode preemption,
+										file system, forks, virtual memory, sync primitives;
+										multiprocessing, ran Doom
 									</li>
 									<li>
-										<b>Fall 2022: </b>Honors Data Structures (CS314H), Honors
-										Discrete Math (CS311H), Honors Vector Calculus (M427LH),
-										Probability (M362K)
-									</li>
+										FunLang &#8212; toy programming language: wrote interpreter,
+										specification, compiler(x86): constant folding, tail
+										recursion + other optimizations; has loops, if/else, etc.
+									</li> */}
 								</ul>
+
+								{/* <b>Graduate Coursework</b>
+								<ul>
+									<li>Reinforcement Learning: Theory and Practice (CS394R)</li>
+								</ul>
+								<b>Undergraduate Coursework</b>
+								<ul>
+									<li></li>
+									<li>Honors Operating Systems (CS439H)</li>
+									<li>Honors Computer Architecture (CS429H)</li>
+									<li>Honors Programming Languages (CS345H)</li>
+									<li>Honors Algorithms (CS331H)</li>
+									<li>Honors Data Structures (CS314H)</li>
+									<li>Honors Discrete Math (CS311H)</li>
+									<li>Honors Vector Calculus (M427LH)</li>
+									<li>Computer Vision (CS376)</li>
+									<li>Programming for Performance (CS377P)</li>
+									<li>Natural Language Processing (CS378)</li>
+									<li>Stochastic Processes (M362M)</li>
+									<li>Linear Algebra (M340L)</li>
+									<li>Interest Theory (M329F)</li>
+									<li>Statistics (M378K)</li>
+								</ul> */}
+								<p>
+									I also like to write! You can read some blog posts below (and
+									in the top bar tab).
+								</p>
 							</div>
 							{/* <div className="m-4 p-4">
 								<Image
@@ -71,7 +126,7 @@ export default function Home() {
 								/>
 							</div> */}
 						</div>
-						<div className="prose max-w-full w-full"></div>
+						{/* <div className="prose max-w-full w-full"></div> */}
 
 						{/* <h2 className="text-2xl mt-5 mb-3 font-bold">Interests</h2> */}
 						{/* <div className="prose overflow-x-auto dark:prose-dark w-full max-w-3xl mx-0"> */}
@@ -111,11 +166,11 @@ export default function Home() {
 					</div>
 				</div>
 				{/* featured blog posts */}
-				<div className="mt-5 pt-5 pb-3">
-					<p className="text-3xl font-bold">Featured Blog Posts</p>
-					<div className="w-full mt-4 border-b dark:border-gray-500" />
+				<div className="mt-5">
+					<p className="text-xl font-bold">Blog Posts</p>
+					{/* <div className="w-full mt-4 border-b dark:border-gray-500" /> */}
 				</div>
-				<div className="w-full flex flex-col md:flex-row mt-4 mb-5">
+				<div className="w-full flex flex-col mt-4 mb-5">
 					<Card
 						to="/post/atcoderdp"
 						src="c_scale,h_300,w_300/v1621301300/blog/2472890_ek5xdn.png"
@@ -130,11 +185,11 @@ export default function Home() {
 					/>
 				</div>
 
-				<div className="w-full mb-4 border-b dark:border-gray-800" />
+				{/* <div className="w-full mb-4 border-b dark:border-gray-800" /> */}
 
 				{/* projects and music */}
 
-				<div className="flex flex-col h-auto lg:flex-row w-full space-y-5">
+				{/* <div className="flex flex-col h-auto lg:flex-row w-full space-y-5">
 					<div className="flex flex-col w-full lg:w-1/2 lg:mr-4">
 						<p className="text-lg font-bold">Projects</p>
 						<ProjectCard
@@ -152,8 +207,8 @@ export default function Home() {
 							description="C++, macros, and a lot of bad practices (repo currently private)."
 							href="https://github.com/nwatx/CP"
 						/>
-					</div>
-					{/* <div className="flex flex-col w-full lg:w-1/2 space-y-5 rounded-md justify-center">
+					</div> */}
+				{/* <div className="flex flex-col w-full lg:w-1/2 space-y-5 rounded-md justify-center">
 						<p className="text-lg font-bold">Music</p>
 						<iframe
 							title="Spotify Playlist"
@@ -165,7 +220,8 @@ export default function Home() {
 							allow="encrypted-media"
 						></iframe>
 					</div> */}
-				</div>
+				{/* </div> */}
+				<div className="my-auto" />
 				<div className="flex w-full px-3 mt-10 max-w-7xl">
 					<div className="w-full justify-center text-center max-w-7xl">
 						<ViewCounter slug={""} />

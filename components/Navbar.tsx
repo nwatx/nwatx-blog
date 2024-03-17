@@ -13,10 +13,10 @@ export default function Navbar({ children }) {
 	return (
 		<div className="min-h-screen flex flex-col">
 			<nav
-				className={`w-full sticky z-10 top-0 px-4 bg-white dark:bg-gray-900 shadow-sm
+				className={`w-full mt-20 sticky z-10 top-0 px-4 bg-white dark:bg-gray-900
         }`}
 			>
-				<div className="max-w-7xl mx-auto">
+				<div className="max-w-3xl mx-auto">
 					<div className="flex items-center justify-between h-16">
 						<div className="flex items-center">
 							<div className="flex-shrink-0">
@@ -26,12 +26,13 @@ export default function Navbar({ children }) {
                   src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
                   alt="Workflow"
                 /> */}
-								<p
+								{/* <p
 									className="text-2xl bg-blue-500 px-2 py-1 rounded-sm text-white dark:text-white cursor-pointer"
 									onClick={() => router.push("/")}
 								>
 									nwatx
-								</p>
+								</p> */}
+							<h1 onClick={() => router.push("/")} className="text-2xl my-3 font-semibold cursor-pointer">Neo Wang</h1>
 							</div>
 						</div>
 						<div className="hidden md:block">
