@@ -1,0 +1,61 @@
+---
+title: 5-8 Poker
+description:
+  An interesting poker variant discovered at the Harvard Undergraduate Traders
+  Competition
+tags: trading
+date: 2024-03-28
+---
+
+## Introduction and Rules
+
+We discovered this game at the Harvard Undergraduate Traders Competition. It's a
+fun and interesting poker variant that we've never seen before. We don't know
+what the game is called, but "5-8 Poker" or "Jane Street Poker" is what we have
+been calling it. Here's how it works:
+
+- The player makes a "rule" that allows them to choose any subset of cards from
+  the deck. For example, any spade, 9 or higher, etc.
+- The dealer then deals out cards until the a card matching the rule is drawn.
+  This card is then given to the player, and any remaining cards are given to
+  the dealer.
+- This process repeats until the player reaches 5 cards or the deck is empty.
+- The player then makes the best poker hand they can with the 5 cards they have.
+- If the dealer has less than 8 cards, they draw until they reach eight cards,
+  and then the dealer makes the same best 5 hand with their cards.
+- The winner is the player with the best hand, if they are the same, the dealer
+  wins.
+
+## Basic Strategy Discovered
+
+We still don't know the optimal strategy for this game, but we have a basic
+strategy. The gist is that you want to maximize the number of cards you get
+while minimizing the number of cards the dealer gets. This is because the dealer
+has a higher chance of getting a better hand with more cards.
+
+Therefore, the player tends try to keep the dealer under and as close to 8 cards as possible.
+The first move tends to be a rule like "any 9 or higher", because we can
+calculate the expected number of cards to come to be $6\cdot 4 = 24$, and we
+expected the dealer to draw $\frac{52 - 24}{24} \approx 1.17$ cards. The player then is
+able to tighten the rule in order to keep the dealer under 8 cards. We also know
+that under this strategy, pairs will be "stronger," which helps odds.
+
+Some other things that can be done are:
+
+- The player can draw a card that is in the dealer's hand to prevent them from getting a
+  better hand.
+- The player can draw straight/flush blockers in order to prevent the dealer from
+  getting a straight/flush.
+- If all fails and the player still has a possibility of getting a royal flush, draw
+  until they get it, as equity is still not the worst.
+
+## Concluding Thoughts
+
+This game is a fun and interesting variant of poker that we've never seen
+before. It requires a different strategy than traditional poker, and we're still
+working on figuring out the optimal strategy. If someone does have the expected
+value of the game, please contact me since my friends and I are both interested.
+
+We suggest the following methods would be good to compute an approximation:
+- Reinforcement Learning
+- Dynamic Programming
