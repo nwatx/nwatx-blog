@@ -55,11 +55,16 @@ module.exports = {
 					css: {
 						color: theme("colors.gray.700"),
 						a: {
-							// color: theme("colors.blue.500"),
-							textDecorationColor: theme("colors.blue.500"),
+							// color: theme("colors.gray.500"),
+							textDecorationColor: theme("colors.gray.400"),
 							"&:hover": {
-								color: theme("colors.blue.600"),
+								color: theme("colors.gray.600"),
 							},
+							// color: theme("colors.blue.500"),
+							// textDecorationColor: theme("colors.blue.500"),
+							// "&:hover": {
+							// 	color: theme("colors.blue.600"),
+							// },
 							code: { color: theme("colors.blue.400") },
 						},
 						h1: {

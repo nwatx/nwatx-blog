@@ -24,13 +24,11 @@ export default function PhotoCard({
 	return (
 		<div className="w-full my-1 flex flex-row rounded-md">
 			<div className="mt-2">
-				<Link href={to}>
-					<h2 className="dark:text-white box-border cursor-pointer">
-						<b className="border-b border-b-600 border-blue-600 hover:text-blue-600">
-							{title}
-						</b>
-					</h2>
-				</Link>
+				<h2 className="dark:text-white box-border cursor-pointer">
+					<a href={to}>
+						<b className="underline">{title}</b>
+					</a>
+				</h2>
 				<p className="text-gray-600 dark:text-gray-300 mt-1">{description}</p>
 			</div>
 			{/* <div className="w-full border-b dark:border-gray-800" /> */}

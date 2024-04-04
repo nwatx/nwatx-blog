@@ -32,17 +32,24 @@ export default function Navbar({ children }) {
 								>
 									nwatx
 								</p> */}
-							<h1 onClick={() => router.push("/")} className="text-2xl my-3 font-semibold cursor-pointer">Neo Wang</h1>
+								<h1
+									onClick={() => router.push("/")}
+									className="text-2xl my-3 font-semibold cursor-pointer"
+								>
+									Neo Wang
+								</h1>
 							</div>
 						</div>
 						<div className="hidden md:block">
-							<div className="ml-10 flex items-end space-x-4">
+							<div className="ml-10 flex items-end space-x-2">
 								<GithubButton />
+								<div className="mx-2"></div>
 								{/* <NavigationButton to='https://github.com/nwatx' src='/github.svg' /> */}
 								{/* <NavigationButton to="/aboutme" label="About Me" /> */}
 								<NavigationButton to="/blog" label="Blog" />
-								{/* <NavigationButton to="/robotics" label="Robotics" /> */}
-								<NavigationButton to="/editor" label="Editor" />
+								<NavigationButton to="/notes" label="Notes" />
+								{/* <NavigationButton to="/cv" label="CV" /> */}
+								{/* <NavigationButton to="/editor" label="Editor" /> */}
 							</div>
 						</div>
 						<div className="-mr-2 flex md:hidden">

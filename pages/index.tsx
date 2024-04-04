@@ -38,7 +38,8 @@ export default function Home() {
 								<p>
 									I'm deeply passionate about <i>efficiency</i>, and I hope to
 									allow computers to run new things faster and with more
-									reliability.
+									reliability. My academic interests are in machine learning,
+									statistics, and robotics.
 								</p>
 								<p>
 									I've previously interned at{" "}
@@ -50,7 +51,7 @@ export default function Home() {
 								<p>
 									My academic interests are in deep learning and robotics.
 									Outside of the classroom, I play competitive table tennis. I
-									also write problems for{" "}
+									also write problems for the{" "}
 									<Link href="https://www.cs.utexas.edu/users/utpc/">
 										UT Programming Contest
 									</Link>
@@ -59,8 +60,7 @@ export default function Home() {
 
 								<p>
 									Some of my other interests are Chess, Poker, and Civilization
-									6. I also am a huge fan of food, cooking, and hikes &#8212;
-									coming to this blog soon :)
+									6. I also am a huge fan of food, cooking, and hikes.
 								</p>
 
 								<b>Projects</b>
@@ -110,10 +110,11 @@ export default function Home() {
 									<li>Interest Theory (M329F)</li>
 									<li>Statistics (M378K)</li>
 								</ul> */}
-								<p>
+								{/* TODO: add this back once you get some real blog posts */}
+								{/* <p>
 									I also like to write! You can read some blog posts below (and
 									in the top bar tab).
-								</p>
+								</p> */}
 							</div>
 							{/* <div className="m-4 p-4">
 								<Image
