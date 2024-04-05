@@ -38,8 +38,8 @@ export default function Home() {
 								<p>
 									I'm deeply passionate about <i>efficiency</i>, and I hope to
 									allow computers to run new things faster and with more
-									reliability. My academic interests are in machine learning,
-									statistics, and robotics.
+									reliability. I am interested in machine learning, statistics,
+									and robotics.
 								</p>
 								<p>
 									I've previously interned at{" "}
@@ -49,18 +49,15 @@ export default function Home() {
 									engineering intern.
 								</p>
 								<p>
-									My academic interests are in deep learning and robotics.
 									Outside of the classroom, I play competitive table tennis. I
 									also write problems for the{" "}
 									<Link href="https://www.cs.utexas.edu/users/utpc/">
 										UT Programming Contest
 									</Link>
-									.
-								</p>
-
-								<p>
-									Some of my other interests are Chess, Poker, and Civilization
-									6. I also am a huge fan of food, cooking, and hikes.
+									. I also work on modeling and development at{" "}
+									<Link href="https://texasucf.org/">Texas UCF</Link>. Some of
+									my other interests are Chess, Poker, and cooking food (of
+									variable quality).
 								</p>
 
 								<b>Projects</b>
