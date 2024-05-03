@@ -54,7 +54,7 @@ export default function Home() {
 									<Link href="https://www.cs.utexas.edu/users/utpc/">
 										UT Programming Contest
 									</Link>
-									. I also work on modeling and development at{" "}
+									. I also work on financial modelinng and development at{" "}
 									<Link href="https://texasucf.org/">Texas UCF</Link>. Some of
 									my other interests are Chess, Poker, and cooking food (of
 									variable quality).
