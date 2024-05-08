@@ -4,7 +4,8 @@ import { useRouter } from "next/router";
 import * as React from "react";
 
 function GithubButton(props: React.SVGProps<SVGSVGElement>) {
-	const { theme } = useTheme();
+	// const { theme } = useTheme();
+	const theme = "light";
 	return (
 		<Link href="https://github.com/nwatx">
 			<div
