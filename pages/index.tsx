@@ -44,9 +44,9 @@ export default function Home() {
 								<p>
 									I've previously interned at{" "}
 									<Link href="https://corp.roblox.com/">Roblox</Link>, working
-									on Search and Discovery. This summer, I will be joining{" "}
+									on Search and Discovery. After that, I joined{" "}
 									<Link href="https://drw.com">DRW</Link> as a software
-									engineering intern.
+									engineering intern, working on latency-sensitive strategy research and performance optimizations.
 								</p>
 								<p>
 									Outside of the classroom, I play competitive table tennis. I
@@ -54,7 +54,7 @@ export default function Home() {
 									<Link href="https://www.cs.utexas.edu/users/utpc/">
 										UT Programming Contest
 									</Link>
-									. I also work on financial modelinng and development at{" "}
+									. I also work on financial modeling and development at{" "}
 									<Link href="https://texasucf.org/">Texas UCF</Link>. Some of
 									my other interests are Chess, Poker, and cooking food (of
 									variable quality).
