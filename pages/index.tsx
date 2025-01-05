@@ -47,6 +47,7 @@ export default function Home() {
 									on Search and Discovery. After that, I joined{" "}
 									<Link href="https://drw.com">DRW</Link> as a software
 									engineering intern, working on latency-sensitive strategy research and performance optimizations.
+									I will be interning at <Link href="https://point72.com/cubist/">Cubist Systematic Strategies</Link> in the Spring and then <Link href="https://www.citadelsecurities.com/">Citadel Securities</Link> over the Summer.
 								</p>
 								<p>
 									Outside of the classroom, I play competitive table tennis. I
